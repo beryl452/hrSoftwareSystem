@@ -10,18 +10,18 @@ function useUserActions() {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
+        withCredentials: true,
     });
-    function login(data) {
-        http.get('/sanctum/csrf-cookie')
-            .then((response) => {});
-        return http.post('/api/login', data)
-           .then((response) => {
-               setUserData(response.data);
-               navigate('/preferences');
-           })
-            .catch((error) => {
-                console.log(error.response.data);
-            });
+   function login(data) {
+    // http.get('/sanctum/csrf-cookie')
+    //      .then((response) => {
+            return http.post('/api/login', data)
+                    .then((response) => {
+                            setUserData(response.data);
+                            console.log("login response =", response.data);
+                            navigate('/preferences');
+                        })
+                    // })
     }
 
     function logout() {
@@ -30,7 +30,8 @@ function useUserActions() {
     }
 
     function getUser() {
-        return JSON.parse(localStorage.getItem('auth'));
+        const auth = JSON.parse(localStorage.getItem('auth'));
+        return auth.user;
     }
 
     /**
@@ -38,12 +39,9 @@ function useUserActions() {
      * @returns {string}
      */
     function getAccessToken() {
-        return getUser().token;
+        const auth = JSON.parse(localStorage.getItem('auth'));
+        return auth.token;
     }
-
-    //function getRefreshToken() {
-    //    return getUser().refresh_token;
-    //}
 
     function setUserData(data) {
         localStorage.setItem('auth', JSON.stringify(data));
@@ -51,6 +49,9 @@ function useUserActions() {
     return {
         login,
         logout,
+        getUser,
+        getAccessToken,
+        setUserData
     };
 }
 

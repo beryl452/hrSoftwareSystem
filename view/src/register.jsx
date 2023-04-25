@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import './Components/login.css'
-import TextInput from "./Components/TextInput.jsx";
+import TextInput from "./components/TextInput.jsx";
 
 function Register() {
+    // Refs
     const usernameRef = React.useRef();
     const firstnameRef = React.useRef();
     const lastnameRef = React.useRef();
@@ -14,7 +14,10 @@ function Register() {
     const departmentRef = React.useRef();
     const roleRef = React.useRef();
     const functionRef = React.useRef();
+    // OR
 
+    // Token in JSON.parse(localStorage.getItem('auth')).token
+    const {token} = JSON.parse(localStorage.getItem('auth'));
 
     const header =  {
         Accept: 'application/json',
@@ -30,23 +33,23 @@ function Register() {
     async function departments() {
         const response = await http.get('/api/departments');
         setDepartment(response.data);
-        console.log("department =", department);
-        department.map((department) => (
-            console.log("department", department)
-        ));
+        //console.log("department =", department);
+        //department.map((department) => (
+            //console.log("department", department)
+        // ));
     }
     async function register() {
         
-        console.log("usernameRef = ", usernameRef.current.value,
-            "firstnameRef = ", firstnameRef.current.value,
-            "lastnameRef = ", lastnameRef.current.value,
-            "emailRef = ", emailRef.current.value,
-            "passwordRef = ", passwordRef.current.value,
-            "password_confirmationRef = ", password_confirmationRef.current.value,
-            "birthRef = ", birthRef.current.value,
-            "functionRef = ", functionRef.current.value,
-            "departmentRef = ", departmentRef,
-            "roleRef = ", roleRef.current.value)
+        //console.log("usernameRef = ", usernameRef.current.value,
+        //    "firstnameRef = ", firstnameRef.current.value,
+        //    "lastnameRef = ", lastnameRef.current.value,
+        //    "emailRef = ", emailRef.current.value,
+        //    "passwordRef = ", passwordRef.current.value,
+        //    "password_confirmationRef = ", password_confirmationRef.current.value,
+        //    "birthRef = ", birthRef.current.value,
+        //    "functionRef = ", functionRef.current.value,
+        //    "departmentRef = ", departmentRef,
+        //    "roleRef = ", roleRef.current.value)
 
         const response = await http.post('/api/register', {
             username: usernameRef.current.value,
@@ -61,10 +64,10 @@ function Register() {
             role: roleRef.current.value,
         })
             .then((response) => {
-                console.log("response_Register =", response);
+                //console.log("response_Register =", response);
             })
             .catch((error) => {
-                console.log("error_Register =", error);
+                //console.log("error_Register =", error);
             })
     }
 
@@ -86,6 +89,7 @@ function Register() {
             autoComplete='username'
             ref={usernameRef}
         />
+
         <TextInput
             className="firstname"
             name='firstname'

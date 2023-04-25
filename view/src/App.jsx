@@ -1,5 +1,5 @@
-import Login from "./login.jsx";
-import Preferences from "./Components/Preferences/Preferences.jsx";
+import Login from "./pages/Login.jsx";
+import Preferences from "./components/Preferences/Preferences.jsx";
 import {BrowserRouter, redirect, Route, Routes} from 'react-router-dom';
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import Register from "./register.jsx";

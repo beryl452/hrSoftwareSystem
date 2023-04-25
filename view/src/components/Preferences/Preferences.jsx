@@ -3,20 +3,19 @@ import axios from "axios";
 
 export default function Preferences() {
     const [users, setUsers] = useState([]);
-    const  header ={
-        Accept: 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token')
-    };
-    const http = axios.create({
-        baseURL: 'http://localhost:8000',
-        headers: header,
-    });
+    const token = JSON.parse(localStorage.getItem('auth')).token;
+    console.log("tokeneneinn = ", token);
     async function Users() {
-        const csrf = await http.get('/sanctum/csrf-cookie');
-        console.log("csrf = ", csrf);
-
-        console.log("sessionStorage = ", sessionStorage.getItem('token'))
-
+        const http = axios.create({
+            baseURL: 'http://localhost:8000',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token,
+            },
+            withCredentials: true,
+        });
+       
        const response = await http.get('/api/users');
        setUsers(response.data);
         console.log("response = ", response);
