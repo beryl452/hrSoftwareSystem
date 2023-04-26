@@ -1,6 +1,5 @@
-import React from 'react';
-import TextInput from "./Components/TextInput.jsx";
-import PrimaryButton from "./Components/PrimaryButton.jsx";
+import React, { useEffect } from 'react';
+import { LoginForm } from './components/authentication/LoginForm'
 import axios from "axios";
 import './Components/login.css'
 import {useNavigate} from "react-router-dom";
@@ -17,7 +16,7 @@ function Login() {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
-
+        withCredentials: true,
     });
     async function login() {
         console.log("usernameRef = ",usernameRef.current.value)
@@ -34,28 +33,11 @@ function Login() {
         navigate("/preferences");
         passwordRef.current.value='';
     }
+   
     return(
         <div className="formContainer">
-            <TextInput
-                className="username"
-                name= 'username'
-                type='text'
-                placeholder='Username'
-                autoComplete='username'
-                ref={usernameRef}
-            />
-            <TextInput
-                className="password"
-                name='password'
-                type='password'
-                placeholder='Password'
-                autoComplete='current-password'
-                ref={passwordRef}
-            />
-            <PrimaryButton
-                type='submit'
-                onClick={()=>{ login() }}
-            > Login </PrimaryButton>
+            {/* <LoginForm /> */}
+            
         </div>
     );
 }

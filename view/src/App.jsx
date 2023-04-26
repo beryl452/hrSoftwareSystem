@@ -5,7 +5,6 @@ import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import Register from "./register.jsx";
 
 function App() {
-
     return(
         <BrowserRouter>
             <Routes>

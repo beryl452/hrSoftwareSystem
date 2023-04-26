@@ -25,7 +25,8 @@ function Register() {
     };
     const http = axios.create({
         baseURL: 'http://localhost:8000/',
-        headers: header
+        headers: header,
+        withCredentials: true,
     });
 
     const [department, setDepartment] = useState([]);
