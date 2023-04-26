@@ -3,7 +3,8 @@ import Preferences from "./components/Preferences/Preferences.jsx";
 import { BrowserRouter, redirect, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import Register from "./register.jsx";
-import Vitrine_project from "./components/dashboard/vitrine_project.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Projects from "./components/dashboard/Projects.jsx";
 
 function App() {
   return (
@@ -26,7 +27,22 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/vitrine_project" element={<Vitrine_project />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/projects"
+          element={
+            <ProtectedRoute>
+              <Projects />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

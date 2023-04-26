@@ -14,7 +14,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('viewAny', Project::class);
+        return response(json_encode(Project::paginate(5)), 200);
     }
 
     /**
@@ -105,7 +106,7 @@ class ProjectController extends Controller
                 'file' => 'required|string',
             ]);
         }
-        if  ($request->has('start_date')) {
+        if ($request->has('start_date')) {
             $fields = $request->validate([
                 'start_date' => 'required|date',
             ]);
@@ -115,7 +116,7 @@ class ProjectController extends Controller
                 'end_date' => 'required|date',
             ]);
         }
-        if  ($request->has('due_date')) {
+        if ($request->has('due_date')) {
             $fields = $request->validate([
                 'due_date' => 'required|date',
             ]);
@@ -148,5 +149,28 @@ class ProjectController extends Controller
         $projet->delete();
 
         return response(json_encode($projet), 200);
+    }
+
+    public function projectsBilan()
+    {
+        $toDo = Project::where('status', 'to Do')->count();
+        $doing = Project::where('status', 'Doing')->count();
+        $done = Project::where('status', 'Done')->count();
+
+        return response(json_encode([
+            'toDo' => $toDo,
+            'Doing' => $doing,
+            'Done' => $done,
+        ]), 200);
+    }
+
+    public function search($search){
+        file_put_contents("lidn.json","A");
+        $file = fopen("lidn.txt","a");
+        $this->authorize('viewAny', Project::class);
+        $projects = Project::where('title', 'like', '%'.$search.'%')->paginate(5);
+        file_put_contents("lidn.json",json_encode($projects));
+        fclose($file);
+        return response(json_encode($projects), 200);
     }
 }

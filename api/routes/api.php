@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/tasks', TaskController::class)
         ->only(['index', 'show', 'update', 'destroy']);
 
+    Route::resource('/projects', ProjectController::class)
+        ->only(['index', 'show', 'update', 'destroy']);
+
+    Route::get('/projects/{search}', [ProjectController::class, 'search']);
+
     Route::resource('/comments', CommentController::class)
         ->only(['index', 'show', 'update', 'destroy']);
 
@@ -35,6 +41,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         ->only(['index', 'show', 'update', 'destroy']);
 
     Route::post('/logout', [UserController::class, 'logout']);
+
+    Route::get('projectsBilan', [ProjectController::class, 'projectsBilan']);
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
