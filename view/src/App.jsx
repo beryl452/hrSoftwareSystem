@@ -2,8 +2,8 @@ import Login from "./pages/Login.jsx";
 import Preferences from "./components/Preferences/Preferences.jsx";
 import { BrowserRouter, redirect, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
-import Register from "./register.jsx";
 import Vitrine_project from "./components/dashboard/vitrine_project.jsx";
+import CreateUsers from "./pages/CreateUsers.jsx";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           path="/register"
           element={
             <ProtectedRoute>
-              <Register />
+             <CreateUsers />
             </ProtectedRoute>
           }
         />
