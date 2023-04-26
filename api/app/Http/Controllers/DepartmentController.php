@@ -13,7 +13,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $this->authorize('viewAny', Department::class);
+        return response(json_encode(Department::all()),200);
     }
 
     /**
