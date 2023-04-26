@@ -1,5 +1,5 @@
 import React from "react";
-import Register_ from "../components/authentication/RegisterForm";
+import Register from "../components/authentication/RegisterForm";
 
 function CreateUsers() {
   return (
@@ -15,7 +15,7 @@ function CreateUsers() {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Sign in to your account
                 </h1>
-               <Register_ />
+               <Register />
             </div>
         </div>
     </div>

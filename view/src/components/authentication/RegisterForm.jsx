@@ -40,16 +40,16 @@ function Register() {
   }
   async function register() {
 
-    //console.log("usernameRef = ", usernameRef.current.value,
-    //    "firstnameRef = ", firstnameRef.current.value,
-    //    "lastnameRef = ", lastnameRef.current.value,
-    //    "emailRef = ", emailRef.current.value,
-    //    "passwordRef = ", passwordRef.current.value,
-    //    "password_confirmationRef = ", password_confirmationRef.current.value,
-    //    "birthRef = ", birthRef.current.value,
-    //    "functionRef = ", functionRef.current.value,
-    //    "departmentRef = ", departmentRef,
-    //    "roleRef = ", roleRef.current.value)
+    console.log("usernameRef = ", usernameRef.current.value,
+        "firstnameRef = ", firstnameRef.current.value,
+        "lastnameRef = ", lastnameRef.current.value,
+        "emailRef = ", emailRef.current.value,
+        "passwordRef = ", passwordRef.current.value,
+        "password_confirmationRef = ", password_confirmationRef.current.value,
+        "birthRef = ", birthRef.current.value,
+        "functionRef = ", functionRef.current.value,
+        "departmentRef = ", departmentRef.current.value,
+        "roleRef = ", roleRef.current.value)
 
     const response = await http.post('/api/register', {
       username: usernameRef.current.value,
@@ -60,14 +60,14 @@ function Register() {
       password_confirmation: password_confirmationRef.current.value,
       Birth: birthRef.current.value,
       function: functionRef.current.value,
-      department_id: (departmentRef.current != null ? department.current.value() : null),
+      department_id: (departmentRef.current != null ? departmentRef.current.value : null),
       role: roleRef.current.value,
     })
       .then((response) => {
-        //console.log("response_Register =", response);
+        console.log("response_Register =", response);
       })
       .catch((error) => {
-        //console.log("error_Register =", error);
+        console.log("error_Register =", error);
       })
   }
 
@@ -80,7 +80,7 @@ function Register() {
   }, []);
 
   return (
-    <form className="" action="#" >
+    <>
       <div className="grid gap-4 mb-4 sm:grid-cols-2" >
         <div>
           <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">UserName</label>
@@ -133,10 +133,13 @@ function Register() {
         </div>
 
       </div>
-      <button type="submit" className="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+      <button type="submit" 
+              onClick={()=>{ register() }}
+
+      className="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
         Create users
       </button>
-    </form>
+    </>
 
   )
 }

@@ -21,7 +21,7 @@ function Register() {
 
     const header =  {
         Accept: 'application/json',
-        Authorization: 'Bearer ' + localStorage.getItem('token')
+        Authorization: 'Bearer ' + token
     };
     const http = axios.create({
         baseURL: 'http://localhost:8000/',
@@ -32,12 +32,13 @@ function Register() {
     const [department, setDepartment] = useState([]);
     const [role, setRole] = useState(['Task Manager', 'Administrator', 'Collaborator', 'Payroll Manager']);
     async function departments() {
+        console.log(token);
         const response = await http.get('/api/departments');
         setDepartment(response.data);
-        //console.log("department =", department);
-        //department.map((department) => (
-            //console.log("department", department)
-        // ));
+        console.log("department =", department);
+        department.map((department) => (
+            console.log("department", department)
+        ));
     }
     async function register() {
         

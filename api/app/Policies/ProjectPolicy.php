@@ -12,9 +12,11 @@ class ProjectPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user): Response
     {
-        //
+        return ($user->role === 'Administrator')
+            ? Response::allow()
+            : Response::deny('You are not allowed to view projects.');
     }
 
     /**
