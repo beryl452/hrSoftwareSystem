@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/usersSearch/{search}', [UserController::class, 'search']);
+    Route::get('/projectsSearch/{search}',[ProjectController::class,'search']);
 
     Route::resource('/users', UserController::class)
         ->only(['index', 'show', 'update', 'destroy']);
@@ -32,7 +34,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/projects', ProjectController::class)
         ->only(['index', 'show', 'update', 'destroy']);
 
-    Route::get('/projects/{search}', [ProjectController::class, 'search']);
 
     Route::resource('/comments', CommentController::class)
         ->only(['index', 'show', 'update', 'destroy']);
@@ -43,6 +44,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [UserController::class, 'logout']);
 
     Route::get('projectsBilan', [ProjectController::class, 'projectsBilan']);
+
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

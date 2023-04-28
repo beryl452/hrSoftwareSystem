@@ -164,13 +164,9 @@ class ProjectController extends Controller
         ]), 200);
     }
 
-    public function search($search){
-        file_put_contents("lidn.json","A");
-        $file = fopen("lidn.txt","a");
+    public function search($search)
+    {
         $this->authorize('viewAny', Project::class);
-        $projects = Project::where('title', 'like', '%'.$search.'%')->paginate(5);
-        file_put_contents("lidn.json",json_encode($projects));
-        fclose($file);
-        return response(json_encode($projects), 200);
+        return response(json_encode(Project::where('title', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . $search . '%')->paginate(5)), 200);
     }
 }

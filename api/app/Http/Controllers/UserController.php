@@ -15,7 +15,7 @@ class UserController extends Controller
     public function index()
     {
         $this->authorize('viewAny', User::class);
-        return response(json_encode(User::all()), 200);
+        return response(json_encode(User::paginate(5)), 200);
     }
 
     /**
@@ -87,7 +87,36 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->authorize('update', $user);
+        $fields = $request->validate([
+            'username' => 'required|string|unique:users,username',
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'function' => 'required|string',
+            'role' => 'required|in:Task Manager,Administrator,Collaborator, Payroll Manager',
+            'password' => 'required|string',
+            'password_confirmation' => 'required|same:password',
+            'department_id' => 'required|integer|exists:users,id',
+            "Birth" => "required|date",
+        ]);
+        die($fields['username']);
+        $user->update([
+            'username' => $fields['username'],
+            'firstname' => $fields['firstname'],
+            'lastname' => $fields['lastname'],
+            'email' => $fields['email'],
+            'function' => $fields['function'],
+            'password' => bcrypt($fields['password']),
+            'department_id' => $fields['department_id'],
+            'role' => $fields['role'],
+            'Birth' => $fields['Birth'],
+        ]);
+
+        return response(json_encode([
+            'user' => $user,
+        ]), 201);
+
     }
 
     /**
@@ -130,5 +159,12 @@ class UserController extends Controller
         return [
             'message' => 'Logged out'
         ];
+    }
+
+    // GET|HEAD        api/users/{search} ............................................... UserController@search
+    public function search($search)
+    {
+        $this->authorize('viewAny', User::class);
+        return response(json_encode(User::where('username', 'like', '%' . $search . '%')->orWhere('firstname', 'like', '%' . $search . '%')->orWhere('lastname', 'like', '%' . $search . '%')->orWhere('email', 'like', '%' . $search . '%')->orWhere('function', 'like', '%' . $search . '%')->orWhere('role', 'like', '%' . $search . '%')->orWhere('Birth', 'like', '%' . $search . '%')->paginate(5)), 200);
     }
 }

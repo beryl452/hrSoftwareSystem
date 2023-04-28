@@ -4,6 +4,7 @@ import axios from "axios";
 function Projects() {
   const [projects, setProjects] = React.useState({});
   const [search, setSearch] = React.useState("");
+  const [action, setAction] = useState(false);
   const auth = JSON.parse(localStorage.getItem("auth"));
   const http = axios.create({
     baseURL: "http://localhost:8000",
@@ -14,7 +15,7 @@ function Projects() {
     },
     withCredentials: true,
   });
-  async function viewProjects(page) {
+  async function viewProjects() {
     const response = await http.get("/api/projects");
     console.log(response.data);
     setProjects(response.data);
@@ -57,7 +58,7 @@ function Projects() {
                   value={search}
                   onChange={async(e) => {
                     setSearch(e.target.value);
-                    const url = "/api/projects?search=" + search;
+                    const url = "/api/projectsSearch/" + search;
                     console.log("url =",url);
                     const response = await http.get(url);
                     console.log("search =",response.data);
@@ -301,6 +302,9 @@ function Projects() {
                           data-dropdown-toggle="benq-ex2710q-dropdown"
                           className="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
                           type="button"
+                          onClick={()=>{
+                            console.log("bfbfb")
+                          }}
                         >
                           <svg
                             className="w-5 h-5"

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import Users from '../dashboard/Users';
 
-function Register() {
+function EditUsers(props) {
   // Refs
+  {console.log("useParams('userId') =", props)}
   const usernameRef = React.useRef();
   const firstnameRef = React.useRef();
   const lastnameRef = React.useRef();
@@ -15,7 +15,6 @@ function Register() {
   const roleRef = React.useRef();
   const functionRef = React.useRef();
   // OR
-
   // Token in JSON.parse(localStorage.getItem('auth')).token
   const { token } = JSON.parse(localStorage.getItem('auth'));
 
@@ -39,8 +38,8 @@ function Register() {
       console.log("department", department)
     ));
   }
-  async function register() {
-
+  async function editusers(id) {
+    console.log("mon nom est=" + usernameRef.current.value);
     console.log("usernameRef = ", usernameRef.current.value,
       "firstnameRef = ", firstnameRef.current.value,
       "lastnameRef = ", lastnameRef.current.value,
@@ -52,7 +51,7 @@ function Register() {
       "departmentRef = ", departmentRef.current.value,
       "roleRef = ", roleRef.current.value)
 
-    const response = await http.post('/api/register', {
+    const response = await http.put('/api/users/' + id, {
       username: usernameRef.current.value,
       firstname: firstnameRef.current.value,
       lastname: lastnameRef.current.value,
@@ -76,8 +75,22 @@ function Register() {
   function handleChange() {
     (roleRef.current.value === 'Administrator' || roleRef.current.value === 'Payroll Manager') ? setSeeDepartment(false) : setSeeDepartment(true)
   }
+
+  async function infouser(id) {
+    const response = await http.get('/api/users/' + id);
+    console.log("infouser =", response.data);
+    usernameRef.current.value = response.data.username;
+    firstnameRef.current.value = response.data.firstname;
+    lastnameRef.current.value = response.data.lastname;
+    emailRef.current.value = response.data.email;
+    birthRef.current.value = response.data.Birth;
+    functionRef.current.value = response.data.function;
+    departmentRef.current.value = response.data.department_id;
+    roleRef.current.value = response.data.role;    
+  }
   useEffect(() => {
     departments();
+    infouser(1);
   }, []);
 
   return (
@@ -135,10 +148,10 @@ function Register() {
 
       </div>
       <button type="submit"
-        onClick={() => { register() }}
+        onClick={() => { editusers(1) }}
 
         className="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-        Create users
+        Save
       </button>
  
     </>
@@ -146,4 +159,4 @@ function Register() {
 
   )
 }
-export default Register
+export default EditUsers;
