@@ -27,6 +27,7 @@ class TaskFactory extends Factory
             'updated_by' => $this->faker->numberBetween(1, 10),
             'file' => $this->faker->url(),
             'project_id' => $this->faker->numberBetween(1, 10),
+            'assigned_to' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

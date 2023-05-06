@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             'created_by' => \App\Models\User::inRandomOrder()->first()->id,
             'updated_by' => \App\Models\User::inRandomOrder()->first()->id,
             'project_id' => \App\Models\Project::inRandomOrder()->first()->id,
+            'assigned_to' => \App\Models\User::inRandomOrder()->first()->id,
         ]);
         \App\Models\Comment::factory(10)->create([
             'user_id' => \App\Models\User::inRandomOrder()->first()->id,

@@ -131,4 +131,20 @@ class UserController extends Controller
             'message' => 'Logged out'
         ];
     }
+
+    public function collaborator() {
+        //If the user is collaborator, return only his data
+        //If the user is administrator, return all collaborators data
+        //If the user is task manager, return all collaborators data of his department
+
+        $this->authorize('collaborators', User::class);
+        if (auth()->user()->role == 'Collaborator') {
+            return response(json_encode([auth()->user()]), 200);
+        } else if (auth()->user()->role == 'Administrator') {
+            return response(json_encode(User::where('role', 'Collaborator')->get()), 200);
+        }
+        else if (auth()->user()->role == 'Task Manager') {
+            return response(json_encode(User::where('role', 'Collaborator')->where('department_id', auth()->user()->department_id)->get()), 200);
+        }
+    }
 }
