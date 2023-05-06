@@ -36,13 +36,13 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
-        return ($user->role == "Administrator" || $user->id == $model->id);
+        return ($user->role == "Administrator");
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, User $model): bool
+    public function delete(User $user): bool
     {
         return ($user->role == "Administrator");
     }
