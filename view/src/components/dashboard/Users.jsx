@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Users() {
     const [users, setUsers] = React.useState({});
     const [search, setSearch] = React.useState("");
+    const navigate = useNavigate();
     const auth = JSON.parse(localStorage.getItem("auth"));
     const http = axios.create({
         baseURL: "http://localhost:8000",
@@ -17,9 +19,9 @@ function Users() {
     });
     async function viewUsers() {
         const response = await http.get("/api/users");
-        console.log("response",response.data);
+        console.log("response", response.data);
         setUsers(response.data);
-        console.log("users",users);
+        console.log("users", users);
     }
     useEffect(() => {
         viewUsers();
@@ -30,7 +32,7 @@ function Users() {
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div class="w-full md:w-1/2">
                     <form class="flex items-center">
-                        <label for="simple-search" class="sr-only">Search </label>
+                        <label htmlFor="simple-search" className="sr-only">Search </label>
                         <div className="relative w-full">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg
@@ -89,7 +91,7 @@ function Users() {
                         </svg>
                         Create Users
                     </button>
-                    
+
                 </div>
             </div>
             <div className="overflow-x-auto">
@@ -123,7 +125,7 @@ function Users() {
                         </tr>
                     </thead>
                     <tbody>
-                    {users.data
+                        {users.data
                             ?
                             users.data.map((user, index) => (
                                 <tr key={index} className="border-b dark:border-gray-700">
@@ -173,25 +175,34 @@ function Users() {
                                                 aria-labelledby="benq-ex2710q-dropdown-button"
                                             >
                                                 <li>
-                                                    <a
-                                                        href="#"
-                                                        className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    >
-                                                        Show
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="#"
+                                                    <button
+                                                        onClick={() => {
+                                                            navigate('/editUser', { state: { user: user } })
+                                                        }
+                                                        }
                                                         className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                                     >
                                                         Edit
-                                                    </a>
+                                                    </button>
                                                 </li>
                                             </ul>
-                                            <div className="py-1">
+                                            <div className="py-1 cursor-pointer">
                                                 <a
-                                                    href="#"
+                                                    onClick={async (event) => {
+                                                        event.preventDefault();
+                                                        if (!window.confirm("Are you sure you wish to delete this item?")) {
+                                                            event.stopPropagation();
+                                                            return;
+                                                        }
+                                                        const response = await http.delete(
+                                                            "/api/users/" + user.id
+                                                        );
+                                                        console.log(response);
+                                                        if (response.status === 200) {
+                                                            window.location.reload();
+                                                        }
+                                                    }}
+
                                                     className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                                                 >
                                                     Delete

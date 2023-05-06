@@ -7,6 +7,7 @@ use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
     /**
@@ -87,6 +88,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+<<<<<<< HEAD
         $this->authorize('update', $user);
         if($request->has('username') && $request->username != $user->username) {
             $fields = $request->validate([
@@ -150,6 +152,9 @@ class UserController extends Controller
             'user' => $user,
         ]), 201);
 
+=======
+        //
+>>>>>>> 84d4aff060e3ed1090a70d0a294d7e93c4dc937a
     }
 
     /**
@@ -157,7 +162,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+
+            $this->authorize('delete', $user);
+
+            $user->delete();
+
+            return response(json_encode($user), 200);
     }
 
     public function login(Request $request) {
@@ -184,6 +194,20 @@ class UserController extends Controller
             'token' => $token
         ]), 201);
 
+    }
+    public function usersBilan()
+    {
+        $numberadmin = User::where('role', 'Administrator')->count();
+        $numbertaskmanager = User::where('role', 'Task Manager')->count();
+        $numbercollaborator = User::where('role', 'Collaborator')->count();
+        $numberpayrollmanager = User::where('role', 'Payroll Manager')->count();
+
+        return response(json_encode([
+            'Administrator' => $numberadmin,
+            'TaskManager' => $numbertaskmanager,
+            'Collaborator' => $numbercollaborator,
+            'PayrollManager' => $numberpayrollmanager,
+        ]), 200);
     }
 
     public function logout(Request $request) {

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
 
 function EditUsers(props) {
   // Refs
   {console.log("useParams('userId') =", props)}
+  const location = useLocation();
   const usernameRef = React.useRef();
   const firstnameRef = React.useRef();
   const lastnameRef = React.useRef();
@@ -38,7 +40,7 @@ function EditUsers(props) {
       console.log("department", department)
     ));
   }
-  async function editusers(id) {
+  async function edtuser(id) {
     console.log("mon nom est=" + usernameRef.current.value);
     console.log("usernameRef = ", usernameRef.current.value,
       "firstnameRef = ", firstnameRef.current.value,
@@ -89,8 +91,17 @@ function EditUsers(props) {
     roleRef.current.value = response.data.role;    
   }
   useEffect(() => {
+    console.log("location.state.user =", location.state.user);
+    usernameRef.current.value = location.state.user.username;
+    firstnameRef.current.value = location.state.user.firstname;
+    lastnameRef.current.value = location.state.user.lastname;
+    emailRef.current.value = location.state.user.email;
+    birthRef.current.value = location.state.user.birth;
+    functionRef.current.value = location.state.user.function;
+    departmentRef.current.value = location.state.user.department;
+    roleRef.current.value = location.state.user.role;
     departments();
-    infouser(1);
+    infouser(location.state.user.id);
   }, []);
 
   return (
@@ -148,7 +159,7 @@ function EditUsers(props) {
 
       </div>
       <button type="submit"
-        onClick={() => { editusers(1) }}
+        onClick={() => { edtuser(location.state.user.id) }}
 
         className="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
         Save
