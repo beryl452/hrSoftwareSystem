@@ -149,6 +149,9 @@ class UserController extends Controller
         return response(json_encode([
             'user' => $user,
         ]), 201);
+
+         //
+
     }
 
     /**
