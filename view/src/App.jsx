@@ -1,13 +1,17 @@
 import Login from "./pages/Login.jsx";
 import Preferences from "./components/Preferences/Preferences.jsx";
-import { BrowserRouter, redirect, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter, redirect, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
-
-import Vitrine_project from "./components/dashboard/Vitrine_project.jsx";
-import CreateUsers from "./pages/CreateUsers.jsx";
-import Users from "./components/dashboard/Users.jsx";
+import Register from "./register.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 import Projects from "./components/dashboard/Projects.jsx";
-import EditUsers from "./pages/EditUsers.jsx";
+import CreateProject from "./components/projects/CreateProject.jsx";
+import EditProject from "./components/projects/EditProject.jsx";
+import Tasks from "./components/tasks/Tasks.jsx";
+import CreateTask from "./components/tasks/CreateTask.jsx";
+import EditTask from "./components/tasks/EditTask.jsx";
+import ErrorQuatreCentQuatre from "./pages/ErrorQuatreCentQuatre.jsx";
+
 
 function App() {
   return (
@@ -26,19 +30,19 @@ function App() {
           path="/register"
           element={
             <ProtectedRoute>
-              <CreateUsers/>
+              <Register />
             </ProtectedRoute>
           }
         />
         <Route
-          path="/users"
+          path="/"
           element={
             <ProtectedRoute>
-              <Users/>
+              <Dashboard />
             </ProtectedRoute>
           }
         />
-         <Route
+        <Route
           path="/projects"
           element={
             <ProtectedRoute>
@@ -47,14 +51,49 @@ function App() {
           }
         />
         <Route
-          path="/editUser"
+          path="/project/create"
           element={
             <ProtectedRoute>
-              <EditUsers />
+              <CreateProject />
             </ProtectedRoute>
           }
         />
-        <Route path="/vitrine_project" element={<Vitrine_project />} />
+        <Route
+          exact
+          path="/projects/edit/"
+          element={
+            <ProtectedRoute>
+              <EditProject />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/tasks/edit/"
+          element={
+            <ProtectedRoute>
+              <EditTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          exact
+          path="/project/:projectId/tasks"
+          element={
+            <ProtectedRoute>
+              <Tasks />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tasks/create"
+          element={
+            <ProtectedRoute>
+              <CreateTask />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<ErrorQuatreCentQuatre />} />
       </Routes>
     </BrowserRouter>
   );
