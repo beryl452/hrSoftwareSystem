@@ -16,15 +16,17 @@ class ProjectPolicy
     {
         return ($user->role === 'Administrator')
             ? Response::allow()
-            : Response::deny('You are not allowed to view projects.');
+            : Response::deny('You are not allowed to view any projects.');
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Project $project): bool
+    public function view(User $user, Project $project): Response
     {
-        //
+        return ($user->role === 'Task Manager' || $user->role === 'Administrator')
+            ? Response::allow()
+            : Response::deny('You are not allowed to view this project.');
     }
 
     /**
@@ -40,9 +42,11 @@ class ProjectPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Project $project): bool
+    public function update(User $user, Project $project): Response
     {
-        //
+        return ($user->role === 'Task Manager' || $user->role === 'Administrator')
+            ? Response::allow()
+            : Response::deny('You are not allowed to update project.');
     }
 
     /**
