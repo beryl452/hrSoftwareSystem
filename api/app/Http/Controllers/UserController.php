@@ -87,7 +87,68 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->authorize('update', $user);
+        if($request->has('username') && $request->username != $user->username) {
+            $fields = $request->validate([
+                // 'username' => 'required|string|unique:users,username',
+            ]);
+        }
+
+        if($request->has('email') && $request->email != $user->email) {
+            $fields = $request->validate([
+                // 'email' => 'required|email|unique:users,email',
+            ]);
+        }
+
+        if($request->has('password')) {
+            $fields = $request->validate([
+                'password' => 'required|string',
+                // 'password_confirmation' => 'required|same:password',
+            ]);
+        }
+
+        if($request->has('department_id') && $request->department_id != $user->department_id) {
+            $fields = $request->validate([
+                'department_id' => 'required|integer|exists:users,id',
+            ]);
+        }
+
+        if($request->has('role') && $request->role != $user->role) {
+            $fields = $request->validate([
+                'role' => 'required|in:Task Manager,Administrator,Collaborator, Payroll Manager',
+            ]);
+        }
+
+        if($request->has('Birth') && $request->Birth != $user->Birth) {
+            $fields = $request->validate([
+                'Birth' => 'required|date',
+            ]);
+        }
+
+        if($request->has('firstname') && $request->firstname != $user->firstname) {
+            $fields = $request->validate([
+                'firstname' => 'required|string',
+            ]);
+        }
+
+        if($request->has('lastname') && $request->lastname != $user->lastname) {
+            $fields = $request->validate([
+                'lastname' => 'required|string',
+            ]);
+        }
+
+        if($request->has('function') && $request->function != $user->function) {
+            $fields = $request->validate([
+                'function' => 'required|string',
+            ]);
+        }
+
+
+        $user->update($fields);
+
+        return response(json_encode([
+            'user' => $user,
+        ]), 201);
     }
 
     /**
