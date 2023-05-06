@@ -62,4 +62,8 @@ class UserPolicy
     {
         //
     }
+    public function collaborators(User $user): bool
+    {
+        return true;
+    }
 }
