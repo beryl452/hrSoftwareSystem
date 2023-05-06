@@ -7,6 +7,7 @@ use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+
 class UserController extends Controller
 {
     /**
@@ -88,30 +89,63 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $this->authorize('update', $user);
-        $fields = $request->validate([
-            'username' => 'required|string|unique:users,username',
-            'firstname' => 'required|string',
-            'lastname' => 'required|string',
-            'email' => 'required|email|unique:users,email',
-            'function' => 'required|string',
-            'role' => 'required|in:Task Manager,Administrator,Collaborator, Payroll Manager',
-            'password' => 'required|string',
-            'password_confirmation' => 'required|same:password',
-            'department_id' => 'required|integer|exists:users,id',
-            "Birth" => "required|date",
-        ]);
-        die($fields['username']);
-        $user->update([
-            'username' => $fields['username'],
-            'firstname' => $fields['firstname'],
-            'lastname' => $fields['lastname'],
-            'email' => $fields['email'],
-            'function' => $fields['function'],
-            'password' => bcrypt($fields['password']),
-            'department_id' => $fields['department_id'],
-            'role' => $fields['role'],
-            'Birth' => $fields['Birth'],
-        ]);
+        if($request->has('username') && $request->username != $user->username) {
+            $fields = $request->validate([
+                // 'username' => 'required|string|unique:users,username',
+            ]);
+        }
+
+        if($request->has('email') && $request->email != $user->email) {
+            $fields = $request->validate([
+                // 'email' => 'required|email|unique:users,email',
+            ]);
+        }
+
+        if($request->has('password')) {
+            $fields = $request->validate([
+                'password' => 'required|string',
+                // 'password_confirmation' => 'required|same:password',
+            ]);
+        }
+
+        if($request->has('department_id') && $request->department_id != $user->department_id) {
+            $fields = $request->validate([
+                'department_id' => 'required|integer|exists:users,id',
+            ]);
+        }
+
+        if($request->has('role') && $request->role != $user->role) {
+            $fields = $request->validate([
+                'role' => 'required|in:Task Manager,Administrator,Collaborator, Payroll Manager',
+            ]);
+        }
+
+        if($request->has('Birth') && $request->Birth != $user->Birth) {
+            $fields = $request->validate([
+                'Birth' => 'required|date',
+            ]);
+        }
+
+        if($request->has('firstname') && $request->firstname != $user->firstname) {
+            $fields = $request->validate([
+                'firstname' => 'required|string',
+            ]);
+        }
+
+        if($request->has('lastname') && $request->lastname != $user->lastname) {
+            $fields = $request->validate([
+                'lastname' => 'required|string',
+            ]);
+        }
+
+        if($request->has('function') && $request->function != $user->function) {
+            $fields = $request->validate([
+                'function' => 'required|string',
+            ]);
+        }
+
+
+        $user->update($fields);
 
         return response(json_encode([
             'user' => $user,
@@ -124,7 +158,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+
+            $this->authorize('delete', $user);
+
+            $user->delete();
+
+            return response(json_encode($user), 200);
     }
 
     public function login(Request $request) {
@@ -151,6 +190,20 @@ class UserController extends Controller
             'token' => $token
         ]), 201);
 
+    }
+    public function usersBilan()
+    {
+        $numberadmin = User::where('role', 'Administrator')->count();
+        $numbertaskmanager = User::where('role', 'Task Manager')->count();
+        $numbercollaborator = User::where('role', 'Collaborator')->count();
+        $numberpayrollmanager = User::where('role', 'Payroll Manager')->count();
+
+        return response(json_encode([
+            'Administrator' => $numberadmin,
+            'TaskManager' => $numbertaskmanager,
+            'Collaborator' => $numbercollaborator,
+            'PayrollManager' => $numberpayrollmanager,
+        ]), 200);
     }
 
     public function logout(Request $request) {
