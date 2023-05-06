@@ -51,6 +51,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('/logout', [UserController::class, 'logout']);
 
+    Route::get('usersBilan', [UserController::class, 'usersBilan']);
+
     Route::get('projectsBilan', [ProjectController::class, 'projectsBilan']);
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
