@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
-function Projects() {
+function Projects({ className = "", ...props }) {
   const [projects, setProjects] = React.useState({});
+  const navigate = useNavigate();
   const [search, setSearch] = React.useState("");
-  const [action, setAction] = useState(false);
   const auth = JSON.parse(localStorage.getItem("auth"));
   const http = axios.create({
     baseURL: "http://localhost:8000",
@@ -25,7 +28,7 @@ function Projects() {
     viewProjects();
   }, []);
   return (
-    <div className="lg:px-12 p-0 w-90vw sm:p-5">
+    <div className={"lg:px-6 p-0 w-90vw " + className}>
       <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
         <div className="w-full flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
           <div className="w-full md:w-1/2">
@@ -56,23 +59,44 @@ function Projects() {
                   placeholder="Search"
                   required=""
                   value={search}
-                  onChange={async(e) => {
+                  onChange={async (e) => {
                     setSearch(e.target.value);
                     const url = "/api/projectsSearch/" + search;
-                    console.log("url =",url);
+                    console.log("url =", url);
                     const response = await http.get(url);
-                    console.log("search =",response.data);
+                    console.log("search =", response.data);
                     setProjects(response.data);
-                    console.log("seacdcdrch =",projects);
-                }
-                  }
+                    console.log("seacdcdrch =", projects);
+                  }}
                 />
               </div>
             </form>
           </div>
+
           <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
             <button
               type="button"
+              className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            >
+              <svg
+                className="w-4 h-4 mr-2"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="2"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+                />
+              </svg>
+              Export
+            </button>
+            <Link
+              to={"/project/create"}
               className="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
             >
               <svg
@@ -88,174 +112,8 @@ function Projects() {
                   d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
                 />
               </svg>
-              Add product
-            </button>
-            <div className="flex items-center space-x-3 w-full md:w-auto">
-              <button
-                id="actionsDropdownButton"
-                data-dropdown-toggle="actionsDropdown"
-                className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                type="button"
-              >
-                <svg
-                  className="-ml-1 mr-1.5 w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    clipRule="evenodd"
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  />
-                </svg>
-                Actions
-              </button>
-              <div
-                id="actionsDropdown"
-                className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
-              >
-                <ul
-                  className="py-1 text-sm text-gray-700 dark:text-gray-200"
-                  aria-labelledby="actionsDropdownButton"
-                >
-                  <li>
-                    <a
-                      href="#"
-                      className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Mass Edit
-                    </a>
-                  </li>
-                </ul>
-                <div className="py-1">
-                  <a
-                    href="#"
-                    className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  >
-                    Delete all
-                  </a>
-                </div>
-              </div>
-              <button
-                id="filterDropdownButton"
-                data-dropdown-toggle="filterDropdown"
-                className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                type="button"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                  className="h-4 w-4 mr-2 text-gray-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Filter
-                <svg
-                  className="-mr-1 ml-1.5 w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    clipRule="evenodd"
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                  />
-                </svg>
-              </button>
-              <div
-                id="filterDropdown"
-                className="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
-              >
-                <h6 className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-                  Choose brand
-                </h6>
-                <ul
-                  className="space-y-2 text-sm"
-                  aria-labelledby="filterDropdownButton"
-                >
-                  <li className="flex items-center">
-                    <input
-                      id="apple"
-                      type="checkbox"
-                      value=""
-                      className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      htmlFor="apple"
-                      className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      Apple (56)
-                    </label>
-                  </li>
-                  <li className="flex items-center">
-                    <input
-                      id="fitbit"
-                      type="checkbox"
-                      value=""
-                      className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      htmlFor="fitbit"
-                      className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      Microsoft (16)
-                    </label>
-                  </li>
-                  <li className="flex items-center">
-                    <input
-                      id="razor"
-                      type="checkbox"
-                      value=""
-                      className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      htmlFor="razor"
-                      className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      Razor (49)
-                    </label>
-                  </li>
-                  <li className="flex items-center">
-                    <input
-                      id="nikon"
-                      type="checkbox"
-                      value=""
-                      className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      htmlFor="nikon"
-                      className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      Nikon (12)
-                    </label>
-                  </li>
-                  <li className="flex items-center">
-                    <input
-                      id="benq"
-                      type="checkbox"
-                      value=""
-                      className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      htmlFor="benq"
-                      className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"
-                    >
-                      BenQ (74)
-                    </label>
-                  </li>
-                </ul>
-              </div>
-            </div>
+              Add project
+            </Link>
           </div>
         </div>
         <div className="overflow-x-auto">
@@ -278,6 +136,9 @@ function Projects() {
                   Status
                 </th>
                 <th scope="col" className="px-4 py-3">
+                  file
+                </th>
+                <th scope="col" className="px-4 py-3">
                   <span className="sr-only">Actions</span>
                 </th>
               </tr>
@@ -285,25 +146,90 @@ function Projects() {
             <tbody>
               {projects.data
                 ? projects.data.map((project, index) => (
-                    <tr key={index} className="border-b dark:border-gray-700">
+                    <tr
+                      key={index}
+                      className="border-b dark:border-gray-700 cursor-pointer"
+                      onClick={() => {
+                        navigate(
+                          "/project/" + project.id + "/tasks",
+                          { state: { project: project } },
+                          { replace: true }
+                        );
+                      }}
+                    >
                       <th
                         scope="row"
                         className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
-                        {project.title}
+                        {project.title} ... {project.id}
                       </th>
                       <td className="px-4 py-3">{project.description}</td>
                       <td className="px-4 py-3">{project.start_date}</td>
                       <td className="px-4 py-3">{project.due_date}</td>
                       <td className="px-4 py-3">{project.status}</td>
+                      <td
+                        className="px-4 py-3 cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          // http
+                          //   .get("/api/projectsDownload/" + project.id)
+                          //   .then((response) => {
+                          //     console.log(response);
+                          //   })
+                          //   .catch((error) => {
+                          //     console.log(error);
+                          //   });
+                          // Download file from "/api/projectsDownload/" + project.id
+
+                          http
+                            .get("/api/projectsDownload/" + project.id)
+                            .then((response) => {
+                              // console.log(response);
+                              const url = window.URL.createObjectURL(
+                                new Blob([response.data])
+                              );
+                              const link = document.createElement("a");
+                              link.href = url;
+                              link.setAttribute("download", project.file); //or any other extension
+                              document.body.appendChild(link);
+                              link.click();
+                            })
+                            .catch((error) => {
+                              console.log(error);
+                            });
+                        }}
+                      >
+                        {project.file}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M9 13.5l3 3m0 0l3-3m-3 3v-6m1.06-4.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"
+                          />
+                        </svg>
+                      </td>
                       <td className="px-4 py-3 flex items-center justify-end">
                         <button
                           id="benq-ex2710q-dropdown-button"
                           data-dropdown-toggle="benq-ex2710q-dropdown"
                           className="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
                           type="button"
-                          onClick={()=>{
-                            console.log("bfbfb")
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            [
+                              ...document.getElementsByClassName("projects"),
+                            ].forEach((element) => {
+                              if (element.classList.contains("M" + project.id))
+                                element.classList.toggle("hidden");
+                              else element.classList.add("hidden");
+                            });
                           }}
                         >
                           <svg
@@ -318,7 +244,10 @@ function Projects() {
                         </button>
                         <div
                           id="benq-ex2710q-dropdown"
-                          className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                          className={
+                            "projects hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 absolute right-12 mt-2 M" +
+                            project.id
+                          }
                         >
                           <ul
                             className="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -334,8 +263,14 @@ function Projects() {
                             </li>
                             <li>
                               <a
-                                href="#"
-                                className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  navigate(`/projects/edit`, {
+                                    state: { project: project },
+                                    replace: false,
+                                  });
+                                }}
+                                className="block cursor-pointer py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 Edit
                               </a>
@@ -343,13 +278,34 @@ function Projects() {
                           </ul>
                           <div className="py-1">
                             <a
-                              href="#"
-                              className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                              onClick={async (event) => {
+                                event.preventDefault();
+                                const response = await http.delete(
+                                  "/api/projects/" + project.id
+                                );
+                                console.log(response);
+                                if (response.status === 200) {
+                                  alert("Project deleted successfully");
+                                  window.location.reload();
+                                }
+                              }}
+                              className="block cursor-pointer py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                             >
                               Delete
                             </a>
                           </div>
                         </div>
+                        {/* <div className="flex items-center justify-end">
+                          <button
+                            onClick={()=>{
+                                navigate(`/projects/edit`, {state: {project: project}, replace: false})
+                              }
+                            }
+                            className="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
+                            >
+                              Edit 
+                          </button>
+                          </div> */}
                       </td>
                     </tr>
                   ))
@@ -364,11 +320,17 @@ function Projects() {
           <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
             Showing
             <span className="font-semibold text-gray-900 dark:text-white">
-              {projects.data ? projects.from : console.log("loading")}-{projects.data ? projects.to : console.log("loading")}
+              {projects.data
+                ? " " + projects.from + " "
+                : console.log("loading")}{" "}
+              -{" "}
+              {projects.data
+                ? "  " + projects.to + " "
+                : console.log("loading")}
             </span>
             of
             <span className="font-semibold text-gray-900 dark:text-white">
-              {projects.total}
+              {"  " + projects.total + "  "}
             </span>
           </span>
           <ul className="inline-flex items-stretch -space-x-px">
@@ -379,17 +341,18 @@ function Projects() {
                     <>
                       {projects.links.map((link, key) =>
                         link.label === "&laquo; Previous" ? (
-                          <li>
+                          <li key={key}>
                             <a
-                               onClick={async () => {
+                              onClick={async () => {
                                 if (projects.prev_page_url != null) {
-                                const response = await http.get(projects.prev_page_url);
-                                setProjects(response.data);}
-                                else {
-                                    console.log("no more pages");
+                                  const response = await http.get(
+                                    projects.prev_page_url
+                                  );
+                                  setProjects(response.data);
+                                } else {
+                                  console.log("no more pages");
                                 }
                               }}
-                              key={key}
                               className="flex items-center cursor-pointer justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             >
                               <span className="sr-only">Previous</span>
@@ -409,17 +372,18 @@ function Projects() {
                             </a>
                           </li>
                         ) : link.label === "Next &raquo;" ? (
-                          <li>
+                          <li key={key}>
                             <a
                               onClick={async () => {
                                 if (projects.next_page_url != null) {
-                                const response = await http.get(projects.next_page_url);
-                                setProjects(response.data);}
-                                else {
-                                    console.log("no more pages");
+                                  const response = await http.get(
+                                    projects.next_page_url
+                                  );
+                                  setProjects(response.data);
+                                } else {
+                                  console.log("no more pages");
                                 }
                               }}
-                              key={key}
                               className="flex items-center cursor-pointer justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             >
                               <span className="sr-only">Next</span>
@@ -439,13 +403,12 @@ function Projects() {
                             </a>
                           </li>
                         ) : (
-                          <li>
+                          <li key={key}>
                             <a
                               onClick={async () => {
                                 const response = await http.get(link.url);
                                 setProjects(response.data);
                               }}
-                              key={key}
                               className="flex cursor-pointer items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             >
                               {link.label}
@@ -457,28 +420,6 @@ function Projects() {
                   )
                 : console.log("Loading")
               : console.log("rr")}
-
-            {/* <li>
-              <a
-                href="#"
-                className="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              >
-                <span className="sr-only">Next</span>
-                <svg
-                  className="w-5 h-5"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </a>
-            </li> */}
           </ul>
         </nav>
       </div>
