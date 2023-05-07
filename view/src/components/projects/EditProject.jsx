@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 function EditProject() {
   const [validated, setValidated] = useState(false);
   const [file, setFile] = useState([]);
   const location = useLocation();
-  const [status, setStatus] = useState(['to Do', 'Doing', 'Done']);
+  const [status, setStatus] = useState(["to Do", "Doing", "Done"]);
   const [formu, setFormu] = useState({
     title: location.state.project.title,
     start_date: location.state.project.start_date,
@@ -32,20 +32,21 @@ function EditProject() {
     data.append("file", formu.file);
     data.append("title", formu.title);
     data.append("start_date", formu.start_date);
+    data.append("due_date", formu.due_date);
     data.append("end_date", formu.end_date);
     data.append("description", formu.description);
     data.append("status", formu.status);
-    data.append("due_date", formu.due_date);
     data.append("created_by", JSON.parse(localStorage.getItem("auth")).user.id);
     data.append("updated_by", JSON.parse(localStorage.getItem("auth")).user.id);
-
+    
     const http = axios.create({
       baseURL: "http://localhost:8000",
       headers: {
-        'Accept': "application/json",
-        'Content-Type': "application/json",
-        'Authorization': "Bearer " + JSON.parse(localStorage.getItem("auth")).token,
-        'content-type': "multipart/form-data",
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer " + JSON.parse(localStorage.getItem("auth")).token,
+        "content-type": "multipart/form-data",
       },
       withCredentials: true,
     });
@@ -66,6 +67,13 @@ function EditProject() {
       [e.target.name]: e.target.value,
     });
   };
+  const handleStatusChange = (e) => {
+    setFormu({
+      ...formu,
+      status: e.target.value,
+    });
+  };
+
   // const handleFileChange = (e) => {
   //   setFile(e.target.files[0]);
   //   console.log("e.target.files[0] =", e.target.files[0]);
@@ -77,15 +85,16 @@ function EditProject() {
   //   };
   // };
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-    console.log("e.target.files[0] =", selectedFile);
-    setFormu({
-      ...formu,
-      file: selectedFile,
-    });
+    setFile(e.target.files[0]);
+    console.log("e.target.files[0] =", e.target.files[0]);
+    if (file) {
+      setFormu({
+        ...formu,
+        file: e.target.files[0],
+      });
+    }
   };
-  
+
   useEffect(() => {
     setFormu({
       title: location.state.project.title,
@@ -246,11 +255,11 @@ function EditProject() {
                     name="status"
                     id="status"
                     className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    onChange={handleChange}
+                    onChange={handleStatusChange}
                     defaultValue={formu.status}
                   >
                     {status.map((st) => (
-                      <option key={st} value={st} >
+                      <option key={st} value={st}>
                         {st}
                       </option>
                     ))}

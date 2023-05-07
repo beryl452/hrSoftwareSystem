@@ -88,7 +88,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-<<<<<<< HEAD
         $this->authorize('update', $user);
         if($request->has('username') && $request->username != $user->username) {
             $fields = $request->validate([
@@ -152,9 +151,6 @@ class UserController extends Controller
             'user' => $user,
         ]), 201);
 
-=======
-        //
->>>>>>> 84d4aff060e3ed1090a70d0a294d7e93c4dc937a
     }
 
     /**
