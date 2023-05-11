@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->enum('status', ['to Do', 'Doing', 'Done']);
+            $table->enum('status', ['to Do', 'Doing', 'Done', 'Awaiting validation']);
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->dateTime('due_date')->nullable();

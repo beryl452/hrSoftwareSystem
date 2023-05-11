@@ -11,9 +11,11 @@ class TaskPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user): Response
     {
-        //
+        return ($user->role === 'Administrator' || $user->role === 'Task Manager' || $user->role ===  'Collaborator')
+            ? Response::allow()
+            : Response::deny('You are not allowed to view projects.');
     }
 
     /**
@@ -27,25 +29,31 @@ class TaskPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(User $user): Response
     {
-        //
+        return ($user->role === 'Administrator' || $user->role === 'Task Manager' || $user->role ===  'Collaborator')
+            ? Response::allow()
+            : Response::deny('You are not allowed to create task');
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Task $task): bool
+    public function update(User $user, Task $task): Response
     {
-        //
+        return ($user->role === 'Administrator' || $user->role === 'Task Manager' || $task->created_by === $user->id || $task->assigned_to === $user->id)
+            ? Response::allow()
+            : Response::deny('You are not allowed to update task');
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Task $task): bool
+    public function delete(User $user, Task $task): Response
     {
-        //
+        return ($user->role === 'Administrator' || $user->role === 'Task Manager' || $task->created_by === $user->id)
+            ? Response::allow()
+            : Response::deny('You are not allowed to delete task');
     }
 
     /**
@@ -63,4 +71,5 @@ class TaskPolicy
     {
         //
     }
+
 }

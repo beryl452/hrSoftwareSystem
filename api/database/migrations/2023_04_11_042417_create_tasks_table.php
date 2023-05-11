@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->enum('status', ['to Do', 'Doing', 'Done']);
+            $table->enum('status', ['to Do', 'Doing', 'Done', 'Awaiting validation']);
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->dateTime('due_date')->nullable();
             $table->foreignId('created_by')->references('id')->on('users');
             $table->foreignId('updated_by')->references('id')->on('users');
+            $table->foreignId('assigned_to')->references('id')->on('users');
             $table->string('file');
             $table->foreignId('project_id')->references('id')->on('projects');
             $table->timestamps();

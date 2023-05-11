@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import React from "react";
+import { Link , useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 
-function Projects({ className = "", ...props }) {
-  const [projects, setProjects] = React.useState({});
-  const navigate = useNavigate();
+function Tasks() {
   const [search, setSearch] = React.useState("");
+  const [tasks, setTasks] = React.useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [loading, setLoading] = React.useState(true);
   const auth = JSON.parse(localStorage.getItem("auth"));
   const http = axios.create({
     baseURL: "http://localhost:8000",
@@ -18,17 +18,22 @@ function Projects({ className = "", ...props }) {
     },
     withCredentials: true,
   });
-  async function viewProjects() {
-    const response = await http.get("/api/projects");
-    console.log(response.data);
-    setProjects(response.data);
-    console.log(projects);
-  }
-  useEffect(() => {
-    viewProjects();
+  React.useEffect(() => {
+    console.log("The Location State",location.state);
+    http
+      .get(`/api/projects/${location.state.project.id}`)
+      .then((res) => {
+        console.log("res.data");
+        console.log(res.data);
+        setTasks(res.data.tasks);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   return (
-    <div className={"lg:px-6 p-0 w-90vw " + className}>
+    <div className="lg:px-12 p-0 w-90vw sm:p-5">
       <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
         <div className="w-full flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
           <div className="w-full md:w-1/2">
@@ -60,13 +65,13 @@ function Projects({ className = "", ...props }) {
                   required=""
                   value={search}
                   onChange={async (e) => {
-                    setSearch(e.target.value);
-                    const url = "/api/projectsSearch/" + search;
-                    console.log("url =", url);
-                    const response = await http.get(url);
-                    console.log("search =", response.data);
-                    setProjects(response.data);
-                    console.log("seacdcdrch =", projects);
+                    // setSearch(e.target.value);
+                    // const url = "/api/projectsSearch/" + search;
+                    // console.log("url =", url);
+                    // const response = await http.get(url);
+                    // console.log("search =", response.data);
+                    // setTasks(response.data);
+                    // console.log("seacdcdrch =", projects);
                   }}
                 />
               </div>
@@ -95,9 +100,15 @@ function Projects({ className = "", ...props }) {
               </svg>
               Export
             </button>
-            <Link
-              to={"/project/create"}
-              className="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+            {console.log("location.state.project",location.state)}
+            <div
+              onClick={() => {
+                navigate(`/tasks/create`, {
+                  state: { project: location.state.project },
+                  replace: false,
+                });
+              }}
+              className="cursor-pointer flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
             >
               <svg
                 className="h-3.5 w-3.5 mr-2"
@@ -112,8 +123,8 @@ function Projects({ className = "", ...props }) {
                   d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
                 />
               </svg>
-              Add project
-            </Link>
+              Add Tasks
+            </div>
           </div>
         </div>
         <div className="overflow-x-auto">
@@ -136,7 +147,7 @@ function Projects({ className = "", ...props }) {
                   Status
                 </th>
                 <th scope="col" className="px-4 py-3">
-                  file
+                  File
                 </th>
                 <th scope="col" className="px-4 py-3">
                   <span className="sr-only">Actions</span>
@@ -144,62 +155,51 @@ function Projects({ className = "", ...props }) {
               </tr>
             </thead>
             <tbody>
-              {projects.data
-                ? projects.data.map((project, index) => (
-                    <tr
-                      key={index}
-                      className="border-b dark:border-gray-700 cursor-pointer"
-                      onClick={() => {
-                        navigate(
-                          "/project/" + project.id + "/tasks",
-                          { state: { project: project } },
-                          { replace: true }
-                        );
-                      }}
-                    >
+              {tasks.data
+                ? tasks.data.map((project, index) => (
+                    <tr key={index} className="border-b dark:border-gray-700">
                       <th
                         scope="row"
                         className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                       >
-                        {project.title} ... {project.id}
+                        {project.title}
                       </th>
                       <td className="px-4 py-3">{project.description}</td>
                       <td className="px-4 py-3">{project.start_date}</td>
                       <td className="px-4 py-3">{project.due_date}</td>
                       <td className="px-4 py-3">{project.status}</td>
-                      <td
-                        className="px-4 py-3 cursor-pointer"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          // http
-                          //   .get("/api/projectsDownload/" + project.id)
-                          //   .then((response) => {
-                          //     console.log(response);
-                          //   })
-                          //   .catch((error) => {
-                          //     console.log(error);
-                          //   });
-                          // Download file from "/api/projectsDownload/" + project.id
-
-                          http
-                            .get("/api/projectsDownload/" + project.id)
-                            .then((response) => {
-                              // console.log(response);
-                              const url = window.URL.createObjectURL(
-                                new Blob([response.data])
-                              );
-                              const link = document.createElement("a");
-                              link.href = url;
-                              link.setAttribute("download", project.file); //or any other extension
-                              document.body.appendChild(link);
-                              link.click();
-                            })
-                            .catch((error) => {
-                              console.log(error);
-                            });
-                        }}
+                      <td className="px-4 py-3 cursor-pointer"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            // http
+                            //   .get("/api/projectsDownload/" + project.id)
+                            //   .then((response) => {
+                            //     console.log(response);
+                            //   })
+                            //   .catch((error) => {
+                            //     console.log(error);
+                            //   });
+                            // Download file from "/api/projectsDownload/" + project.id
+  
+                            http
+                              .get("/api/tasksDownload/" + project.id)
+                              .then((response) => {
+                                // console.log(response);
+                                const url = window.URL.createObjectURL(
+                                  new Blob([response.data])
+                                );
+                                const link = document.createElement("a");
+                                link.href = url;
+                                link.setAttribute("download", project.file); //or any other extension
+                                document.body.appendChild(link);
+                                link.click();
+                              })
+                              .catch((error) => {
+                                console.log(error);
+                              });
+                          }}
                       >
-                        {project.file}
+                        {/* {project.file} */}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -223,6 +223,7 @@ function Projects({ className = "", ...props }) {
                           type="button"
                           onClick={(e) => {
                             e.stopPropagation();
+
                             [
                               ...document.getElementsByClassName("projects"),
                             ].forEach((element) => {
@@ -263,10 +264,9 @@ function Projects({ className = "", ...props }) {
                             </li>
                             <li>
                               <a
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  navigate(`/projects/edit`, {
-                                    state: { project: project },
+                                onClick={() => {
+                                  navigate(`/tasks/edit`, {
+                                    state: { task: project },
                                     replace: false,
                                   });
                                 }}
@@ -281,11 +281,11 @@ function Projects({ className = "", ...props }) {
                               onClick={async (event) => {
                                 event.preventDefault();
                                 const response = await http.delete(
-                                  "/api/projects/" + project.id
+                                  "/api/tasks/" + project.id
                                 );
                                 console.log(response);
                                 if (response.status === 200) {
-                                  alert("Project deleted successfully");
+                                  alert("Task deleted successfully");
                                   window.location.reload();
                                 }
                               }}
@@ -320,35 +320,30 @@ function Projects({ className = "", ...props }) {
           <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
             Showing
             <span className="font-semibold text-gray-900 dark:text-white">
-              {projects.data
-                ? " " + projects.from + " "
-                : console.log("loading")}{" "}
-              -{" "}
-              {projects.data
-                ? "  " + projects.to + " "
-                : console.log("loading")}
+              {tasks.data ? " " + tasks.from + " " : console.log("loading")} -{" "}
+              {tasks.data ? "  " + tasks.to + " " : console.log("loading")}
             </span>
             of
             <span className="font-semibold text-gray-900 dark:text-white">
-              {"  " + projects.total + "  "}
+              {"  " + tasks.total + "  "}
             </span>
           </span>
           <ul className="inline-flex items-stretch -space-x-px">
             {/*  */}
-            {projects.links
-              ? projects.links
-                ? projects.links.length > 3 && (
+            {tasks.links
+              ? tasks.links
+                ? tasks.links.length > 3 && (
                     <>
-                      {projects.links.map((link, key) =>
+                      {tasks.links.map((link, key) =>
                         link.label === "&laquo; Previous" ? (
                           <li key={key}>
                             <a
                               onClick={async () => {
-                                if (projects.prev_page_url != null) {
+                                if (tasks.prev_page_url != null) {
                                   const response = await http.get(
-                                    projects.prev_page_url
+                                    tasks.prev_page_url
                                   );
-                                  setProjects(response.data);
+                                  setTasks(response.data);
                                 } else {
                                   console.log("no more pages");
                                 }
@@ -375,11 +370,11 @@ function Projects({ className = "", ...props }) {
                           <li key={key}>
                             <a
                               onClick={async () => {
-                                if (projects.next_page_url != null) {
+                                if (tasks.next_page_url != null) {
                                   const response = await http.get(
-                                    projects.next_page_url
+                                    tasks.next_page_url
                                   );
-                                  setProjects(response.data);
+                                  setTasks(response.data);
                                 } else {
                                   console.log("no more pages");
                                 }
@@ -407,7 +402,7 @@ function Projects({ className = "", ...props }) {
                             <a
                               onClick={async () => {
                                 const response = await http.get(link.url);
-                                setProjects(response.data);
+                                setTasks(response.data);
                               }}
                               className="flex cursor-pointer items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                             >
@@ -426,5 +421,4 @@ function Projects({ className = "", ...props }) {
     </div>
   );
 }
-
-export default Projects;
+export default Tasks;
