@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 
 function EditUsers(props) {
   // Refs
   {console.log("useParams('userId') =", props)}
-  const navigate = useNavigate();
   const location = useLocation();
   const usernameRef = React.useRef();
   const firstnameRef = React.useRef();
@@ -69,7 +67,6 @@ function EditUsers(props) {
     })
       .then((response) => {
         console.log("response_Register =", response);
-        navigate('/users');
       })
       .catch((error) => {
         console.log("error_Register =", error);

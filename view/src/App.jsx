@@ -11,8 +11,7 @@ import Tasks from "./components/tasks/Tasks.jsx";
 import CreateTask from "./components/tasks/CreateTask.jsx";
 import EditTask from "./components/tasks/EditTask.jsx";
 import ErrorQuatreCentQuatre from "./pages/ErrorQuatreCentQuatre.jsx";
-import Users from "./components/dashboard/Users.jsx";
-import CreateProjects from "./components/project/CreateProject.jsx";
+
 
 function App() {
   return (
@@ -95,13 +94,6 @@ function App() {
           }
         />
         <Route path="*" element={<ErrorQuatreCentQuatre />} />
-        <Route path="/Projects/Create" element = {
-          <ProtectedRoute>
-            <CreateProjects />
-          </ProtectedRoute>
-          } 
-        />
-
       </Routes>
     </BrowserRouter>
   );

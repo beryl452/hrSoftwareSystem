@@ -22,8 +22,7 @@ class Task extends Model
         'updated_by',
         'assigned_to',
         'file',
-        'project_id',
-        'ponderation',
+        'project_id'
     ];
 
     public function project(): BelongsTo
@@ -54,11 +53,5 @@ class Task extends Model
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
-    }
-
-    //  relation between Task and Transfer
-    public function transfers()
-    {
-        return $this->hasMany(Transfer::class, 'task_id');
     }
 }

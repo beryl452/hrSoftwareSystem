@@ -23,11 +23,6 @@ return new class extends Migration
             $table->foreignId('updated_by')->references('id')->on('users');
             $table->foreignId('assigned_to')->references('id')->on('users');
             $table->string('file');
-            $table->integer('ponderation');
-            $table->boolean('acknowledgement')->default(false);
-            $table->dateTime('acknowledgement_date')->nullable();
-            $table->dateTime('cancelValidation')->nullable();
-            $table->dateTime('validation')->nullable();
             $table->foreignId('project_id')->references('id')->on('projects');
             $table->timestamps();
         });
