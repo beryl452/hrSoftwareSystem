@@ -20,7 +20,7 @@ class TaskController extends Controller
     {
         // $this->authorize('viewAny', Task::class);
         // return response(json_encode(Task::paginate(5)), 200);
-        if (auth()->user()->role == 'admin') {
+        if (auth()->user()->role == "Administrator") {
             return response(json_encode(Task::paginate(5)), 200);
         } else if (auth()->user()->role == 'Task Manager') {
             // Les tâches de son département
@@ -156,6 +156,12 @@ class TaskController extends Controller
         $this->authorize('delete', $task);
         $task->delete();
         return response(json_encode($task), 200);
+    }
+
+    public function search($search)
+    {
+        $this->authorize('viewAny', Task::class);
+        return response(json_encode(Task::Where('title', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . $search . '%')->paginate(5)), 200);
     }
 
     public function download(Task $task)

@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $this->authorize('viewAny', User::class);
-        return response(json_encode(User::all()), 200);
+        return response(json_encode(User::paginate(5)), 200);
     }
 
     /**
