@@ -6,10 +6,6 @@ function EditTask() {
   const [users, setUsers] = useState([]);
   const [validated, setValidated] = useState(false);
   const [file, setFile] = useState([]);
-  const header = {
-    Accept: "application/json",
-    Authorization: "Bearer " + JSON.parse(localStorage.getItem("auth")).token,
-  };
   const navigate = useNavigate();
   const [status, setStatus] = useState(["to Do", "Doing", "Done"]);
   const location = useLocation();
@@ -17,7 +13,6 @@ function EditTask() {
     title: location.state.task.title,
     start_date: location.state.task.start_date,
     due_date: location.state.task.due_date,
-    end_date: location.state.task.end_date,
     description: location.state.task.description,
     status: location.state.task.status,
     file: location.state.task.file,
@@ -27,7 +22,12 @@ function EditTask() {
 
   const http = axios.create({
     baseURL: "http://localhost:8000",
-    headers: header,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + JSON.parse(localStorage.getItem("auth")).token,
+      "content-type": "multipart/form-data",
+    },
     withCredentials: true,
   });
   const handleSubmit = (event) => {
@@ -37,29 +37,13 @@ function EditTask() {
       event.stopPropagation();
     }
     setValidated(true);
-    
-    header["Content-Type"]= "multipart/form-data";
-    const data = new FormData();
-    data.append("title", formu.title);
-    data.append("start_date", formu.start_date);
-    data.append("end_date", formu.end_date);
-    data.append("due_date", formu.due_date);
-    data.append("description", formu.description);
-    data.append("status", formu.status);
-    data.append("file", formu.file);
-    data.append("assign_to", formu.assign_to);
-    data.append("project_id", formu.project_id);
-    data.append("updated_by", JSON.parse(localStorage.getItem("auth")).user.id);
-    data.append("_method", "PUT");
-
-    console.log("data =", data);
     console.log("formSu =", formu);
 
     http
-      .post(`/api/tasks/${location.state.task.id}`, data)
+      .put(`/api/tasks/${location.state.task.id}`, formu)
       .then((response) => {
-        console.log("🔴🔴🔴 response =", response);
-        // navigate("/projects", { replace: true });
+        console.log("🔴🔴🔴 response =", formu, response);
+        navigate("/projects", { replace: true });
       })
       .catch((error) => {
         console.log("error =", error);
@@ -71,26 +55,16 @@ function EditTask() {
       [e.target.name]: e.target.value,
     });
   };
-  const handleStatusChange = (e) => {
-    setFormu({
-      ...formu,
-      status: e.target.value,
-    });
-  };
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-    console.log("selectedFile =", selectedFile);
-    if (selectedFile) {
-      setFormu((prevFormu) => ({
-        ...prevFormu,
-        file: selectedFile,
-      }));
+    if (file) {
+      setFormu({
+        ...formu,
+        file: e.target.files[0],
+      });
     }
   };
-  
+
   const collaborators = async () => {
-    header["Content-Type"] = "application/json";
     const response = await http.get("api/collaborators");
     console.log("response =", response.data);
     setUsers(response.data);
@@ -101,7 +75,6 @@ function EditTask() {
     setFormu({
       title: location.state.task.title,
       start_date: location.state.task.start_date,
-      end_date: location.state.task.end_date,
       due_date: location.state.task.due_date,
       description: location.state.task.description,
       file: location.state.task.file,
@@ -217,7 +190,7 @@ function EditTask() {
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="End Date"
                     required=""
-                    value={formu.end_date}
+                    value={formu.due_date}
                     onChange={handleChange}
                   />
                 </div>
@@ -284,7 +257,7 @@ function EditTask() {
                     name="status"
                     id="status"
                     className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    onChange={handleStatusChange}
+                    onChange={handleChange}
                     // defaultValue={formu.status}
                     value={formu.status}
                   >

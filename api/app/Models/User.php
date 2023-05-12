@@ -95,15 +95,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class, 'updated_by');
     }
-
-    public function transferedBy(): HasMany
-    {
-        return $this->hasMany(Transfer::class, 'transferedBy');
-    }
-
-    public function transferedTo(): HasMany
-    {
-        return $this->hasMany(Transfer::class, 'transferedTo');
-    }
-
 }

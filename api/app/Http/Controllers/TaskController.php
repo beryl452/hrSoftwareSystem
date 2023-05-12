@@ -49,9 +49,7 @@ class TaskController extends Controller
         }
         $request->merge(['created_by' => $request->user()->id]);
         $request->merge(['updated_by' => $request->user()->id]);
-        $request->merge(['assigned_to' => (int)$request["assigned_to"]]);
-        $request->merge(['project_id' => (int)$request->project_id]);
-        $request->merge(['ponderation' => (int)$request->ponderation]);
+        $request->merge(['assigned_to' => (int)$request->input("assign_to")]);
 
         // $request->merge(['project_id' => intval($request->project_id)]);
         $uploadedFile = $request->file('file');
@@ -71,10 +69,7 @@ class TaskController extends Controller
             'due_date' => 'nullable|date',
             'created_by' => 'required|integer|exists:users,id',
             'updated_by' => 'required|integer|exists:users,id',
-            // 'file' => 'nullable|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048',
-            // 'assigned_to' => 'required|integer|exists:users,id',
-            // 'project_id' => 'required|integer|exists:projects,id',
-            // 'ponderation' => 'required|integer|min:1|max:100',
+            'file' => 'nullable|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048'
         ]);
 
         $task = Task::create([
@@ -88,8 +83,7 @@ class TaskController extends Controller
             'updated_by' => $fields['updated_by'],
             'file' => $request['file_path'],
             'assigned_to' => $request['assigned_to'],
-            'project_id' => $request['project_id'],
-            'ponderation' => $request['ponderation'],
+            'project_id' => $request['project_id']
         ]);
         return response(json_encode($task), 200);
     }
@@ -122,9 +116,9 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        return response(json_encode($request->all()), 200);
+        // return response(json_encode($request->all()), 200);
         $this->authorize('update', $task);
-        // $request->merge(['end_date' => $request->due_date]);
+        $request->merge(['end_date' => $request->due_date]);
         $request->merge(['updated_by' => $request->user()->id]);
         $request->merge(['assigned_to' => (int)$request->input("assign_to")]);
 
@@ -139,30 +133,18 @@ class TaskController extends Controller
         }
 
         $fields = $request->validate([
-            'title' => 'nullable|string',
-            'description' => 'nullable|string',
-            // 'status' => 'nullable|in:to Do, Doing, Done',
-            'start_date' => 'nullable|date',
-            'end_date' => 'nullable|date',
+            'title' => 'required|string',
+            'description' => 'required|string',
+            // 'status' => 'required|in:to Do, Doing, Done',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
             'due_date' => 'nullable|date',
-            'created_by' => 'nullable|integer|exists:users,id',
-            'updated_by' => 'nullable|integer|exists:users,id',
+            'created_by' => 'required|integer|exists:users,id',
+            'updated_by' => 'required|integer|exists:users,id',
             //'file' => 'nullable|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048'
         ]);
 
-        $task->update([
-            'title' => $fields['title'],
-            'description' => $fields['description'],
-            'status' => $request['status'],
-            'start_date' => $fields['start_date'],
-            'end_date' => $fields['end_date'],
-            'due_date' => $fields['due_date'],
-            'created_by' => $task->created_by,
-            'updated_by' => $fields['updated_by'],
-            'file' => $request['file_path'],
-            'assigned_to' => $request['assigned_to'],
-            'project_id' => $request['project_id']
-        ]);
+        $task->update($request->all());
         return response(json_encode($task), 200);
     }
 

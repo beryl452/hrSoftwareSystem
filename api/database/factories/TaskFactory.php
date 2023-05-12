@@ -28,11 +28,6 @@ class TaskFactory extends Factory
             'file' => $this->faker->url(),
             'project_id' => $this->faker->numberBetween(1, 10),
             'assigned_to' => $this->faker->numberBetween(1, 10),
-            'ponderation' => $this->faker->numberBetween(1, 100),
-            'acknowledgement' => $this->faker->boolean(),
-            'acknowledgement_date' => $this->faker->dateTime(),
-            'cancelValidation' => $this->faker->dateTime(),
-            'validation' => $this->faker->dateTime(),
         ];
     }
 }
