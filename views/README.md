@@ -1,9 +1,38 @@
-## Installation
+# hrSoftwareSystem - Human Resource Software System
 
-You'll need to install Node.js >=v14.16+ (Recommended Version) (NPM comes along with it) and TailAdmin uses **Vite** for frontend tooling, to peform installation and building production version, please follow these steps from below:
+## Description
 
-- Then run : <code>npm install</code>
+This is a Human Resource Software System that is built with React, TailwindCSS, and Vite.
 
-- Then run : <code>npm run dev</code>
+## Requirements
 
-Now, in the browser go to <code>localhost:5173</code> or <code>localhost:5174</code> if another server running
+- nodejs >= 14.0.0
+- npm >= 6.0.0
+
+## Getting Started
+
+To get started, clone the repository and install the dependencies:
+
+Use code with caution. Learn more:
+
+```bash
+    git clone https://github.com/beryl452/hrSoftwareSystem.git
+    cd hrSoftwareSystem/views
+    npm install
+```
+
+Code snippet
+
+Once the dependencies are installed, you can start the development server:
+
+Use code with caution. Learn more
+
+```bash
+    npm run dev
+```
+
+The development server will start on port 5173. You can open your browser and visit <http://localhost:5173> to see the application.
+
+## Development
+
+To make changes to the application, open the src folder and edit the files as needed. Vite will automatically rebuild the application when you save your changes.
