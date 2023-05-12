@@ -131,20 +131,21 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        return response(json_encode($request->all()), 200);
         $this->authorize('update', $project);
 
         $request->merge(['created_by' => $request->user()->id]);
         $request->merge(['updated_by' => $request->user()->id]);
 
-        $uploadedFile = $request->file('file');
+         $uploadedFile = $request->file('file');
 
-        if ($uploadedFile != null) {
-            $filename = Str::uuid() . '.' . $uploadedFile->getClientOriginalExtension();
-            $path = Storage::putFile('ProjectsFiles', new File($uploadedFile, $filename));
-            $request->merge(['file' => $path]);
-        }
+         if ($uploadedFile != null) {
+             $filename = Str::uuid() . '.' . $uploadedFile->getClientOriginalExtension();
+             $path = Storage::putFile('ProjectsFiles', new File($uploadedFile, $filename));
+             $request->merge(['file_path' => $path]);
+         }
 
+         $request->merge(['file' => $request['file_path']]);
+        //  return response(json_encode([$request['file'], $request['file_path']]), 200);
         $fields = $request->validate([
             'title' => 'nullable|string',
             'description' => 'nullable|string',
@@ -157,7 +158,19 @@ class ProjectController extends Controller
             // 'file' => 'nullable|mimes:pdf,doc,docx,jpg,jpeg,png|max:2048'
         ]);
 
-        $project->update($request->all());
+        $project->update(
+            [
+                'title' => $fields['title'],
+                'description' => $fields['description'],
+                'status' => $request['status'],
+                'start_date' => $fields['start_date'],
+                'end_date' => $fields['end_date'],
+                'due_date' => $fields['due_date'],
+                'created_by' => $fields['created_by'],
+                'updated_by' => $fields['updated_by'],
+                'file' => $request['file_path'],
+            ]
+        );
 
         return response(json_encode($project), 200);
     }

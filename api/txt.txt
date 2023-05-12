@@ -1,0 +1,7922 @@
+    1  clear
+    2  ls -a
+    3  code .bashrc
+    4  ls
+    5  clear
+    6  sudo apt remove docker-desktop
+    7  rm -r $HOME/.docker/desktop
+    8  sudo apt install gnome-terminal
+    9  sudo apt-get update\n sudo apt-get install ./docker-desktop-<version>-<arch>.deb
+   10  cd Téléchargements
+   11  sudo apt install ./<file>.deb
+   12  ls
+   13  sudo apt install ./code-stable-x64-1662018655.tar.gz
+   14  tar xvzf ./code-stable-x64-1662018655.tar.gz
+   15  ls
+   16  cd  VSCode-linux-x64
+   17  ls
+   18  cd bin
+   19  ls
+   20  ./code
+   21  sudo apt update
+   22  sudo apt upgrade
+   23  clear
+   24  sudo apt dist-upgrade
+   25  sudo apt autoremove
+   26  sudo apt autoclear
+   27  sudo apt autoclean
+   28  clear
+   29  sudo apt-get dist-upgrade
+   30  sudo apt-get upgrade
+   31  sudo apt-get update
+   32  clear
+   33  code
+   34  cd Téléchargements
+   35  ls
+   36  clear
+   37  ls
+   38  sudo apt install ./code_1.71.0-1662018389_amd64.deb\n
+   39  sudo apt-get install wget gpg\nwget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg\nsudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg\nsudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'\nrm -f packages.microsoft.gpg
+   40  clear
+   41  sudo apt-get install wget gpg
+   42  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+   43  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+   44  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+   45  rm -f packages.microsoft.gpg
+   46  sudo apt install apt-transport-https\n
+   47  sudo apt update\n
+   48  sudo apt install code
+   49  clear
+   50  ls
+   51  rm -rf code_1.71.0-1662018389_amd64.deb
+   52  rm -rf 'Non confirmé 367896.crdownload'
+   53  clear
+   54  code
+   55  sudo apt-get remove code
+   56  rm -rf ~/.vscode
+   57  cd
+   58  rm -rf ~/.vscode
+   59  rm -rf $HOME/.config/Code
+   60  clear
+   61  cd Téléchargements
+   62  ls
+   63  sudo apt install ./code_1.71.0-1662018389_amd64.deb
+   64  code
+   65  clear
+   66  exit
+   67  cd Téléchargements
+   68  ls
+   69  code has_cycle.py
+   70  cd 
+   71  cd Téléchargements
+   72  clear
+   73  ./has_cycle.py
+   74  chmod a+x has_cycle.py
+   75  ./has_cycle.py
+   76  clear
+   77  ./has_cycle.py
+   78  clear
+   79  ./has_cycle.py
+   80  clear
+   81  ./has_cycle.py
+   82  cd
+   83  clear
+   84  cd Téléchargements
+   85  clear
+   86  ./has_cycle.py
+   87  clear
+   88  ./has_cycle.py
+   89  cd
+   90  clear
+   91  code .bashrc
+   92  python3
+   93  clear
+   94  ./lru-cache.py
+   95  clear
+   96  ls
+   97  cd LinkedList
+   98  clear
+   99  ./lru-cache.py
+  100  clear
+  101  ./lru-cache.py
+  102  clear
+  103  ./lru-cache.py
+  104  clear
+  105  ./lru-cache.py
+  106  clear
+  107  ./lru-cache.py
+  108  clear
+  109  cd 
+  110  ls -a
+  111  cd../
+  112  cd
+  113  clear
+  114  cd
+  115  clear
+  116  cd Documents
+  117  clear
+  118  cd LeetCode
+  119  code .
+  120  exit
+  121  ./lru-cache.py
+  122  clear
+  123  cd LinkedList
+  124  clear
+  125  ./lru-cache.py
+  126  clear
+  127  ./lru-cache.py
+  128  clear
+  129  ./lru-cache.py
+  130  clear
+  131  cd LinkedList/
+  132  clear
+  133  ./lru-cache.py
+  134  clear
+  135  ./lru-cache.py
+  136  python3
+  137  clear
+  138  python3
+  139  clear
+  140  python3
+  141  cd Documents/alx_GithubToken
+  142  cdat alx_GithubToken.md
+  143  cat alx_GithubToken.md
+  144  cd
+  145  clear
+  146  cd Documents
+  147  ls
+  148  mkdir AlxMonty
+  149  cd AlxMonty
+  150  git clone git://github.com/sickill/stderred.git
+  151  CLEAR
+  152  clear
+  153  git clone https://github.com/sickill/stderred.git
+  154  cd
+  155  clear
+  156  cd Documents && ls
+  157  cd LeetCode
+  158  clear
+  159  ls
+  160  clear
+  161  code LinkedList
+  162  code .
+  163  ./createPythonFile.py lru-cache.py
+  164  code lru-cache.py
+  165  ls
+  166  clear
+  167  ./lru-cache.py
+  168  /bin/python3.10 -m pip install -U autopep8
+  169  python3
+  170  clear
+  171  python3
+  172  clear
+  173  ./lru-cache.py
+  174  cd
+  175  clear
+  176  cd Téléchargements
+  177  ls
+  178  sudo apt-get install ./docker-desktop-4.12.0-amd64.deb
+  179  sudo apt-get update\n&&  sudo apt-get install \\n    ca-certificates \\n    curl \\n    gnupg \\n    lsb-release
+  180  sudo apt-get update\n&  sudo apt-get install \\n    ca-certificates \\n    curl \\n    gnupg \\n    lsb-release
+  181  sudo apt-get install \\n    ca-certificates \\n    curl \\n    gnupg \\n    lsb-release
+  182  sudo mkdir -p /etc/apt/keyrings\n curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  183  sudo mkdir -p /etc/apt/keyrings
+  184  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  185  rm -r $HOME/.docker/desktop
+  186  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg\n
+  187  echo \\n  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \\n  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  188  sudo apt-get update
+  189  cd
+  190  sudo dpkg --configure -a ; sudo apt-get install -fy ; sudo apt-get autoclean ; sudo apt-get autoremove --purge -y ; sudo apt update ; sudo apt full-upgrade -y\n
+  191  cd Téléchargements
+  192  ls
+  193  sudo apt-get install docker-desktop-4.12.0-amd64.deb
+  194  sudo apt-get install ./docker-desktop-4.12.0-amd64.deb
+  195  sudo apt-get install docker-ce-cli
+  196  sudo apt install docker-ce-cli
+  197  clear
+  198  sudo apt-get install ./docker-desktop-4.12.0-amd64.deb
+  199  sudo apt install ./docker-desktop-4.12.0-amd64.deb
+  200  sudo apt clean && sudo apt update && sudo apt install -fy\n
+  201  sudo apt autoremove
+  202  cd
+  203  clear
+  204  sudo rm /usr/local/bin/com.docker.cli\n
+  205  clear
+  206  sudo apt-get install \\n    ca-certificates \\n    curl \\n    gnupg \\n    lsb-release
+  207  sudo mkdir -p /etc/apt/keyrings\n
+  208  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  209  cd etc/apt/keyrings
+  210  cd /etc/apt/keyrings
+  211  rm -rf docker.gpg
+  212  sudo rm -rf docker.gpg
+  213  cd
+  214  clear
+  215  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  216  sudo apt-get update
+  217  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin\n
+  218  which docker
+  219  sudo apt remove docker docker-engine
+  220  clear
+  221  sudo apt update\n
+  222  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+  223  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  224  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+  225  sudo apt update
+  226  apt-cache policy docker-ce
+  227  sudo apt install docker-ce
+  228  sudo apt-get update
+  229  sudo apt install --fix-missing docker-ce
+  230  cd Téléchargements
+  231  sudo apt install ./docker-desktop-4.12.0-amd64.deb
+  232  sudo apt update
+  233  sudo apt-get upgrade
+  234  sudo apt autoremove
+  235  sudo apt autoclean
+  236  sudo apt-get update
+  237  sudo apt-get --fix-missing updaten
+  238  sudo apt-get --fix-missing update
+  239  clear
+  240  sudo service docker start
+  241  sudo usermod -aG docker ${USER}
+  242  su - ${USER}
+  243  id -nG
+  244  sudo usermod -aG docker username
+  245  sudo systemctl enable docker.service
+  246  sudo systemctl disable containerd.service
+  247  cd
+  248  ls
+  249  cd foo
+  250  code .devcontainer.json
+  251  cd foo
+  252  devcontainer open .
+  253  cd Documents/alx_GithubToken
+  254  cat alx_GithubToken.md
+  255  python3
+  256  exit
+  257  python3
+  258  exit
+  259  cd Documents
+  260  touch main.c
+  261  code main.c
+  262  cd Documents
+  263  gcc main.c -o main
+  264  clear
+  265  gcc main.c -o main
+  266  ./main
+  267  cd
+  268  cd foo
+  269  devcontainer open .
+  270  cd
+  271  cd Documents/alx_GithubToken
+  272  cat alx_GithubToken.md
+  273  cd
+  274  cd foo
+  275  devcontainer open .
+  276  cd
+  277  cd Documents/alx_GithubToken
+  278  cat alx_GithubToken.md
+  279  cd
+  280  clear
+  281  sudo apt update
+  282  sudo apt-get update
+  283  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+  284  deb https://nvidia.github.io/nvidia-docker/ubuntu18.04/amd64 /
+  285  clear
+  286  sudo apt update
+  287  sudo apt upgrade
+  288  sudo apt update
+  289  sudo apt --fix-missing upgrade
+  290  sudo apt update
+  291  sudo apt --fix-missing upgrade
+  292  sudo apt autoremove
+  293  sudo apt autoclean
+  294  clear
+  295  sudo apt --fix-missing update
+  296  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+  297  clear
+  298  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  299  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  300  sudo apt-get update
+  301  apt-cache policy docker-ce
+  302  sudo apt-get install -y docker-ce
+  303  clear
+  304  sudo apt update
+  305  sudo apt-get update
+  306  sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
+  307  sudo rm -rf /var/lib/docker
+  308  sudo rm -rf /var/lib/containerd
+  309  sudo apt update
+  310  code /etc/apt/sources.list
+  311  code /etc/apt/sources.list.d/docker.list
+  312  clear
+  313  sudo apt update
+  314  sudo apt upgrade
+  315  sudo apt autoremove
+  316  clear
+  317  sudo apt-get update
+  318  sudo apt-get install \\n    ca-certificates \\n    curl \\n    gnupg \\n    lsb-release
+  319  cd /etc/apt/keyrings
+  320  ls
+  321  rm -rf docker.gpg
+  322  sudo rm -rf docker.gpg
+  323  clear
+  324  echo \\n  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \\n  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  325  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+  326  clear
+  327  cd /etc/apt/keyrings
+  328  rm -rf docker.gpg
+  329  sudo rm -rf docker.gpg
+  330  clear
+  331  sudo apt update
+  332  clear
+  333  sudo apt autoremove
+  334  sudo apt autoclear
+  335  sudo apt dist-upgrade
+  336  clear
+  337  sudo apt update
+  338  sudo apt-get install -y docker.io
+  339  sudo apt update
+  340  sudo apt autoremove
+  341  sudo apt update
+  342  sudo apt upgrade
+  343  sudo apt dist-upgrade
+  344  sudo apt autoremove
+  345  sudo apt install update-manager-core
+  346  sudo do-release-upgrade -d
+  347  lsb_release -a
+  348  clear
+  349  cd
+  350  clear
+  351  sudo apt update
+  352  sudo apt --fix-missing update
+  353  sudo apt --fix-missing upgrade
+  354  clear
+  355  cd Téléchargements
+  356  ls
+  357  sudo apt-get install ./docker-desktop-4.12.0-amd64.deb
+  358  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+  359  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  360  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  361  sudo apt update
+  362  apt-cache policy docker-ce
+  363  sudo apt install docker-ce
+  364  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  365  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+  366  sudo apt update
+  367  clear
+  368  cd
+  369  cd Documents/alx_GithubToken
+  370  cat alx_GithubToken.md
+  371  cd
+  372  clear
+  373  cd Documents/LeetCode/LinkedList/
+  374  code .
+  375  cd
+  376  clear
+  377  sudo apt-get install \\n    ca-certificates \\n    curl \\n    gnupg \\n    lsb-release
+  378  echo \\n  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \\n  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  379  sudo apt update
+  380  cd Téléchargements
+  381  ls
+  382  sudo apt install ./docker-desktop-4.12.0-amd64.deb
+  383  cd
+  384  code .
+  385  cat history
+  386  history
+  387  cd
+  388  clear
+  389  sudo apt autoremove
+  390  sudo dpkg --configure -a
+  391  sudo apt autoremove
+  392  clear
+  393  cd foo
+  394  ls
+  395  ls -a
+  396  cat history
+  397  history
+  398  clear
+  399  devcontainer open .
+  400  code .
+  401  devcontainer open .
+  402  cd
+  403  cd Documents/LeetCode/LinkedList
+  404  code .
+  405  python3
+  406  cd
+  407  python3
+  408  clear
+  409  cd Téléchargements
+  410  ls
+  411  sudo apt install ./discord-0.0.19.deb
+  412  clear
+  413  exit
+  414  ls
+  415  mkdir LeetCode
+  416  cd LeetCode
+  417  clear
+  418  cd
+  419  cd Documents/Linked_list
+  420  ls
+  421  cd LeetCode/LinkedList/
+  422  ls
+  423  cp createPythonFile.py /LeetCode/createPythonFile.py
+  424  cp createPythonFile.py /LeetCode/
+  425  mv createPythonFile.py /LeetCode/createPythonFile.py
+  426  exit
+  427  code LeetCode
+  428  mkdir CS50
+  429  cd CS50
+  430  cd CS50p
+  431  mkdir CS50p
+  432  cd CS50p
+  433  git clone https://github.com/code50/81816367.git
+  434  cd Documents/alxProject/alx_GithubToken
+  435  cat alx_GithubToken.md
+  436  ls -a
+  437  cd 81816367
+  438  ls -a
+  439  rm -rf .
+  440  cd ..
+  441  rm -rf 81816367
+  442  git clone https://github.com/code50/81816367.git
+  443  cat alx_GithubToken.md
+  444  cd 81816367
+  445  ls -a
+  446  python3
+  447  exit
+  448  cd Documents/alxProject/alx_GithubToken
+  449  cat alx_GithubToken.md
+  450  vi alx_GithubToken.md
+  451  code alx_GithubToken.md
+  452  cd Documents/alxProject/alx_GithubToken
+  453  cat alx_GithubToken.md
+  454  ls
+  455  LeetCode/
+  456  ls
+  457  cd
+  458  cd CS50
+  459  code .
+  460  ls
+  461  cd
+  462  cd ..
+  463  LS
+  464  ls
+  465  cd ..
+  466  LS
+  467  ls
+  468  cd ~
+  469  ls
+  470  cd Documents
+  471  ls
+  472  cd LeetCode/LinkedList/
+  473  code .
+  474  ls
+  475  ./lru-cache.py
+  476  clear
+  477  exit
+  478  cd
+  479  cd Documents/alxProject/alx_GithubToken
+  480  cat alx_GithubToken.md
+  481  cd
+  482  cd Documents
+  483  cd LeetCode/LinkedList
+  484  code .
+  485  exit
+  486  ./lru-cache.py
+  487  python3
+  488  clear
+  489  ls
+  490  cd Documents
+  491  ls
+  492  touch testProperty.py
+  493  chmod a+x testProperty.py
+  494  code testProperty.py
+  495  cd Documents
+  496  clear
+  497  ./testProperty.py
+  498  clear
+  499  ./testProperty.py
+  500  clear
+  501  ./testProperty.py
+  502  clear
+  503  ls
+  504  code testProperty.py
+  505  /bin/python3.10 /home/bryl07/Documents/testProperty.py
+  506  ls -a
+  507  clear
+  508  touch testProperty.py
+  509  chmod a+X testProperty.py
+  510  code testProperty.py
+  511  code test_property.py
+  512  chmod a+x test_property
+  513  chmod a+x test_property.py
+  514  clear
+  515  ls
+  516  code test
+  517  ls
+  518  code testProperty.py
+  519  cd Documents
+  520  ls
+  521  ./test_property.py
+  522  code pieceAFournies.md
+  523  cd
+  524  clear
+  525  code
+  526  exit
+  527  cd Documents
+  528  ls
+  529  vi presentationEnglish.md
+  530  code presentationEnglish.md
+  531  ls -a
+  532  rm -rf presentationEnglish.md
+  533  ls
+  534  clear
+  535  ls -a
+  536  cd
+  537  ls
+  538  cd CS50
+  539  ls
+  540  cd CS50p
+  541  ls
+  542  cd 81816367/
+  543  clear
+  544  code .
+  545  cd
+  546  ls
+  547  cd Documents
+  548  ls
+  549  cd VSCodeProjects/laravelProjects/
+  550  ls
+  551  cd schoolProjectManager
+  552  ls
+  553  cd schoolProjectManager
+  554  php artisan serve
+  555  npm run dev
+  556  ls
+  557  cd LeetCode/LinkedList
+  558  code .
+  559  ./fanagram.py
+  560  chmod a+x fanagram.py
+  561  ./fanagram.py
+  562  ./fanagram.py 3 4
+  563  python3 --version
+  564  sudo apt update && sudo apt upgrade\n
+  565  sudo apt install software-properties-common -y\n
+  566  sudo add-apt-repository ppa:deadsnakes/ppa -y\n
+  567  sudo apt update\n
+  568  sudo apt install python3.10 -y\n
+  569  python3.10 --version\n
+  570  sudo apt install python3.10-dev -y\n
+  571  python3.10
+  572  python 3 --version
+  573  python3 --version
+  574  clear
+  575  ls -a
+  576  sudo apt install 'discord-0.0.20(1).deb'\n
+  577  sudo apt install discord-0.0.20.deb\n
+  578  sudo apt-get install discord-0.0.20.deb\n
+  579  sudo apt-get install ./discord-0.0.20.deb\n
+  580  CD Documents/Serena_/test
+  581  cd Documents/Serena_/test
+  582  clear
+  583  php -S localhost:8080
+  584  code CS50/CS50p/81816367
+  585  php -S localhost:8080
+  586  cd Téléchargements
+  587  ./main_valid_parenthese.py
+  588  chmod a+x main_valid_parenthese.py
+  589  ./main_valid_parenthese.py
+  590  ./main_valid_parenthese.py "({])"
+  591  ./main_valid_parenthese.py "([{}])"
+  592  cd Téléchargements/
+  593  ls -a
+  594  code 'Le manuel PHP.pdf'
+  595  chrome
+  596  firefox 'Le manuel PHP.pdf'
+  597  clear
+  598  ls
+  599  rm -rf Exercices
+  600  clear
+  601  ls -a
+  602  mkdir 1
+  603  cd 1
+  604  code 1
+  605  code .
+  606  touch index.php
+  607  php -S localhost:8080
+  608  cd
+  609  ls -a
+  610  mkdir codingInterview
+  611  cd codingInterview
+  612  code payFit1.py
+  613  ls
+  614  cd codingInterview
+  615  code .
+  616  cd
+  617  ls
+  618  cd Documents
+  619  ls
+  620  cd alxProject
+  621  ls
+  622  cat alx
+  623  cat alx_GithubToken
+  624  cd alx_GithubToken
+  625  cat alx_GithubToken.md
+  626  cd
+  627  clear
+  628  cd Téléchargements/
+  629  ls
+  630  sudo apt-get install ./code_1.71.2-1663191218_amd64.deb
+  631  cd Documents/
+  632  cd VSCodeProjects
+  633  git clone https://github.com/beryl452/CrudUsingOopInPhp.git
+  634  clear
+  635  cd
+  636  ls
+  637  cd Documents
+  638  ls
+  639  cd Serena_
+  640  ls
+  641  cd 1
+  642  code .
+  643  clear
+  644  php -S 127.0.0.1:8080
+  645  code .
+  646  code index.php
+  647  cd
+  648  ùexit
+  649  exit
+  650  clear
+  651  ls
+  652  code ./codingInterview
+  653  ls
+  654  chmod a+x 1.py
+  655  clear
+  656  ./1.py
+  657  clear
+  658  ./1.py
+  659  clear
+  660  ./1.py
+  661  clear
+  662  ./1.py
+  663  clear
+  664  ./1.py
+  665  clear
+  666  ./1.py
+  667  clear
+  668  ./1.py
+  669  clear
+  670  ./1.py
+  671  clear
+  672  ./1.py
+  673  clear
+  674  ./1.py
+  675  python3.10
+  676  clear
+  677  ./1.py
+  678  clear
+  679  ./1.py
+  680  clear
+  681  ./1.py
+  682  clear
+  683  ./1.py
+  684  clear
+  685  ./1.py
+  686  clear
+  687  ./1.py
+  688  clear
+  689  ./1.py
+  690  clear
+  691  ./1.py
+  692  clear
+  693  ./1.py
+  694  ls
+  695  code codingInterview
+  696  exit
+  697  ./1.py
+  698  clear
+  699  ./1.py
+  700  clear
+  701  ./1.py
+  702  clear
+  703  ./1.py
+  704  clear
+  705  ./1.py
+  706  clear
+  707  ./1.py
+  708  clear
+  709  ./1.py
+  710  clear
+  711  ./1.py
+  712  clear
+  713  ./1.py
+  714  cd Documents
+  715  ls
+  716  code Serena_
+  717  cd Serena_
+  718  ls 
+  719  mkdir 2
+  720  cd Serena
+  721  cd 2
+  722  code .
+  723  touch index.php
+  724  code index.php
+  725  cd ..
+  726  cd 1
+  727  ls 
+  728  code index.php
+  729  clear
+  730  cd ../2
+  731  clear
+  732  php -S 127.0.0.1:8000
+  733  cd
+  734  clear
+  735  ls
+  736  cd Documents
+  737  ls
+  738  cd VSCodeProjects
+  739  ls
+  740  code CrudUsingOopInPhp
+  741  clear
+  742  touch index1.php
+  743  code index1.php
+  744  php -S 127.0.0.1:8000
+  745  mv index.php ../
+  746  cd ../
+  747  ls
+  748  cd 2
+  749  php -S 127.0.0.1:8000
+  750  cd
+  751  ls
+  752  cd CS50
+  753  clear
+  754  ls
+  755  cd CS50p
+  756  cd 81816367
+  757  ls
+  758  cd emojize
+  759  code .
+  760  cd ../
+  761  cd faces
+  762  code .
+  763  code 2
+  764  clear
+  765  php -S 127.0.0.1:8000
+  766  cd ../
+  767  clear
+  768  cd 1
+  769  cd ../
+  770  clear
+  771  code index.php
+  772  php -S 127.0.0.1:8000
+  773  clear
+  774  ./1.py
+  775  clear
+  776  ./1.py
+  777  clear
+  778  ./1.py
+  779  ./1_optimisation.py
+  780  clear
+  781  chmod a+x 1_optimisation.py
+  782  clear
+  783  ./1
+  784  ./1_optimisation.py
+  785  clear
+  786  ./1_optimisation.py
+  787  clear
+  788  ./1_optimisation.py
+  789  clear
+  790  ./1_optimisation.py
+  791  clear
+  792  ./1_optimisation.py
+  793  clear
+  794  ./findSuperstar.py
+  795  python3.10
+  796  cd
+  797  clear
+  798  cd Documents/alxProject/alx_GithubToken
+  799  cat alx_GithubToken.md
+  800  cd
+  801  cd Téléchargements
+  802  ls
+  803  cd
+  804  clear
+  805  cd Documents
+  806  cd Serena_
+  807  mkdir 3
+  808  cd 3
+  809  clear
+  810  code .
+  811  php -S 127.0.0.1:8080
+  812  clear
+  813  mysql -u root -p
+  814  clear
+  815  cd
+  816  clear
+  817  code codingInterview
+  818  clear
+  819  ./findSuperstar.py
+  820  clear
+  821  ./findSuperstar.py
+  822  clear
+  823  ./findSuperstar.py
+  824  clear
+  825  ./findSuperstar.py
+  826  clear
+  827  ./findSuperstar.py
+  828  clear
+  829  ./findSuperstar.py
+  830  ls
+  831  cd Documents/VSCodeProjects
+  832  ls
+  833  code CrudUsingOopInPhp
+  834  exit
+  835  cd Documents/Serena_/3
+  836  code .
+  837  cd
+  838  clear
+  839  cd codingInterview
+  840  code .
+  841  clear
+  842  ./findSuperstar.py
+  843  python3.10
+  844  clear
+  845  python3.10
+  846  clear
+  847  ./findSuperstar.py
+  848  clear
+  849  ./findSuperstar.py
+  850  clear
+  851  ./findSuperstar.py
+  852  clear
+  853  ./findSuperstar.py
+  854  clear
+  855  ./findSuperstar.py
+  856  clear
+  857  ./findSuperstar.py
+  858  clear
+  859  ./findSuperstar.py
+  860  clear
+  861  ./findSuperstar.py
+  862  clear
+  863  ./findSuperstar.py
+  864  clear
+  865  ./findSuperstar.py
+  866  clear
+  867  ./findSuperstar.py
+  868  clear
+  869  ./findSuperstar.py
+  870  clear
+  871  ./findSuperstar.py
+  872  clear
+  873  ./findSuperstar.py
+  874  clear
+  875  ./findSuperstar.py
+  876  clear
+  877  ./findSuperstar.py
+  878  clear
+  879  ./findSuperstar.py
+  880  ./findSuperstar0.py
+  881  clear
+  882  ./findSuperstar0.py
+  883  clear
+  884  ./findSuperstar0.py
+  885  cd Serena_/
+  886  cd 3
+  887  code .
+  888  cd ../
+  889  mv 3 ./3_
+  890  ls
+  891  mkdir 3
+  892  clear
+  893  cd
+  894  mysql -u root -p
+  895  cd Documents/VSCodeProjects/
+  896  ls
+  897  laravelProjects/schoolProjectManager
+  898  LS
+  899  ls
+  900  cd schoolProjectManager
+  901  npm run dev
+  902  php artisan serve
+  903  npm run dev
+  904  php artisan serve
+  905  cd ../
+  906  composer create project laravel\laravel test
+  907  clear
+  908  ls
+  909  cd 3
+  910  clear
+  911  code .
+  912  touch index.html
+  913  touch index.php
+  914  php -S 127.0.0.1:8080
+  915  cd ../
+  916  ls
+  917  cd 2
+  918  ls
+  919  code index.php
+  920  cd ../
+  921  code index.php
+  922  cd
+  923  clear
+  924  cd codingInterview
+  925  ls
+  926  code findSuperStart
+  927  ./findSuperstar.py
+  928  clear
+  929  ./findSuperstar.py
+  930  clear
+  931  ./findSuperstar.py
+  932  clear
+  933  ./findSuperstar.py
+  934  clear
+  935  ./findSuperstar.py
+  936  clear
+  937  ./findSuperstar.py
+  938  clear
+  939  ./findSuperstar.py
+  940  code findSuperStart
+  941  ./findSuperstar.py
+  942  clear
+  943  ./findSuperstar.py
+  944  clear
+  945  ./findSuperstar0.py
+  946  ./findSuperstar.py
+  947  clear
+  948  chmod a+x ./findSuperstar.py
+  949  clear
+  950  ./findSuperstar
+  951  clear
+  952  ./findSuperstar.py
+  953  code findSuperStart
+  954  cd ..
+  955  LS
+  956  ls
+  957  touch expoz.txt
+  958  nano expoz.txt
+  959  cat expoz.txt
+  960  ls
+  961  cd codingInterview
+  962  clear
+  963  code findSuperStart
+  964  cd
+  965  cd Documents/CheatSheet-vim
+  966  ls -a
+  967  cd ../
+  968  cd CheatSheet-Python
+  969  ls
+  970  evince CheatSheet-Python-1_-Keywords1.pdf
+  971  ./findSuperstar.py
+  972  clear
+  973  ./findSuperstar.py
+  974  clear
+  975  ./findSuperstar.py
+  976  clear
+  977  ./findSuperstar.py
+  978  clear
+  979  ./findSuperstar.py
+  980  cd
+  981  cd documents
+  982  cd Documents
+  983  ls
+  984  cd Serena_
+  985  mkdir 4
+  986  code .
+  987  code 4
+  988  exit
+  989  touch index.php
+  990  touch index.html
+  991  clear
+  992  cd
+  993  ls
+  994  cd LeetCode
+  995  *
+  996  ls
+  997  code main_valid_parenthese.py
+  998  clear
+  999  cd
+ 1000  clear
+ 1001  cd Documents/Serena_/4
+ 1002  clear
+ 1003  php -s 127.0.0.1:8000
+ 1004  php -S 127.0.0.1:8080
+ 1005  clear
+ 1006  cd codingInterview
+ 1007  code findSuperStart
+ 1008  exit
+ 1009  clear
+ 1010  ./findSuperstar.py
+ 1011  clear
+ 1012  ./findSuperstar.py
+ 1013  clear
+ 1014  ./findSuperstar.py
+ 1015  clear
+ 1016  ./findSuperstar.py
+ 1017  clear
+ 1018  ./findSuperstar.py
+ 1019  clear
+ 1020  ./findSuperstar.py
+ 1021  clear
+ 1022  ./findSuperstar
+ 1023  ./findSuperstar.py
+ 1024  clear
+ 1025  ./findSuperstar.py
+ 1026  clear
+ 1027  ./findSuperstar.py
+ 1028  clear
+ 1029  ./findSuperstar.py
+ 1030  clear
+ 1031  ./findSuperstar1.py
+ 1032  chmod a+x findSuperstar1.py
+ 1033  ./findSuperstar1.py
+ 1034  ls
+ 1035  cd Documents
+ 1036  ls
+ 1037  mkdir Python
+ 1038  mv test_property.py testProperty.py __pycache__ ./Python
+ 1039  ls
+ 1040  code Python
+ 1041  exit
+ 1042  ls
+ 1043  ./createPythonFile.py nationalDutchFlag.py
+ 1044  ls
+ 1045  code nationalDutchFlag.py
+ 1046  mkdir sorted_color
+ 1047  mv nationalDutchFlag.py ./sorted_color
+ 1048  clear
+ 1049  ls
+ 1050  cd Documents
+ 1051  ls
+ 1052  cd LeetCode
+ 1053  ls
+ 1054  cd
+ 1055  ls
+ 1056  cd LeetCode
+ 1057  ls
+ 1058  code sorted_color
+ 1059  ls
+ 1060  ./nationalDutchFlag.py [0,0,1,2,1,0,1]
+ 1061  ./nationalDutchFlag.py "[0,0,1,2,1,0,1]"
+ 1062  clear
+ 1063  ./nationalDutchFlag.py [0,0,1,2,1,0,1]
+ 1064  ./nationalDutchFlag.py "[0,0,1,2,1,0,1]"
+ 1065  clear
+ 1066  ./nationalDutchFlag.py "[0,0,1,2,1,0,1]"
+ 1067  clear
+ 1068  ./nationalDutchFlag.py
+ 1069  clear
+ 1070  ./nationalDutchFlag.py
+ 1071  clear
+ 1072  ./nationalDutchFlag.py
+ 1073  ./nationalDutchFlag.py "[0,0,1,2,1,0,1]"
+ 1074  chmod a+x sorted_color.py
+ 1075  clear
+ 1076  ./sorted_color.py
+ 1077  clear
+ 1078  ./sorted_color.py
+ 1079  clear
+ 1080  ./sorted_color.py
+ 1081  clear
+ 1082  ./sorted_color.py
+ 1083  /bin/python3.10 /home/bryl07/LeetCode/sorted_color/nationalDutchFlag.py
+ 1084  cd
+ 1085  clear
+ 1086  ls
+ 1087  cd Documents/Serena_
+ 1088  ls
+ 1089  mkdir 5
+ 1090  code 5
+ 1091  exit
+ 1092  cd ../4
+ 1093  ls
+ 1094  code index.php
+ 1095  code index.html
+ 1096  clear
+ 1097  php -S 127.0.0.1:8080
+ 1098  clear
+ 1099  cd ../5
+ 1100  clear
+ 1101  mysql -u root -p
+ 1102  clear
+ 1103  cd ../4
+ 1104  ls
+ 1105  code index.h
+ 1106  code index.html
+ 1107  code index.php
+ 1108  php -S 127.0.0.1:8000
+ 1109  clear
+ 1110  ls
+ 1111  rm -rf index.html
+ 1112  clear
+ 1113  code .
+ 1114  clear
+ 1115  touch index.html
+ 1116  code index.html
+ 1117  php -S 127.0.0.1:8000
+ 1118  clear
+ 1119  mysql -u root -p
+ 1120  clear
+ 1121  mysql -u root -p
+ 1122  clear
+ 1123  mysql -u root -p
+ 1124  clear
+ 1125  mysql -u root -p
+ 1126  cd 5
+ 1127  php -S 127.0.0.1:8080
+ 1128  clear
+ 1129  ./nationalDutchFlag.py
+ 1130  cd Documents/alxProject
+ 1131  cat alx_GithubToken
+ 1132  cd alx_GithubToken
+ 1133  cat alx_GithubToken.md
+ 1134  cd
+ 1135  cd LeetCode
+ 1136  ls
+ 1137  mkdir valid_anagram
+ 1138  cd valid_anagram
+ 1139  code .
+ 1140  cd
+ 1141  clear
+ 1142  cd codingInterview
+ 1143  code findSuperStart
+ 1144  sudo apt-get install p7zip*\n
+ 1145  clear
+ 1146  sudo apt-get update
+ 1147  sudo apt-get install oneko
+ 1148  python3.10
+ 1149  cd LeetCode
+ 1150  ls
+ 1151  cd LinkedList
+ 1152  ls
+ 1153  lfu-cache.txt
+ 1154  code lfu-cache.txt
+ 1155  cd LeetCode/LinkedList/
+ 1156  ls
+ 1157  code createPythonFile.py
+ 1158  ./createPythonFile.py lfu-cache.py
+ 1159  code lfu-cache.py
+ 1160  clear
+ 1161  ls
+ 1162  ./fanagram.py papa apap
+ 1163  ./fanagram.py
+ 1164  ./fanagram.py papa apap
+ 1165  clear
+ 1166  code fanagram.py
+ 1167  ./fanagram.py papa apap
+ 1168  clear
+ 1169  ls
+ 1170  cd
+ 1171  ls
+ 1172  cd LeetCode
+ 1173  ls
+ 1174  cd string
+ 1175  ls
+ 1176  code find_all_anagram_in_string.py
+ 1177  cp ../createPythonFile.py ./createPythonFile
+ 1178  ls
+ 1179  mv createPythonFile createPythonFile.py
+ 1180  ./createPythonFile.py find_all_anagram_in_string.py
+ 1181  code find_all_anagram_in_string.py
+ 1182  ./find_all_anagram_in_string.py "cbaebabacd" "abc"
+ 1183  ls
+ 1184  chmod a+x *
+ 1185  ls
+ 1186  clear
+ 1187  exit
+ 1188  ls
+ 1189  cd ../
+ 1190  cd string
+ 1191  ls
+ 1192  cd LeetCode/string
+ 1193  ls
+ 1194  cd valid_anagram
+ 1195  ls
+ 1196  code main_sliding_window.py
+ 1197  ls
+ 1198  code Find_All_Anagrams_in_a_String_438.pdf
+ 1199  ls
+ 1200  chmode a *.pdf
+ 1201  chmod a *.pdf
+ 1202  chmod +a *.pdf
+ 1203  chmod 000 *.pdf
+ 1204  ls
+ 1205  chmod 400 *.pdf
+ 1206  ls
+ 1207  chmod 600 *.pdf
+ 1208  ls
+ 1209  cp ../createPythonFile.py .
+ 1210  ./createPythonFile.py slidingWindows.py
+ 1211  code sliding
+ 1212  code Sliding_Window.py
+ 1213  ./createPythonFile.py slidingWindow.py
+ 1214  rm -rf slidingWindows.py
+ 1215  code slidingWindow.py
+ 1216  code createPythonFile.py
+ 1217  cd LeetCode/string/valid_anagram
+ 1218  ls
+ 1219  code slidingWindow.py
+ 1220  cd LeetCode/string/valid_anagram
+ 1221  ls
+ 1222  ../
+ 1223  ls
+ 1224  mv find_all_anagram_in_string.py valid_anagram
+ 1225  ls
+ 1226  cd valid_anagram
+ 1227  ls
+ 1228  code find_all_anagram_in_string.py
+ 1229  exit
+ 1230  cd Documents/Serena_
+ 1231  mkdir 8
+ 1232  cd 8
+ 1233  touch index.php
+ 1234  code .
+ 1235  php -S 127.0.0.1:8080
+ 1236  cd
+ 1237  cd LeetCode
+ 1238  ls
+ 1239  code midlle_of_linked_list.py
+ 1240  exit
+ 1241  clear
+ 1242  cd
+ 1243  cd Documents/Serena_
+ 1244  mkdir special
+ 1245  cd special
+ 1246  touch index.php
+ 1247  code .
+ 1248  cd
+ 1249  cd LeetCode/string/valid_anagram
+ 1250  code .
+ 1251  ./find_all_anagram_in_string.py "cbaebabacd" "abc"
+ 1252  php -S 127.0.0.1:8080
+ 1253  cd ../
+ 1254  cd 4
+ 1255  ls
+ 1256  code index.php
+ 1257  code ../special
+ 1258  clear
+ 1259  php -S 127.0.0.1:8080
+ 1260  clear
+ 1261  php -S 127.0.0.1:8080
+ 1262  clear
+ 1263  php -S 127.0.0.1:8080
+ 1264  clear
+ 1265  php -S 127.0.0.1:8080
+ 1266  clear
+ 1267  php -S 127.0.0.1:8080
+ 1268  clear
+ 1269  php -S 127.0.0.1:8080
+ 1270  cd
+ 1271  cd LeetCode/string
+ 1272  ls
+ 1273  cd valid_anagram
+ 1274  ls
+ 1275  code find_all_anagram_in_string.py
+ 1276  code main.py
+ 1277  clear
+ 1278  code index1.php
+ 1279  code find_all_anagram_in_string.py
+ 1280  code kathy.md
+ 1281  cd
+ 1282  cd codingInterview/findSuperStart/
+ 1283  code .
+ 1284  clear
+ 1285  ./findSuperstar.py
+ 1286  ./findSuperstar1.py
+ 1287  ls
+ 1288  ./findSuperstar.py
+ 1289  ./findSuperstar1.py
+ 1290  clear
+ 1291  ./findSuperstar1.py
+ 1292  ls
+ 1293  clear
+ 1294  ./findSuperstar1.py
+ 1295  clear
+ 1296  ./findSuperstar1.py
+ 1297  clear
+ 1298  ./findSuperstar1.py
+ 1299  clear
+ 1300  ./findSuperstar1.py
+ 1301  ./findSuperstar.py
+ 1302  ./findSuperstar1.py
+ 1303  clear
+ 1304  ./findSuperstar1.py
+ 1305  clear
+ 1306  ./findSuperstar1.py
+ 1307  clear
+ 1308  ./findSuperstar1.py
+ 1309  clear
+ 1310  ./findSuperstar1.py
+ 1311  clear
+ 1312  ./findSuperstar1.py
+ 1313  clear
+ 1314  ./findSuperstar1.py
+ 1315  clear
+ 1316  ./findSuperstar1.py
+ 1317  clear
+ 1318  ./findSuperstar1.py
+ 1319  clear
+ 1320  ./findSuperstar1.py
+ 1321  clear
+ 1322  ./findSuperstar1.py
+ 1323  clear
+ 1324  ./findSuperstar1.py
+ 1325  clear
+ 1326  ./findSuperstar1.py
+ 1327  clear
+ 1328  ./findSuperstar1.py
+ 1329  clear
+ 1330  ./findSuperstar1.py
+ 1331  clear
+ 1332  ./findSuperstar1.py
+ 1333  clear
+ 1334  ./findSuperstar1.py
+ 1335  clear
+ 1336  ./findSuperstar1.py
+ 1337  clear
+ 1338  ./findSuperstar1.py
+ 1339  clear
+ 1340  ./findSuperstar.py
+ 1341  clear
+ 1342  ./findSuperstar.py
+ 1343  clear
+ 1344  ./findSuperstar.py
+ 1345  ./findSuperstar1.py
+ 1346  cd
+ 1347  cd Documents/alxProject
+ 1348  cat alx_GithubToken
+ 1349  cd alx_GithubToken
+ 1350  ls
+ 1351  cat alx_GithubToken.md
+ 1352  clear
+ 1353  cd
+ 1354  clear
+ 1355  ls
+ 1356  cd Documents
+ 1357  ls
+ 1358  cd VSCodeProjects
+ 1359  ls
+ 1360  composer create-project laravel/laravel GesProject
+ 1361  code GesProject
+ 1362  ls
+ 1363  code GesProject
+ 1364  cd Documents/Serena_
+ 1365  ls
+ 1366  cd special
+ 1367  emacs test_find_all_anagram_in_string.md
+ 1368  vitest_find_all_anagram_in_string.md
+ 1369  vi test_find_all_anagram_in_string.md
+ 1370  code  test_find_all_anagram_in_string.md\n
+ 1371  code .
+ 1372  clear
+ 1373  php -S 127.0.0.1:8080
+ 1374  cd ../
+ 1375  ls
+ 1376  code 8
+ 1377  php -S 127.0.0.1:8080
+ 1378  ls
+ 1379  cd codingInterview/findSuperStart
+ 1380  code .
+ 1381  ./findSuperstar.py
+ 1382  cd Documents/VSCodeProjects/laravelProjects
+ 1383  ls
+ 1384  cd schoolProjectManager
+ 1385  ls
+ 1386  code schoolProjectManager
+ 1387  npm run serve
+ 1388  npm run dev
+ 1389  php artisan serve
+ 1390  clear
+ 1391  exit
+ 1392  nmcli
+ 1393  nmcli d
+ 1394  nmcli r wifi on
+ 1395  nmcli d
+ 1396  cd
+ 1397  clear
+ 1398  sudo swapon --show
+ 1399  free -h
+ 1400  sudo dd if=/dev/zero of=/swap_file bs=1GB count=1
+ 1401  sudo swapon --show
+ 1402  cd Documents/VSCodeProjects
+ 1403  ls
+ 1404  rm -rf GesProject
+ 1405  clear
+ 1406  ls
+ 1407  curl -s https://laravel.build/ProjectTimeManagement | bash
+ 1408  sudo apt-get update
+ 1409  docker compose version
+ 1410  clear
+ 1411  curl -s https://laravel.build/example-app | bash
+ 1412  curl -s https://laravel.build/ProjectTimeManagement | bash
+ 1413  nmcli d
+ 1414  curl -s https://laravel.build/ProjectTimeManagement | bash
+ 1415  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+ 1416  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ 1417  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+ 1418  apt-cache policy docker-ce
+ 1419  sudo apt install docker-ce
+ 1420  sudo systemctl status docker
+ 1421  cd Documents/VSCodeProjects
+ 1422  curl -s https://laravel.build/ProjectTimeManagement | bash
+ 1423  sudo curl -s https://laravel.build/ProjectTimeManagement | bash
+ 1424  cd Documents/VSCodeProjects && curl -s https://laravel.build/ProjectTimeManagement | bash
+ 1425  curl -s https://laravel.build/example-app | bash
+ 1426  curl -s https://laravel.build/ProjectTimeManagement | bash
+ 1427  clear
+ 1428  cd Documents/VSCodeProjects
+ 1429  ls
+ 1430  composer create-project laravel/laravel ProjectTimeManagement
+ 1431  ls
+ 1432  cd ProjectTimeManagement
+ 1433  ls
+ 1434  code .
+ 1435  exit
+ 1436  cd Documents/VSCodeProjects
+ 1437  code ProjectTimeManagement
+ 1438  exit
+ 1439  cd
+ 1440  cd ../
+ 1441  ls
+ 1442  ls -a
+ 1443  code ~/.zshrc
+ 1444  ls
+ 1445  clear
+ 1446  cd Documents/VSCodeProjects
+ 1447  ls
+ 1448  cd ProjectTimeManagement
+ 1449  clear
+ 1450  exit
+ 1451  cd Documents/VSCodeProjects
+ 1452  code ProjectTimeManagement
+ 1453  mysql -u root -p
+ 1454  clear
+ 1455  php artisan make:model Role -mc
+ 1456  php artisan make:model Project -mfc
+ 1457  php artisan make:migration create_project_user_table
+ 1458  php artisan migrate
+ 1459  clear
+ 1460  php artisan migrate
+ 1461  clear
+ 1462  mysql -u root -p
+ 1463  clear
+ 1464  php artisan migrate
+ 1465  clear
+ 1466  mysql -u root -p
+ 1467  clear
+ 1468  php artisan migrate
+ 1469  mysql -u root -p
+ 1470  clear
+ 1471  php artisan migrate
+ 1472  clear
+ 1473  php artisan migrate
+ 1474  clear
+ 1475  php artisan migrate
+ 1476  cd Documents/Serena_
+ 1477  clear
+ 1478  cd ..
+ 1479  clear
+ 1480  cd Documents/Serena_
+ 1481  ls
+ 1482  mkdir 9
+ 1483  code 9
+ 1484  touch class
+ 1485  mkdir class
+ 1486  clear
+ 1487  ls
+ 1488  mkdir class
+ 1489  cd class
+ 1490  touch cart.php
+ 1491  code cart.php
+ 1492  cd..
+ 1493  cd ..
+ 1494  touch index.php
+ 1495  code index.php
+ 1496  cd ../
+ 1497  code 9
+ 1498  clear
+ 1499  cd 9
+ 1500  clear
+ 1501  php -S 127.0.0.1:8000
+ 1502  clear
+ 1503  cd Documents/alxProject
+ 1504  cat alx
+ 1505  cat alx_GithubToken
+ 1506  cd alx_GithubToken
+ 1507  ls
+ 1508  cat alx_GithubToken.md
+ 1509  cd
+ 1510  clear
+ 1511  cd Documents/VSCodeProjects
+ 1512  ls
+ 1513  code ProjectTimeManagement
+ 1514  php artisan make:factory UserFactory
+ 1515  mysql -u root -p
+ 1516  code ProjectTimeManagement
+ 1517  exit
+ 1518  php artisan migrate --seed
+ 1519  clear
+ 1520  php artisan migrate --seed
+ 1521  mysql -u root -p
+ 1522  php artisan migrate --seed
+ 1523  clear
+ 1524  php artisan migrate --seed
+ 1525  composer laravel/breeze
+ 1526  composer require laravel/breeze
+ 1527  php artisan serve
+ 1528  npm run dev
+ 1529  npm run watch
+ 1530  clear
+ 1531  npm install
+ 1532  npm run dev
+ 1533  clear
+ 1534  npm install
+ 1535  cd Documents/Serena_
+ 1536  ls
+ 1537  cd 9
+ 1538  cp .* ../10
+ 1539  cp * ../10
+ 1540  cp * 10
+ 1541  cd .../
+ 1542  cd ../
+ 1543  cler
+ 1544  clear
+ 1545  mkdir 10
+ 1546  cd 9
+ 1547  cd ../
+ 1548  cp 9 10
+ 1549  cp -r 9 10
+ 1550  clear
+ 1551  cd 10
+ 1552  ls
+ 1553  cd 9
+ 1554  ls
+ 1555  mv class index.php ../
+ 1556  ls
+ 1557  cd ../
+ 1558  ls
+ 1559  rm -rf 9
+ 1560  clear
+ 1561  code .
+ 1562  code index.php
+ 1563  php -S 127.0.0.1:8000
+ 1564  clear
+ 1565  php -S 127.0.0.1:8000
+ 1566  clear
+ 1567  cd
+ 1568  clear
+ 1569  cd Documents/
+ 1570  ls
+ 1571  clear
+ 1572  cd VSCodeProjects/
+ 1573  ls
+ 1574  code ProjectTimeManagement
+ 1575  exit
+ 1576  cd Documents/VSCodeProjects
+ 1577  code ProjectTimeManagement
+ 1578  EXIT
+ 1579  exit
+ 1580  npm install
+ 1581  npm run dev
+ 1582  php artisan serve
+ 1583  composer require laravel/breeze --dev\n
+ 1584  clear
+ 1585  npm run dev
+ 1586  clear
+ 1587  php artisan serve
+ 1588  clear
+ 1589  php artisan breeze:install vue\n
+ 1590  npm run dev
+ 1591  php artisan serve
+ 1592  mysql -u root -p
+ 1593  php artisan model:show User
+ 1594  cd Documents/VSCodeProjects
+ 1595  code ProjectTimeManagement
+ 1596  exit
+ 1597  php artisan make:controller UserController --model=User --resource --requests
+ 1598  npm run dev
+ 1599  php artisan serve
+ 1600  sudo apt-get update
+ 1601  sudo apt update
+ 1602  sudo apt-get dist-upgrade
+ 1603  sudo apt update\nsudo apt upgrade
+ 1604  clear
+ 1605  exit
+ 1606  sudo apt update\nsudo apt full-upgrade -y --auto-remove
+ 1607  sudo apt-get update\nsudo apt-get dist-upgrade
+ 1608  sudo apt-get dist-upgrade
+ 1609  clear
+ 1610  exit
+ 1611  sudo apt-get update
+ 1612  sudo apt-get dist-upgrade
+ 1613  clear
+ 1614  sudo apt upgrade
+ 1615  clear
+ 1616  exit
+ 1617  cd Documents/VSCodeProjects
+ 1618  code ProjectTimeManagement
+ 1619  cd
+ 1620  cd Documents/Serena_/
+ 1621  ls
+ 1622  cd 10
+ 1623  cp * 11/
+ 1624  cd ../
+ 1625  mkdir 11
+ 1626  cp * 11/
+ 1627  cp -r * 11/
+ 1628  cp -r * 11
+ 1629  php -S 127.0.0.1:8080
+ 1630  clear
+ 1631  composer require mistic100/randomcolor
+ 1632  cd
+ 1633  clear
+ 1634  cd Documents/VSCodeProjects
+ 1635  code ProjectTimeManagement
+ 1636  exit
+ 1637  clear
+ 1638  cd Documents/VSCodeProjects
+ 1639  code ProjectTimeManagement
+ 1640  exit
+ 1641  clear
+ 1642  cd Documents/VSCodeProjects
+ 1643  code ProjectTimeManagement
+ 1644  exit
+ 1645  clear
+ 1646  ls
+ 1647  cd LeetCode
+ 1648  ls
+ 1649  mkdir BinaryTree
+ 1650  cp createPythonFile.py BinaryTree
+ 1651  cd BinaryTree
+ 1652  code .
+ 1653  exit
+ 1654  ./createPythonFile.py main.py
+ 1655  clear
+ 1656  ./main.py
+ 1657  clear
+ 1658  ./main.py
+ 1659  clear
+ 1660  ./main.py
+ 1661  ./createPythonFile.py maximum_depth_of_binary_tree.py
+ 1662  code maximum_depth_of_binary_tree.py
+ 1663  ./main.py
+ 1664  cd Documents/VSCodeProjects
+ 1665  code ProjectTimeManagement
+ 1666  exit
+ 1667  mysql -u root -p
+ 1668  clear
+ 1669  php artisan make:migration
+ 1670  clear
+ 1671  php artisan migrate
+ 1672  php artisan migrate:refresh\n
+ 1673  mysql -u root -p
+ 1674  clear
+ 1675  mysql -u root -p
+ 1676  clear
+ 1677  php artisan migrate
+ 1678  clear
+ 1679  php artisan migrate:fresh --seed
+ 1680  mysql -u root -p
+ 1681  clear
+ 1682  mysql -u root -p
+ 1683  clear
+ 1684  php artisan migrate --seed
+ 1685  clear
+ 1686  php artisan migrate --seed
+ 1687  clear
+ 1688  php artisan migrate --seed
+ 1689  clear
+ 1690  php artisan migrate --seed
+ 1691  mysql -u root -p
+ 1692  clear
+ 1693  php artisan migrate --seed
+ 1694  exit
+ 1695  php artisan migrate --seed
+ 1696  clear
+ 1697  mysql -u root
+ 1698  cleat
+ 1699  clear
+ 1700  mysql -u root -p
+ 1701  php artisan migrate
+ 1702  php artisan migrate --seed
+ 1703  clear
+ 1704  npm run dev
+ 1705  clear
+ 1706  php artisan serve
+ 1707  mysql -u root -p
+ 1708  clear
+ 1709  ls
+ 1710  cd LeetCode
+ 1711  ls
+ 1712  cd
+ 1713  cd Téléchargements
+ 1714  ls
+ 1715  code main_maximum_depth_binary_tree_recursive.py
+ 1716  cat main_maximum_depth_binary_tree_iterative.py
+ 1717  clear
+ 1718  cd
+ 1719  cd Documents/VSCodeProjects
+ 1720  code ProjectTimeManagement
+ 1721  npm run dev
+ 1722  php artisan serve
+ 1723  npm run dev
+ 1724  php artisan serve
+ 1725  mysql -u root -p
+ 1726  npm run dev
+ 1727  php artisan serve
+ 1728  npm run dev
+ 1729  php artisan serve
+ 1730  cd
+ 1731  ls
+ 1732  cd CS50AI
+ 1733  mkdir CS50AI
+ 1734  cd CS50AI
+ 1735  code .
+ 1736  cd TreeBinary
+ 1737  chmod a+x preTraversal.py
+ 1738  clear
+ 1739  ./preTraversal.py
+ 1740  python3.10
+ 1741  ./preTraversal.py
+ 1742  clear
+ 1743  ./preTraversal.py
+ 1744  cd
+ 1745  ls
+ 1746  cd LeetCode
+ 1747  ls
+ 1748  cd BinaryTree
+ 1749  ls
+ 1750  code main.py
+ 1751  clear
+ 1752  exit
+ 1753  ./preTraversal.py
+ 1754  clear
+ 1755  ./preTraversal.py
+ 1756  clear
+ 1757  ./preTraversal.py
+ 1758  clear
+ 1759  ./preTraversal.py
+ 1760  /usr/bin/python3.10 -m pip install -U autopep8
+ 1761  clear
+ 1762  ./preTraversal.py
+ 1763  clear
+ 1764  ./preTraversal.py
+ 1765  clear
+ 1766  ./preTraversal.py
+ 1767  cd Documents/alxProject/
+ 1768  cat alx_GithubToken
+ 1769  cd alx_GithubToken
+ 1770  cat alx_GithubToken.md
+ 1771  cd
+ 1772  clear
+ 1773  ls
+ 1774  code .
+ 1775  clear
+ 1776  touch postTraversal.py
+ 1777  chmod a+x postTraversal.py
+ 1778  code postTraversal.py
+ 1779  clear
+ 1780  ./postTraversal.py
+ 1781  clear
+ 1782  ./postTraversal.py
+ 1783  clear
+ 1784  ./postTraversal.py
+ 1785  clear
+ 1786  ./postTraversal.py
+ 1787  clear
+ 1788  ./postTraversal.py
+ 1789  clear
+ 1790  ./postTraversal.py
+ 1791  clear
+ 1792  ./postTraversal.py
+ 1793  clear
+ 1794  ./postTraversal.py
+ 1795  clear
+ 1796  ./postTraversal.py
+ 1797  clear
+ 1798  ./postTraversal.py
+ 1799  clear
+ 1800  ./postTraversal.py
+ 1801  clear
+ 1802  ./postTraversal.py
+ 1803  cd
+ 1804  clear
+ 1805  cd Téléchargements
+ 1806  ls
+ 1807  code main.py
+ 1808  clear
+ 1809  exit
+ 1810  cd
+ 1811  cd 
+ 1812  cd Téléchargements
+ 1813  ls
+ 1814  code main_maximum_depth_binary_tree_recursive.py
+ 1815  exit
+ 1816  cd 
+ 1817  cd Téléchargements
+ 1818  code main_maximum_depth_binary_tree_iterative.py
+ 1819  clear
+ 1820  ./postTraversal.py
+ 1821  cd TreeBinary
+ 1822  ./preTraversal.py
+ 1823  clear
+ 1824  cd Documents/Serena_
+ 1825  ls
+ 1826  mkdir 12
+ 1827  cp 11 12
+ 1828  cp -r 11 12
+ 1829  ls
+ 1830  cd 12
+ 1831  ls
+ 1832  cd 11
+ 1833  ls
+ 1834  cp . ..
+ 1835  cp -r . ..
+ 1836  ls
+ 1837  cd ..
+ 1838  ls
+ 1839  rm -rf 11
+ 1840  code .
+ 1841  composer dump-autoload
+ 1842  cd
+ 1843  clear
+ 1844  cd Documents
+ 1845  cd VSCodeProjects
+ 1846  ls
+ 1847  code CrudUsingOopInPhp
+ 1848  ls
+ 1849  clear
+ 1850  composer dump-autoload
+ 1851  clear
+ 1852  composer dump-autoload
+ 1853  php -S 127.0.0.1:8000
+ 1854  clear
+ 1855  php -S 127.0.0.1:8000
+ 1856  clear
+ 1857  php -S 127.0.0.1:8000
+ 1858  clear
+ 1859  php -S 127.0.0.1:8000
+ 1860  composer install
+ 1861  composer dump-autoload
+ 1862  php -S 127.0.0.1:8000
+ 1863  clear
+ 1864  php -S 127.0.0.1:8000
+ 1865  mkdir Class
+ 1866  composer dump-autoload
+ 1867  12_
+ 1868  clear
+ 1869  mkdir 12_
+ 1870  code 12_
+ 1871  cd ../
+ 1872  code .
+ 1873  code 12_
+ 1874  composer dump-autoload
+ 1875  composer install
+ 1876  clear
+ 1877  code ..
+ 1878  composer dump-autoload
+ 1879  clear
+ 1880  composer install
+ 1881  composer dump-autoload
+ 1882  mv 12_ ../
+ 1883  cd
+ 1884  cd Documents/Serena_
+ 1885  ls
+ 1886  cd 12
+ 1887  cd 12_
+ 1888  code .
+ 1889  cd 12
+ 1890  cd ../
+ 1891  clear
+ 1892  ls
+ 1893  code composer.json
+ 1894  cp composer.json 12_/
+ 1895  cd 12_
+ 1896  clear
+ 1897  composer dump-autoload
+ 1898  php -S 127.0.0.1:8080
+ 1899  cd ../
+ 1900  ls
+ 1901  code composer.lock
+ 1902  cd 12_
+ 1903  clearar
+ 1904  clear
+ 1905  cd ../
+ 1906  code .
+ 1907  composer dump-autoload
+ 1908  php -S 127.0.0.1:8080
+ 1909  clear
+ 1910  php -S 127.0.0.1:8080
+ 1911  cd ../
+ 1912  clear
+ 1913  cd
+ 1914  cd Documents/VSCodeProjects
+ 1915  ls
+ 1916  cd CrudUsingOopInPhp
+ 1917  ls
+ 1918  cd REST-API
+ 1919  ls
+ 1920  code composer.lock
+ 1921  code composer.json
+ 1922  cd
+ 1923  cd Documents/alxProject/alx_GithubToken
+ 1924  cat alx_GithubToken.md
+ 1925  clear
+ 1926  cd Documents/VSCodeProjects/ProjectTimeManagement
+ 1927  code .
+ 1928  npm install -D tailwindcss postcss autoprefixer\n\nnpx tailwindcss init -p
+ 1929  clear
+ 1930  npm run dev
+ 1931  php artisan serve
+ 1932  cd
+ 1933  clear
+ 1934  cd CS50AI
+ 1935  ls
+ 1936  code TreeBinary
+ 1937  chmod a+x n-ary-tree-preorder-traversal.py
+ 1938  ./n-ary-tree-preorder-traversal.py
+ 1939  cd
+ 1940  cd CS50
+ 1941  code .
+ 1942  exit
+ 1943  clear
+ 1944  ./n-ary-tree-preorder-traversal.py
+ 1945  clear
+ 1946  ./n-ary-tree-preorder-traversal.py
+ 1947  clear
+ 1948  ./n-ary-tree-preorder-traversal.py
+ 1949  clear
+ 1950  ./n-ary-tree-preorder-traversal.py
+ 1951  clear
+ 1952  ./n-ary-tree-preorder-traversal.py
+ 1953  clear
+ 1954  ./n-ary-tree-preorder-traversal.py
+ 1955  clear
+ 1956  ./n-ary-tree-preorder-traversal.py
+ 1957  clear
+ 1958  ./n-ary-tree-preorder-traversal.py
+ 1959  clear
+ 1960  ./n-ary-tree-preorder-traversal.py
+ 1961  clear
+ 1962  ./postTraversal.py
+ 1963  clear
+ 1964  ./postTraversal.py
+ 1965  clear
+ 1966  ./postTraversal.py
+ 1967  clear
+ 1968  ./postTraversal.py
+ 1969  clear
+ 1970  ./postTraversal.py
+ 1971  clear
+ 1972  code TreeBinary
+ 1973  clear
+ 1974  ls -a
+ 1975  mkdir 13
+ 1976  clear
+ 1977  ls -a
+ 1978  cd 13
+ 1979  clear
+ 1980  ls
+ 1981  clear
+ 1982  cd ../
+ 1983  ls
+ 1984  cp -r 12 13
+ 1985  cd 13
+ 1986  ls
+ 1987  cd 12
+ 1988  ls
+ 1989  mv 12_ ../
+ 1990  clear
+ 1991  ls
+ 1992  cd ../
+ 1993  ls
+ 1994  rm -rf 12
+ 1995  ls
+ 1996  clear
+ 1997  code 12_
+ 1998  php -S 127.0.0.8080
+ 1999  php -S 127.0.0.1:8080
+ 2000  clear
+ 2001  php -S 127.0.0.1:8080
+ 2002  clear
+ 2003  cd ../
+ 2004  clear
+ 2005  rm -rf 12_
+ 2006  clear
+ 2007  code .
+ 2008  cd
+ 2009  cd CS50AI
+ 2010  code TreeBinary
+ 2011  ./n-ary-tree-preorder-traversal.py
+ 2012  clear
+ 2013  ./n-ary-tree-preorder-traversal.py
+ 2014  clear
+ 2015  ./n-ary-tree-preorder-traversal.py
+ 2016  clear
+ 2017  ./n-ary-tree-preorder-traversal.py
+ 2018  clear
+ 2019  ./preTraversal.py
+ 2020  CLEAR
+ 2021  clear
+ 2022  CLEAR
+ 2023  clear
+ 2024  ./preTraversal.py
+ 2025  d
+ 2026  ls
+ 2027  d
+ 2028  clear
+ 2029  cd
+ 2030  clear
+ 2031  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2032  cd Documents/VSCodeProjects/ProjectTimeManagement
+ 2033  mysql -u root -p
+ 2034  npm run dev
+ 2035  php artisan serve
+ 2036  npm run dev
+ 2037  php artisan serve
+ 2038  npm run dev
+ 2039  php artisan serve
+ 2040  clear
+ 2041  npm run dev
+ 2042  php artisan serve
+ 2043  npm run dev
+ 2044  php artisan serve
+ 2045  clear
+ 2046  npm run dev
+ 2047  clear
+ 2048  php artisan serve
+ 2049  npm run dev
+ 2050  php artisan serve
+ 2051  clear
+ 2052  npm run dev
+ 2053  clear
+ 2054  php artisan serve
+ 2055  clear
+ 2056  python3.10
+ 2057  ls
+ 2058  cd Documents
+ 2059  ls
+ 2060  cd Python
+ 2061  ls
+ 2062  mkdir Numpy
+ 2063  code Numpy
+ 2064  exit
+ 2065  pip install numpy
+ 2066  touch main.py
+ 2067  chmod a+x main.py
+ 2068  code main.py
+ 2069  cd
+ 2070  ls
+ 2071  cd Documents
+ 2072  ls
+ 2073  cd Python
+ 2074  ls
+ 2075  code test_property.py
+ 2076  ./main.py
+ 2077  cd Documents/Books
+ 2078  ls
+ 2079  clear
+ 2080  npm run dev
+ 2081  php artisan serve
+ 2082  mkdir spLaravel1
+ 2083  rm -rf spLaravel1
+ 2084  clear
+ 2085  mkdir specLaravel1
+ 2086  code specLaravel1
+ 2087  composer create-project laravel\laravel chirper
+ 2088  composer create-project laravel/laravel chirper
+ 2089  code chirper
+ 2090  cd ../
+ 2091  clear
+ 2092  cd chirper
+ 2093  php artisan serve
+ 2094  ^[[200~composer require laravel/breeze --dev
+ 2095  ~composer require laravel/breeze --dev\n
+ 2096  composer require laravel/breeze --dev\n
+ 2097  php artisan breeze:install blade\n
+ 2098  nnpm run dev
+ 2099  clear
+ 2100  npm run dev
+ 2101  php artisan migrate
+ 2102  sudo apt update
+ 2103  sudo apt install sqlite3
+ 2104  sqlite3 --version
+ 2105  php artisan migrate
+ 2106  sudo apt-get install php-sqlite3
+ 2107  php --ini
+ 2108  code php --ini
+ 2109  clear
+ 2110  php -m | grep pdo_sqlite
+ 2111  php artisan migrate
+ 2112  clear
+ 2113  mysql -u root -p
+ 2114  clear
+ 2115  php artisan migrate
+ 2116  mysql -u root -p
+ 2117  mkdir test
+ 2118  cd test
+ 2119  composer create laravel/laravel test
+ 2120  cd test
+ 2121  code .
+ 2122  php artisan make:model Flight --migration
+ 2123  cd specLaravel1
+ 2124  ls
+ 2125  code chirper
+ 2126  exit
+ 2127  cd ../
+ 2128  cd
+ 2129  cd Documents/VSCodeProjects/ProjectTimeManagement
+ 2130  code .
+ 2131  cd
+ 2132  clear
+ 2133  cd Documents/Serena_/specLaravel1/chirper/
+ 2134  clear
+ 2135  php artisan make:model -mrc Chirp\n
+ 2136  clear
+ 2137  man ls
+ 2138  clear
+ 2139  php artisan route:list
+ 2140  npm run dev
+ 2141  php artisan serve
+ 2142  php artisan route:list
+ 2143  php artisan serve
+ 2144  npm run dev
+ 2145  php artisan serve
+ 2146  clear
+ 2147  npm run dev
+ 2148  sudo apt-get install pantheon-files-plugin-dropbox
+ 2149  clear
+ 2150  sudo apt-get update
+ 2151  sudo apt-get upgrade
+ 2152  sudo apt-get dist-upgrade
+ 2153  inxi -xxx -m
+ 2154  sudo wget -O /usr/local/bin/inxi https://raw.githubusercontent.com/smxi/inxi/master/inxi\n
+ 2155  sudo chmod a+x /usr/local/bin/inxi\n
+ 2156  inxi --version\n
+ 2157  inxi -F
+ 2158  inxi -F -v 7
+ 2159  clear
+ 2160  exit
+ 2161  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2162  inxi -F -v 7
+ 2163  npm run dev
+ 2164  php artisan serve
+ 2165  mysql -u root -p
+ 2166  clear
+ 2167  exit
+ 2168  php artisan make:model --help\n
+ 2169  php artisan make:model Project -c\n
+ 2170  php artisan make:controller --help\n
+ 2171  php artisan make:controller --model=Project\n
+ 2172  php artisan make:controller ProjectController--model=Project\n
+ 2173  php artisan make:controller ProjectController --model=Project\n
+ 2174  clear
+ 2175  history
+ 2176  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2177  python3.10
+ 2178  clear
+ 2179  ls
+ 2180  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2181  cd Documents/VSCodeProjects/ProjectTimeManagement
+ 2182  ls
+ 2183  cd routes
+ 2184  ls
+ 2185  vi web.php
+ 2186  clear
+ 2187  emacs web.php
+ 2188  emac web.php
+ 2189  nano web.php
+ 2190  clear
+ 2191  cd
+ 2192  clear
+ 2193  ls
+ 2194  cd LeetCode
+ 2195  ls
+ 2196  cd BinaryTree
+ 2197  ls
+ 2198  clear
+ 2199  ls
+ 2200  nano maximum_depth_of_binary_tree.py
+ 2201  clear
+ 2202  ls
+ 2203  cd ../
+ 2204  clear
+ 2205  cd Documents
+ 2206  ls
+ 2207  cD LeetCode
+ 2208  cd LeetCode
+ 2209  clear
+ 2210  ls
+ 2211  cd ../
+ 2212  clear
+ 2213  ls
+ 2214  cd Python
+ 2215  ls
+ 2216  cd ../
+ 2217  ls
+ 2218  cd ../
+ 2219  ls
+ 2220  cd codingInterview
+ 2221  ls
+ 2222  cd 
+ 2223  ls
+ 2224  cd Bureau
+ 2225  ls
+ 2226  cat "Capture d'écran du 2022-09-25 20.58.37.png"
+ 2227  clear
+ 2228  cat "Capture d'écran du 2022-09-25 20.58.37.png"
+ 2229  clear
+ 2230  cd 
+ 2231  ls
+ 2232  cd Downloads
+ 2233  ls
+ 2234  cd Téléchargements
+ 2235  cd 
+ 2236  clear
+ 2237  cd Téléchargements
+ 2238  ls
+ 2239  cd
+ 2240  cd Bureau
+ 2241  nano "Capture d'écran du 2022-09-25 20.58.37.png"
+ 2242  CLEAR
+ 2243  clear
+ 2244  cd
+ 2245  cd Documents
+ 2246  ls
+ 2247  cd LeetCode
+ 2248  LS
+ 2249  ls
+ 2250  cd LinkedList
+ 2251  ls
+ 2252  ./fanagram.py
+ 2253  chmod a+x fanagram.py
+ 2254  ls
+ 2255  ./fanagram.py
+ 2256  nano fanagram.py
+ 2257  ./fanagram.py "papa" "appa"
+ 2258  ./fanagram.py pap appa
+ 2259  clear
+ 2260  nano fanagram.py
+ 2261  clear
+ 2262  ls
+ 2263  ./fanagram.py
+ 2264  ./fanagram.py apap apa
+ 2265  ./fanagram.py "apap" "apa"
+ 2266  clear
+ 2267  nano fanagram.py
+ 2268  ./fanagram.py
+ 2269  ./fanagram.py "apap" "papa"
+ 2270  cd ../
+ 2271  ls
+ 2272  cd Musique
+ 2273  clear
+ 2274  ls
+ 2275  vlc 01-MEVTR.mp3
+ 2276  cvlc 01-MEVTR.mp3
+ 2277  cd
+ 2278  cd Téléchargements
+ 2279  ls
+ 2280  cvlc 'Josman - Intro (Clip Officiel).mp4'
+ 2281  clear
+ 2282  cd
+ 2283  clear
+ 2284  time
+ 2285  inxi -xxx -m
+ 2286  inxi -F -v 7
+ 2287  inxi -F -v 7 | nano test.md
+ 2288  inxi -F -v 7 > nano test.md
+ 2289  clear
+ 2290  inxi -F -v 7
+ 2291  inxi -F -v 7 | nano test.md
+ 2292  clear
+ 2293  ls
+ 2294  rm -rf test.md*
+ 2295  ls
+ 2296  rm -rf nano
+ 2297  cleaér
+ 2298  clear
+ 2299  ls
+ 2300  cd LeetCode
+ 2301  ls
+ 2302  cd BinaryTree
+ 2303  ls
+ 2304  cd ../../
+ 2305  ls
+ 2306  cd Documents/
+ 2307  ls
+ 2308  cd IPraticePython
+ 2309  LS
+ 2310  ls
+ 2311  cd Challenges/*
+ 2312  cd Challenges
+ 2313  ls
+ 2314  cd ../../
+ 2315  ls
+ 2316  cd Python
+ 2317  ls
+ 2318  cd ../
+ 2319  ls
+ 2320  cd ../Téléchargements && ls
+ 2321  emacs 2882903.2903730.pdf
+ 2322  evince 2882903.2903730.pdf
+ 2323  oneko
+ 2324  cd
+ 2325  cd Documents
+ 2326  ls
+ 2327  sudo
+ 2328  sudo su
+ 2329  exit
+ 2330  cd Musique
+ 2331  ls
+ 2332  cvlc 01-MEVTR.mp3
+ 2333  clear
+ 2334  cd ../
+ 2335  clear
+ 2336  exit
+ 2337  clear
+ 2338  exit
+ 2339  clear
+ 2340  stdfkgxyxfu;lkwdygj;gk:
+ 2341  clear
+ 2342  ls
+ 2343  clear
+ 2344  cd Documents/Serena_
+ 2345  LS
+ 2346  ls
+ 2347  cd specLaravel1
+ 2348  ls
+ 2349  cd
+ 2350  clear
+ 2351  cd Documents
+ 2352  cd Serena
+ 2353  cd Serena_
+ 2354  ls
+ 2355  cd specLaravel1
+ 2356  cd chirper
+ 2357  exit
+ 2358  cd Documents/Serena_
+ 2359  ls
+ 2360  cd specLaravel1/chirper
+ 2361  ls
+ 2362  code .
+ 2363  exit
+ 2364  clear
+ 2365  npm run dev
+ 2366  php artisan serve
+ 2367  php artisan route:list
+ 2368  mysql -u root -p
+ 2369  cd
+ 2370  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2371  mysql -u root -p
+ 2372  clear
+ 2373  php artisan migrate
+ 2374  mysql -u root -p 
+ 2375  clear
+ 2376  python3.10
+ 2377  clear
+ 2378  exit
+ 2379  php artisan tinker\n
+ 2380  which python3.10
+ 2381  python --version
+ 2382  python3 --version
+ 2383  python3.10 --version
+ 2384  ls
+ 2385  cd Bureau 
+ 2386  mkdir test
+ 2387  touch ship-manual.ipynb
+ 2388  code test
+ 2389  touch ship-manual.ipynb
+ 2390  pip install -U ipykernel
+ 2391  wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O /tmp/code_latest_amd64.deb
+ 2392  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2393  sudo add-apt-repository -y "deb https://packages.microsoft.com/repos/vscode stable main "\nsudo apt update\nsudo apt -y install code
+ 2394  sudo apt -y upgrade\nsudo apt -y dist-upgrade
+ 2395  clear
+ 2396  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2397  php artisan tinker
+ 2398  clear
+ 2399  php artisan serve
+ 2400  npm run dev
+ 2401  clear
+ 2402  ./preTraversal.py
+ 2403  clear
+ 2404  ./preTraversal.py
+ 2405  clear
+ 2406  ./preTraversal.py
+ 2407  clear
+ 2408  ./preTraversal.py
+ 2409  clear
+ 2410  ./preTraversal.py
+ 2411  cd Documents/Serena_
+ 2412  ls
+ 2413  cd specLaravel1
+ 2414  LS
+ 2415  ls
+ 2416  code chirper
+ 2417  exit
+ 2418  clear
+ 2419  cd Documents/Serena_
+ 2420  mkdir specLaravel2
+ 2421  cd specLaravel2
+ 2422  clear
+ 2423  code .
+ 2424  exit
+ 2425  composer create-project laravel/laravel ProjectTimeManagement
+ 2426  cd ProjectTimeManagement
+ 2427  code 
+ 2428  code .
+ 2429  php artisan serve
+ 2430  composer require laravel/breeze --dev
+ 2431  php artisan breeze:install blade
+ 2432  npm run dev
+ 2433  php artisan migrate
+ 2434  mysql -u root -p
+ 2435  cd 
+ 2436  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2437  clear
+ 2438  cd Documents/Serena_/specLaravel2/ProjectTimeManagement
+ 2439  clear
+ 2440  php artisan make:model Role -mcr
+ 2441  php artisan make:model Project -mcr
+ 2442  php artisan make:model Temps -mcr
+ 2443  php artisan make:migration project_user
+ 2444  php artisan make:migration project_user_table
+ 2445  clear
+ 2446  php artisan migrate
+ 2447  mysql -u root -p
+ 2448  clear
+ 2449  npm run dev
+ 2450  php artisan serve
+ 2451  mysql -u root -p
+ 2452  php artisan make:refresh
+ 2453  php artisan migrate:refresh
+ 2454  mysql -u root -p
+ 2455  php artisan migrate
+ 2456  php artisan serve
+ 2457  npm run dev
+ 2458  clear
+ 2459  cd codingInterview
+ 2460  ls
+ 2461  mkdir ExerciceWithZero
+ 2462  code ExerciceWithZero
+ 2463  touch main.py
+ 2464  chmod a+x main.py
+ 2465  code main.py
+ 2466  cd ../findSuperStart
+ 2467  ls
+ 2468  code findSuperstar0.py
+ 2469  exit
+ 2470  ./main.py
+ 2471  code lru-cache
+ 2472  cd ..
+ 2473  ls
+ 2474  code lru-cache
+ 2475  code lru-cache.py
+ 2476  clear
+ 2477  cd lru-cache
+ 2478  ./lru-cache.py
+ 2479  ls
+ 2480  ./lru-cache.py
+ 2481  code linkedList
+ 2482  touch reverseList.py
+ 2483  chmod a+x reverseList.py
+ 2484  ./reverseList.py
+ 2485  chmod a+x reverseList.py
+ 2486  ./reverseList.py
+ 2487  chmod a+x reverseList.py
+ 2488  ./reverseList.py
+ 2489  clar
+ 2490  clear
+ 2491  ./reverseList.py
+ 2492  clear
+ 2493  ./reverseList.py
+ 2494  clear
+ 2495  ./reverseList.py
+ 2496  clear
+ 2497  ./reverseList.py
+ 2498  CLEAR
+ 2499  clear
+ 2500  touch lru-cache.py
+ 2501  chmod a+x lru-cache.py
+ 2502  code lru-cache.py
+ 2503  ./lru-cache.py
+ 2504  cd ../findSuperStart
+ 2505  cd ../
+ 2506  ls
+ 2507  code lru-cache.py
+ 2508  ./lru-cache.py
+ 2509  python3.10
+ 2510  ./lru-cache.py
+ 2511  python3.10
+ 2512  clear
+ 2513  ./lru-cache.py
+ 2514  clear
+ 2515  touch lru-cache-withQueue.py
+ 2516  chmod a+x lru-cache-withQueue.py
+ 2517  code lru-cache-withQueue.py
+ 2518  python3.10
+ 2519  clear
+ 2520  brew install iterm2\nbrew install zsh\nsh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"\nupgrade_oh_my_zsh #to upgrade it\n~/.zshrc #location zshrc
+ 2521  xcode-select -r\n/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ 2522  xcode-select -r
+ 2523  clear
+ 2524  git clone https://github.com/iciamyplant/coding_interview.git
+ 2525  ls
+ 2526  cd
+ 2527  cd LeetCode
+ 2528  ls
+ 2529  cd LinkedList
+ 2530  ls
+ 2531  cd lru-cache
+ 2532  s
+ 2533  ls
+ 2534  cd linkedList
+ 2535  ls
+ 2536  code reverseList.py
+ 2537  cd codingInterview && ls
+ 2538  cd coding_interview
+ 2539  ls
+ 2540  firefox Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf
+ 2541  cd Téléchargements
+ 2542  ls
+ 2543  ls -a
+ 2544  ls -r
+ 2545  clear
+ 2546  man ls
+ 2547  ls --all
+ 2548  clear
+ 2549  ls
+ 2550  code .
+ 2551  code reverseList.py
+ 2552  code reverseListRecursive.py
+ 2553  ls
+ 2554  chmod a+x reverseListRecursive.py
+ 2555  code reverseListRecursive.py
+ 2556  ls
+ 2557  java -version
+ 2558  sudo apt update
+ 2559  java -version
+ 2560  sudo apt install default-jre
+ 2561  java -version
+ 2562  scp Downloads/jdk-11.0.13_linux-x64_bin.tar.gz sammy@your_server_ip:~
+ 2563  sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+ 2564  javac -version\n
+ 2565  clear
+ 2566  cd
+ 2567  cd Téléchargements
+ 2568  sudo tar -xf android-studio-*.*-linux.tar.gz -C /usr/local/\n
+ 2569  cd
+ 2570  cd /usr/bin
+ 2571  ls
+ 2572  ls | code test.txt
+ 2573  sudo tar -xf android-studio-*.*-linux.tar.gz -C /usr/local/\n
+ 2574  clear
+ 2575  ls
+ 2576  sudo tar -xf android-studio-2021.3.1.16-linux.tar.gz -C /usr/local/\n
+ 2577  clear
+ 2578  cd Téléchargements
+ 2579  tar zxvf android-studio-2021.3.1.16-linux.tar.gz\n
+ 2580  ls
+ 2581  mv android-studio /usr/bin/\n
+ 2582  sudo mv android-studio /usr/bin/\n
+ 2583  cd
+ 2584  cd usr/bin
+ 2585  cd /usr/bin
+ 2586  cd android-studio
+ 2587  ls
+ 2588  cd bin
+ 2589  ls
+ 2590  ./studio.sh
+ 2591  clear
+ 2592  cd ../
+ 2593  mv android-studio /usr/local/
+ 2594  ls
+ 2595  cd android-studio
+ 2596  ls
+ 2597  cd
+ 2598  cd /usr/local
+ 2599  cd android-studio
+ 2600  chmod a+x android-studio
+ 2601  sudo chmod a+x android-studio
+ 2602  cd android-studio
+ 2603  ls
+ 2604  cd ../
+ 2605  chmod 777 android-studio
+ 2606  sudo chmod 777 android-studio
+ 2607  ls
+ 2608  cd android-studio
+ 2609  ls
+ 2610  cd ../
+ 2611  rm -rf android-studio
+ 2612  sudo rm -rf android-studio
+ 2613  clear
+ 2614  cd ../
+ 2615  cd bin
+ 2616  sudo rm -rf android-studio
+ 2617  cd
+ 2618  cd Té²
+ 2619  cd Téléchargements
+ 2620  clear
+ 2621  tar zxvf android-studio-2021.3.1.16-linux.tar.gz\n
+ 2622  mv android-studio /usr/local/
+ 2623  sudo mv android-studio /usr/local/
+ 2624  cd
+ 2625  cd /usr/local
+ 2626  ls
+ 2627  cd android-studio
+ 2628  ls
+ 2629  cd bin
+ 2630  ls
+ 2631  ./studio.sh
+ 2632  clear
+ 2633  ./studio.sh
+ 2634  rm -rf ~/.android/\nrm -rf ~/.AndroidStudio2.1/\nrm -rf ~/.AndroidStudio2.3/\nrm -rf ~/Android\nrm -rf ~/.gradle\n
+ 2635  ./studio.sh
+ 2636  sudo rm -rf ~/.AndroidStudio
+ 2637  sudo rm -rf ~/.android
+ 2638  sudo rm -rf ~/.local/share/applications/jetbrains-android-studio.desktop
+ 2639  sudo rm -rf /usr/local/android-studio
+ 2640  clear
+ 2641  exit
+ 2642  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2643  mysql -u root -p
+ 2644  clear
+ 2645  npm run dev
+ 2646  php artisan serve
+ 2647  mysql -u root -p
+ 2648  npm run dev
+ 2649  php artisan serve
+ 2650  mysql -u root -p
+ 2651  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2652  php artisan make:factory ProjectFactory
+ 2653  php artisan migrate:fresh --seed
+ 2654  mysql -u root -p
+ 2655  php artisan db:seed\n
+ 2656  exit
+ 2657  clear
+ 2658  php artisan make:controller UserController
+ 2659  php artisan make:controller UserController --model=User
+ 2660  php artisan serve
+ 2661  npm run dev
+ 2662  php artisan route:list
+ 2663  php artisan route:list --path=users
+ 2664  mysql -u root -p
+ 2665  npm run dev
+ 2666  php artisan serve
+ 2667  cd Téléchargements
+ 2668  ls
+ 2669  sudo dpkg -i Cisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb
+ 2670  ls
+ 2671  sudo apt-get install Cisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb\n
+ 2672  sudo dpkg --configure -a
+ 2673  sudo apt-get install Cisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb\n
+ 2674  sudo dpkg -i Cisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb
+ 2675  sudo apt-get install Cisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb\n
+ 2676  sudo apt-get install ./Cisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb\n
+ 2677  sudo apt --fix-broken  install ./Cisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb\n
+ 2678  cd
+ 2679  clear
+ 2680  composer global require genesisweb/valet-linux-plus
+ 2681  sudo code ~/.zshrc
+ 2682  sudo emacs ~/.zshrc
+ 2683  sudo emac ~/.zshrc
+ 2684  sudo nano ~/.zshrc
+ 2685  valet install
+ 2686  ping -c1 foobar.test
+ 2687  valet start
+ 2688  ping -c1 foobar.test
+ 2689  reboot
+ 2690  sudo sed -i 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/*.desktop
+ 2691  reboot
+ 2692  composer global remove genesisweb/valet-linux-plus
+ 2693  sudo nano ~/.zshrc
+ 2694  clear
+ 2695  exit
+ 2696  cd Documents
+ 2697  ls
+ 2698  code TIR3.md 
+ 2699  reboot
+ 2700  systemctl reboot -i
+ 2701  shutdown -c
+ 2702  systemctl reboot -i
+ 2703  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2704  npm run dev
+ 2705  php artisan serve
+ 2706  clear
+ 2707  code Documents/Serena_/10_Octobre_without_you
+ 2708  cd ProjectTimeManagement
+ 2709  npm run dev
+ 2710  cd ProjectTimeManagement
+ 2711  php artisan serve
+ 2712  cd ProjectTimeManagement
+ 2713  php artisan tinker
+ 2714  code Documents/Serena_/10_Octobre_without_you
+ 2715  cd Documents/Serena_/10_Octobre_without_you
+ 2716  cd ProjectTimeManagement
+ 2717  npm run dev
+ 2718  php artisan serve
+ 2719  exit
+ 2720  code mdpSerena.md
+ 2721  ls /etc/NetworkManager/system-connections/
+ 2722  cat Soon.nmconnection
+ 2723  sudo cat /etc/NetworkManager/system-connections/Soon.nmconnection
+ 2724  sudo cat /etc/NetworkManager/system-connections/Soon.nmconnection | test.md
+ 2725  sudo cat /etc/NetworkManager/system-connections/Soon.nmconnection | nano test.md
+ 2726  code Documents/VSCodeProjects/ProjectTimeManagement
+ 2727  cd Documents/VSCodeProjects/
+ 2728  ls
+ 2729  cd laravelProjects
+ 2730  ls
+ 2731  code SchoolProjectManager
+ 2732  cd /etc/php/8.1/cli
+ 2733  code php.ini
+ 2734  cd
+ 2735  cd LeetCode
+ 2736  ls
+ 2737  cd
+ 2738  cd codingInterview
+ 2739  ls
+ 2740  mkdir testsUunitairesExercice
+ 2741  cd testsUunitairesExercice
+ 2742  cd ..
+ 2743  cd ExerciceWithZero
+ 2744  ls
+ 2745  cd ../
+ 2746  cd testsUunitairesExercice
+ 2747  code enonce.md
+ 2748  mv enonce.md main.py
+ 2749  ls
+ 2750  chmod a+x main.py
+ 2751  ls
+ 2752  cd codingInterview
+ 2753  ls
+ 2754  cd testsUunitairesExercice
+ 2755  ls
+ 2756  code main.py
+ 2757  ./main.py
+ 2758  touch test.php
+ 2759  code test.php
+ 2760  php -S 127.0.0.1:8080
+ 2761  clear
+ 2762  ls
+ 2763  rm -rf test.php
+ 2764  clear
+ 2765  ./main.py
+ 2766  python3.10
+ 2767  cd ../
+ 2768  ls
+ 2769  cd coding_interview
+ 2770  ls
+ 2771  code Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf
+ 2772  chrome Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf
+ 2773  firefox Cracking-the-Coding-Interview-6th-Edition-189-Programming-Questions-and-Solutions.pdf
+ 2774  clear
+ 2775  shutdown now
+ 2776  cd Documents/alxProject
+ 2777  ls
+ 2778  cat alxG
+ 2779  cd alx_GithubToken
+ 2780  ls
+ 2781  cat alx_GithubToken.md
+ 2782  reboot now
+ 2783  reboot
+ 2784  shutdown now
+ 2785  systemctl poweroff -i
+ 2786  wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O /tmp/code_latest_amd64.deb\nsudo dpkg -i /tmp/code_latest_amd64.deb
+ 2787  clear
+ 2788  ls
+ 2789  cd LeetCode
+ 2790  ls
+ 2791  cd BinaryTree
+ 2792  ls
+ 2793  cd
+ 2794  ls
+ 2795  cd Documents
+ 2796  ls
+ 2797  cd Python
+ 2798  ls
+ 2799  cd ../
+ 2800  ls
+ 2801  cd LeetCode
+ 2802  ls
+ 2803  cd ../
+ 2804  cd VSCodeProjects
+ 2805  ls
+ 2806  cd
+ 2807  clear
+ 2808  ls
+ 2809  cd CS50AI
+ 2810  ls
+ 2811  cd TreeBinary
+ 2812  ls
+ 2813  code .
+ 2814  clear
+ 2815  ./preTraversal.py
+ 2816  cd
+ 2817  cd codingInterview
+ 2818  ls
+ 2819  cd
+ 2820  cd LeetCode
+ 2821  ls
+ 2822  cd BinaryTree
+ 2823  ls
+ 2824  code .
+ 2825  cd
+ 2826  cd Téléchargements
+ 2827  ls
+ 2828  ./preTraversal.py
+ 2829  clear
+ 2830  cd
+ 2831  cd Documents/LeetCode
+ 2832  ls
+ 2833  cd
+ 2834  cd CS50AI
+ 2835  ls
+ 2836  code TreeBinary
+ 2837  python3.10
+ 2838  clear
+ 2839  wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O /tmp/code_latest_amd64.deb\nsudo dpkg -i /tmp/code_latest_amd64.deb
+ 2840  sudo apt update
+ 2841  sudo apt upgrade
+ 2842  sudo apt --fix-missing upgrade
+ 2843  sudo apt dist-upgrade
+ 2844  sudo apt autoremove
+ 2845  sudo apt autoclean
+ 2846  sudo apt update
+ 2847  exit
+ 2848  cd Téléchargements
+ 2849  tar xvzf pycharm-community-2022.2.3.tar.gz
+ 2850  cd pycharm-community-2022.2.3
+ 2851  ./configure
+ 2852  ./configure && make && sudo make install
+ 2853  cd ../
+ 2854  rm -rf pycharm-community-2022.2.3
+ 2855  mkdir pycharm && tar -xvf pycharm-community-*.tar.gz -C pycharm --strip-components 1\n
+ 2856  sudo mv pycharm /opt/\n
+ 2857  sh /opt/pycharm/bin/pycharm.sh\n
+ 2858  echo 'export PATH="$PATH:/opt/pycharm/bin"' >> ~/.bashrc
+ 2859  source ~/.bashrc\n
+ 2860  pycharm.sh &
+ 2861  nano ~/Desktop/Pycharm.desktop\n
+ 2862  cat ~/Desktop/Pycharm.desktop\n
+ 2863  touch  ~/Desktop/Pycharm.desktop\n
+ 2864  sudo touch  ~/Desktop/Pycharm.desktop\n
+ 2865  pycharm
+ 2866  echo 'export PATH="$PATH:/opt/pycharm/bin"' >> ~/.zshrc\n
+ 2867  source ~/.zshrc
+ 2868  pycharm.sh &
+ 2869  clear
+ 2870  cd Documents/Serena_
+ 2871  ls
+ 2872  mkdir 16_Octobre_2022
+ 2873  cd 16_Octobre_2022
+ 2874  code .
+ 2875  php -S 127.0.0.1:8080
+ 2876  php -S 127.0.0.1:8080/reverseLinkedList.php
+ 2877  clear
+ 2878  php -S 127.0.0.1:8080
+ 2879  clear
+ 2880  php -S 127.0.0.1:8080
+ 2881  cd
+ 2882  clear
+ 2883  exit
+ 2884  code .
+ 2885  php -S 127.0.0.1:8080
+ 2886  python 3.10
+ 2887  python3.10
+ 2888  clear
+ 2889  cd
+ 2890  clear
+ 2891  sudo apt install apt-transport-https curl\n\nsudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg\n\necho "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list\n\nsudo apt update\n\nsudo apt install brave-browser
+ 2892  cd Documents/alxProject/alx_GithubToken
+ 2893  ls
+ 2894  cat alx_GithubToken.md
+ 2895  ls
+ 2896  cd ../
+ 2897  ls
+ 2898  cd alx_GithubToken
+ 2899  mkdir julien_crackMe
+ 2900  cd julien_crackMe
+ 2901  ls
+ 2902  man strcmp
+ 2903  touch main.c
+ 2904  nano main.c
+ 2905  gcc main.c
+ 2906  nano main.c
+ 2907  gcc main.c
+ 2908  ls
+ 2909  ./a.out
+ 2910  ./a.out "Test"
+ 2911  string a.out
+ 2912  strings a.out
+ 2913  strings a.out "Test"
+ 2914  clear
+ 2915  cd ../
+ 2916  cat alx_GithubToken.md
+ 2917  ls
+ 2918  cat alx_GithubToken.md
+ 2919  ls
+ 2920  cat alx_GithubToken.md
+ 2921  cd
+ 2922  clear
+ 2923  cd LeetCode
+ 2924  ls
+ 2925  cd BinaryTree
+ 2926  ls
+ 2927  code maximum_depth_of_binary_tree.py
+ 2928  ./createPythonFile.py max_depth_of_binary_tree
+ 2929  ls
+ 2930  clear
+ 2931  mv max_depth_of_binary_tree max_depth_of_binary_tree.py
+ 2932  clear
+ 2933  code max_depth_of_binary_tree.py
+ 2934  clear
+ 2935  cd LeetCode/BinaryTree
+ 2936  clear
+ 2937  ./max_depth_of_binary_tree.py
+ 2938  clear
+ 2939  ./max_depth_of_binary_tree.py
+ 2940  cd
+ 2941  clear
+ 2942  mysql -u root -p
+ 2943  python
+ 2944  python3
+ 2945  python3.10
+ 2946  ipython
+ 2947  ipython3.10
+ 2948  clear
+ 2949  jupyter notebook
+ 2950  clear
+ 2951  python3.10 -m pip install --upgrade pip\n
+ 2952  python3 -m pip install --upgrade pip\n
+ 2953  pip3 install Jupyter\n
+ 2954  jupyter notebook
+ 2955  clear
+ 2956  mkdir DataAnalysis
+ 2957  cd DataAnalysis
+ 2958  jupyter notebook
+ 2959  clear
+ 2960  jupyter notebook
+ 2961  cd
+ 2962  clear
+ 2963  python3.10
+ 2964  ls
+ 2965  cd Documents
+ 2966  cd alxProject
+ 2967  ls
+ 2968  cat alx_GithubToken
+ 2969  cd alx_GithubToken
+ 2970  ls
+ 2971  cat alx_GithubToken.md
+ 2972  clear
+ 2973  cd
+ 2974  clear
+ 2975  python3.10
+ 2976  clear
+ 2977  ls
+ 2978  cd codingInterview
+ 2979  ls
+ 2980  cd coding_interview
+ 2981  cd ../
+ 2982  cd ExerciceWithZero
+ 2983  ls
+ 2984  echo "main.py" | bash
+ 2985  code .
+ 2986  echo "main.py" | zsh
+ 2987  cd
+ 2988  ./bashrc
+ 2989  cd
+ 2990  cd ../
+ 2991  ./bashrc
+ 2992  ls
+ 2993  ls -a
+ 2994  locate .bashrc
+ 2995  cd home/bryl07
+ 2996  ./.bashrc
+ 2997  sudo ./.bashrc
+ 2998  chmod +x .bashrc
+ 2999  sudo ./.bashrc
+ 3000  $
+ 3001  clear
+ 3002  sh ~/.oh-my-zsh/tools/uninstall.sh
+ 3003  ls
+ 3004  clear
+ 3005  ls
+ 3006  clear
+ 3007  ./createPythonFile.sh FloodFill.py
+ 3008  cd ../DFS_Graph
+ 3009  ls
+ 3010  code DFS_iterative.py
+ 3011  cd ../Flood\ Fill
+ 3012  clear
+ 3013  ./FloodFill.py
+ 3014  cd ../
+ 3015  mv Flood\ Fill/ 17_12_2022
+ 3016  ls
+ 3017  code 17_12_2022
+ 3018  ./createPythonFile.sh ShortestPathInBinaryMatrix.py
+ 3019  ./ShortestPathInBinaryMatrix.py
+ 3020  clear
+ 3021  ./ShortestPathInBinaryMatrix.py
+ 3022  clear
+ 3023  ./ShortestPathInBinaryMatrix.py
+ 3024  clear
+ 3025  ./ShortestPathInBinaryMatrix.py
+ 3026  clear
+ 3027  ./ShortestPathInBinaryMatrix.py
+ 3028  clear
+ 3029  ./ShortestPathInBinaryMatrix.py
+ 3030  ./FloodFill.py
+ 3031  clear
+ 3032  ./FloodFill.py
+ 3033  clear
+ 3034  ./FloodFill.py
+ 3035  clear
+ 3036  ./FloodFill.py
+ 3037  clear
+ 3038  ./FloodFill.py
+ 3039  cd Téléchargements
+ 3040  ls
+ 3041  ./main_bfs.py
+ 3042  chmod +x main_bfs.py
+ 3043  ./main_bfs.py
+ 3044  clear
+ 3045  ./main_bfs.py
+ 3046  clear
+ 3047  ./ShortestPathInBinaryMatrix.py
+ 3048  ./createPythonFile.sh NearestExitFromEntranceInMaze.py\n
+ 3049  clear
+ 3050  ./NearestExitFromEntranceInMaze.py
+ 3051  clear
+ 3052  ./NearestExitFromEntranceInMaze.py
+ 3053  ls -a
+ 3054  cd
+ 3055  ls -a
+ 3056  cd .gradle
+ 3057  ls
+ 3058  cd caches
+ 3059  ls
+ 3060  rm -rf 7.4
+ 3061  ls
+ 3062  clear
+ 3063  ls
+ 3064  cd IdeaProjects
+ 3065  ls
+ 3066  git clone https://github.com/beryl-07/AlgoTraining.git
+ 3067  ls
+ 3068  touch shortestPathBinaryMatrix.kt
+ 3069  rm -rf shortestPathBinaryMatrix.kt
+ 3070  clear
+ 3071  mkdir Graph
+ 3072  cd Graph
+ 3073  clear
+ 3074  mkdir BFS
+ 3075  clear
+ 3076  cd BFS
+ 3077  clear
+ 3078  touch shortestPathBinaryMatrix.kt
+ 3079  clear
+ 3080  cd ../../../
+ 3081  cd ../
+ 3082  rm -rf AlgoTraining
+ 3083  cd /home/bryl07/IdeaProjects/AlgoTraining/src/main/kotlin/graph/bfs\n
+ 3084  clear
+ 3085  mv main.kt main.kt
+ 3086  mv main.kt Main.kt
+ 3087  git add .
+ 3088  git commit -m "Nearest Exit From Entrance In Maze"
+ 3089  git push origin master
+ 3090  cd 
+ 3091  cd Documents/alxProject/alx_GithubToken/
+ 3092  ls
+ 3093  cat alx-GithubToken.md
+ 3094  git branch
+ 3095  git add .
+ 3096  git commit -m "Nearest Exit From Entrance In Maze"
+ 3097  git push origin master
+ 3098  git pull
+ 3099  ls
+ 3100  ls -a
+ 3101  rm -rf .git
+ 3102  rm -rf .gitignore
+ 3103  clear
+ 3104  git pull origin master
+ 3105  clear
+ 3106  git init
+ 3107  git pull origin master
+ 3108  clear
+ 3109  git commit -m "First Commit"
+ 3110  git add .
+ 3111  git commit -m "First Commit"
+ 3112  git push origin master
+ 3113  git push
+ 3114  git push AlgoTraining
+ 3115  git remote add https://github.com/beryl-07/AlgoTraining.git
+ 3116  git remote add origin https://github.com/beryl-07/AlgoTraining.git
+ 3117  git push origin master
+ 3118  cat alx-GithubToken.md
+ 3119  git pull origin master
+ 3120  git rm --cached
+ 3121  git commit --amend -CHEAD
+ 3122  git push
+ 3123  git push --set-upstream origin master\n
+ 3124  clear
+ 3125  git pull master
+ 3126  clear
+ 3127  git pull origin master
+ 3128  git branch
+ 3129  git pull
+ 3130  git branch --set-upstream-to=origin/<branche> master\n
+ 3131  git branch --set-upstream-to=origin master master\n
+ 3132  git branch --set-upstream-to=origin master\n
+ 3133  git branch --set-upstream-to=master master\n
+ 3134  git branch --set-upstream-to=master\n
+ 3135  clear
+ 3136  git merge master
+ 3137  git push
+ 3138  git push --set-upstream origin master\n
+ 3139  cd ../../
+ 3140  git branch -m main master\ngit fetch origin\ngit branch -u origin/master master\ngit remote set-head origin -a
+ 3141  clear
+ 3142  exit
+ 3143  git clone https://github.com/beryl-07/AlgoTraining.git
+ 3144  cp * ../../AlgoTraining
+ 3145  cp -r * ../../AlgoTraining
+ 3146  cd AlgoTraining
+ 3147  ls
+ 3148  rm -rf .
+ 3149  cd ../
+ 3150  rm -rf AlgoTraining
+ 3151  cd ../
+ 3152  mv AlgoTraining Documents/AlgoTraining
+ 3153  cd Documents/AlgoTraining
+ 3154  ls
+ 3155  cd ../AlgoTraining_
+ 3156  cd src/main/kotlin
+ 3157  ls
+ 3158  pwd
+ 3159  cp graph /home/bryl07/IdeaProjects/AlgoTraining/src/main/kotlin/graph
+ 3160  cp -r graph /home/bryl07/IdeaProjects/AlgoTraining/src/main/kotlin/graph
+ 3161  cd ../../
+ 3162  cd test
+ 3163  ls
+ 3164  cd kotlin
+ 3165  ls
+ 3166  cp -r graph /home/bryl07/IdeaProjects/AlgoTraining/src/test/kotlin/graph
+ 3167  clear
+ 3168  exit
+ 3169  cd src/main/kotlin/graph/bfs
+ 3170  ls
+ 3171  cd ../AlgoTraining_/src/test/kotlin/graph/bfs/shortestPathBinaryMatrix
+ 3172  ls
+ 3173  cat SolutionTest.kt
+ 3174  clear
+ 3175  exit
+ 3176  cd ../../
+ 3177  cd AlgoTraining
+ 3178  clear
+ 3179  git add .
+ 3180  git commit -m "First Commit"
+ 3181  git push origin master
+ 3182  git push
+ 3183  git remote add https://github.com/beryl-07/AlgoTraining.git
+ 3184  git remote add origin https://github.com/beryl-07/AlgoTraining.git\ngit branch -M master\ngit push -u origin master
+ 3185  cd 
+ 3186  cd Documents/alxProject/alx_GithubToken
+ 3187  cat alx-GithubToken.md
+ 3188  echo "# AlgoTraining" >> README.md
+ 3189  cat README.md
+ 3190  PWD
+ 3191  pwd
+ 3192  clear
+ 3193  cd src/main/kotlin
+ 3194  kotlinc 12_Abstract_Classes.kt -script
+ 3195  sudo apt-get install android-sdk-platform-tools-common
+ 3196  sudo usermod -aG plugdev $LOGNAME
+ 3197  adb devices
+ 3198  cd ../
+ 3199  rm -rf *
+ 3200  ls
+ 3201  cd Bureau
+ 3202  Walmart_internship
+ 3203  mkdir Walmart_internship
+ 3204  clear
+ 3205  cd Walmart_internship
+ 3206  code .
+ 3207  clear
+ 3208  cd Task1_AdvancedDataStructures
+ 3209  clear
+ 3210  ./createPythonFile.py main.py
+ 3211  code main.py
+ 3212  code heap.py
+ 3213  cd ../
+ 3214  rm -rf .
+ 3215  cd ../
+ 3216  rm -rf Walmart_internship
+ 3217  clear
+ 3218  pwd
+ 3219  clear
+ 3220  exit
+ 3221  cd
+ 3222  clear
+ 3223  cd /etc/
+ 3224  cd php
+ 3225  ls
+ 3226  cd 8.1
+ 3227  ls
+ 3228  cd a
+ 3229  cd apache2
+ 3230  ls
+ 3231  vi php.ini
+ 3232  cd
+ 3233  clear
+ 3234  exit
+ 3235  clear
+ 3236  mkdir 26_01_2022
+ 3237  cd 26_01_2022
+ 3238  g++ main.cpp fonction.cpp -o main.out
+ 3239  clear
+ 3240  g++ main.cpp fonction.cpp -o main.out
+ 3241  clear
+ 3242  g++ main.cpp fonction.cpp -o main.out
+ 3243  clear
+ 3244  g++ main.cpp fonction.cpp -o main.out
+ 3245  clear
+ 3246  g++ main.cpp fonction.cpp -o main.out
+ 3247  clear
+ 3248  g++ main.cpp fonction.cpp -o main.out
+ 3249  clear
+ 3250  g++ main.cpp fonction.cpp -o main.out
+ 3251  g++ main.cpp -o main.out
+ 3252  ./main.out
+ 3253  g++ main.cpp -o main.out
+ 3254  ./main.out
+ 3255  g++ main.cpp fonction.cpp -o main.out
+ 3256  ./main.out
+ 3257  g++ main.cpp fonction.cpp -o main.out
+ 3258  ./main.out
+ 3259  g++ main.cpp fonction.cpp -o main.out
+ 3260  ./main.out
+ 3261  g++ main.cpp fonction.cpp -o main.out
+ 3262  clear
+ 3263  g++ main.cpp fonction.cpp -o main.out
+ 3264  ./main.out
+ 3265  g++ main.cpp fonction.cpp -o main.out
+ 3266  ./main.out
+ 3267  g++ main.cpp fonction.cpp -o main.out
+ 3268  ./main.out
+ 3269  g++ main.cpp fonction.cpp -o main.out
+ 3270  ./main.out
+ 3271  g++ main.cpp fonction.cpp -o main.out
+ 3272  ./main.out
+ 3273  g++ main.cpp fonction.cpp -o main.out
+ 3274  ./main.out
+ 3275  g++ main.cpp fonction.cpp -o main.out
+ 3276  ./main.out
+ 3277  g++ main.cpp fonction.cpp -o main.out
+ 3278  ./main.out
+ 3279  g++ main.cpp fonction.cpp -o main.out
+ 3280  clear
+ 3281  g++ main.cpp fonction.cpp -o main.out
+ 3282  ./main.out
+ 3283  g++ main.cpp fonction.cpp -o main.out
+ 3284  ./main.out
+ 3285  g++ main.cpp fonction.cpp -o main.out
+ 3286  ./main.out
+ 3287  g++ main.cpp fonction.cpp -o main.out
+ 3288  ./main.out
+ 3289  g++ main.cpp fonction.cpp -o main.out
+ 3290  ./main.out
+ 3291  g++ main.cpp fonction.cpp -o main.out
+ 3292  ./main.out
+ 3293  g++ main.cpp fonction.cpp -o main.out
+ 3294  ./main.out
+ 3295  g++ main.cpp fonction.cpp -o main.out
+ 3296  clear
+ 3297  g++ main.cpp fonction.cpp -o main.out
+ 3298  ./main.out
+ 3299  g++ main.cpp fonction.cpp -o main.out
+ 3300  ./main.out
+ 3301  g++ main.cpp fonction.cpp -o main.out
+ 3302  ./main.out
+ 3303  g++ main.cpp fonction.cpp -o main.out
+ 3304  clear
+ 3305  g++ main.cpp fonction.cpp -o main.out
+ 3306  ./main.out
+ 3307  g++ main.cpp fonction.cpp -o main.out
+ 3308  ./main.out
+ 3309  g++ main.cpp fonction.cpp -o main.out
+ 3310  ./main.out
+ 3311  g++ main.cpp fonction.cpp -o main.out
+ 3312  ./main.out
+ 3313  g++ main.cpp fonction.cpp -o main.out
+ 3314  ./main.out
+ 3315  g++ main.cpp fonction.cpp -o main.out
+ 3316  ./main.out
+ 3317  g++ main.cpp fonction.cpp -o main.out
+ 3318  ./main.out
+ 3319  g++ main.cpp fonction.cpp -o main.out
+ 3320  ./main.out
+ 3321  g++ main.cpp fonction.cpp -o main.out
+ 3322  ./main.out
+ 3323  g++ main.cpp fonction.cpp -o main.out
+ 3324  ./main.out
+ 3325  g++ main.cpp fonction.cpp -o main.out
+ 3326  ./main.out
+ 3327  g++ main.cpp fonction.cpp -o main.out
+ 3328  ./main.out
+ 3329  g++ main.cpp fonction.cpp -o main.out
+ 3330  ./main.out
+ 3331  g++ main.cpp fonction.cpp -o main.out
+ 3332  ./main.out
+ 3333  g++ main.cpp fonction.cpp -o main.out
+ 3334  ./main.out
+ 3335  g++ main.cpp fonction.cpp -o main.out
+ 3336  ./main.out
+ 3337  g++ main.cpp fonction.cpp -o main.out
+ 3338  ./main.out
+ 3339  g++ main.cpp fonction.cpp -o main.out
+ 3340  ./main.out
+ 3341  g++ main.cpp fonction.cpp -o main.out
+ 3342  clear
+ 3343  g++ main.cpp fonction.cpp -o main.out
+ 3344  ./main.out
+ 3345  g++ main.cpp fonction.cpp -o main.out
+ 3346  ./main.out
+ 3347  g++ main.cpp fonction.cpp -o main.out
+ 3348  ./main.out
+ 3349  g++ main.cpp fonction.cpp -o main.out
+ 3350  ./main.out
+ 3351  g++ main.cpp fonction.cpp -o main.out
+ 3352  ./main.out
+ 3353  g++ main.cpp fonction.cpp -o main.out
+ 3354  ./main.out
+ 3355  g++ main.cpp fonction.cpp -o main.out
+ 3356  ./main.out
+ 3357  clear
+ 3358  ./main.out
+ 3359  g++ main.cpp fonction.cpp -o main.out
+ 3360  ./main.out
+ 3361  g++ main.cpp fonction.cpp -o main.out
+ 3362  ./main.out
+ 3363  g++ main.cpp fonction.cpp -o main.out
+ 3364  ./main.out
+ 3365  g++ main.cpp fonction.cpp -o main.out
+ 3366  ./main.out
+ 3367  g++ main.cpp fonction.cpp -o main.out
+ 3368  ./main.out
+ 3369  g++ main.cpp fonction.cpp -o main.out
+ 3370  ./main.out
+ 3371  g++ main.cpp fonction.cpp -o main.out
+ 3372  ./main.out
+ 3373  g++ main.cpp fonction.cpp -o main.out
+ 3374  ./main.out
+ 3375  g++ main.cpp fonction.cpp -o main.out
+ 3376  ./main.out
+ 3377  g++ main.cpp fonction.cpp -o main.out
+ 3378  clear
+ 3379  g++ main.cpp fonction.cpp -o main.out
+ 3380  ./main.out
+ 3381  g++ main.cpp fonction.cpp -o main.out
+ 3382  ./main.out
+ 3383  clear
+ 3384  ./main.out
+ 3385  g++ main.cpp fonction.cpp -o main.out
+ 3386  clear
+ 3387  g++ main.cpp fonction.cpp -o main.out
+ 3388  ./main.out
+ 3389  clear
+ 3390  g++ main.cpp fonction.cpp -o main.out
+ 3391  ./main.out
+ 3392  g++ main.cpp fonction.cpp -o main.out
+ 3393  ./main.out
+ 3394  g++ main.cpp fonction.cpp -o main.out
+ 3395  ./main.out
+ 3396  clear
+ 3397  g++ main.cpp fonction.cpp -o main.out
+ 3398  ./main.out
+ 3399  clear
+ 3400  g++ main.cpp fonction.cpp -o main.out
+ 3401  ./main.out
+ 3402  g++ main.cpp fonction.cpp -o main.out
+ 3403  ./main.out
+ 3404  g++ main.cpp fonction.cpp -o main.out
+ 3405  ./main.out
+ 3406  g++ main.cpp fonction.cpp -o main.out
+ 3407  ./main.out
+ 3408  g++ main.cpp fonction.cpp -o main.out
+ 3409  ./main.out
+ 3410  g++ main.cpp fonction.cpp -o main.out
+ 3411  ./main.out
+ 3412  g++ main.cpp fonction.cpp -o main.out
+ 3413  ./main.out
+ 3414  g++ main.cpp fonction.cpp -o main.out
+ 3415  ./main.out
+ 3416  g++ main.cpp fonction.cpp -o main.out
+ 3417  ./main.out
+ 3418  g++ main.cpp fonction.cpp -o main.out
+ 3419  ./main.out
+ 3420  g++ main.cpp fonction.cpp -o main.out
+ 3421  ./main.out
+ 3422  g++ main.cpp fonction.cpp -o main.out
+ 3423  ./main.out
+ 3424  g++ main.cpp fonction.cpp -o main.out
+ 3425  ./main.out
+ 3426  g++ main.cpp fonction.cpp -o main.out
+ 3427  ./main.out
+ 3428  clear
+ 3429  g++ main.cpp fonction.cpp -o main.out
+ 3430  ./main.out
+ 3431  g++ main.cpp fonction.cpp -o main.out
+ 3432  ./main.out
+ 3433  g++ main.cpp fonction.cpp -o main.out
+ 3434  ./main.out
+ 3435  g++ main.cpp fonction.cpp -o main.out
+ 3436  ./main.out
+ 3437  clear
+ 3438  g++ main.cpp fonction.cpp -o main.out
+ 3439  ./main.out
+ 3440  g++ main.cpp fonction.cpp -o main.out
+ 3441  ./main.out
+ 3442  g++ main.cpp fonction.cpp -o main.out
+ 3443  ./main.out
+ 3444  g++ main.cpp fonction.cpp -o main.out
+ 3445  ./main.out
+ 3446  clear
+ 3447  g++ main.cpp fonction.cpp -o main.out
+ 3448  ./main.out
+ 3449  g++ main.cpp fonction.cpp -o main.out
+ 3450  ./main.out
+ 3451  g++ main.cpp fonction.cpp -o main.out
+ 3452  ./main.out
+ 3453  clear
+ 3454  g++ main.cpp fonction.cpp -o main.out
+ 3455  ./main.out
+ 3456  clear
+ 3457  g++ main.cpp fonction.cpp -o main.out
+ 3458  ./main.out
+ 3459  clear
+ 3460  g++ main.cpp fonction.cpp -o main.out
+ 3461  ./main.out
+ 3462  clear
+ 3463  g++ main.cpp fonction.cpp -o main.out
+ 3464  ./main.out
+ 3465  clear
+ 3466  g++ main.cpp fonction.cpp -o main.out
+ 3467  ./main.out
+ 3468  clear
+ 3469  g++ main.cpp fonction.cpp -o main.out
+ 3470  ./main.out
+ 3471  g++ main.cpp fonction.cpp -o main.out
+ 3472  ./main.out
+ 3473  g++ main.cpp fonction.cpp -o main.out
+ 3474  ./main.out
+ 3475  g++ main.cpp fonction.cpp -o main.out
+ 3476  ./main.out
+ 3477  g++ main.cpp fonction.cpp -o main.out
+ 3478  ./main.out
+ 3479  clear
+ 3480  g++ main.cpp fonction.cpp -o main.out
+ 3481  ./main.out
+ 3482  clear
+ 3483  g++ main.cpp fonction.cpp -o main.out
+ 3484  ./main.out
+ 3485  g++ main.cpp fonction.cpp -o main.out
+ 3486  ./main.out
+ 3487  clear
+ 3488  g++ main.cpp fonction.cpp -o main.out
+ 3489  ./main.out
+ 3490  clear
+ 3491  g++ main.cpp fonction.cpp -o main.out
+ 3492  ./main.out
+ 3493  g++ main.cpp fonction.cpp -o main.out
+ 3494  ./main.out
+ 3495  clear
+ 3496  g++ main.cpp fonction.cpp -o main.out
+ 3497  ./main.out
+ 3498  clear
+ 3499  g++ main.cpp fonction.cpp -o main.out
+ 3500  ./main.out
+ 3501  clear
+ 3502  g++ main.cpp fonction.cpp -o main.out
+ 3503  ./main.out
+ 3504  clear
+ 3505  g++ main.cpp fonction.cpp -o main.out
+ 3506  ./main.out
+ 3507  clear
+ 3508  g++ main.cpp fonction.cpp -o main.out
+ 3509  ./main.out
+ 3510  g++ main.cpp fonction.cpp -o main.out
+ 3511  ./main.out
+ 3512  clear
+ 3513  g++ main.cpp fonction.cpp -o main.out
+ 3514  ./main.out
+ 3515  clear
+ 3516  g++ main.cpp fonction.cpp -o main.out
+ 3517  ./main.out
+ 3518  clear
+ 3519  g++ main.cpp fonction.cpp -o main.out
+ 3520  ./main.out
+ 3521  clear
+ 3522  g++ main.cpp fonction.cpp -o main.out
+ 3523  ./main.out
+ 3524  clear
+ 3525  g++ main.cpp fonction.cpp -o main.out
+ 3526  ./main.out
+ 3527  clear
+ 3528  g++ main.cpp fonction.cpp -o main.out
+ 3529  ./main.out
+ 3530  clear
+ 3531  g++ main.cpp fonction.cpp -o main.out
+ 3532  ./main.out
+ 3533  clear
+ 3534  g++ main.cpp fonction.cpp -o main.out
+ 3535  ./main.out
+ 3536  clear
+ 3537  g++ main.cpp fonction.cpp -o main.out
+ 3538  ./main.out
+ 3539  clear
+ 3540  g++ main.cpp fonction.cpp -o main.out
+ 3541  ./main.out
+ 3542  clear
+ 3543  g++ main.cpp fonction.cpp -o main.out
+ 3544  ./main.out
+ 3545  clear
+ 3546  g++ main.cpp fonction.cpp -o main.out
+ 3547  ./main.out
+ 3548  clear
+ 3549  g++ main.cpp fonction.cpp -o main.out
+ 3550  ./main.out
+ 3551  clear
+ 3552  ./main.out
+ 3553  g++ main.cpp fonction.cpp -o main.out
+ 3554  ./main.out
+ 3555  clear
+ 3556  g++ main.cpp fonction.cpp -o main.out
+ 3557  ./main.out
+ 3558  clear
+ 3559  g++ main.cpp fonction.cpp -o main.out
+ 3560  ./main.out
+ 3561  clear
+ 3562  g++ main.cpp fonction.cpp -o main.out
+ 3563  ./main.out
+ 3564  clear
+ 3565  g++ main.cpp fonction.cpp -o main.out
+ 3566  ./main.out
+ 3567  cd 26_01_2022
+ 3568  clear
+ 3569  g++ main.cpp fonction.cpp -o main.out
+ 3570  ./main.out
+ 3571  clear
+ 3572  g++ main.cpp fonction.cpp -o main.out
+ 3573  ./main.out
+ 3574  clear
+ 3575  g++ main.cpp fonction.cpp -o main.out
+ 3576  ./main.out
+ 3577  clear
+ 3578  g++ main.cpp fonction.cpp -o main.out
+ 3579  ./main.out
+ 3580  clear
+ 3581  g++ main.cpp fonction.cpp -o main.out
+ 3582  ./main.out
+ 3583  clear
+ 3584  g++ main.cpp fonction.cpp -o main.out
+ 3585  ./main.out
+ 3586  clear
+ 3587  g++ main.cpp fonction.cpp -o main.out
+ 3588  ./main.out
+ 3589  g++ main.cpp fonction.cpp -o main.out
+ 3590  ./main.out
+ 3591  clear
+ 3592  g++ main.cpp fonction.cpp -o main.out
+ 3593  ./main.out
+ 3594  clear
+ 3595  g++ main.cpp fonction.cpp -o main.out
+ 3596  ./main.out
+ 3597  clear
+ 3598  g++ main.cpp fonction.cpp -o main.out
+ 3599  ./main.out
+ 3600  clear
+ 3601  g++ main.cpp fonction.cpp -o main.out
+ 3602  ./main.out
+ 3603  clear
+ 3604  g++ main.cpp fonction.cpp -o main.out
+ 3605  ./main.out
+ 3606  g++ main.cpp fonction.cpp -o main.out
+ 3607  ./main.out
+ 3608  clear
+ 3609  g++ main.cpp fonction.cpp -o main.out
+ 3610  ./main.out
+ 3611  clear
+ 3612  g++ main.cpp fonction.cpp -o main.out
+ 3613  ./main.out
+ 3614  clear
+ 3615  g++ main.cpp fonction.cpp -o main.out
+ 3616  ./main.out
+ 3617  clear
+ 3618  g++ main.cpp fonction.cpp -o main.out
+ 3619  ./main.out
+ 3620  clear
+ 3621  g++ main.cpp fonction.cpp -o main.out
+ 3622  ./main.out
+ 3623  g++ main.cpp fonction.cpp -o main.out
+ 3624  clear
+ 3625  cd 26_01_2022
+ 3626  clear
+ 3627  g++ main.cpp fonction.cpp -o main.out
+ 3628  ./main.out
+ 3629  clear
+ 3630  g++ main.cpp fonction.cpp -o main.out
+ 3631  clear
+ 3632  ./main.out
+ 3633  clear
+ 3634  g++ main.cpp fonction.cpp -o main.out
+ 3635  ./main.out
+ 3636  clear
+ 3637  g++ main.cpp fonction.cpp -o main.out
+ 3638  ./main.out
+ 3639  g++ main.cpp fonction.cpp -o main.out
+ 3640  ./main.out
+ 3641  CLEAR
+ 3642  clear
+ 3643  g++ main.cpp fonction.cpp -o main.out
+ 3644  ./main.out
+ 3645  g++ main.cpp fonction.cpp -o main.out
+ 3646  ./main.out
+ 3647  clear
+ 3648  g++ main.cpp fonction.cpp -o main.out
+ 3649  ./main.out
+ 3650  clear
+ 3651  g++ main.cpp fonction.cpp -o main.out
+ 3652  ./main.out
+ 3653  clear
+ 3654  g++ main.cpp fonction.cpp -o main.out
+ 3655  ./main.out
+ 3656  clear
+ 3657  g++ main.cpp fonction.cpp -o main.out
+ 3658  ./main.out
+ 3659  clear
+ 3660  g++ main.cpp fonction.cpp -o main.out
+ 3661  ./main.out
+ 3662  clear
+ 3663  g++ main.cpp fonction.cpp -o main.out
+ 3664  ./main.out
+ 3665  clear
+ 3666  g++ main.cpp fonction.cpp -o main.out
+ 3667  ./main.out
+ 3668  clear
+ 3669  g++ main.cpp fonction.cpp -o main.out
+ 3670  ./main.out
+ 3671  clear
+ 3672  g++ main.cpp fonction.cpp -o main.out
+ 3673  ./main.out
+ 3674  clear
+ 3675  g++ main.cpp fonction.cpp -o main.out
+ 3676  ./main.out
+ 3677  clear
+ 3678  g++ main.cpp fonction.cpp -o main.out
+ 3679  ./main.out
+ 3680  g++ main.cpp fonction.cpp -o main.out
+ 3681  ./main.out
+ 3682  clea
+ 3683  clear
+ 3684  g++ main.cpp fonction.cpp -o main.out
+ 3685  ./main.out
+ 3686  clear
+ 3687  g++ main.cpp fonction.cpp -o main.out
+ 3688  ./main.out
+ 3689  clear
+ 3690  g++ main.cpp fonction.cpp -o main.out
+ 3691  ./main.out
+ 3692  g++ main.cpp fonction.cpp -o main.out
+ 3693  ./main.out
+ 3694  clear
+ 3695  g++ main.cpp fonction.cpp -o main.out
+ 3696  ./main.out
+ 3697  clear
+ 3698  g++ main.cpp fonction.cpp -o main.out
+ 3699  ./main.out
+ 3700  clear
+ 3701  g++ main.cpp fonction.cpp -o main.out
+ 3702  ./main.out
+ 3703  clear
+ 3704  g++ main.cpp fonction.cpp -o main.out
+ 3705  ./main.out
+ 3706  clear
+ 3707  ./main.out
+ 3708  g++ main.cpp fonction.cpp -o main.out
+ 3709  ./main.out
+ 3710  clear
+ 3711  g++ main.cpp fonction.cpp -o main.out
+ 3712  ./main.out
+ 3713  clear
+ 3714  g++ main.cpp fonction.cpp -o main.out
+ 3715  ./main.out
+ 3716  clear
+ 3717  g++ main.cpp fonction.cpp -o main.out
+ 3718  ./main.out
+ 3719  clear
+ 3720  g++ main.cpp fonction.cpp -o main.out
+ 3721  ./main.out
+ 3722  g++ main.cpp fonction.cpp -o main.out
+ 3723  ./main.out
+ 3724  g++ main.cpp fonction.cpp -o main.out
+ 3725  ./main.out
+ 3726  g++ main.cpp fonction.cpp -o main.out
+ 3727  ./main.out
+ 3728  g++ main.cpp fonction.cpp -o main.out
+ 3729  ./main.out
+ 3730  clear
+ 3731  g++ main.cpp fonction.cpp -o main.out
+ 3732  ./main.out
+ 3733  g++ main.cpp fonction.cpp -o main.out
+ 3734  ./main.out
+ 3735  g++ main.cpp fonction.cpp -o main.out
+ 3736  ./main.out
+ 3737  g++ main.cpp fonction.cpp -o main.out
+ 3738  ./main.out
+ 3739  clear
+ 3740  g++ main.cpp fonction.cpp -o main.out
+ 3741  ./main.out
+ 3742  clear
+ 3743  g++ main.cpp fonction.cpp -o main.out
+ 3744  ./main.out
+ 3745  g++ main.cpp fonction.cpp -o main.out
+ 3746  ./main.out
+ 3747  clear
+ 3748  g++ main.cpp fonction.cpp -o main.out
+ 3749  ./main.out
+ 3750  g++ main.cpp fonction.cpp -o main.out
+ 3751  ./main.out
+ 3752  g++ main.cpp fonction.cpp -o main.out
+ 3753  ./main.out
+ 3754  g++ main.cpp fonction.cpp -o main.out
+ 3755  ./main.out
+ 3756  g++ main.cpp fonction.cpp -o main.out
+ 3757  ./main.out
+ 3758  touch main.cpp
+ 3759  touch Universite.cpp Universite.hpp
+ 3760  clear
+ 3761  g++ main.cpp Universite.cpp -o main.out
+ 3762  clear
+ 3763  g++ main.cpp  -o main.out
+ 3764  ./main.out
+ 3765  g++ main.cpp  -o main.out
+ 3766  ./main.out
+ 3767  g++ main.cpp Universite.cpp -o main.out
+ 3768  clear
+ 3769  g++ main.cpp  -o main.out
+ 3770  ./main.out
+ 3771  g++ main.cpp Universite.cpp -o main.out
+ 3772  ./main.out
+ 3773  ./createPythonFile.py linked-list-cycle-ii.py
+ 3774  code linked-list-cycle-ii.py
+ 3775  g++ main.cpp Universite.cpp -o main.out
+ 3776  ./main.out
+ 3777  pwd
+ 3778  code ^[[200~/home/bryl07/IdeaProjects/AlgoTraining
+ 3779  code .
+ 3780  clear
+ 3781  cd ../
+ 3782  ls
+ 3783  cd 28_01_2023
+ 3784  ls
+ 3785  code U_thematique.hpp
+ 3786  code U_thematique.cpp
+ 3787  ./12-object.js
+ 3788  code 13-add.js
+ 3789  chmod a+x 13-add.js
+ 3790  ./13-add.js
+ 3791  clear
+ 3792  ./13-add.js
+ 3793  clear
+ 3794  ./13-add.js
+ 3795  clear
+ 3796  code 13-main.js
+ 3797  chmod a+x 13-main.js
+ 3798  ./13-main.js
+ 3799  clear
+ 3800  ./13-main.js
+ 3801  cd ../../
+ 3802  cd Documents
+ 3803  clear
+ 3804  git clone https://github.com/beryl452/alx-higher_level_programming.git
+ 3805  ls
+ 3806  cd alx-higher_level_programming
+ 3807  ls
+ 3808  code 0x12-javascript-warm_up
+ 3809  clear
+ 3810  code 100-main.js
+ 3811  chmod a+x 100-main.js
+ 3812  code 100-let_me_const.js
+ 3813  chmod a+x 100-let_me_const.js
+ 3814  ./100-main.js
+ 3815  git add .
+ 3816  git commit -m "100-let_me_const.js"
+ 3817  git push origin main
+ 3818  ./100-main.js
+ 3819  git add .
+ 3820  git commit -m "100-let_me_const.js"
+ 3821  git push origin main
+ 3822  touch 101-main.js
+ 3823  chmod a+x 101-main.js
+ 3824  code 101-main.js
+ 3825  touch 101-call_me_moby.js
+ 3826  chmod a+x 101-call_me_moby.js
+ 3827  code 101-call_me_moby.js
+ 3828  ./101-main.js
+ 3829  clear
+ 3830  ./101-main.js
+ 3831  git add .
+ 3832  git commit -m "101-call_me_moby.js"
+ 3833  git push origin main
+ 3834  cat 102-main.js
+ 3835  code 102-main.js
+ 3836  chmod a+x 102-main.js
+ 3837  touch 102-add_me_maybe.js
+ 3838  chmod a+x 102-add_me_maybe.js
+ 3839  code 102-add_me_maybe.js
+ 3840  ./102-
+ 3841  ./102-main.js
+ 3842  git add .
+ 3843  git commit -m "addMeMaybe"
+ 3844  git push origin main
+ 3845  touch 103-object_fct.js
+ 3846  chmod a+x 103-object_fct.js
+ 3847  code 103-object_fct.js
+ 3848  ./103-object_fct.js
+ 3849  clear
+ 3850  git add .
+ 3851  git commit -m "103-object_fct.js"
+ 3852  git push origin main
+ 3853  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3854  ./main.out
+ 3855  clear
+ 3856  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3857  clear
+ 3858  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3859  ./main.out
+ 3860  clear
+ 3861  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3862  ./main.out
+ 3863  clear
+ 3864  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3865  ./main.out
+ 3866  clear
+ 3867  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3868  ./main.out
+ 3869  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3870  ./main.out
+ 3871  clear
+ 3872  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3873  ./main.out
+ 3874  clear
+ 3875  g++ main.cpp Boursier.cpp Etudiant.cpp -o main.out
+ 3876  ./main.out
+ 3877  clear
+ 3878  touch view
+ 3879  rm -rf view
+ 3880  clear
+ 3881  mkdir touch
+ 3882  cd touch
+ 3883  mkdir styles/style.css
+ 3884  mkdir styles
+ 3885  cd styles && touch style.css
+ 3886  mv touch view
+ 3887  cd ../
+ 3888  clear
+ 3889  touch index.html
+ 3890  mv styles CSS
+ 3891  mkdir JS
+ 3892  cd JS
+ 3893  touch index.js
+ 3894  code index.js
+ 3895  cd ../
+ 3896  php -S 127.0.0.1:8080
+ 3897  clear
+ 3898  cd ~/.ssh
+ 3899  ls
+ 3900  cd ../
+ 3901  rm -rf pythonProject
+ 3902  clear
+ 3903  cd res
+ 3904  clear
+ 3905  ls
+ 3906  clear
+ 3907  cd app
+ 3908  ls
+ 3909  cd src/main/res/raw
+ 3910  ls
+ 3911  clear
+ 3912  ./minHeap.py
+ 3913  chmod a+x minHeap.py
+ 3914  clear
+ 3915  ./minHeap.py
+ 3916  clear
+ 3917  ./minHeap.py
+ 3918  clear
+ 3919  ./minHeap.py
+ 3920  clear
+ 3921  ./minHeap.py
+ 3922  clear
+ 3923  ./minHeap.py
+ 3924  clear
+ 3925  ./minHeap.py
+ 3926  clear
+ 3927  ./minHeap.py
+ 3928  clear
+ 3929  ./minHeap.py
+ 3930  cd app/src
+ 3931  clear
+ 3932  ls -a
+ 3933  cd ../
+ 3934  cd values
+ 3935  ls
+ 3936  rm -rd test.mp4
+ 3937  ls -a
+ 3938  clear
+ 3939  cd ../raw
+ 3940  clear
+ 3941  exit
+ 3942  echo $?
+ 3943  curl http://berylhoe.tech
+ 3944  echo $?
+ 3945  exit
+ 3946  clear
+ 3947  git add .
+ 3948  git commit -m "merge k sorted lists test"
+ 3949  git push origin master
+ 3950  cd
+ 3951  cd Documents
+ 3952  ls
+ 3953  cd alxProject
+ 3954  ls
+ 3955  cd alx_GithubToken
+ 3956  ls
+ 3957  cat alx_GithubToken.md
+ 3958  cat alx-GithubToken.md
+ 3959  git push origin master
+ 3960  cd
+ 3961  cd Documents
+ 3962  ls
+ 3963  cd alxProject
+ 3964  ls
+ 3965  cd alx_GithubToken
+ 3966  clear
+ 3967  ls
+ 3968  cat alx-GithubToken.md
+ 3969  cat alx_GithubToken.md
+ 3970  git add .
+ 3971  git commit -m "Do other Solution for merge K linked lists, it's fun"
+ 3972  git push origin main
+ 3973  git push origin master
+ 3974  ls -a
+ 3975  ls
+ 3976  cd com/example/topquiz
+ 3977  ls
+ 3978  clear
+ 3979  cd
+ 3980  ls
+ 3981  clear
+ 3982  git clone https://github.com/mariusschulz/bachelors-thesis.git
+ 3983  clear
+ 3984  ls
+ 3985  git clone https://github.com/mariusschulz/bachelors-thesis.git
+ 3986  ls
+ 3987  cd bachelors-thesis
+ 3988  ls
+ 3989  code thesis.png
+ 3990  clear
+ 3991  sudo apt-get update
+ 3992  sudo apt-get upgrade
+ 3993  sudo apt-get dist-upgrade
+ 3994  sudo apt-get autoremove
+ 3995  sudo apt-get dist-upgrade
+ 3996  sudo apt-get autoclean
+ 3997  clear
+ 3998  ll
+ 3999  code thesis.tex
+ 4000  cd /tmp
+ 4001  wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz 
+ 4002  zcat install-tl-unx.tar.gz | goudron xf -\n
+ 4003  zcat install-tl-unx.tar.gz | tar xf -
+ 4004  cd install-tl-*\n
+ 4005  zcat install-tl-unx.tar.gz | tar xf -
+ 4006  zcat --verbose install-tl-unx.tar.gz | tar xf -
+ 4007  ll
+ 4008  cd install-tl-20230302
+ 4009  perl ./install-tl --no-interaction
+ 4010  echo $PATH
+ 4011  cd
+ 4012  vim .zshrc
+ 4013  vim .bashrc
+ 4014  cd /usr/local/texlive\n
+ 4015  cd /usr/local/\n
+ 4016  ll
+ 4017  cd /tmp
+ 4018  ll
+ 4019  cd
+ 4020  clear
+ 4021  cd /
+ 4022  find flutter*
+ 4023  find *flutter*
+ 4024  cd ~
+ 4025  clear
+ 4026  cd Téléchargements
+ 4027  ls
+ 4028  clear
+ 4029  cd ../Documents
+ 4030  ls
+ 4031  clear
+ 4032  find / -name "flutter*"
+ 4033  sudo find / -name "flutter*"
+ 4034  cd /usr/local
+ 4035  ls
+ 4036  cd
+ 4037  clear
+ 4038  dart
+ 4039  clear
+ 4040  dart --version
+ 4041  ls
+ 4042  cd Bureau
+ 4043  ls
+ 4044  cd Django
+ 4045  ls
+ 4046  python manage.py migrate
+ 4047  python3 manage.py migrate
+ 4048  source venv/bin/activate
+ 4049  python3 manage.py migrate
+ 4050  clear
+ 4051  ls
+ 4052  cat manage.py
+ 4053  clear
+ 4054  ./manage.py
+ 4055  clear
+ 4056  python3 manage.py migrate
+ 4057  python manage.py runserver
+ 4058  code .
+ 4059  sudo su
+ 4060  mkdir Dart
+ 4061  cd Dart
+ 4062  clear
+ 4063  which flutter
+ 4064  flutter create learning_dart
+ 4065  clear
+ 4066  dart upgrade
+ 4067  clear
+ 4068  dart --version
+ 4069  flutter upgrade
+ 4070  flutter channel stable\n
+ 4071  clear
+ 4072  cd $HOME/.bash_profile
+ 4073  vim $HOME/.bash_profile
+ 4074  cd $HOME
+ 4075  ll
+ 4076  cd $HOME
+ 4077  adb kill-server
+ 4078  sudo adb kill-server
+ 4079  exit
+ 4080  htop
+ 4081  git init
+ 4082  git commit -m "Init repository"
+ 4083  touch readme.md
+ 4084  git add .
+ 4085  git commit -m "Init repository"
+ 4086  echo "# prog_web" >> README.md\ngit init\ngit add README.md\ngit commit -m "first commit"\ngit branch -M master\ngit remote add origin https://github.com/beryl-07/prog_web.git\ngit push -u origin master
+ 4087  git log
+ 4088  echo "# prog_web" >> README.md\ngit init\ngit add README.md\ngit commit -m "first commit"\ngit branch -M main\ngit remote add origin https://github.com/beryl452/prog_web.git\ngit push -u origin main
+ 4089  git push origin main
+ 4090  ls -a
+ 4091  cd .git
+ 4092  ls
+ 4093  cd ../
+ 4094  rm -rf .git
+ 4095  ls -a
+ 4096  rm -rf readme.md
+ 4097  echo "# prog_web" >> README.md\ngit init\ngit add README.md\ngit commit -m "first commit"\ngit branch -M main\ngit remote add origin https://github.com/beryl452/prog_web.git\ngit push -u origin main
+ 4098  git push origin main
+ 4099  mkdir style
+ 4100  rm -rf style
+ 4101  clear
+ 4102  mkdir CSS
+ 4103  mkdir JS
+ 4104  rm -rf CSS JS
+ 4105  mkdir view
+ 4106  mkdir PHP
+ 4107  cd view
+ 4108  mkdir CSS
+ 4109  mkdir JS
+ 4110  touch index.html
+ 4111  ls
+ 4112  cd view
+ 4113  ls
+ 4114  cd font
+ 4115  ls
+ 4116  cd Climate_Crisis
+ 4117  ls
+ 4118  chmod a+x ClimateCrisis-Regular-VariableFont_YEAR.ttf
+ 4119  ls
+ 4120  cd static
+ 4121  chmod a+x ClimateCrisis-Regular.ttf
+ 4122  git add .
+ 4123  git commit -m "Update CSS"
+ 4124  git push origin main
+ 4125  git add .
+ 4126  git commit -m "Update Home Page"
+ 4127  git push origin main
+ 4128  git config
+ 4129  git --config
+ 4130  clear
+ 4131  mkdir Projects
+ 4132  cd Projects
+ 4133  clear
+ 4134  git clone https://github.com/serena-on/CrudUsingOOPInPHP_.git
+ 4135  ls
+ 4136  mysql -u root -p
+ 4137  ls
+ 4138  cd Projects
+ 4139  ls
+ 4140  cd CrudUsingOOPInPHP_
+ 4141  LS
+ 4142  ls
+ 4143  pwd
+ 4144  mysql -u root -p `AGRI•DIGITAL` < /home/bryl07/Projects/CrudUsingOOPInPHP_/agri_digital.sql
+ 4145  mysql -u root -p AGRI•DIGITAL < /home/bryl07/Projects/CrudUsingOOPInPHP_/agri_digital.sql
+ 4146  clear
+ 4147  mysql -u root -p 
+ 4148  clear
+ 4149  cd back
+ 4150  ls
+ 4151  cd ../
+ 4152  cp back ../
+ 4153  cp -r back ../
+ 4154  clear
+ 4155  cd ../
+ 4156  ls
+ 4157  cd back
+ 4158  clear
+ 4159  code .
+ 4160  cd Projects
+ 4161  code back
+ 4162  clear
+ 4163  php -S 127.0.0.1:8080
+ 4164  php --version
+ 4165  sudo apt-get install php8.1-mysql\n
+ 4166  sudo /etc/init.d/apache2 restart\n
+ 4167  mysql -u root -p
+ 4168  clear
+ 4169  cd
+ 4170  cd /
+ 4171  find php.ini
+ 4172  find php*
+ 4173  find *php*
+ 4174  find -r php.ini
+ 4175  clear
+ 4176  find php
+ 4177  sudo find php
+ 4178  ld
+ 4179  ls
+ 4180  cd tmp
+ 4181  ls
+ 4182  cd ..
+ 4183  cd etc
+ 4184  ls
+ 4185  cd php
+ 4186  ls
+ 4187  cd 8.1
+ 4188  ls
+ 4189  cd apache2
+ 4190  ls
+ 4191  code php.ini
+ 4192  cd ../../
+ 4193  cd 8.2
+ 4194  ls
+ 4195  cd mods-available
+ 4196  ls
+ 4197  code pdo.ini
+ 4198  cd
+ 4199  clear
+ 4200  ls
+ 4201  cd Downloads
+ 4202  ls
+ 4203  cd projet_presentation
+ 4204  ls
+ 4205  cat database.php
+ 4206  mysqldump -u root -p `AGRI•DIGITAL` > AGRI•DIGITAL.sql
+ 4207  mysqldump -u root -p AGRI•DIGITAL > AGRI•DIGITAL.sql
+ 4208  mysqladmin -u root -p create AGRI_DIGITAL
+ 4209  mysqldump -u root -p AGRI_DIGITAL < AGRI•DIGITAL.sql
+ 4210  mysql -u root -p AGRI_DIGITAL < AGRI•DIGITAL.sql
+ 4211  mysql -u root -p
+ 4212  php -m | grep pdo_mysql\n
+ 4213  touch index.php
+ 4214  vim index.php
+ 4215  php -S 127.0.0.1:8080
+ 4216  php -S 127.0.0.1:8000
+ 4217  sudo apt-get remove php-mysql\n
+ 4218  sudo service apache2 restart\n
+ 4219  clear
+ 4220  php -S 127.0.0.1:8080
+ 4221  composer update --lock\n
+ 4222  php -S 127.0.0.1:8080
+ 4223  composer update --lock\n
+ 4224  php -S 127.0.0.1:8080
+ 4225  composer install
+ 4226  composer update
+ 4227  composer install
+ 4228  clear
+ 4229  composer install
+ 4230  clear
+ 4231  composer update phpunit\n
+ 4232  clear
+ 4233  composer install
+ 4234  php -S 127.0.0.1:8080
+ 4235  composer update phpunit\n
+ 4236  clear
+ 4237  composer update phpunit\n
+ 4238  composer update\n
+ 4239  composer install\n
+ 4240  php -S 127.0.0.1:8080
+ 4241  composer install\n
+ 4242  php -S 127.0.0.1:8080
+ 4243  clear
+ 4244  composer install\n
+ 4245  php -S 127.0.0.1:8080
+ 4246  clear
+ 4247  composer install
+ 4248  php -S 127.0.0.1:8080
+ 4249  sudo apt update
+ 4250  sudo apt upgrade
+ 4251  sudo apt dist-upgrade
+ 4252  sudo apt autoclean
+ 4253  sudo apt autoremove
+ 4254  php -S 127.0.0.1:8080
+ 4255  mysql -u root -p
+ 4256  php -S 127.0.0.1:8080
+ 4257  mysql -u root -p
+ 4258  php -S 127.0.0.1:8080
+ 4259  clear
+ 4260  php -S 127.0.0.1:8080
+ 4261  clear
+ 4262  php -S 127.0.0.1:8080
+ 4263  clear
+ 4264  php -S 127.0.0.1:8080
+ 4265  clear
+ 4266  php -S 127.0.0.1:8080
+ 4267  clear
+ 4268  php -S 127.0.0.1:8080
+ 4269  mysql -u root -p
+ 4270  source venv/bin/activate
+ 4271  clear
+ 4272  python manage.py runserver
+ 4273  clear
+ 4274  exit
+ 4275  clear
+ 4276  php -S 127.0.0.1:8080
+ 4277  mysql -u root -p
+ 4278  clear
+ 4279  exit
+ 4280  mysql -u root -p
+ 4281  sudo apt apt-update
+ 4282  sudo apt update
+ 4283  sudo apt upgrade
+ 4284  sudo apt autoremove
+ 4285  sudo apt dist-upgrade
+ 4286  sudo apt autoclean
+ 4287  clear
+ 4288  cd
+ 4289  clear
+ 4290  ls
+ 4291  mkdir HRSoftwareSystem
+ 4292  cd HRSoftwareSystem
+ 4293  clear
+ 4294  git clone https://github.com/beryl-07/TaskManagement.git
+ 4295  clear
+ 4296  code TaskManagement
+ 4297  ./configure.php
+ 4298  clear
+ 4299  sudo chmod a+x configure.php
+ 4300  ./configure.php
+ 4301  git add .
+ 4302  git commit -m "first commit"
+ 4303  git push origin main
+ 4304  composer install
+ 4305  find Connector.php
+ 4306  tree
+ 4307  clear
+ 4308  tree > txt.txt
+ 4309  which Connector.php
+ 4310  clear
+ 4311  ls
+ 4312  cat 2022_08_08_000000_create_users_table.php
+ 4313  ls
+ 4314  php make:model Projects --migration
+ 4315  php artisan make:model Projects --migration
+ 4316  clear
+ 4317  cd database/migrations
+ 4318  cp create_projects_table.php.stub create_tasks_table.php.stub
+ 4319  clear
+ 4320  cd src
+ 4321  clear
+ 4322  cd ../../
+ 4323  clear
+ 4324  cd src
+ 4325  clear
+ 4326  cp Project.php Task.php
+ 4327  cp ProjectServiceProvider.php TaskServiceProvider.php
+ 4328  cp Project.php User.php
+ 4329  cp Project.php TaskManager.php
+ 4330  cp Project.php Associate.php
+ 4331  cp ProjectServiceProvider.php UserServiceProvider.php
+ 4332  cp ProjectServiceProvider.php AssociateServiceProvider.php
+ 4333  cp ProjectServiceProvider.php TaskManagerServiceProvider.php
+ 4334  cp ProjectServiceProvider.php AssociateServiceProvider.php
+ 4335  cp ProjectServiceProvider.php DepartmentServiceProvider.php
+ 4336  clear
+ 4337  git add .
+ 4338  git commit -m "create models"
+ 4339  git push origin main
+ 4340  git pull origin main
+ 4341  git push origin main
+ 4342  CLEAR
+ 4343  clear
+ 4344  cd src/Commands
+ 4345  clear
+ 4346  ls
+ 4347  cp ProjectCommand.php AssociateCommand.php
+ 4348  cp ProjectCommand.php DepartmentCommand.php
+ 4349  cp ProjectCommand.php TaskCommand.php
+ 4350  cp ProjectCommand.php TaskManagerCommand.php
+ 4351  cp ProjectCommand.php UserCommand.php
+ 4352  clear
+ 4353  git add .
+ 4354  git commit -m "create Commands"
+ 4355  clear
+ 4356  git push origin main
+ 4357  git pull origin main
+ 4358  clear
+ 4359  git push origin main
+ 4360  composer show spatie/laravel-permission\n
+ 4361  composer show --all spatie/laravel-permission\n
+ 4362  clear
+ 4363  which Connector.php
+ 4364  tree > txt.txt
+ 4365  rm -rf txt.txt
+ 4366  clear
+ 4367  composer require spatie/laravel-permission\n
+ 4368  clear
+ 4369  cd src/Facades/
+ 4370  cp Project.php Associate.php
+ 4371  cp Project.php TaskManager.php
+ 4372  cp Project.php Task.php
+ 4373  cp Project.php Department.php
+ 4374  cp Project.php User.php
+ 4375  clear
+ 4376  git add .
+ 4377  git commit -m "create Facades"
+ 4378  git pull origin main
+ 4379  git push origin main
+ 4380  cd ../../
+ 4381  cp configure.php ../
+ 4382  cd ../
+ 4383  ls
+ 4384  ./configure.php
+ 4385  ls
+ 4386  cp TaskManagement TaskManagement_
+ 4387  cp -r TaskManagement TaskManagement_
+ 4388  code TaskManagement_
+ 4389  ./configure.php
+ 4390  rm -rf TaskManagement_
+ 4391  clear
+ 4392  cd TaskManagement
+ 4393  touch index.php
+ 4394  code index.php
+ 4395  clea
+ 4396  clear
+ 4397  php 127.0.0.1:8080
+ 4398  clear
+ 4399  php -S 127.0.0.1:8080
+ 4400  clear
+ 4401  cd database/factories
+ 4402  cp ModelFactory.php ProjectFactory.php
+ 4403  cp ModelFactory.php TaskFactory.php
+ 4404  cp ModelFactory.php DepartmentFactory.php
+ 4405  cp ModelFactory.php UserFactory.php
+ 4406  cp ModelFactory.php AssociateFactory.php
+ 4407  cd ../../src/Models
+ 4408  ls
+ 4409  composer show spatie/laravel-permission\n
+ 4410  clear
+ 4411  git add .
+ 4412  git commit -m "create Factory"
+ 4413  git push origin main
+ 4414  clear
+ 4415  cd ../
+ 4416  cd HRSoftwareSystem
+ 4417  clear
+ 4418  git clone https://github.com/beryl-07/HRSoftwareSystem.git
+ 4419  code HRSoftwareSystem
+ 4420  composer create-project laravel/laravel HRSoftwareSystem\n
+ 4421  cd HRSoftwareSystem
+ 4422  code .
+ 4423  php artisan serve
+ 4424  ls -a
+ 4425  cat .env
+ 4426  sudo apt-get install php-pgsql
+ 4427  clear
+ 4428  cd
+ 4429  clear
+ 4430  history > txt.txt
+ 4431  vim txt.txt
+ 4432  code txt.txt
+ 4433  psql
+ 4434  composer require laravel/breeze --dev\n
+ 4435  php artisan breeze:install react\n
+ 4436  php artisan serve
+ 4437  php artisan migrate\n
+ 4438  sudo chmod -R 777 .
+ 4439  php artisan migrate\n
+ 4440  clear
+ 4441  psql -U HRSoftwareSystem postgres\n
+ 4442  clear
+ 4443  php artisan migrate\n
+ 4444  clear
+ 4445  sudo -i -u HRSoftwareSystem
+ 4446  psql
+ 4447  psql -U HRSoftwareSystem postgres\n
+ 4448  psql -U HRSoftwareSystem\n
+ 4449  psql -u HRSoftwareSystem -p\n
+ 4450  clear
+ 4451  psql\n
+ 4452  clear
+ 4453  php artisan migrate\n
+ 4454  php --ini
+ 4455  /etc/php/8.1
+ 4456  ls
+ 4457  find php.ini
+ 4458  cd cli
+ 4459  code php.ini
+ 4460  php -v
+ 4461  sudo apt-get install php-pgsql\n
+ 4462  php artisan migrate\n
+ 4463  psql
+ 4464  php artisan migrate\n
+ 4465  sudo apt-get install php8.1-pgsql
+ 4466  php artisan migrate\n
+ 4467  npm run dev
+ 4468  pwd
+ 4469  cd /home/bryl07/HRSoftwareSystem/TaskManagementcli
+ 4470  cd /home/bryl07/HRSoftwareSystem/
+ 4471  cd TaskManagement
+ 4472  clear
+ 4473  code .
+ 4474  clear
+ 4475  git add .
+ 4476  git commit -m "Create Users migration"
+ 4477  clear
+ 4478  php artisan make:model -mrc Department
+ 4479  clear
+ 4480  php artisan make:model -mrc Department
+ 4481  clear
+ 4482  php artisan make:factory DepartmentFactory
+ 4483  clear
+ 4484  php artisan make:model -mrc Task
+ 4485  php artisan make:factory TaskFactory
+ 4486  php artisan make:model -mrc Project
+ 4487  php artisan make:factory ProjectFactory
+ 4488  clear
+ 4489  php artisan migrate\n
+ 4490  clear
+ 4491  psql
+ 4492  clear
+ 4493  php artisan migrate\n
+ 4494  clear
+ 4495  php artisan migrate\n
+ 4496  clear
+ 4497  php artisan migrate\n
+ 4498  clear
+ 4499  php artisan migrate\n
+ 4500  php artisan db:seed\n
+ 4501  clear
+ 4502  php artisan db:seed\n
+ 4503  clear
+ 4504  php artisan db:seed\n
+ 4505  clear
+ 4506  php artisan db:seed\n
+ 4507  php artisan migrate\n
+ 4508  psql
+ 4509  php artisan migrate\n
+ 4510  clear
+ 4511  php artisan migrate\n
+ 4512  clear
+ 4513  php artisan migrate\n
+ 4514  clear
+ 4515  php artisan migrate\n
+ 4516  clear
+ 4517  php artisan migrate\n
+ 4518  php artisan db:seed\n
+ 4519  clear
+ 4520  php artisan db:seed\n
+ 4521  php artisan db:seedclear\n
+ 4522  clear
+ 4523  php artisan db:seedclear\n
+ 4524  php artisan db:seed\n
+ 4525  clear
+ 4526  php artisan migrate\n
+ 4527  psql
+ 4528  php artisan migrate\n
+ 4529  php artisan db:seed\n
+ 4530  php artisan migrate:fresh\n\n
+ 4531  php artisan db:seed\n
+ 4532  clear
+ 4533  php artisan db:seed\n
+ 4534  clear
+ 4535  php artisan db:seed\n
+ 4536  cd
+ 4537  clear
+ 4538  ls
+ 4539  cd  Documents
+ 4540  ls
+ 4541  cd ../
+ 4542  ls
+ 4543  cd Projects
+ 4544  ls
+ 4545  cd CrudUsingOOPInPHP_
+ 4546  ls
+ 4547  clear
+ 4548  git pull origin main
+ 4549  code .
+ 4550  php -S 127.0.0.1:8080
+ 4551  pwd
+ 4552  cd view
+ 4553  ls
+ 4554  mysql -u root -p
+ 4555  clear
+ 4556  exit
+ 4557  mysql -u root -p
+ 4558  php -S 127.0.0.1:8080
+ 4559  git add .
+ 4560  git commit -m "Do entrepot update"
+ 4561  git push origin main
+ 4562  git add .
+ 4563  git commit -m "Do entrepot update"
+ 4564  git push origin main
+ 4565  git add .
+ 4566  git commit -m "Do entrepot update"
+ 4567  git push origin main
+ 4568  clear
+ 4569  git push origin main
+ 4570  clear
+ 4571  php -S 127.0.0.1:8080
+ 4572  git add .
+ 4573  git commit -m "Do entrepot update"
+ 4574  git push origin main
+ 4575  mysqldump -u root -p AGRI_DIGITAL > AGRI•DIGITAL.sql
+ 4576  git add .
+ 4577  git commit -m "Do entrepot update"
+ 4578  git push origin main
+ 4579  mysql -u root -
+ 4580  mysql -u root -p
+ 4581  touch entrepot.php
+ 4582  sudo touch entrepot.php
+ 4583  chmod 777 .
+ 4584  ls
+ 4585  clear
+ 4586  cd back
+ 4587  clear
+ 4588  mkdir Agent Entrepot Stock Localite
+ 4589  rm -rf Agent Entrepot Stock Localite
+ 4590  clear
+ 4591  cd Api
+ 4592  mkdir Agent Entrepot Stock Localite
+ 4593  mv *gent*.php Agent
+ 4594  mv *ntrepot*.php Entrepot
+ 4595  mv *stock*.php Entrepot
+ 4596  mv *tock*.php Entrepot
+ 4597  mv *calite*.php Entrepot
+ 4598  clear
+ 4599  php -S 127.0.0.1:8080
+ 4600  clear
+ 4601  cd ../
+ 4602  php -S 127.0.0.1:8080
+ 4603  pwd
+ 4604  clear
+ 4605  php -S 127.0.0.1:8080
+ 4606  clear
+ 4607  mysql -u root -p
+ 4608  git add .
+ 4609  git commit -m "On a été nul sur ce coup 😭😭"
+ 4610  git push origin main
+ 4611  clear
+ 4612  history > txt.txt
+ 4613  rm -rf txt.txt
+ 4614  clear
+ 4615  php artisan migrate --seed
+ 4616  clear
+ 4617  php artisan migrate --seed
+ 4618  clear
+ 4619  psql
+ 4620  clear
+ 4621  psql
+ 4622  clear
+ 4623  php artisan migrate --seed
+ 4624  clear
+ 4625  php artisan migrate --seed
+ 4626  clear
+ 4627  php artisan migrate --seed
+ 4628  clear
+ 4629  php artisan migrate --seed
+ 4630  php artisan migrate
+ 4631  psql
+ 4632  php artisan migrate
+ 4633  php artisan migrate --seed
+ 4634  locate php.ini
+ 4635  cd /etc/php/8.1/cli
+ 4636  code php.ini
+ 4637  php artisan migrate --seed
+ 4638  git add .
+ 4639  git commit -m "Debug Seeder"
+ 4640  git push origin main
+ 4641  git branch
+ 4642  git push origin master
+ 4643  clear
+ 4644  cd
+ 4645  clear
+ 4646  cd
+ 4647  clear
+ 4648  composer show spatie/laravel-permission\n
+ 4649  php artisan migrate --seed
+ 4650  psql
+ 4651  clear
+ 4652  php artisan migrate --seed
+ 4653  php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"\n
+ 4654  clear
+ 4655  psql
+ 4656  clear
+ 4657  composer require laravel/pint --dev\n\n
+ 4658  ./vendor/bin/pint\n\n
+ 4659  psl
+ 4660  clear
+ 4661  psql
+ 4662  git add .
+ 4663  git commit -m "Define Permission with Laravel-Permission"
+ 4664  git push origin master
+ 4665  php artisan serve
+ 4666  clear
+ 4667  php artisan serve
+ 4668  npm run dev
+ 4669  psql
+ 4670  php artisan migrate --seed
+ 4671  psql
+ 4672  php artisan migrate
+ 4673  php artisan migrate --seed
+ 4674  clear
+ 4675  php artisan migrate --seed
+ 4676  mkdir RessourcesHrSoftwareSystem
+ 4677  git clone https://github.com/archit-p/editable-react-table.git
+ 4678  clear
+ 4679  ls
+ 4680  cd RessourcesHrSoftwareSystem
+ 4681  clear
+ 4682  git clone https://github.com/archit-p/editable-react-table.git
+ 4683  code editable-react-table
+ 4684  npm ruclear
+ 4685  clear
+ 4686  npm run dev
+ 4687  clear
+ 4688  npm install
+ 4689  npm start\n
+ 4690  clear
+ 4691  php artisan serve
+ 4692  npm run dev
+ 4693  locate *oracle*
+ 4694  locate oracle*
+ 4695  locate oracle
+ 4696  locate *.tar*
+ 4697  clear
+ 4698  cd
+ 4699  clear
+ 4700  cd Téléchargements
+ 4701  ls
+ 4702  sudo add-apt-repository universe
+ 4703  code
+ 4704  sudo apt-get install add-apt-repository
+ 4705  sudo apt-get install software-properties-common\n
+ 4706  sudo apt-get install add-apt-repository
+ 4707  sudo add-apt-repository universe
+ 4708  clear
+ 4709  sudo apt install alien\n
+ 4710  cd Téléchargements\n
+ 4711  ls
+ 4712  sudo alien oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm\n
+ 4713  sudo alien --script oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm\n
+ 4714  ls
+ 4715  rm -rf oracle-database-xe-21c-1.0
+ 4716  clearrm -rf oracle-database-xe-21c-1.0
+ 4717  clear
+ 4718  sudo rm -rf oracle-database-xe-21c-1.0
+ 4719  sudo alien oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm\n
+ 4720  npm run dev
+ 4721  php artisan serve
+ 4722  cd Téléchargements/
+ 4723  clear
+ 4724  ls
+ 4725  ll
+ 4726  clear
+ 4727  ll
+ 4728  clear
+ 4729  sudo dpkg -i oracle-database-xe-21c_1.0-2_amd64.debCisco_Packet_Tracer_820_Ubuntu_64bit_696ae64b25.deb
+ 4730  sudo dpkg -i oracle-database-xe-21c_1.0-2_amd64.deb
+ 4731  clear
+ 4732  rm -rf oracle-database-xe-21c-1.0
+ 4733  sudo rm -rf oracle-database-xe-21c-1.0
+ 4734  ls
+ 4735  sudo rm -rf oracle-database*.deb
+ 4736  clear
+ 4737  sudo alien -i oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm\n
+ 4738  yum
+ 4739  clear
+ 4740  grep SELINUX /etc/selinux/config 
+ 4741  clear
+ 4742  dnf
+ 4743  clear
+ 4744  sudo apt-get -y install dnf\n
+ 4745  clear
+ 4746  sudo apt-get install yum  \n
+ 4747  clear
+ 4748  sudo apt install nextgen-yum4
+ 4749  clear
+ 4750  sudo apt install dnf\n
+ 4751  clear
+ 4752  \tsudo apt-get install yum\n
+ 4753  sudo apt-get install dnf\n
+ 4754  clear
+ 4755  cd Téléchargements
+ 4756  ls
+ 4757  tar -zxvf yum-3.4.3.tar.gz
+ 4758  cd yum-3.4.3
+ 4759  cat README.md
+ 4760  cat README
+ 4761  ls
+ 4762  cd bin
+ 4763  ls
+ 4764  cd ../
+ 4765  clear
+ 4766  ls
+ 4767  cd
+ 4768  cd Téléchargements
+ 4769  cd yum-3.4.3
+ 4770  clear
+ 4771  ls
+ 4772  ./INSTALL
+ 4773  chmod a+x INSTALL
+ 4774  ./INSTALL
+ 4775  clear
+ 4776  ls
+ 4777  ./yum
+ 4778  ls
+ 4779  cd ../
+ 4780  clear
+ 4781  ls
+ 4782  cat README
+ 4783  clear
+ 4784  cd ../
+ 4785  mv yum-3.4.3 /usr/bin/yum
+ 4786  sudo mv yum-3.4.3 /usr/bin/yum
+ 4787  cd ../
+ 4788  clear
+ 4789  cd /usr/bin/yum/
+ 4790  ls
+ 4791  cat README
+ 4792  sudo apt update
+ 4793  yum
+ 4794  clear
+ 4795  yum
+ 4796  scd
+ 4797  cd
+ 4798  yum
+ 4799  sudo yum
+ 4800  cd /usr/bin/yum/
+ 4801  ls
+ 4802  cat yum
+ 4803  cd yum
+ 4804  clear
+ 4805  ls
+ 4806  cd
+ 4807  cd /usr/bin/yum/
+ 4808  sudo yum
+ 4809  clear
+ 4810  ls
+ 4811  cat INSTALL
+ 4812  run make
+ 4813  sudo install run
+ 4814  clear
+ 4815  cat INSTALL
+ 4816  run make
+ 4817  cd
+ 4818  clear
+ 4819  which yum
+ 4820  cd /usr/bin/yum/
+ 4821  cd
+ 4822  clear
+ 4823  cd Téléchargements
+ 4824  ls
+ 4825  su -c rpm -i  oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm
+ 4826  su -c 'rpm -i oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm'
+ 4827  apt-get install yum
+ 4828  sudo apt-get install yum
+ 4829  clear
+ 4830  sudo apt update -y
+ 4831  sudo apt install -y yum-utils
+ 4832  sudo apt-get install aptitude\n
+ 4833  clear
+ 4834  sudo apt-get install rpm -y\n
+ 4835  dpkg -L yum-utils
+ 4836  sudo apt-get install yum-utils\n
+ 4837  clear
+ 4838  sudo apt-get install -y yum-utils
+ 4839  clear
+ 4840  sudo apt-get install rpm\n
+ 4841  sudo apt-get install yum \n
+ 4842  clear
+ 4843  sudo dpkg –i oracle-database-xe-21c_1.0-2_amd64.deb
+ 4844  rm -rf oracle-database-xe-21c_1.0-2_amd64.deboracle-database-xe-21c-1.0
+ 4845  ls
+ 4846  clear
+ 4847  sudo rm -rf oracle-database-xe-21c-1.00
+ 4848  clear
+ 4849  cd
+ 4850  cd Documents
+ 4851  clear
+ 4852  exit
+ 4853  sudo alien oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm
+ 4854  vi .zshrc.pre-oh-my-zsh
+ 4855  vi .zshrc
+ 4856  clear
+ 4857  cd Bureau
+ 4858  clear
+ 4859  mkdir creating-components
+ 4860  cd creating-components
+ 4861  clear
+ 4862  npm init react-app
+ 4863  code .
+ 4864  npm init react-app
+ 4865  npm init react-app .
+ 4866  clear
+ 4867  cd Téléchargements
+ 4868  ls
+ 4869  unzip LINUX.X64_213000_db_home.zip
+ 4870  ls
+ 4871  ll
+ 4872  clear
+ 4873  unzip -oq LINUX.X64_213000_db_home.zip
+ 4874  ./runInstaller
+ 4875  ls -lart
+ 4876  clear
+ 4877  mkdir oracle
+ 4878  mv rdbms oracle/
+ 4879  cd oracle 
+ 4880  ls
+ 4881  cd ../
+ 4882  clear
+ 4883  ls -lart
+ 4884  mv python oracle/
+ 4885  cd oracle
+ 4886  ls
+ 4887  clear
+ 4888  cd ..
+ 4889  clear
+ 4890  ls -lart
+ 4891  mv env.ora oracle/
+ 4892  mv runInstaller oracle/
+ 4893  mv schagent.conf oracle/
+ 4894  mv root.sh oracle/
+ 4895  clear
+ 4896  exit
+ 4897  clear
+ 4898  cd oracle
+ 4899  clear
+ 4900  ./runInstaller
+ 4901  mv Téléchargements Telechargements
+ 4902  mv Telechargements Téléchargements
+ 4903  cd ../
+ 4904  mv oracle ~/
+ 4905  cd 
+ 4906  cd oracle
+ 4907  ls
+ 4908  clear
+ 4909  ls
+ 4910  clear
+ 4911  cd ../
+ 4912  cd oracle
+ 4913  cd ../
+ 4914  c
+ 4915  cd
+ 4916  cd /
+ 4917  cd /etc
+ 4918  ls
+ 4919  cd ../
+ 4920  cd
+ 4921  cd oracle /etc/
+ 4922  mv oracle /etc/
+ 4923  sudo mv oracle /etc/
+ 4924  clear
+ 4925  cd /etc
+ 4926  cd oracle
+ 4927  clear
+ 4928  ./runInstaller
+ 4929  mkdir oracle
+ 4930  sqlplus
+ 4931  ./.bashrc
+ 4932  clear
+ 4933  cd /etc/oracle
+ 4934  ls
+ 4935  ./runInstaller
+ 4936  cd ../
+ 4937  mv oracle ~/Documents/oracle/
+ 4938  sudo mv oracle ~/Documents/oracle/
+ 4939  clear
+ 4940  cd
+ 4941  clear
+ 4942  cd Documents/oracle
+ 4943  ./runInstaller
+ 4944  rm -rf oracle
+ 4945  clear
+ 4946  cd /etc/
+ 4947  sudo rm -rf oracle-database-xe-21c-1.00
+ 4948  sudo rm -rf oracle
+ 4949  ls
+ 4950  cd
+ 4951  clear
+ 4952  ls
+ 4953  cd ora
+ 4954  cd oracle
+ 4955  ls
+ 4956  cd ../
+ 4957  rm -rf oracle
+ 4958  ls
+ 4959  rm -rf oraInventory
+ 4960  clear
+ 4961  cd
+ 4962  clear
+ 4963  cd Téléchargements
+ 4964  ls
+ 4965  sudo rm -rf oracle-database-xe-21c-1.0
+ 4966  sudo rm -rf oracle-database-xe-21c_1.0-2_amd64.deb
+ 4967  clear
+ 4968  unzip -oq LINUX.X64_213000_db_home.zip
+ 4969  ls
+ 4970  clear
+ 4971  ./runInstaller
+ 4972  sudo apt-get -y install make\n\n
+ 4973  make
+ 4974  clear
+ 4975  exit
+ 4976  clear
+ 4977  ./runInstaller -ignorePrereq -waitforcompletion -silent                        \\n    -responseFile ${ORACLE_HOME}/install/response/db_install.rsp               \\n    oracle.install.option=INSTALL_DB_SWONLY                                    \\n    ORACLE_HOSTNAME=${ORACLE_HOSTNAME}                                         \\n    UNIX_GROUP_NAME=oinstall                                                   \\n    INVENTORY_LOCATION=${ORA_INVENTORY}                                        \\n    SELECTED_LANGUAGES=en,en_GB                                                \\n    ORACLE_HOME=${ORACLE_HOME}                                                 \\n    ORACLE_BASE=${ORACLE_BASE}                                                 \\n    oracle.install.db.InstallEdition=EE                                        \\n    oracle.install.db.OSDBA_GROUP=dba                                          \\n    oracle.install.db.OSBACKUPDBA_GROUP=dba                                    \\n    oracle.install.db.OSDGDBA_GROUP=dba                                        \\n    oracle.install.db.OSKMDBA_GROUP=dba                                        \\n    oracle.install.db.OSRACDBA_GROUP=dba                                       \\n    SECURITY_UPDATES_VIA_MYORACLESUPPORT=false                                 \\n    DECLINE_SECURITY_UPDATES=true
+ 4978  clear
+ 4979  ./runInstaller
+ 4980  clear
+ 4981  ./runInstaller
+ 4982  clear
+ 4983  ./runInstaller
+ 4984  clear
+ 4985  ./runInstaller
+ 4986  clear
+ 4987  dpkg -L oracle-database-xe-21c_1.0-2_amd64.deb
+ 4988  chmod a+x oracle-database-xe-21c_1.0-2_amd64.deb
+ 4989  dpkg -L oracle-database-xe-21c_1.0-2_amd64.deb
+ 4990  clear
+ 4991  sudo dpkg -i oracle-database-xe-21c_1.0-2_amd64.deb
+ 4992  rm -rf oracle-database-xe-21c_1.0-2_amd64.deb
+ 4993  clear
+ 4994  cd Téléchargements
+ 4995  cd
+ 4996  clear
+ 4997  cd Téléchargements
+ 4998  ls
+ 4999  clear
+ 5000  cd
+ 5001  clear
+ 5002  exit
+ 5003  ./runInstaller
+ 5004  clear
+ 5005  cd
+ 5006  cd /media/
+ 5007  ls
+ 5008  sudo dpkg -i oracle-database-xe-21c_1.0-2_amd64.deb
+ 5009  sqlplus
+ 5010  cd
+ 5011  cd tmp
+ 5012  cd /tmp
+ 5013  ls
+ 5014  cd ../
+ 5015  clear
+ 5016  cd
+ 5017  clear
+ 5018  locate oracle
+ 5019  clear
+ 5020  cd /
+ 5021  clear
+ 5022  locate oracle
+ 5023  locate *oracle*
+ 5024  find oracle
+ 5025  clear
+ 5026  cd
+ 5027  clear
+ 5028  clear\n
+ 5029  ls
+ 5030  cd /media/
+ 5031  ls
+ 5032  sudo apt install ./oracle-database-xe-21c_1.0-2_amd64.deb\n
+ 5033  oracle
+ 5034  /etc/init.d/oracle-xe configure\n
+ 5035  sudo apt-get install oracle-xe\n\n
+ 5036  clear
+ 5037  ls
+ 5038  cd
+ 5039  clear
+ 5040  cat /proc/meminfo | grep -i swap\n
+ 5041  sudo -i\n
+ 5042  swapon -s
+ 5043  sudo apt-get install alien libaio1\n
+ 5044  cd
+ 5045  cd Téléchargements
+ 5046  locate *.rmp
+ 5047  locate *.rpm
+ 5048  clear
+ 5049  cd 
+ 5050  cd Do
+ 5051  cd Documents
+ 5052  ls
+ 5053  cd oracle
+ 5054  ls
+ 5055  ./sqlplus
+ 5056  ls
+ 5057  cd ../
+ 5058  cd
+ 5059  find /usr -type f -name "*.rpm"\n
+ 5060  find  -type f -name "*.rpm"\n
+ 5061  clear
+ 5062  sudo alien --to-deb --scripts oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm\n
+ 5063  sudo ln -s /usr/bin/awk /bin/awk\nsudo mkdir /var/lock/subsys
+ 5064  sudo -i\n
+ 5065  sudo chmod 755 /sbin/chkconfig\n
+ 5066  cd ~/Downloads/Disk1\nsudo dpkg -i oracle-xe-11.2.0-1.0.x86_64.deb
+ 5067  sudo /etc/init.d/oracle-xe configure\n
+ 5068  clear
+ 5069  exit
+ 5070  cd Bureau
+ 5071  mkdir creating-components
+ 5072  cd creating-components
+ 5073  npm init react-app .
+ 5074  cd Bureau/creating-components
+ 5075  clear
+ 5076  ls
+ 5077  rm -rf package.json
+ 5078  clear
+ 5079  npm init react-app .
+ 5080  clear
+ 5081  ls -a
+ 5082  clear
+ 5083  npm init react-app
+ 5084  clear
+ 5085  ls
+ 5086  clear
+ 5087  npm init react-app .
+ 5088  clear
+ 5089  cd ../
+ 5090  rm -rf creating-componentspackage.json
+ 5091  rm -rf creating-component
+ 5092  ls
+ 5093  clear
+ 5094  mkdir creating-components
+ 5095  cd creating-components
+ 5096  npm init react-app .
+ 5097  cd ../
+ 5098  rm -rf creating-component
+ 5099  clear
+ 5100  exit
+ 5101  psql
+ 5102  groupadd -g 54321 oinstall
+ 5103  clear
+ 5104  sudo groupadd -g 54321 oinstall\n
+ 5105  sudo groupadd -g 54322 dba\n
+ 5106  groupadd -g 54323 oper
+ 5107  sudo groupadd -g 54323 oper
+ 5108  sudo useradd -u 54321 -g oinstall -G dba,oper oracle
+ 5109  sudo  passwd oracle
+ 5110  mkdir -p /u01/app/oracle/product/21.0.0.0
+ 5111  sudo mkdir -p /u01/app/oracle/product/21.0.0.0
+ 5112  chown -R oracle:oinstall /u01
+ 5113  sudo chown -R oracle:oinstall /u01
+ 5114  sudo chmod -R 775 /u01
+ 5115  cat .bash_profile
+ 5116  sudo touch .bash_profile
+ 5117  vi .bash_profile
+ 5118  ls -lrt
+ 5119  cd Documents
+ 5120  ls
+ 5121  cd oracle
+ 5122  ls
+ 5123  pwd
+ 5124  cd Documents/oracle
+ 5125  mv LINUX.X64_213000_db_home.zip /u01/app/oracle/product/21.0.0.0
+ 5126  sudo mv LINUX.X64_213000_db_home.zip /u01/app/oracle/product/21.0.0.0
+ 5127  ls -lrt
+ 5128  unzip LINUX.X64_213000_db_home.zip
+ 5129  clear
+ 5130  sudo unzip LINUX.X64_213000_db_home.zip
+ 5131  ./runInstaller
+ 5132  sudo ./runInstaller
+ 5133  cd /u01/app/oracle/product/21.0.0.0/
+ 5134  clear
+ 5135  ./runInstaller
+ 5136  clear
+ 5137  sudo ./runInstaller
+ 5138  usermod -aG wheel oginstall\n
+ 5139  useradd -u 54321 -g oinstall -G dba,oper oracle
+ 5140  sudo  groupadd -g 54321 oinstall
+ 5141  sudo groupadd -g 54322 dba
+ 5142  sudo groupadd -g 54323 oper
+ 5143  useradd -u 54321 -g oinstall -G dba,oper
+ 5144  clear
+ 5145  ./runInstaller
+ 5146  clear
+ 5147  sudo su
+ 5148  sudo oracle
+ 5149  clear
+ 5150  su - oracle
+ 5151  sudo adduser oracle sudo\n
+ 5152  clear
+ 5153  su - oracle
+ 5154  su - root
+ 5155  cd /etc/passwd
+ 5156  cat /etc/passwd
+ 5157  clear
+ 5158  sudo -i
+ 5159  pwd
+ 5160  ./runInstaller
+ 5161  su -u oracle
+ 5162  su -oracle
+ 5163  su - oracle 
+ 5164  userdel -r johnsmith
+ 5165  userdel -r oracle
+ 5166  clear
+ 5167  sudo userdel -r oracle
+ 5168  su - oracle 
+ 5169  clear
+ 5170  useradd -u 54321 -g oinstall -G dba,oper oracle
+ 5171  clear
+ 5172  sudo useradd -u 54321 -g oinstall -G dba,oper oracle
+ 5173  passwd oracle
+ 5174  sudo su
+ 5175  cd
+ 5176  chmod o+w oracle\n
+ 5177  su - oracle
+ 5178  exit
+ 5179  su - root
+ 5180  chmod 777 -R /u01/app/oracle/product/21.0.0.0/
+ 5181  sudo chmod 777 -R /u01/app/oracle/product/21.0.0.0/
+ 5182  clear
+ 5183  sudo chmod 777 -R /u01/app/oracle/product/21.0.0.0/
+ 5184  su - oracle
+ 5185  cd /u01/app/oracle/product/21.0.0.0/
+ 5186  ./runInstaller
+ 5187  clear
+ 5188  as root. Grant access to everyone to the X Server
+ 5189  su - oracle
+ 5190  sudo install xorg-x11-util
+ 5191  sudo apt install xorg-x11-util
+ 5192  apt-cache search x11-utils\n
+ 5193  sudo apt install x11-utils\n
+ 5194  xhost +SI:localuser:oracle\n
+ 5195  clear
+ 5196  cd Documents/oracle
+ 5197  ls
+ 5198  ./runInstaller
+ 5199  cleae
+ 5200  clear
+ 5201  ./runInstaller
+ 5202  mkdir oracle
+ 5203  su - root
+ 5204  clear
+ 5205  su - root
+ 5206  clear
+ 5207  su - oracle
+ 5208  su - root
+ 5209  clear
+ 5210  su - oracle
+ 5211  cd /u01/app/oracle/product/21.0.0.0/
+ 5212  ls -a
+ 5213  su - oracle
+ 5214  clear
+ 5215  cd Bureau/
+ 5216  mkdir creating-components
+ 5217  cd creating-components
+ 5218  npm init react-app .
+ 5219  clear
+ 5220  npm i input-moment --save\n
+ 5221  clear
+ 5222  npm i input-moment --save\n
+ 5223  clear
+ 5224  cd view
+ 5225  clear
+ 5226  ll
+ 5227  clear
+ 5228  cd resources
+ 5229  cd js
+ 5230  clea
+ 5231  clear
+ 5232  npm i input-moment --save\n
+ 5233  clear
+ 5234  git add .
+ 5235  git commit -m "First commit of day"
+ 5236  git push origin master
+ 5237  cd ../../../
+ 5238  clear
+ 5239  php artisan serve
+ 5240  ls
+ 5241  clear
+ 5242  cd HRSoftwareSystem
+ 5243  clear
+ 5244  php artisan serve
+ 5245  npm run dev
+ 5246  psql
+ 5247  npm i input-moment --save\n
+ 5248  clear
+ 5249  cd
+ 5250  clear
+ 5251  cd Bureau/
+ 5252  cd creating-components
+ 5253  mkdir creating-components
+ 5254  cd creating-components
+ 5255  ls
+ 5256  ls -a
+ 5257  npm init react-app .
+ 5258  clear
+ 5259  ls
+ 5260  cd ../
+ 5261  clear
+ 5262  rm -rf creating-component
+ 5263  clear
+ 5264  npx create-react-app creating-component
+ 5265  cd creating-components
+ 5266  cd creating-component
+ 5267  npx create-react-app creating-components
+ 5268  rm -rf creating-component
+ 5269  rm -rf creating-components
+ 5270  clear
+ 5271  cd ../Documents
+ 5272  clear
+ 5273  mkdir react-app
+ 5274  rm -rf react-app
+ 5275  clear
+ 5276  mkdir reactJS
+ 5277  cd reactJS
+ 5278  clear
+ 5279  npm init react-app customizing-example
+ 5280  npm cache clean --force\n
+ 5281  sudo npm cache clean --force\n
+ 5282  pw
+ 5283  pwd
+ 5284  cd /home/bryl07/.npm/_logs/reactJS
+ 5285  cd /home/bryl07/.npm/_logs/
+ 5286  ls
+ 5287  rm -rf *
+ 5288  clear
+ 5289  cd ~/Documents/reactJS
+ 5290  npm cache clean --force\n
+ 5291  npm init react-app customizing-example
+ 5292  code customizing-example
+ 5293  cd src/components
+ 5294  touch Nav.js Promo.js Intro1.js Intro2.js Intro3.js Footer.js
+ 5295  locate flutter
+ 5296  cd /usr/local
+ 5297  ls
+ 5298  cd flutter
+ 5299  ls
+ 5300  cat README.md 
+ 5301  clear
+ 5302  ls
+ 5303  flutter --version
+ 5304  clear
+ 5305  ls
+ 5306  exit
+ 5307  sudo apt update\n
+ 5308  sudo apt upgrade\n
+ 5309  sudo apt dist-update\n
+ 5310  sudo apt dist-upgrade\n
+ 5311  sudo apt autoremove
+ 5312  sudo apt autoclean
+ 5313  userdel -r oracle
+ 5314  sudo userdel -r oracle
+ 5315  sudo killall -u oracle
+ 5316  cleaf
+ 5317  clear
+ 5318  npm -g list
+ 5319  ^[[200~npm uninstall <package_name>
+ 5320  npm uninstall semistandard@16.0.1
+ 5321  clear
+ 5322  mkdir HelloSaturday
+ 5323  code HelloSaturday
+ 5324  cd ../
+ 5325  rm -rf HelloSaturday
+ 5326  git add .
+ 5327  git commit -m "First commit of day"
+ 5328  git push origin master
+ 5329  sudo apt update
+ 5330  sudo apt upgrade
+ 5331  sudo apt dist-upgrade\n
+ 5332  sudo apt auto-remove\n
+ 5333  sudo apt install update-manager-core
+ 5334  sudo do-release-upgrade -d
+ 5335  sudo apt-get install --reinstall python3-apt\n
+ 5336  sudo do-release-upgrade -d
+ 5337  sudo apt-get remove  python3-apt\n
+ 5338  sudo apt autoremove
+ 5339  sudo apt-get install python3-apt\n
+ 5340  sudo do-release-upgrade -d
+ 5341  sudo apt install update-manager-core
+ 5342  sudo do-release-upgrade -d
+ 5343  sudo apt autoremove
+ 5344  sudo apt-get remove  python3-apt\n
+ 5345  sudo apt updatee
+ 5346  sudo apt update
+ 5347  sudo apt full-upgrade
+ 5348  sudo apt autoremove
+ 5349  clear
+ 5350  exit
+ 5351  ls
+ 5352  clear
+ 5353  exit
+ 5354  nmtui
+ 5355  clear
+ 5356  sudo apt install pantheon
+ 5357  exit
+ 5358  shutdown now
+ 5359  sudo add-apt-repository ppa:elementary-os/daily
+ 5360  sudo apt-get install elementary-desktop
+ 5361  sudo apt dist-upgrade\n
+ 5362  shutdown now
+ 5363  npm run dev
+ 5364  php artisan serve
+ 5365  npm install react-js-dropdavn
+ 5366  npm i --save react-select\n
+ 5367  git add .
+ 5368  git commit -m "Add Status input on Project/Create"
+ 5369  git push origin master
+ 5370  clear
+ 5371  psql
+ 5372  git pull origin master
+ 5373  npm run dev
+ 5374  php artisan serve
+ 5375  psl
+ 5376  clear
+ 5377  psql
+ 5378  git add .
+ 5379  git commit -m "My Form for create project work"
+ 5380  git push origin master
+ 5381  clear
+ 5382  npm run dev
+ 5383  php artisan serve
+ 5384  git add .
+ 5385  git commit -m "Pour que le projet chez Séréna soit compatible avec le mien"
+ 5386  git push origin master
+ 5387  git add .
+ 5388  git commit -m " "
+ 5389  git commit -m "-"
+ 5390  git push origin master
+ 5391  git commit -m "💔"
+ 5392  git add .
+ 5393  git commit -m "💔"
+ 5394  git push origin master
+ 5395  clear
+ 5396  npm run dev
+ 5397  php artisan serve
+ 5398  psql
+ 5399  npm run dev
+ 5400  php artisan serve
+ 5401  psql
+ 5402  clear
+ 5403  npm run dev
+ 5404  php artisan serve
+ 5405  psql
+ 5406  git add .
+ 5407  git commit -m "Fix Status Select Bug"
+ 5408  git push origin master
+ 5409  sudo apt update
+ 5410  sudo apt upgrade
+ 5411  sudo apt dist-upgrade
+ 5412  sudo apt autoremove
+ 5413  sudo apt autoclean
+ 5414  clear
+ 5415  exit
+ 5416  tar xzvf PhpStorm-2022.3.3.tar.gz
+ 5417  cd PhpStorm-223.8836.42
+ 5418  ls
+ 5419  cat Install-Linux-tar.txt
+ 5420  cd bin
+ 5421  ls
+ 5422  ./phpstorm.sh
+ 5423  cd Téléchargements
+ 5424  ls
+ 5425  cd /etc/
+ 5426  ls
+ 5427  clear
+ 5428  cd /opt
+ 5429  ls
+ 5430  cd ../
+ 5431  cd
+ 5432  cd Téléchargements 
+ 5433  mv PhpStorm-223.8836.42 /etc
+ 5434  sudo mv PhpStorm-223.8836.42 /etc
+ 5435  cd /etc/
+ 5436  clear
+ 5437  ls
+ 5438  cd
+ 5439  cd /opt
+ 5440  ls
+ 5441  cd /etc/
+ 5442  ls
+ 5443  mv PhpStorm-223.8836.42 /opt
+ 5444  sudo mv PhpStorm-223.8836.42 /opt
+ 5445  cd /opt
+ 5446  clear
+ 5447  ls
+ 5448  cd PhpStorm-223.8836.42
+ 5449  ls
+ 5450  cd bin
+ 5451  clear
+ 5452  ls
+ 5453  ./phpstorm.sh
+ 5454  ./repair
+ 5455  clear
+ 5456  ./phpstorm.sh
+ 5457  cd ../../
+ 5458  ls
+ 5459  mkdir ProjectBoard
+ 5460  npm init react-app  ProjectBoard
+ 5461  rm -rf ProjectBoard
+ 5462  npm init react-app  ProjectBoard
+ 5463  exit
+ 5464  cd
+ 5465  cd HRSoftwareSystem
+ 5466  ls
+ 5467  npx create-react-app ProjectBoard
+ 5468  npx create-react-app projectboard
+ 5469  code projectboard
+ 5470  ^[[200~npm start
+ 5471  ~clear
+ 5472  clear
+ 5473  npm start
+ 5474  npm run dev
+ 5475  php artisan serve
+ 5476  sudo su
+ 5477  exit
+ 5478  sudo su
+ 5479  exit
+ 5480  sudo su
+ 5481  exit
+ 5482  git add .
+ 5483  git commit -m "-"
+ 5484  git push origin master
+ 5485  git pull origin master
+ 5486  git push origin master
+ 5487  npm run dev
+ 5488  clear
+ 5489  php artisan serve
+ 5490  psql
+ 5491  git pull origin master
+ 5492  git add .
+ 5493  git commit -m "-"
+ 5494  git pull origin master
+ 5495  git pull origin main
+ 5496  git pull origin master
+ 5497  git pull origin main
+ 5498  git pull origin master
+ 5499  php artisan migrate --seed
+ 5500  psql
+ 5501  php artisan migrate --seed
+ 5502  clear
+ 5503  php artisan migrate --seed
+ 5504  clear
+ 5505  php artisan migrate --seed
+ 5506  clear
+ 5507  php artisan serve
+ 5508  npm run dev
+ 5509  cd /opt/PhpStorm-223.8836.42/bin
+ 5510  ./phpstorm.sh
+ 5511  cd /opt/PhpStorm-223.8836.42/bin
+ 5512  ./phpstorm.sh
+ 5513  cd /opt/PhpStorm-223.8836.42/bin
+ 5514  ./phpstorm.sh
+ 5515  cd /opt/PhpStorm-223.8836.42/bin
+ 5516  ./phpstorm.sh
+ 5517  cd /opt/PhpStorm-223.8836.42/bin
+ 5518  ./phpstorm.sh
+ 5519  clear
+ 5520  ./phpstorm.sh
+ 5521  clear
+ 5522  cd
+ 5523  clear
+ 5524  htop
+ 5525  cd /opt/PhpStorm-223.8836.42/bin
+ 5526  ./phpstorm.sh
+ 5527  sudo apt update
+ 5528  sudo apt upgrade
+ 5529  sudo apt autoremove
+ 5530  sudo apt autoclean
+ 5531  exit
+ 5532  php artisan serve
+ 5533  psql
+ 5534  git config
+ 5535  clear
+ 5536  git config --all
+ 5537  git config --global
+ 5538  clear
+ 5539  psql
+ 5540  php artisan migrate --seed
+ 5541  psql
+ 5542  php artisan migrate --seed
+ 5543  git config --global
+ 5544  git config -name-only
+ 5545  git config --name-only
+ 5546  clear
+ 5547  git add .
+ 5548  git commit -m "Mettre les authorisations d'accession au formulaire de création de projet"
+ 5549  git push origin master
+ 5550  clear
+ 5551  php artisan serve
+ 5552  psql
+ 5553  clear
+ 5554  php artisan serve
+ 5555  git pull origin master
+ 5556  php artisan serve
+ 5557  psql
+ 5558  npm install
+ 5559  php artisan serve
+ 5560  psql
+ 5561  php artisan migrate --seed
+ 5562  php artisan serve
+ 5563  psql
+ 5564  sudo apt update
+ 5565  sudo apt upgrade
+ 5566  sudo apt dist-upgrade\n
+ 5567  sudo apt dist-update\n
+ 5568  sudo apt autoremove\n
+ 5569  sudo apt autoclean\n
+ 5570  clear
+ 5571  exit
+ 5572  php artisan serve
+ 5573  clear
+ 5574  psql
+ 5575  ls
+ 5576  locate PhpStorm
+ 5577  clear
+ 5578  ls
+ 5579  cd PhpstormProjects
+ 5580  ls
+ 5581  cd hrsoftwaresystem
+ 5582  ls
+ 5583  cd src
+ 5584  ls
+ 5585  cd
+ 5586  psql
+ 5587  php artisan migrate --seed
+ 5588  git add .
+ 5589  git commit -m "Create task form work"
+ 5590  git push origin master
+ 5591  clear
+ 5592  cd /home/bryl07/Documents/Books
+ 5593  ls -&
+ 5594  clear
+ 5595  ls e*
+ 5596  ls *e*
+ 5597  clear
+ 5598  ls
+ 5599  chmod 444 *
+ 5600  ls
+ 5601  clear
+ 5602  chmod 666 *
+ 5603  php artisan serve
+ 5604  psql
+ 5605  npm i react-beautiful-dnd styled-components\n
+ 5606  npm install react-trello
+ 5607  npm uninstall react-beautiful-dnd styled-components\n
+ 5608  npm uninstall react-trello
+ 5609  clear
+ 5610  cd
+ 5611  clear
+ 5612  longest-substring-without-repeating-characters.py
+ 5613  touch longest-substring-without-repeating-characters.py
+ 5614  chmod a+x longest-substring-without-repeating-characters.py
+ 5615  code longest-substring-without-repeating-characters.py
+ 5616  ./longest-substring-without-repeating-characters.py
+ 5617  ls
+ 5618  cd CS50AI
+ 5619  ls
+ 5620  cd TreeBinary
+ 5621  ls
+ 5622  code binary_tree_level_order_traversal.py
+ 5623  clear
+ 5624  cd
+ 5625  clear
+ 5626  ./longest-substring-without-repeating-characters.py
+ 5627  clear
+ 5628  ./longest-substring-without-repeating-characters.py
+ 5629  ls src/
+ 5630  rm src/App.css\nrm src/App.jsx\nrm src/index.css
+ 5631  rm -r src/assets
+ 5632  touch src/App.jsx
+ 5633  mkdir src/components
+ 5634  touch src/components/Welcome.jsx
+ 5635  mkdir src/assets
+ 5636  wget https://html.sammy-codes.com/images/small-profile.jpeg
+ 5637  mv small-profile.jpeg sammy.jpeg
+ 5638  mv sammy.jpeg src/assets
+ 5639  mkdir src/css
+ 5640  wget https://i.imgur.com/5qwVYb1.jpeg
+ 5641  mv 5qwVYb1.jpeg src/assets
+ 5642  cat web.php
+ 5643  clear
+ 5644  cd Téléchargements
+ 5645  ls
+ 5646  locate *edge*
+ 5647  sudo apt install ./microsoft-edge-stable_111.0.1661.54-1_amd64.deb
+ 5648  sudo dpkg -i microsoft-edge-stable_111.0.1661.54-1_amd64.deb
+ 5649  ls
+ 5650  cd home/bryl07/PhpstormProjects/hrsoftwaresystem
+ 5651  cd home/bryl07/PhpstormProjects/
+ 5652  cd /home/bryl07/PhpstormProjects/hrsoftwaresystem
+ 5653  ls
+ 5654  cd ../
+ 5655  rm -rf hrsoftwaresystem
+ 5656  cd ../
+ 5657  ls
+ 5658  cd StateManagement
+ 5659  ls
+ 5660  cd reacting-to-input-with-state
+ 5661  ls
+ 5662  cd src
+ 5663  ls
+ 5664  mkdir components
+ 5665  rm -rf components
+ 5666  cd src
+ 5667  mkdir components
+ 5668  cd components
+ 5669  clear
+ 5670  cd ../
+ 5671  mkdir pages
+ 5672  cd pages
+ 5673  clear
+ 5674  mkdir homePage
+ 5675  cd homePage
+ 5676  touch homePage.css
+ 5677  touch homePage.jsx
+ 5678  cd ../
+ 5679  ls
+ 5680  cd VSCodeProjects
+ 5681  cd Do
+ 5682  cd Documents
+ 5683  cd VSCodeProjects
+ 5684  ls
+ 5685  cd laravelProjects
+ 5686  ls
+ 5687  cd schoolProject_Manager
+ 5688  cd ../schoolProjectManager
+ 5689  clear
+ 5690  ls
+ 5691  cd schoolProjectManager
+ 5692  ls
+ 5693  php artisan serve
+ 5694  psql
+ 5695  cat UserController.php
+ 5696  sudo apt update
+ 5697  sudo apt upgrade
+ 5698  sudo apt autoremove
+ 5699  sudo apt autoclean
+ 5700  php artisan serve
+ 5701  psql
+ 5702  cd
+ 5703  touch saveMeThis.txt
+ 5704  vi saveMeThis.txt
+ 5705  exit
+ 5706  git add .
+ 5707  git commit -m "Implement Search on projects.index"
+ 5708  git push origin master
+ 5709  git branch -m main
+ 5710  git add .
+ 5711  git commit -m "Implement Search on projects.index"
+ 5712  git branch -m main
+ 5713  git push origin main
+ 5714  git add .
+ 5715  git commit -m "Implement Search Tasks and Paginate for Project and Task"
+ 5716  git push origin main
+ 5717  cd ../
+ 5718  cd laravelProjects
+ 5719  clear
+ 5720  composer create-project laravel/laravel laravel-kanban\n
+ 5721  composer require laravel/breeze --dev
+ 5722  php artisan breeze:install react
+ 5723  cd laravel-kanban
+ 5724  composer require laravel/breeze --dev
+ 5725  php artisan breeze:install react
+ 5726  git branch -m main
+ 5727  git branch -m main master
+ 5728  git branch -m master main
+ 5729  git init
+ 5730  git add .
+ 5731  git commit -m "first commit"
+ 5732  git branch -M main
+ 5733  git remote add origin https://github.com/beryl452/laravel-kanban.git
+ 5734  git push -u origin main\n
+ 5735  php artisan make:model -mrc Board
+ 5736  php artisan make:model -mrc Column
+ 5737  php artisan make:model -mrc Card
+ 5738  psql
+ 5739  cd 
+ 5740  ls
+ 5741  cd HRSoftwareSystem
+ 5742  cat .env
+ 5743  ls
+ 5744  cd HRSoftwareSystem
+ 5745  clear
+ 5746  ls
+ 5747  cat .env
+ 5748  clear
+ 5749  php artisan migrate --seed
+ 5750  clear
+ 5751  php artisan migrate --seed
+ 5752  psql
+ 5753  php artisan migrate --seed
+ 5754  psql
+ 5755  php artisan migrate --seed
+ 5756  clear
+ 5757  psql
+ 5758  clear
+ 5759  cd
+ 5760  cd HRSoftwareSystem
+ 5761  ls
+ 5762  cat .env
+ 5763  clear
+ 5764  php artisan migrate --seed
+ 5765  sudo apt-get install php-mbstring
+ 5766  sudo apt-get install php8.1-mbstring
+ 5767  ^[[200~sudo service apache2 restart
+ 5768  sudo service apache2 restart\n
+ 5769  clear
+ 5770  psql
+ 5771  clear
+ 5772  php artisan migrate --seed
+ 5773  psql
+ 5774  php artisan migrate --seed
+ 5775  clear
+ 5776  php artisan serve
+ 5777  npm run dev
+ 5778  cd
+ 5779  cd HRSoftwareSystem
+ 5780  ls
+ 5781  cd resources
+ 5782  ls
+ 5783  cd js
+ 5784  cd Pages
+ 5785  ls
+ 5786  cd Tasks
+ 5787  ls
+ 5788  cat Create.jsx
+ 5789  npm install @heroicons/react\n
+ 5790  ls
+ 5791  cat Create.jsx
+ 5792  clear
+ 5793  pwd
+ 5794  cd /home/bryl07/HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem/resources/js/Pages/Tasks\nTasks
+ 5795  cd /home/bryl07/HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem/resources/js/Pages/Tasks
+ 5796  cat Create.jsx
+ 5797  cls
+ 5798  clear
+ 5799  cd ../
+ 5800  ls
+ 5801  cd Auth
+ 5802  ls
+ 5803  cat Register.jsx
+ 5804  git clone https://github.com/bhaidar/laravel-kanban.git
+ 5805  cd laravel-kanban
+ 5806  ls
+ 5807  cd app
+ 5808  cd Http
+ 5809  ls
+ 5810  cd Controllers
+ 5811  ls
+ 5812  cd app/Http/Controllers
+ 5813  ls
+ 5814  pwd
+ 5815  cp * /home/bryl07/Documents/VSCodeProjects/laravelProjects/laravel-kanban/app/Http/Controllers\n
+ 5816  cp -r * /home/bryl07/Documents/VSCodeProjects/laravelProjects/laravel-kanban/app/Http/Controllers\n
+ 5817  ls
+ 5818  cd ../../
+ 5819  cd laravel-kanban
+ 5820  clear
+ 5821  code .
+ 5822  cp .env.example .env
+ 5823  code .
+ 5824  npm run dev
+ 5825  npm install
+ 5826  php artisan key:generate
+ 5827  php artisan migrate
+ 5828  composer install
+ 5829  php artisan key:generate
+ 5830  php artisan migrate
+ 5831  clear
+ 5832  php artisan serve
+ 5833  npm run dev
+ 5834  pgsql
+ 5835  psql
+ 5836  php artisan migrate --seed
+ 5837  cd
+ 5838  clear
+ 5839  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 5840  code .
+ 5841  clear
+ 5842  psql
+ 5843  php artisan serve
+ 5844  npm run dev
+ 5845  clear
+ 5846  npm run dev
+ 5847  npm install react-beautiful-dnd --save\n
+ 5848  npm run dev
+ 5849  clear
+ 5850  php artisan serve
+ 5851  clear
+ 5852  npm run dev
+ 5853  clear
+ 5854  cd
+ 5855  clear
+ 5856  cd ~/.config/Code
+ 5857  ls
+ 5858  cd User
+ 5859  ld
+ 5860  ls
+ 5861  cat settings.json
+ 5862  cat keybindings.json
+ 5863  cat tasks.json
+ 5864  cd History
+ 5865  ls
+ 5866  cd ../
+ 5867  clear
+ 5868  ls
+ 5869  cd snippets
+ 5870  ls
+ 5871  ls -a
+ 5872  cd ../
+ 5873  cd globalStorage
+ 5874  ls
+ 5875  cd ../
+ 5876  cd History
+ 5877  ls
+ 5878  cd ../
+ 5879  clear
+ 5880  ls
+ 5881  cd workspaceStorage
+ 5882  ls
+ 5883  clear
+ 5884  cd ../
+ 5885  ls
+ 5886  cat Preferences
+ 5887  clear
+ 5888  cd
+ 5889  clear
+ 5890  exit
+ 5891  php artisan serve
+ 5892  psql
+ 5893  php artisan serve
+ 5894  psql
+ 5895  ls
+ 5896  cd PhpstormProjects
+ 5897  ls
+ 5898  cd hrsoftwaresystem
+ 5899  ls
+ 5900  cd 
+ 5901  clear
+ 5902  exit
+ 5903  clear
+ 5904  cd /home/bryl07/HRSoftwareSystem/HRSoftwareSystem/
+ 5905  ls
+ 5906  cd ../
+ 5907  ls
+ 5908  cd projectboard
+ 5909  ls
+ 5910  cd src
+ 5911  ls
+ 5912  cd components
+ 5913  ms
+ 5914  ls
+ 5915  cd ../containers
+ 5916  ls
+ 5917  cd projects
+ 5918  ls
+ 5919  cd ../tasks
+ 5920  ls
+ 5921  sudo apt update
+ 5922  sudo apt upgrade
+ 5923  sudo apt dist-upgrade
+ 5924  sudo apt dist-update
+ 5925  sudo apt auto-remove\n
+ 5926  sudo apt autoclean\n
+ 5927  clear\n
+ 5928  cd /opt../tasks
+ 5929  cd /opt
+ 5930  ls
+ 5931  rm rf idea-IC-223.8214.52
+ 5932  rm -rf idea-IC-223.8214.52
+ 5933  sudo su
+ 5934  exit
+ 5935  sudo tar -xzf jetbrainszecgz -C /opt
+ 5936  cd Téléchargements
+ 5937  ls
+ 5938  sudo tar -xzf ideaIU-2023.1.tar.gz -C /opt
+ 5939  cd Téléchargements
+ 5940  clear
+ 5941  cd /opt
+ 5942  ls
+ 5943  sudo rm -rf idea-IU-231.8109.175
+ 5944  sudo tar -xzf ideaIU-2023.1.tar.gz -C /opt
+ 5945  cd /opt
+ 5946  cd idea-IU-231.8109.175
+ 5947  ls
+ 5948  cd bin
+ 5949  ls
+ 5950  ./idea.sh
+ 5951  clear
+ 5952  exit
+ 5953  git add .
+ 5954  git commit -m "Add Kanban, Card and Column component"
+ 5955  git push -u origin main
+ 5956  clear
+ 5957  php artisan serve
+ 5958  psql
+ 5959  php artisan serve
+ 5960  psql
+ 5961  npm uninstall mdbreact
+ 5962  clear
+ 5963  php artisan serve
+ 5964  npm uninstall mdb-react-ui-kit
+ 5965  npm i — save-dev datatables.net jquery\n
+ 5966  clear
+ 5967  npm i —save-dev datatables.net jquery\n
+ 5968  npm i --save-dev datatables.net jquery\n
+ 5969  clear
+ 5970  php artisan serve
+ 5971  clear
+ 5972  php artisan serve
+ 5973  npm uninstall react-datatables
+ 5974  npm i @emp/reactable
+ 5975  clear
+ 5976  npm install material-table --save
+ 5977  npm uninstall material-table --save
+ 5978  clear
+ 5979  npm install --save griddle-react
+ 5980  npm uninstall  griddle-react
+ 5981  npm uninstall material-table
+ 5982  clear
+ 5983  npm run dev
+ 5984  php artisan serve
+ 5985  psql
+ 5986  htop
+ 5987  clear
+ 5988  npm run dev
+ 5989  php artisan serve
+ 5990  clear
+ 5991  php artisan serve
+ 5992  clear
+ 5993  npm run dev
+ 5994  clear
+ 5995  npm run dev
+ 5996  cd PhpstormProjects
+ 5997  ls
+ 5998  rm -rf untitled
+ 5999  rm -rf hrSoftware
+ 6000  composer create-project laravel/laravel hrSoftwareSystem\n
+ 6001  rm -rf hrSoftwareSystem
+ 6002  composer create-project laravel/laravel hrSoftwareSystem\n
+ 6003  cd PhpstormProjects
+ 6004  rm -rf hrSoftwareSystem
+ 6005  composer create-project laravel/laravel hrSoftwareSystem\n
+ 6006  composer require laravel/breeze --dev
+ 6007  php artisan breeze:install react
+ 6008  composer install
+ 6009  composer update
+ 6010  cd ../
+ 6011  rm -rf hrSoftwareSystem
+ 6012  composer create-project laravel/laravel hrSoftwareSystem\n
+ 6013  rm -rf hrSoftwareSystem
+ 6014  composer create-project laravel/laravel hrSoftwareSystem\n
+ 6015  phpstorm hrSoftwareSystem
+ 6016  psql
+ 6017  LS
+ 6018  cd ../
+ 6019  clear
+ 6020  ls
+ 6021  clear
+ 6022  php artisan make:model
+ 6023  clear
+ 6024  cd hrSoftwareSystem
+ 6025  clear
+ 6026  php artisan make:model
+ 6027  php artisan make:factory
+ 6028  cd ../
+ 6029  ls
+ 6030  cd hrsoftware
+ 6031  cd hrsoftwaresystem
+ 6032  ls
+ 6033  cd ../
+ 6034  cd hrSoftwaresystem
+ 6035  ls
+ 6036  cd hrsoftwaresystem
+ 6037  ls
+ 6038  cd ../
+ 6039  ls
+ 6040  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6041  ls
+ 6042  cd database
+ 6043  cd factories
+ 6044  ls
+ 6045  cat ProjectFactory.php
+ 6046  cd ../
+ 6047  ls
+ 6048  cd migrations
+ 6049  ls
+ 6050  cat 2023_03_17_162601_create_projects_table.php
+ 6051  php artisan make:model
+ 6052  php artisan migrate
+ 6053  cd ../
+ 6054  ls
+ 6055  cd ../
+ 6056  ls
+ 6057  cat .env
+ 6058  php artisan migrate
+ 6059  php artisan make:factory
+ 6060  php artisan make:factory DepartementFactory
+ 6061  psql
+ 6062  ls
+ 6063  cd database
+ 6064  ls
+ 6065  cd seeders
+ 6066  ls
+ 6067  cat DatabaseSeeder.php
+ 6068  php artisan migrate --seed
+ 6069  clear
+ 6070  php artisan migrate --seed
+ 6071  php artisan make:controller
+ 6072  cd ../
+ 6073  ls
+ 6074  cd ../
+ 6075  ls
+ 6076  cd app/C
+ 6077  cd app/
+ 6078  cd Models
+ 6079  lq
+ 6080  ls
+ 6081  cat User.php
+ 6082  psql
+ 6083  php artisan migrate --seed
+ 6084  clear
+ 6085  php artisan migrate --seed
+ 6086  php artisan serve
+ 6087  npm run dev
+ 6088  composer require laravel/sanctum
+ 6089  php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+ 6090  php artisan migrate:fresh\n\n
+ 6091  php artisan migrate:fresh --seed\n\n
+ 6092  pwd
+ 6093  cd ../../../
+ 6094  ls
+ 6095  cd bryl07
+ 6096  ls
+ 6097  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6098  ls
+ 6099  cd app
+ 6100  cd Http
+ 6101  ls
+ 6102  cd Controllers
+ 6103  ls
+ 6104  cd Auth
+ 6105  ms
+ 6106  ls
+ 6107  cd
+ 6108  cd PhpstormProjects/hrSoftwareSystem
+ 6109  ls
+ 6110  php artisan make:controller AuthController
+ 6111  cd
+ 6112  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6113  ls
+ 6114  cd app
+ 6115  cd Http/Controllers
+ 6116  l
+ 6117  cd Auth
+ 6118  ls
+ 6119  cat AuthenticatedSessionController.php
+ 6120  l
+ 6121  cat RegisteredUserController.php
+ 6122  php artisan make:policy UserPolicy --model=User
+ 6123  cd ../
+ 6124  ls
+ 6125  cat ProjectController.php
+ 6126  php artisan make:policy ProjetPolicy --model=Projet
+ 6127  psql
+ 6128  cd ../
+ 6129  ls
+ 6130  cd routes
+ 6131  ls
+ 6132  cat web.php
+ 6133  php artisan make:policy TachePolicy --model=Tache
+ 6134  cd ../
+ 6135  cd app/Http/Controllers
+ 6136  ls
+ 6137  cat ProjectController.php
+ 6138  cd ../../../
+ 6139  cd routes
+ 6140  cat web.php
+ 6141  cd ../
+ 6142  cd app/Http/Controllers
+ 6143  ls
+ 6144  cat TaskController.php
+ 6145  php artisan migrate:fresh --seed\n\n
+ 6146  php artisan make:policy CommentairePolicy --model=Commentaire
+ 6147  clear
+ 6148  npm create @vite
+ 6149  clear
+ 6150  npm create vite
+ 6151  ls -al
+ 6152  cd /dev/sda1
+ 6153  lsdel
+ 6154  cd .phpls
+ 6155  ls
+ 6156  clear
+ 6157  cd../
+ 6158  cd ../
+ 6159  ls -a
+ 6160  .
+ 6161  find  -type f -name "*.system"\n
+ 6162  locate *system*
+ 6163  locate -r *system*
+ 6164  clear
+ 6165  cd .cache
+ 6166  ls
+ 6167  cd Microsoft
+ 6168  ls
+ 6169  cd ../
+ 6170  cd JetBrains
+ 6171  ls
+ 6172  cd PhpStorm2023.1
+ 6173  ls
+ 6174  cd projects
+ 6175  ls
+ 6176  cd hrsoftware.208c7b71
+ 6177  ls
+ 6178  cd project-model-cache
+ 6179  ls
+ 6180  cat cache.data
+ 6181  clear
+ 6182  ls -a
+ 6183  cd .idea
+ 6184  ls
+ 6185  cd
+ 6186  cd .config
+ 6187  ls
+ 6188  cd
+ 6189  clear
+ 6190  sudo apt update
+ 6191  sudo apt upgrade
+ 6192  clear
+ 6193  cd PhpStorm2023.1
+ 6194  cd PhpstormProjects/hrSoftwareSystem
+ 6195  ms
+ 6196  ls
+ 6197  cd api
+ 6198  pwd
+ 6199  cd ../
+ 6200  composer create-project laravel/laravel api
+ 6201  cd /home/bryl07/PhpstormProjects/hrSoftware/hrSoftwareSystem\n
+ 6202  clear
+ 6203  ls
+ 6204  cd app
+ 6205  cd Models/
+ 6206  ls
+ 6207  cat Projet.php
+ 6208  cd
+ 6209  cd /home/bryl07/PhpstormProjects/hrSoftware/hrSoftwareSystem\n
+ 6210  cd database
+ 6211  ls
+ 6212  cd migrations
+ 6213  ls
+ 6214  cat 2014_10_12_000000_create_users_table.php
+ 6215  cd
+ 6216  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6217  cd app/Models
+ 6218  cat User.php
+ 6219  cat Task.php
+ 6220  clear
+ 6221  cd ../
+ 6222  ls
+ 6223  cd database/seeders
+ 6224  ls
+ 6225  cat DatabaseSeeder.php
+ 6226  cd ../
+ 6227  cd seeders
+ 6228  ls
+ 6229  cat DatabaseSeeder.php
+ 6230  cd ../
+ 6231  cat .env
+ 6232  cd ../../
+ 6233  ls
+ 6234  cat .env
+ 6235  psql
+ 6236  cd
+ 6237  clear
+ 6238  php artisan migrate --seed\n\n
+ 6239  clear
+ 6240  php artisan migrate --seed\n\n
+ 6241  clear
+ 6242  php artisan migrate --seed\n\n
+ 6243  cd database/seeders
+ 6244  cat DatabaseSeeder.php
+ 6245  psql
+ 6246  php artisan migrate --seed\n\n
+ 6247  psql
+ 6248  php artisan migrate --seed\n\n
+ 6249  psql
+ 6250  php artisan migrate:fresh --seed\n\n
+ 6251  composer require laravel/sanctum
+ 6252  php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+ 6253  php artisan migrate:fresh --seed\n\n
+ 6254  php artisan serve
+ 6255  cd ../../
+ 6256  cd hrSoftware
+ 6257  ls
+ 6258  cd hrSoftwareSystem
+ 6259  ls
+ 6260  cd routes
+ 6261  ls
+ 6262  cat api.php
+ 6263  sudo apt update
+ 6264  clear
+ 6265  sudo apt update
+ 6266  clear
+ 6267  exit
+ 6268  php artisan make:controller UserController --model=User
+ 6269  cd ../
+ 6270  ls
+ 6271  cd app/Http/Controllers
+ 6272  ls
+ 6273  php artisan make:policy UserPolicy --model=User
+ 6274  cat CommentaireController.php
+ 6275  cat ProjetController.php
+ 6276  clear
+ 6277  ls
+ 6278  cat ProjetController.php
+ 6279  php artisan serve
+ 6280  npm run dev
+ 6281  php artisan serve
+ 6282  dart
+ 6283  clear\n
+ 6284  dart --version
+ 6285  yarn -v
+ 6286  node -v
+ 6287  clear\n
+ 6288  npm run dev
+ 6289  clear
+ 6290  php artisan serve
+ 6291  cd PhpstormProjects
+ 6292  ls
+ 6293  cd hrSoftwareSystem
+ 6294  ls
+ 6295  echo "# hrSoftwareSystem" >> README.md\ngit init\ngit add README.md\ngit commit -m "first commit"\ngit branch -M main\ngit remote add origin https://github.com/beryl452/hrSoftwareSystem.git\ngit push -u origin main
+ 6296  git remote add origin https://github.com/beryl452/hrSoftwareSystem.git\ngit branch -M main\ngit push -u origin main
+ 6297  git push -u origin main
+ 6298  code .
+ 6299  git push -u origin main
+ 6300  git add .
+ 6301  git commit -m "first commit"
+ 6302  git push -u origin main
+ 6303  man tar
+ 6304  tar xzvf postman-agent-0.4.12-linux-x64.tar.gz
+ 6305  ls
+ 6306  clear
+ 6307  mv postman-agent-0.4.12-linux-x64.tar.gz ~/Téléchargements
+ 6308  cd
+ 6309  clear
+ 6310  cd PhpstormProjects
+ 6311  clear
+ 6312  composer create-project laravel/laravel TpAtelierGenieLogiciel
+ 6313  clear
+ 6314  pwd
+ 6315  clear
+ 6316  cd api
+ 6317  clear
+ 6318  php artisan serve
+ 6319  psql
+ 6320  cd
+ 6321  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6322  ls
+ 6323  cd migrations
+ 6324  cd database/migrations
+ 6325  ls
+ 6326  cat 2014_10_12_000000_create_users_table.php
+ 6327  cd ../
+ 6328  ls
+ 6329  cd app/Http/Controllers
+ 6330  ls
+ 6331  cd Auth
+ 6332  ls
+ 6333  cat AuthenticatedSessionController.php
+ 6334  ls
+ 6335  cat RegisteredUserController.php
+ 6336  ls
+ 6337  cd 
+ 6338  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6339  ls
+ 6340  cd ../
+ 6341  ls
+ 6342  cd hrSoftware
+ 6343  ls
+ 6344  cd hrSoftwareSystem
+ 6345  ls
+ 6346  cd app/Http/Controllers
+ 6347  ls
+ 6348  cat ProjetController.php
+ 6349  git commit -m "just update"
+ 6350  git add .
+ 6351  git commit -m "just update"
+ 6352  git push -u origin main
+ 6353  git add .
+ 6354  git commit -m "just update"
+ 6355  git push -u origin main
+ 6356  php artisan serve
+ 6357  clear
+ 6358  cd api
+ 6359  clear
+ 6360  php artisan serve
+ 6361  git pull origin main
+ 6362  psql
+ 6363  php artisan serve
+ 6364  clear
+ 6365  psql
+ 6366  clear
+ 6367  cd
+ 6368  clear
+ 6369  sudo apt update
+ 6370  sudo apt upgrade
+ 6371  clear
+ 6372  sudo apt upgrade
+ 6373  sudo dpkg --configure -a
+ 6374  sudo apt upgrade
+ 6375  ls
+ 6376  cd LeetCode
+ 6377  ls
+ 6378  mkdir Sequences
+ 6379  code Sequences
+ 6380  cd
+ 6381  cd CS50AI
+ 6382  l
+ 6383  ls
+ 6384  cd TreeBinary
+ 6385  ls
+ 6386  ./createPythonFile.sh test.py
+ 6387  cp createPythonFile.sh ~
+ 6388  cd ~
+ 6389  clear
+ 6390  ls
+ 6391  mv createPythonFile.sh LeetCode
+ 6392  cd LeetCode
+ 6393  ls
+ 6394  cp createPythonFile.sh Sequences
+ 6395  clear
+ 6396  ls
+ 6397  code Sequences
+ 6398  ls
+ 6399  cd hrSoftwareSystem
+ 6400  ls
+ 6401  npm install
+ 6402  git add .
+ 6403  git commit -m "Create front-end"
+ 6404  git push origin main
+ 6405  valet links
+ 6406  clear
+ 6407  php artisan serve
+ 6408  npm install axios
+ 6409  cd ../
+ 6410  cd api
+ 6411  clear
+ 6412  php artisan serve
+ 6413  psql
+ 6414  cd ../api
+ 6415  ls
+ 6416  cd app/Http/Controllers
+ 6417  ls
+ 6418  cat UserController.php
+ 6419  cd ../../
+ 6420  cd ../
+ 6421  ls
+ 6422  cd resources
+ 6423  ls
+ 6424  cd js
+ 6425  ls
+ 6426  cd
+ 6427  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6428  ls
+ 6429  cd resources
+ 6430  ls
+ 6431  cd js
+ 6432  ls
+ 6433  cd Components
+ 6434  ls
+ 6435  cat TextInput.jsx
+ 6436  ls
+ 6437  cd ../../
+ 6438  cd ../
+ 6439  ls
+ 6440  cd routes
+ 6441  cd ../api/routes
+ 6442  cat api.php
+ 6443  npm install react-router-dom
+ 6444  cd ../
+ 6445  npm install react-router-dom
+ 6446  cd src/Components
+ 6447  mkdir Dashboard
+ 6448  mkdir PreferencesDashboard
+ 6449  rm -rf PreferencesDashboard
+ 6450  mkdir Preferences
+ 6451  code ../api
+ 6452  php artisan serve
+ 6453  cd ../view
+ 6454  npm run dev
+ 6455  psql
+ 6456  clear
+ 6457  exit
+ 6458  npm run dev
+ 6459  sudo apt update
+ 6460  sudo apt upgrade
+ 6461  sudo dpkg --configure -a
+ 6462  sudo apt upgrade
+ 6463  sudo apt dist-update
+ 6464  sudo apt dist-upgrade
+ 6465  clear
+ 6466  sudo apt autoremove
+ 6467  sudo apt install update-manager-core
+ 6468  sudo do-release-upgrade -d
+ 6469  clear
+ 6470  sudo apt update
+ 6471  exit
+ 6472  locate *.pdf
+ 6473  find *.pdf
+ 6474  clear
+ 6475  cd Documents
+ 6476  locate *.pdf
+ 6477  cd ../Téléchargements
+ 6478  locate *.pdf
+ 6479  locate 2019_KiossouMelaine--Houndji.pdf
+ 6480  clear
+ 6481  php artisan serve
+ 6482  npm run dev
+ 6483  psql
+ 6484  cd
+ 6485  clear
+ 6486  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6487  clear
+ 6488  ls
+ 6489  cd resources
+ 6490  clear
+ 6491  ls
+ 6492  cd js
+ 6493  clear
+ 6494  ls
+ 6495  cd Pages
+ 6496  clear
+ 6497  ls
+ 6498  cd Auth
+ 6499  ls
+ 6500  cat Login.jsx
+ 6501  pwd
+ 6502  clear
+ 6503  exit
+ 6504  cd /home/bryl07/HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem/resources/js/Pages/Auth\n
+ 6505  clear
+ 6506  ls
+ 6507  vi Login.jsx
+ 6508  clear
+ 6509  cd ../
+ 6510  cd Components
+ 6511  ls
+ 6512  cat PrimaryButton.jsx
+ 6513  cat DangerButton.jsx
+ 6514  php artisan serve
+ 6515  npm run dev
+ 6516  psqm
+ 6517  clear
+ 6518  exit
+ 6519  psql
+ 6520  npm install react-router-dom
+ 6521  npm run dev
+ 6522  php artisan serve
+ 6523  code .
+ 6524  cd PhpstormProjects/hrSoftwareSystem/api
+ 6525  ls
+ 6526  clear
+ 6527  php artisan serve
+ 6528  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6529  clear
+ 6530  cd resources/js
+ 6531  ls
+ 6532  cd Components
+ 6533  ls
+ 6534  cd ../
+ 6535  clear
+ 6536  ls
+ 6537  cd Pages
+ 6538  ls
+ 6539  cd Projects
+ 6540  ls
+ 6541  cat Create.jsx
+ 6542  psql
+ 6543  npm run dev
+ 6544  psql
+ 6545  php artisan serve
+ 6546  ld
+ 6547  clear
+ 6548  ls
+ 6549  cd routes
+ 6550  cat api.php
+ 6551  clear
+ 6552  cd ../
+ 6553  clear
+ 6554  ls
+ 6555  vim .env
+ 6556  clear
+ 6557  npm run dev
+ 6558  clear
+ 6559  cd ../api
+ 6560  clear
+ 6561  php artisan serve
+ 6562  npm run dev
+ 6563  psql
+ 6564  ls
+ 6565  cat cv_debug.log
+ 6566  cat saveMeThis.txt
+ 6567  cat txt.txt
+ 6568  clear
+ 6569  cd LeetCode
+ 6570  ls
+ 6571  cd Sequences
+ 6572  ls
+ 6573  cat createPythonFile.sh
+ 6574  touch updateMe.sh
+ 6575  vim updateMe.sh
+ 6576  ./updateMe.sh
+ 6577  vim updateMe.sh
+ 6578  sudo su 
+ 6579  cleat
+ 6580  clear
+ 6581  chmod 777 updateMe.sh
+ 6582  ./updateMe.sh
+ 6583  clear
+ 6584  npm run dev
+ 6585  cd ../api
+ 6586  clear
+ 6587  php artisan serve
+ 6588  psql
+ 6589  ls
+ 6590  cat App.js
+ 6591  exit
+ 6592  ls
+ 6593  cat App.jsx
+ 6594  locate *.css
+ 6595  cd Documents
+ 6596  locate *.css
+ 6597  cd VSCodeProjects
+ 6598  locate *.css
+ 6599  locate style.css
+ 6600  cd
+ 6601  cd /home/bryl07/Documents/LearnGrid/VSCodeProjects
+ 6602  cd /home/bryl07/Documents/LearnGrid/
+ 6603  cat style.css
+ 6604  sudo su
+ 6605  clear
+ 6606  exit
+ 6607  clear
+ 6608  cat /home/bryl07/Images/Yazid___/style.css\n
+ 6609  clear
+ 6610  cd
+ 6611  clear
+ 6612  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6613  ls
+ 6614  cd resources
+ 6615  ls
+ 6616  cd js
+ 6617  ls
+ 6618  cd Components
+ 6619  ls
+ 6620  exit
+ 6621  CLEAR
+ 6622  clear
+ 6623  php artisan serve
+ 6624  clear
+ 6625  php artisan serve
+ 6626  clear
+ 6627  php artisan serve
+ 6628  cd ../api
+ 6629  php artisan serve
+ 6630  cat ../api/database/migrations/2014_10_12_000000_create_users_table.php
+ 6631  cat ../api/database/factories/UserFactory.php
+ 6632  ls
+ 6633  ./updateMe.sh
+ 6634  clear
+ 6635  cat updateMe.sh
+ 6636  sudo apt-get update
+ 6637  sudo apt-get upgrade
+ 6638  php artisan serve
+ 6639  sudo apt-get dist-upgrade
+ 6640  sudo apt-get autoremove
+ 6641  sudo apt-get autoclean
+ 6642  clear
+ 6643  exit
+ 6644  cat ../api/routes/api.php
+ 6645  sudo apt autiremove
+ 6646  sudo apt autoremove
+ 6647  clear
+ 6648  sudo apt autoclean
+ 6649  sudo apt autoremove
+ 6650  clear
+ 6651  exit
+ 6652  psql
+ 6653  php artisan serve
+ 6654  psql
+ 6655  php artisan migrate:fresh --seed\n\n
+ 6656  psql
+ 6657  git add ;
+ 6658  git add .
+ 6659  git commit -m "Do Login and Register"
+ 6660  cd ../api && php artisan serve
+ 6661  cd && cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6662  ls
+ 6663  cd resources/js/Components
+ 6664  ls
+ 6665  cat InputLabel.jsx
+ 6666  cat InputError.jsx
+ 6667  sudo apt-get update
+ 6668  sudo apt-get upgrade
+ 6669  php artisan serve
+ 6670  npm i --save bootstrap @popperjs/core
+ 6671  npm uninstall ^[[200~bootstrap @popperjs/core
+ 6672  npm uninstall bootstrap @popperjs/core 
+ 6673  npm install axios-auth-refresh
+ 6674  php artisan serve
+ 6675  clear
+ 6676  psql
+ 6677  php artisan serve
+ 6678  psql
+ 6679  cd ../api
+ 6680  ls
+ 6681  cd app/Http/Controllers
+ 6682  ls
+ 6683  cat UserController.php
+ 6684  npm install react-bootstrap bootstrap
+ 6685  git log
+ 6686  git commit -m "Try to code Login Better using custom hook"
+ 6687  git checkout c634303aea587f7cc9f37752fb68b1111ef2ce90
+ 6688  php artisan make:resource UserCollection
+ 6689  php artisan serve
+ 6690  psql
+ 6691  git checkout c634303aea587f7cc9f37752fb68b1111ef2ce90
+ 6692  git log
+ 6693  git pull origin main
+ 6694  git -C "/home/bryl07/PhpstormProjects/hrSoftwareSystem" -c "core.editor=code --wait --reuse-window" rebase 7dc66e9120a08e1bec803a1f24ed85e3321730c4
+ 6695  clear
+ 6696  git pull origin main
+ 6697  git push origin main
+ 6698  git log
+ 6699  git checkout --force 7dc66e9120a08e1bec803a1f24ed85e3321730c4
+ 6700  git log
+ 6701  ls
+ 6702  rm -rf .git
+ 6703  cd ../
+ 6704  ls -a
+ 6705  rm -rf .git
+ 6706  clear
+ 6707  cd ../
+ 6708  echo "# hrSoftwareSystem" >> README.md\ngit init\ngit add README.md\ngit commit -m "first commit"\ngit branch -M main\ngit remote add origin https://github.com/beryl452/hrSoftwareSystem.git\ngit push -u origin main
+ 6709  clear
+ 6710  git add .
+ 6711  git commit -m "First commit of day"
+ 6712  git push origin main
+ 6713  npm uninstall react-bootstrap bootstrap
+ 6714  clear
+ 6715  cd ../api && php artisan serve
+ 6716  mv createPythonFile.sh ../
+ 6717  clear
+ 6718  ./../createPythonFile.sh editDistance.py
+ 6719  clear
+ 6720  python3.11
+ 6721  clear
+ 6722  ./editDistance.py
+ 6723  diff ./editDistance.py ../createPythonFile.sh
+ 6724  ms
+ 6725  clear
+ 6726  composer require tymon/jwt-auth\n
+ 6727  clear
+ 6728  cd api
+ 6729  clear
+ 6730  composer require tymon/jwt-auth\n
+ 6731  clear
+ 6732  php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+ 6733  php artisan jwt:secret\n
+ 6734  composer dump-autoload
+ 6735  composer require tymon/jwt-auth --ignore-platform-reqs\n
+ 6736  clear
+ 6737  php artisan serve
+ 6738  clear
+ 6739  psql
+ 6740  clear
+ 6741  php artisan serve
+ 6742  php artisan make:resource UserCollection
+ 6743  php artisan migrate:fresh --seed\n\n
+ 6744  git log
+ 6745  git checkout cc9f229a49b51d9eb826571ff6e42e0f6931a19
+ 6746  git log
+ 6747  git checkout 2cc9f229a49b51d9eb826571ff6e42e0f6931a19
+ 6748  git switch -
+ 6749  git pull origin main
+ 6750  cd ../
+ 6751  clear
+ 6752  git pull origin main
+ 6753  ls
+ 6754  cd Documents
+ 6755  ls
+ 6756  clear
+ 6757  cd ..§
+ 6758  cd ..
+ 6759  clear
+ 6760  git clone https://github.com/beryl452/hrSoftwareSystem.git
+ 6761  cd hrSoftwareSystem
+ 6762  code api
+ 6763  php artisan serve
+ 6764  cd api/app/Http/Controllers
+ 6765  ls
+ 6766  cat UserController.php
+ 6767  git add .
+ 6768  git commit -m "Use tymon/jwt-auth for authentification"
+ 6769  git push origin main
+ 6770  cd ../
+ 6771  git add .
+ 6772  git commit -m "Use tymon/jwt-auth for authentification"
+ 6773  git push origin main
+ 6774  cd .git
+ 6775  ls
+ 6776  cat config
+ 6777  code config
+ 6778  cd ../
+ 6779  git push origin main
+ 6780  git credential-manager uninstall
+ 6781  git remote set-url origin https://github.com/beryl452/hrSoftwareSystem.git\n
+ 6782  git push origin main
+ 6783  git credential-manager uninstall
+ 6784  git config --global --unset credential.helper\n
+ 6785  git credential-manager uninstall
+ 6786  git config --remove-section credential
+ 6787  git config --list\n
+ 6788  git push origin main
+ 6789  git remote add origin https://github.com/beryl452/hrSoftwareSystem.git\ngit branch -M main\ngit push -u origin main
+ 6790  rm -rf .git
+ 6791  git remote add origin https://github.com/beryl452/hrSoftwareSystem.git\ngit branch -M main\ngit push -u origin main
+ 6792  git init
+ 6793  git add .
+ 6794  git commit -m "Use tymon/jwt-auth for authentification"
+ 6795  git remote add origin https://github.com/beryl452/hrSoftwareSystem.git\ngit branch -M main\ngit push -u origin main
+ 6796  cd ../
+ 6797  cd .git
+ 6798  ls
+ 6799  cat config
+ 6800  code .git/config
+ 6801  git push -u origin main
+ 6802  cd ../
+ 6803  cp .git ../PhpstormProjects/hrSoftwareSystem
+ 6804  cp -r .git ../PhpstormProjects/hrSoftwareSystem
+ 6805  rm -rf .git
+ 6806  cp -r .git ../PhpstormProjects/hrSoftwareSystem
+ 6807  cd .git
+ 6808  cd ../
+ 6809  clear
+ 6810  git push -u origin main
+ 6811  git add .
+ 6812  git commit -m "Use tymon/jwt-auth for authentification"
+ 6813  git push -u origin main
+ 6814  cd ../api && php artisan serve
+ 6815  psql
+ 6816  pwd
+ 6817  cd
+ 6818  cd PhpstormProjects/hrSoftwareSystem
+ 6819  code api
+ 6820  clear
+ 6821  php artisan serve
+ 6822  composer update
+ 6823  composer dump-autoload
+ 6824  composer update
+ 6825  composer update --no-scripts\ncomposer update
+ 6826  composer dump-autoload
+ 6827  psql
+ 6828  php artisan serve
+ 6829  cd
+ 6830  clear
+ 6831  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6832  clear
+ 6833  ls
+ 6834  cd config
+ 6835  ls
+ 6836  code auth.php
+ 6837  clear
+ 6838  exit
+ 6839  mv bootstrap/cache ../../../
+ 6840  clear
+ 6841  php artisan serve
+ 6842  cd ../../../
+ 6843  pwd
+ 6844  mv cache /home/bryl07/PhpstormProjects/hrSoftwareSystem/api/
+ 6845  cd /home/bryl07/PhpstormProjects/hrSoftwareSystem/api../../../
+ 6846  cd /home/bryl07/PhpstormProjects/hrSoftwareSystem/api
+ 6847  mv cache bootstrap
+ 6848  clear
+ 6849  php artisan serve
+ 6850  clear
+ 6851  php artisan config:clear
+ 6852  php artisan config:cache
+ 6853  php artisan config:clear
+ 6854  php artisan config:cache
+ 6855  clear
+ 6856  php artisan serve
+ 6857  git log
+ 6858  git checkout 2cc9f229a49b51d9eb826571ff6e42e0f6931a19
+ 6859  clear
+ 6860  php artisan serve
+ 6861  clear
+ 6862  php artisan config:clear\n
+ 6863  clear
+ 6864  php artisan serve
+ 6865  clear
+ 6866  cd api/
+ 6867  clear
+ 6868  php artisan serve
+ 6869  cd view
+ 6870  clear
+ 6871  npm run dev
+ 6872  ls
+ 6873  clear
+ 6874  cd api/
+ 6875  clear
+ 6876  php artisan serve
+ 6877  cd ../view
+ 6878  clear
+ 6879  npm run dev
+ 6880  code .
+ 6881  cd PhpstormProjects/hrSoftwareSystem
+ 6882  clear
+ 6883  cd api
+ 6884  clear
+ 6885  php artisan serve
+ 6886  cd ../view
+ 6887  clear
+ 6888  npm run dev
+ 6889  cd ../api && php artisan serve
+ 6890  npm run dev
+ 6891  cd ../api
+ 6892  cd config
+ 6893  cat app.php
+ 6894  code app.php
+ 6895  code cors.php
+ 6896  cd .././
+ 6897  cd app/Http/Controllers
+ 6898  code UserController.php
+ 6899  cd ../../../
+ 6900  code .
+ 6901  php artisan serve
+ 6902  clear
+ 6903  npm run dev
+ 6904  cleat
+ 6905  clear
+ 6906  sudo apt-get update
+ 6907  clear
+ 6908  sudo apt-get updgrade
+ 6909  sudo apt-get upgrade
+ 6910  sudo apt-get autoclean
+ 6911  sudo apt-get autoremove
+ 6912  clear
+ 6913  exit
+ 6914  npm run dev
+ 6915  php artisan serve
+ 6916  cd && cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6917  cd resources/js/Components
+ 6918  clear
+ 6919  ls
+ 6920  cd ../
+ 6921  ls
+ 6922  cd Pages
+ 6923  ls
+ 6924  cd Tasks
+ 6925  ls
+ 6926  cat Create.jsx
+ 6927  clear
+ 6928  npm i react-bootstrap
+ 6929  npm uninstall react-bootstrap bootstrap
+ 6930  npm install -D tailwindcss
+ 6931  npx tailwindcss init
+ 6932  cd && cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 6933  ls
+ 6934  cd resources/js/Components
+ 6935  ls
+ 6936  cat Card.jsx
+ 6937  cd ../
+ 6938  ls
+ 6939  cat app.jsx
+ 6940  cat bootstrap.js
+ 6941  ls
+ 6942  cd Pages
+ 6943  ls
+ 6944  cd Auth
+ 6945  ls
+ 6946  cat Login.jsx
+ 6947  ls
+ 6948  cd ../
+ 6949  ls
+ 6950  cat Welcome.jsx
+ 6951  clear
+ 6952  npm install -D tailwindcss postcss autoprefixer\nnpx tailwindcss init -p
+ 6953  npm install -D tailwindcss postcss autoprefixer && npx tailwindcss init -p
+ 6954  npm uninstall tailwindcss postcss autoprefixer
+ 6955  npm uninstall tailwindcss
+ 6956  npm install -D tailwindcss postcss autoprefixer\n
+ 6957  npx tailwindcss init -p\n
+ 6958  clear
+ 6959  npm run dev
+ 6960  clear
+ 6961  php artisan serve
+ 6962  npm run dev
+ 6963  npm uninstall tailwindcss postcss autoprefixer
+ 6964  clear
+ 6965  npm install -D tailwindcss postcss autoprefixer\n
+ 6966  npx tailwindcss init -p\n
+ 6967  npm run dev
+ 6968  npm install -D tailwindcss postcss autoprefixer
+ 6969  npx tailwindcss init -p
+ 6970  npm run dev
+ 6971  cd ../api
+ 6972  cler
+ 6973  clear
+ 6974  php artisan serve
+ 6975  pwd
+ 6976  cat /home/bryl07/Images/FuKRzFOagAE9XIo.jpeg
+ 6977  clear
+ 6978  echo #?
+ 6979  npm run dev
+ 6980  npx create-vite
+ 6981  mkdir {src/js,src/scss}\ntouch src/index.html src/js/main.js src/scss/styles.scss
+ 6982  rm -rf {src/js,src/scss}\n
+ 6983  clear
+ 6984  npm run dev
+ 6985  clear
+ 6986  npm run dev
+ 6987  clear
+ 6988  npm run dev
+ 6989  clea
+ 6990  clear
+ 6991  npm run dev
+ 6992  clear
+ 6993  php artisan serve
+ 6994  clear
+ 6995  npm run dev
+ 6996  clear
+ 6997  php artisan serve
+ 6998  clear
+ 6999  npm uninstall bootstrap @popperjs/core 
+ 7000  npm install
+ 7001  clear
+ 7002  npm run dev
+ 7003  CD
+ 7004  cd
+ 7005  clear
+ 7006  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 7007  ls
+ 7008  cat vite.config.js
+ 7009  clear
+ 7010  exit
+ 7011  npm install
+ 7012  npm run dev
+ 7013  CLEAR
+ 7014  clea
+ 7015  clear
+ 7016  pwd
+ 7017  npm run dev
+ 7018  cd ../
+ 7019  clear
+ 7020  cd ./git
+ 7021  cd .git
+ 7022  code .git/config
+ 7023  code config
+ 7024  cd
+ 7025  ls
+ 7026  cd hrSoftwareSystem
+ 7027  ls
+ 7028  code .
+ 7029  pwd
+ 7030  cd view
+ 7031  clear
+ 7032  npm run dev
+ 7033  npm install
+ 7034  clear
+ 7035  npm run dev
+ 7036  pwd
+ 7037  cd src
+ 7038  cd view
+ 7039  pwd
+ 7040  clear
+ 7041  pwd
+ 7042  cp -r /home/bryl07/PhpstormProjects/hrSoftwareSystem/view/src .
+ 7043  clear
+ 7044  git config --list\n
+ 7045  cd ../
+ 7046  git add .
+ 7047  git commit -m "__"
+ 7048  git push -u origin main
+ 7049  git pull origin main
+ 7050  git push -u origin main
+ 7051  git push --force origin main
+ 7052  exit
+ 7053  cd view
+ 7054  clear
+ 7055  npm uninstall react-bootstrap bootstrap
+ 7056  npm install
+ 7057  git pull origin main
+ 7058  git pull --force origin main
+ 7059  cd ../../
+ 7060  clear
+ 7061  rm -rf hrSoftwareSystem
+ 7062  exit
+ 7063  cd PhpstormProjects
+ 7064  clear
+ 7065  git clone https://github.com/beryl452/hrSoftwareSystem.git
+ 7066  rm -rf hrSoftwareSystem
+ 7067  git clone https://github.com/beryl452/hrSoftwareSystem.git
+ 7068  cd api
+ 7069  composer install
+ 7070  cd ../view
+ 7071  npm install
+ 7072  npm run dev
+ 7073  cd ../api && php artisan serve
+ 7074  composer install
+ 7075  cd ../view && npm run dev
+ 7076  php artisan serve
+ 7077  composer install
+ 7078  composer dump-autoload
+ 7079  php artisan serve
+ 7080  clear
+ 7081  php artisan cache:clear
+ 7082  php artisan serve
+ 7083  cp .env.example .env
+ 7084  clear
+ 7085  npm run dev
+ 7086  php artisan serve
+ 7087  clea
+ 7088  clear
+ 7089  cd ../api && php artisan serve
+ 7090  clear
+ 7091  code .
+ 7092  code api
+ 7093  code view
+ 7094  clear
+ 7095  php artisan serve
+ 7096  cd view
+ 7097  cd ../view
+ 7098  clear
+ 7099  pwd
+ 7100  clear
+ 7101  npm run dev
+ 7102  php artisan serve
+ 7103  clear
+ 7104  cd view
+ 7105  clear
+ 7106  npm run dev
+ 7107  clear
+ 7108  cd api
+ 7109  clear
+ 7110  php artisan serve
+ 7111  clear
+ 7112  cd 
+ 7113  clear
+ 7114  cd PhpstormProjects/hrSoftwareSystem
+ 7115  clear
+ 7116  ls
+ 7117  clear
+ 7118  cd api
+ 7119  clear
+ 7120  npm run dev
+ 7121  clear
+ 7122  php artisan serve
+ 7123  cd view
+ 7124  clear
+ 7125  npm run dev
+ 7126  code .
+ 7127  npm install -D tailwindcss
+ 7128  npx tailwindcss init
+ 7129  npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch
+ 7130  npm run dev
+ 7131  npm install -D tailwindcss\nnpx tailwindcss init
+ 7132  npm install -D tailwindcss postcss autoprefixer
+ 7133  npx tailwindcss init -p\n
+ 7134  npm run dev
+ 7135  npm uninstall -D tailwindcss postcss autoprefixer
+ 7136  npm run dev
+ 7137  npm install -D tailwindcss && npx tailwindcss init
+ 7138  npm install -D tailwindcss postcss autoprefixer\n
+ 7139  npm run dev
+ 7140  npm uninstall -D tailwindcss postcss autoprefixer
+ 7141  npm install -D tailwindcss postcss autoprefixer\n
+ 7142  npx tailwindcss init -p\n
+ 7143  npm run dev
+ 7144  cd ../api && php artisan serve
+ 7145  cd
+ 7146  clear
+ 7147  cd Images
+ 7148  ls
+ 7149  pwd
+ 7150  clear
+ 7151  ls
+ 7152  pwd
+ 7153  npm run dev
+ 7154  git add .
+ 7155  clear
+ 7156  git commit -m "Sign in Front"
+ 7157  git push origin main
+ 7158  npm run dev
+ 7159  git add .
+ 7160  git commit -m "Mer. 26"
+ 7161  git push origin main
+ 7162  cd ../api
+ 7163  cat .env
+ 7164  php artisan serve
+ 7165  cd ../api
+ 7166  cd config
+ 7167  cat cors.php
+ 7168  clear
+ 7169  psql
+ 7170  clear
+ 7171  cd ../
+ 7172  clear
+ 7173  ls
+ 7174  cd app/Http/Controllers
+ 7175  ls
+ 7176  cat DepartmentController.php
+ 7177  code DepartmentController.php
+ 7178  psql
+ 7179  clear
+ 7180  cd ../
+ 7181  clear
+ 7182  ls
+ 7183  cd app
+ 7184  ls
+ 7185  cd Policies
+ 7186  ls
+ 7187  code DepartmentPolicy.php
+ 7188  cd ../
+ 7189  git add .
+ 7190  git commit -m "Mer. 26"
+ 7191  git push origin main
+ 7192  clear
+ 7193  php artisan serve
+ 7194  clear
+ 7195  npm run dev
+ 7196  clear
+ 7197  cd && cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 7198  clear
+ 7199  ls
+ 7200  cd resources/js/Components
+ 7201  cd ../
+ 7202  clear
+ 7203  ls
+ 7204  cd Pages
+ 7205  ls
+ 7206  cd Projects
+ 7207  clear
+ 7208  ls
+ 7209  cat Index.jsx
+ 7210  cd ../api
+ 7211  clear
+ 7212  code .
+ 7213  clear
+ 7214  php artisan serve
+ 7215  psql
+ 7216  npm run dev
+ 7217  php artisan serve
+ 7218  cd && cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 7219  clear
+ 7220  ls
+ 7221  cd resources/js/Components
+ 7222  ls
+ 7223  cd ../
+ 7224  clear
+ 7225  ls
+ 7226  cd Pages
+ 7227  ls
+ 7228  cd Projects
+ 7229  cat Index.jsx
+ 7230  cd ../
+ 7231  cd Components
+ 7232  cat Pagination.jsx
+ 7233  clear
+ 7234  php artisan serve
+ 7235  cd ../
+ 7236  cd
+ 7237  git ../
+ 7238  cd ../
+ 7239  clear
+ 7240  git add .
+ 7241  git commit -m "Mer. 26 02"
+ 7242  git push origin main
+ 7243  php artisan serve
+ 7244  npm run dev
+ 7245  psql
+ 7246  npm run dev
+ 7247  cd ../api
+ 7248  php artisan serve
+ 7249  npm run dev
+ 7250  psql
+ 7251  code ../api
+ 7252  php artisan route:list --path=projects
+ 7253  psql
+ 7254  php artisan serve
+ 7255  npm run dev
+ 7256  ls
+ 7257  clear
+ 7258  cd VSCodeProjects
+ 7259  clear
+ 7260  cd Documents/VSCodeProjects/laravelProjects
+ 7261  ls
+ 7262  cd schoolProjectManager
+ 7263  LS
+ 7264  ls
+ 7265  cd schoolProjectManager
+ 7266  ls
+ 7267  cd app/Http/Controllers
+ 7268  ls
+ 7269  cat ExerciceController.php
+ 7270  exit
+ 7271  cd Documents/VSCodeProjects/laravelProjects
+ 7272  cd schoolProjectManager
+ 7273  ls
+ 7274  cd schoolProjectManager
+ 7275  ls
+ 7276  cd app/Http/Controllers
+ 7277  ls
+ 7278  cat AnswerController.php
+ 7279  cat ExerciceController.php
+ 7280  clear
+ 7281  cd ../../
+ 7282  cd ../
+ 7283  clear
+ 7284  cd resources/js/Components
+ 7285  ls
+ 7286  cd ../
+ 7287  ls
+ 7288  cd Pages
+ 7289  ls
+ 7290  cd Exercices
+ 7291  ls
+ 7292  cat CreateExercice.vue
+ 7293  php artisan route:list
+ 7294  php artisan route:clear
+ 7295  php artisan serve
+ 7296  php artisan route:list
+ 7297  clear
+ 7298  php artisan route:clear\nphp artisan route:cache
+ 7299  php artisan route:list
+ 7300  php artisan route:clear\nphp artisan route:cache
+ 7301  php artisan serve
+ 7302  clear
+ 7303  php artisan optimize
+ 7304  php artisan serve
+ 7305  vim /path/to/apache2/installation/conf/httpd.conf
+ 7306  php artisan route:list
+ 7307  clear
+ 7308  apachectl -k graceful-stop
+ 7309  htop
+ 7310  clear
+ 7311  cd
+ 7312  clear
+ 7313  htop
+ 7314  locate apache2
+ 7315  cd etc/apache2
+ 7316  cd /etc/apache2
+ 7317  ls
+ 7318  cd 
+ 7319  cd /var/log/apache2
+ 7320  sudo cd /var/log/apache2
+ 7321  sudo su
+ 7322  php artisan serve
+ 7323  php artisan route:list
+ 7324  clear
+ 7325  cd /var/
+ 7326  ls
+ 7327  cd www
+ 7328  ls
+ 7329  cd html
+ 7330  ls
+ 7331  cd files
+ 7332  ls
+ 7333  cd ../
+ 7334  clear
+ 7335  cd
+ 7336  clear
+ 7337  cd /etc/httpd/conf/httpd.conf
+ 7338  cd /etc/httpd/conf/
+ 7339  cd /etc/httpd/
+ 7340  cd /etc/
+ 7341  ls
+ 7342  cd apache2
+ 7343  clear
+ 7344  ls
+ 7345  cat apache2.conf
+ 7346  clear
+ 7347  cd
+ 7348  clear
+ 7349  locate .htaccessapache2
+ 7350  locate .htaccess
+ 7351  locate .htaccessapache2
+ 7352  locate .htaccess
+ 7353  clear
+ 7354  php artisan route:list
+ 7355  clear
+ 7356  php artisan route:list
+ 7357  clear
+ 7358  php artisan route:list
+ 7359  clear
+ 7360  php artisan route:list
+ 7361  php artisan cache:clear
+ 7362  php artisan config:clear\n
+ 7363  php artisan route:list
+ 7364  php artisan config:clear\n
+ 7365  php artisan route:list
+ 7366  clear
+ 7367  php artisan route:list
+ 7368  clear
+ 7369  cat /etc/apache2/apache2.conf
+ 7370  code /etc/apache2/apache2.conf../api
+ 7371  code /etc/apache2/apache2.conf
+ 7372  sudo service apache2 restart\n
+ 7373  sudo service apache2 stop\n
+ 7374  sudo service apache2 start\n
+ 7375  sudo systemctl restart
+ 7376  sudo apt-get install apache2
+ 7377  systemctl restart apache2
+ 7378  clear
+ 7379  npm run dev
+ 7380  cd ../api
+ 7381  clear
+ 7382  php artisan serve
+ 7383  cd Documents/VSCodeProjects/laravelProjects/
+ 7384  ls
+ 7385  cd schoolProjectManager
+ 7386  cdpaTH
+ 7387  cdpath
+ 7388  cat cdpath
+ 7389  clear
+ 7390  ls
+ 7391  cd schoolProjectManager
+ 7392  ls
+ 7393  cd app
+ 7394  cd Http/Controllers
+ 7395  ls
+ 7396  cat ExerciceController.php
+ 7397  vim ExerciceController.php
+ 7398  php artisan route:list
+ 7399  cd ../api
+ 7400  clear
+ 7401  php artisan route:list
+ 7402  code .
+ 7403  php artisan config:clear\n
+ 7404  php artisan serve\n
+ 7405  clear
+ 7406  cd ../../
+ 7407  cd schoolProjectManager
+ 7408  ls
+ 7409  cd database
+ 7410  ls
+ 7411  cd migrations
+ 7412  ls
+ 7413  cat 2022_08_09_053859_create_exercises_table.php
+ 7414  cd ../
+ 7415  cd app/Http/Controllers
+ 7416  cd ../
+ 7417  cd Models
+ 7418  ls
+ 7419  cat Exercise.php
+ 7420  cd ../Http
+ 7421  ls
+ 7422  cd Controllers
+ 7423  ls
+ 7424  cat ExerciceController.php
+ 7425  cd ../../
+ 7426  cd ../
+ 7427  code .
+ 7428  cd Documents/VSCodeProjects/laravelProjects/SchoolProjectManager
+ 7429  ls
+ 7430  code .
+ 7431  cd ../
+ 7432  ls
+ 7433  code schoolProjectManager
+ 7434  npm run dev
+ 7435  npm install
+ 7436  clear
+ 7437  php artisan serve\n
+ 7438  clear
+ 7439  composer install
+ 7440  composer dump-autoload
+ 7441  ls
+ 7442  cd schoolProjectManager
+ 7443  clear
+ 7444  ls
+ 7445  clear
+ 7446  npm run dev
+ 7447  cd schoolProjectManager
+ 7448  clear
+ 7449  php artisan serve\n
+ 7450  mysql -u root -p
+ 7451  cd schoolProjectManager
+ 7452  clear
+ 7453  npm run dev
+ 7454  cd schoolProjectManager
+ 7455  clear
+ 7456  php artisan serve\n
+ 7457  mysql -u root -p
+ 7458  cd api
+ 7459  clear
+ 7460  npm run dev
+ 7461  cd view
+ 7462  clear
+ 7463  npm run dev
+ 7464  clear
+ 7465  php artisan serve\n
+ 7466  npm run dev
+ 7467  psql
+ 7468  php artisan serve\n
+ 7469  clear
+ 7470  php artisan serve\n
+ 7471  cd api
+ 7472  php artisan serve
+ 7473  cd view
+ 7474  npm run dev
+ 7475  cd schoolProjectManager
+ 7476  npm run dev
+ 7477  cd schoolProjectManager
+ 7478  php artisan serve
+ 7479  npm run dev
+ 7480  php artisan serve
+ 7481  npm run dev
+ 7482  php artisan serve
+ 7483  npm run dev
+ 7484  php artisan serve
+ 7485  clear
+ 7486  php artisan serve
+ 7487  clear
+ 7488  npm run dev
+ 7489  php artisan serve
+ 7490  npm run dev
+ 7491  psql
+ 7492  cd
+ 7493  clear
+ 7494  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem
+ 7495  ls
+ 7496  cd resources/js/
+ 7497  ls
+ 7498  cd Pages
+ 7499  ls
+ 7500  cd Projects
+ 7501  ls
+ 7502  cat Edit.jsx
+ 7503  clear
+ 7504  cat Edit.jsx
+ 7505  clear
+ 7506  psql
+ 7507  code Edit.jsx
+ 7508  ls
+ 7509  code Edit.jsx
+ 7510  sudo apt-get update
+ 7511  sudo apt-get upgrade
+ 7512  sudo apt-get autoremove
+ 7513  sudo apt-get autoclean
+ 7514  clear
+ 7515  cd ../
+ 7516  cd hrSoftwareSystem
+ 7517  clear
+ 7518  cd view
+ 7519  npm run dev
+ 7520  cd api
+ 7521  clear
+ 7522  php artisan serve
+ 7523  cd
+ 7524  cd Documents/VSCodeProjects/laravelProjects/SchoolProjectManager
+ 7525  ls
+ 7526  cd app/Http/Controllers
+ 7527  ls
+ 7528  cd../
+ 7529  cd ../
+ 7530  cd schoolProjectManager
+ 7531  cd app/Http/Controllers
+ 7532  ls
+ 7533  cat ExerciceController.php
+ 7534  clear
+ 7535  cd ../../
+ 7536  cd ../
+ 7537  clear
+ 7538  php artisan serve
+ 7539  npm run dev
+ 7540  php artisan tinker
+ 7541  clear
+ 7542  exit
+ 7543  php artisan tinker
+ 7544  clear
+ 7545  cd api
+ 7546  clear
+ 7547  php artisan tinker
+ 7548  cd api
+ 7549  clear
+ 7550  php artisan serve
+ 7551  cd view
+ 7552  clear
+ 7553  npm run dev
+ 7554  cd
+ 7555  clear
+ 7556  cd Documents/VSCodeProjects/laravelProjects
+ 7557  git clone https://github.com/alirezabdphp/laravel-react-spa-crud-with-sanctum-authentication.githttps://github.com/beryl452/hrSoftwareSystem.git
+ 7558  git clone https://github.com/alirezabdphp/laravel-react-spa-crud-with-sanctum-authentication.git
+ 7559  code laravel-react-spa-crud-with-sanctum-authentication
+ 7560  cd laravel-api
+ 7561  clear
+ 7562  cp .env.example .env
+ 7563  mysql -u root -p
+ 7564  cd ../
+ 7565  cd schoolProjectManager
+ 7566  ls
+ 7567  cd schoolProjectManager
+ 7568  ls
+ 7569  cat .env
+ 7570  exit
+ 7571  mysql -u root -p
+ 7572  clear
+ 7573  cd laravel-api
+ 7574  composer install
+ 7575  composer update
+ 7576  composer install
+ 7577  php artisan serve
+ 7578  cd client
+ 7579  clear
+ 7580  npm install
+ 7581  npm update
+ 7582  npm run dev
+ 7583  npm watch
+ 7584  npm help
+ 7585  npm st
+ 7586  npm start
+ 7587  cd laravel-api
+ 7588  php artisan migrate:fresh --seed
+ 7589  mysql -u root -p
+ 7590  exit
+ 7591  clear
+ 7592  php artisan serve
+ 7593  clear
+ 7594  npm run dev
+ 7595  cd api
+ 7596  clear
+ 7597  php artisan serve
+ 7598  cd view
+ 7599  npm 
+ 7600  clear
+ 7601  npm run dev
+ 7602  psql
+ 7603  clear
+ 7604  php artisan storage:link\n
+ 7605  clear
+ 7606  cd api
+ 7607  php artisan storage:link\n
+ 7608  clear
+ 7609  php artisan route:list
+ 7610  psql
+ 7611  exit
+ 7612  psql
+ 7613  npm run dev
+ 7614  clear
+ 7615  cd view
+ 7616  clear
+ 7617  npm run dev
+ 7618  cd api
+ 7619  clar
+ 7620  clear
+ 7621  php artisan serve
+ 7622  npm run dev
+ 7623  clear
+ 7624  cd api
+ 7625  php artisan serve
+ 7626  cd view
+ 7627  npm run dev
+ 7628  sudo apt-get update
+ 7629  sudo apt-get upgrade
+ 7630  sudo apt-get update
+ 7631  sudo apt-get autoclean
+ 7632  sudo apt-get autoremove
+ 7633  sudo apt-get autoclean
+ 7634  clear
+ 7635  cd api
+ 7636  php artisan serve
+ 7637  cd view
+ 7638  npm run dev
+ 7639  cd view && npm run dev
+ 7640  cd api && php artisan serve
+ 7641  psql
+ 7642  clear
+ 7643  php artisan route:list
+ 7644  clear
+ 7645  cd api && php artisan route:list
+ 7646  psql
+ 7647  ls
+ 7648  clear
+ 7649  cd Documents/VSCodeProjects/laravelProjects
+ 7650  clear
+ 7651  cd schoolProjectManager
+ 7652  clear
+ 7653  ls
+ 7654  cd schoolProjectManager
+ 7655  clear
+ 7656  ls
+ 7657  cd app/Http/Controllers
+ 7658  clear
+ 7659  ls
+ 7660  vim AnswerController.php
+ 7661  clear
+ 7662  psql
+ 7663  cd api
+ 7664  php artisan migrate:fresh --seed
+ 7665  CD
+ 7666  cd
+ 7667  clear
+ 7668  cd Documents/VSCodeProjects/laravelProjects/schoolProjectManager
+ 7669  ls
+ 7670  cd schoolProjectManager
+ 7671  ls
+ 7672  cd database/migrations
+ 7673  ls
+ 7674  cd ../
+ 7675  ls
+ 7676  cd seeders
+ 7677  ls
+ 7678  cat DatabaseSeeder.php
+ 7679  php artisan migrate:fresh --seed
+ 7680  php artisan route:list
+ 7681  clear
+ 7682  php artisan route:list
+ 7683  cd api && php artisan serve
+ 7684  cd view && npm run dev
+ 7685  php artisan route:list
+ 7686  php artisan config:clear\n
+ 7687  php artisan route:list
+ 7688  clear
+ 7689  php artisan route:list
+ 7690  clear
+ 7691  php artisan route:list
+ 7692  clear
+ 7693  php artisan route:list
+ 7694  pwd
+ 7695  clear
+ 7696  php artisan route:list
+ 7697  cd routes
+ 7698  ls 
+ 7699  cd ../
+ 7700  locate *cache
+ 7701  locate *ca
+ 7702  clear
+ 7703  php artisan optimize:clear
+ 7704  php artisan route:list
+ 7705  php artisan optimize:clear
+ 7706  clear
+ 7707  ls
+ 7708  pwd
+ 7709  ls
+ 7710  clear
+ 7711  ls
+ 7712  cat ExerciceController.php
+ 7713  php artisan optimize:clear
+ 7714  cd api && php artisan serve
+ 7715  cd view && npm run dev
+ 7716  cd api
+ 7717  cler
+ 7718  clear
+ 7719  php artisan route:list
+ 7720  php artisan optimize:clear
+ 7721  cd
+ 7722  clear
+ 7723  sudo apt-get update
+ 7724  sudo apt-get upgrade
+ 7725  sudo apt-get autoclean
+ 7726  sudo apt-get autoremove
+ 7727  clear
+ 7728  exit
+ 7729  clear
+ 7730  psql
+ 7731  cd api && php artisan serve
+ 7732  cd view && npm run dev
+ 7733  clear
+ 7734  sudo apt-get update
+ 7735  sudo apt-get upgrade
+ 7736  clear
+ 7737  sudo apt-get upgrade
+ 7738  sudo apt-get autoremove
+ 7739  sudo apt-get autoclean
+ 7740  php artisan optimize:clear
+ 7741  clear
+ 7742  php artisan serve
+ 7743  npm run dev
+ 7744  clear
+ 7745  cd api && php artisan serve
+ 7746  cd view && npm run dev
+ 7747  cd
+ 7748  clear
+ 7749  cd HRSoftwareSystem/HRSoftwareSystem/HRSoftwareSystem/resources/js/Components
+ 7750  ls
+ 7751  code PrimaryButton.jsx
+ 7752  psql
+ 7753  cd api && php artisan serve
+ 7754  cd view && npm run dev
+ 7755  psql
+ 7756  clear
+ 7757  psql
+ 7758  clear
+ 7759  psql
+ 7760  clear
+ 7761  psql
+ 7762  cd view && npm run dev
+ 7763  cd api && php artisan serve
+ 7764  psql
+ 7765  clear
+ 7766  clearf
+ 7767  clear
+ 7768  php artisan serve
+ 7769  npm run dev
+ 7770  cd api
+ 7771  clear
+ 7772  php artisan migrate:fresh --seed
+ 7773  clear
+ 7774  psql
+ 7775  php artisan migrate:fresh --seed
+ 7776  psqm
+ 7777  clear
+ 7778  psql
+ 7779  cd api
+ 7780  clear
+ 7781  php artisan optimize:clear
+ 7782  SELECT * FROM tasks WHERE updated_by=4;
+ 7783  clear
+ 7784  psql
+ 7785  php artisan tinker
+ 7786  psql
+ 7787  cd api && php artisan serve
+ 7788  clear
+ 7789  cd view && npm run dev
+ 7790  psql
+ 7791  cd view && npm run dev
+ 7792  cd api && php artisan serve
+ 7793  psql
+ 7794  clear
+ 7795  npm run dev
+ 7796  php artisan serve
+ 7797  clear
+ 7798  npm run dev
+ 7799  clear
+ 7800  php artisan serve
+ 7801  psqm
+ 7802  psql
+ 7803  clear
+ 7804  cd PhpstormProjects/hrSoftwareSystem
+ 7805  ls
+ 7806  git add .
+ 7807  code .
+ 7808  git checkout -b TaskManager
+ 7809  git add .
+ 7810  git commit -m "Edit Task"
+ 7811  git push origin TaskManager
+ 7812  git config --list\n
+ 7813  git checkout main
+ 7814  rm -rf api/app/Http/Controllers/ProjectController.php
+ 7815  rm -rf api/app/Http/Controllers/UserController.php
+ 7816  rm -rf api/routes/api.php
+ 7817  rm -rf view/src/App.js
+ 7818  rm -rf view/src/components/dashboard/Projects.jsx
+ 7819  git add .
+ 7820  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7821  rm -rf view/src/App.jsx
+ 7822  git add .
+ 7823  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7824  git push origin main
+ 7825  git pull origin main
+ 7826  git pull --force origin main
+ 7827  git checkout TaskManager
+ 7828  git mergetool
+ 7829  git add .
+ 7830  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7831  git push origin main
+ 7832  git add .
+ 7833  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7834  git push origin main
+ 7835  git add .
+ 7836  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7837  git push origin main
+ 7838  git add .
+ 7839  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7840  git push origin main
+ 7841  git add .
+ 7842  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7843  git push origin main
+ 7844  git add .
+ 7845  git commit -m "Resolved merge confict ProjectController, UserController, api.php, App.jsx, Projects.jsx"
+ 7846  git push origin main
+ 7847  clear
+ 7848  cd api && php artisan serve
+ 7849  cd view && npm run dev
+ 7850  git status
+ 7851  git pull origin TaskManager
+ 7852  clear
+ 7853  git status
+ 7854  git add .
+ 7855  git commit -m "Resolved merge conflict UserController"
+ 7856  git push origin main
+ 7857  git pull origin main
+ 7858  git commit -m "Resolved merge conflict UserController"
+ 7859  git pull origin main
+ 7860  git push origin main
+ 7861  clear
+ 7862  git add .
+ 7863  git commit -m "Resolved merge conflict Api.jsx"
+ 7864  git push origin main
+ 7865  git add .
+ 7866  git commit -m "Resolved merge conflict UserController"
+ 7867  git push origin main
+ 7868  clear
+ 7869  git status
+ 7870  git branch
+ 7871  git pull origin main
+ 7872  git branch
+ 7873  git checkout UserManagement
+ 7874  git status
+ 7875  git branch
+ 7876  git pull origin main
+ 7877  git checkout UserManagement
+ 7878  git add .
+ 7879  git commit -m "Resolved merge conflict UserController"
+ 7880  git push origin main
+ 7881  clear
+ 7882  git status
+ 7883  git pull origin UserManagement
+ 7884  git checkout UserManagement
+ 7885  git status
+ 7886  git add .
+ 7887  git commit -m "Resolved merge conflict App.jsx"
+ 7888  git push origin main
+ 7889  cd api && php artisan serve
+ 7890  cd view && npm run dev
+ 7891  clear
+ 7892  cd api && php artisan serve
+ 7893  cd view && npm run dev
+ 7894  man git
+ 7895  exit
+ 7896  git add .
+ 7897  git commit -m "Menu"
+ 7898  git push origin main
+ 7899  cd api && php artisan serve
+ 7900  cd v
+ 7901  clear
+ 7902  cd view && npm run dev
+ 7903  cd api && php artisan serve
+ 7904  cd view && npm run dev
+ 7905  psql
+ 7906  sudo apt-get update
+ 7907  sudo apt-get upgrade
+ 7908  sudo dpkg --configure -a
+ 7909  sudo apt autoremove
+ 7910  sudo apt autoclean
+ 7911  cd view && npm run dev
+ 7912  cd api && php artisan serve
+ 7913  psql
+ 7914  cd api
+ 7915  exit
+ 7916  clear
+ 7917  php artisan serve
+ 7918  npm run dev
+ 7919  cd api
+ 7920  clear
+ 7921  php artisan
+ 7922  clear

@@ -29,31 +29,31 @@ function EditProject() {
 
     const data = new FormData();
 
-    data.append("file", formu.file);
     data.append("title", formu.title);
     data.append("start_date", formu.start_date);
-    data.append("due_date", formu.due_date);
     data.append("end_date", formu.end_date);
     data.append("description", formu.description);
     data.append("status", formu.status);
-    data.append("created_by", JSON.parse(localStorage.getItem("auth")).user.id);
+    data.append("due_date", formu.due_date);
+    data.append("file", file);
     data.append("updated_by", JSON.parse(localStorage.getItem("auth")).user.id);
+    data.append("_method", "PUT");
     
     const http = axios.create({
       baseURL: "http://localhost:8000",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         Authorization:
           "Bearer " + JSON.parse(localStorage.getItem("auth")).token,
-        "content-type": "multipart/form-data",
-      },
+          'Content-Type': 'multipart/form-data',
+        },
       withCredentials: true,
     });
     console.log(formu);
     console.log(data);
     http
-      .put(`/api/projects/${location.state.project.id}`, data)
+      .post(`/api/projects/${location.state.project.id}`, data)
       .then((response) => {
         console.log("response =", response);
       })
@@ -73,27 +73,18 @@ function EditProject() {
       status: e.target.value,
     });
   };
-
-  // const handleFileChange = (e) => {
-  //   setFile(e.target.files[0]);
-  //   console.log("e.target.files[0] =", e.target.files[0]);
-  //   if (file) {
-  //     setFormu({
-  //       ...formu,
-  //       file:e.target.files[0],
-  //     });
-  //   };
-  // };
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-    console.log("e.target.files[0] =", e.target.files[0]);
-    if (file) {
-      setFormu({
-        ...formu,
-        file: e.target.files[0],
-      });
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    console.log("selectedFile =", selectedFile);
+    if (selectedFile) {
+      setFormu((prevFormu) => ({
+        ...prevFormu,
+        file: selectedFile,
+      }));
     }
   };
+  
 
   useEffect(() => {
     setFormu({
