@@ -1,16 +1,41 @@
-import { Link } from 'react-router-dom';
-import Breadcrumb from '../../components/Breadcrumb';
+import { Link, useNavigate } from 'react-router-dom';
 import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
-import DefaultLayout from '../../layout/DefaultLayout';
+import { useRef, useState, useContext } from 'react';
+import useUserActions from '../../hooks/useUserActions';
+import { AuthContext } from '../../context/AuthContext';
 
 const SignIn = () => {
+  const { login } = useUserActions();
+  const navigate = useNavigate();
+  const {auth, setAuth} = useContext(AuthContext);
+
+  const [error, setError] = useState<boolean>(false);
+
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    login(emailRef.current!.value, passwordRef.current!.value)
+      .then((res) => {
+        localStorage.setItem('auth', JSON.stringify(res.data));
+        setAuth(res.data);  
+        // console.log("response",res);
+        // setAuth(res.data);
+        navigate('/');
+      }).catch((err) => {
+        setError(true);
+        console.log("error",err);
+      });
+    };
+
   return (
-    <DefaultLayout>
-      <Breadcrumb pageName="Sign In" />
-      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+    <>
+      <div className="h-screen rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
-          <div className="hidden w-full xl:block xl:w-1/2">
+          <div className="hidden h-screen w-full xl:block xl:w-1/2">
             <div className="py-17.5 px-26 text-center">
               <Link className="mb-5.5 inline-block" to="/">
                 <img className="hidden dark:block" src={Logo} alt="Logo" />
@@ -20,6 +45,7 @@ const SignIn = () => {
               <p className="2xl:px-20">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
                 suspendisse.
+                {JSON.stringify(auth)}
               </p>
 
               <span className="mt-15 inline-block">
@@ -149,12 +175,11 @@ const SignIn = () => {
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-              <span className="mb-1.5 block font-medium">Start for free</span>
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                Sign In to TailAdmin
+                Sign In
               </h2>
 
-              <form>
+              <form noValidate onSubmit={handleSubmit} className="space-y-6">
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Email
@@ -163,7 +188,8 @@ const SignIn = () => {
                     <input
                       type="email"
                       placeholder="Enter your email"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                      ref={emailRef}
+                      className={"w-full rounded-lg border  bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" + (error ? " border-danger" : "border-stroke")}
                     />
 
                     <span className="absolute right-4 top-4">
@@ -184,17 +210,39 @@ const SignIn = () => {
                       </svg>
                     </span>
                   </div>
+                  {error && (<div className=" text-danger flex justify-between text-sm">
+                  <div>
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="mr-2 h-4 w-4"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <p>
+                       Email or Password is wrong
+                      </p>
+                    </div>
+                  </div>
+                </div>)}
                 </div>
 
                 <div className="mb-6">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
-                    Re-type Password
+                    Password
                   </label>
                   <div className="relative">
                     <input
                       type="password"
-                      placeholder="6+ Characters, 1 Capital letter"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                      placeholder="*********"
+                      ref={passwordRef}
+                      className={"w-full rounded-lg border  bg-transparent py-4 pl-6 pr-10 outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" + (error ? " border-danger" : "border-stroke")}
                     />
 
                     <span className="absolute right-4 top-4">
@@ -270,7 +318,7 @@ const SignIn = () => {
                   <p>
                     Don’t have any account?{' '}
                     <Link to="/auth/signup" className="text-primary">
-                      Sign Up
+                      Contact Admin
                     </Link>
                   </p>
                 </div>
@@ -279,7 +327,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-    </DefaultLayout>
+    </>
   );
 };
 

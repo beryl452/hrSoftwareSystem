@@ -1,6 +1,7 @@
 import Login from "./pages/Login.jsx";
 import Preferences from "./components/Preferences/Preferences.jsx";
 import { BrowserRouter, redirect, Route, Routes } from "react-router-dom";
+
 import ProtectedRoute from "./routes/ProtectedRoute.jsx"
 import Vitrine_user from "./components/dashboard/Vitrine_user.jsx";
 import Vitrine_project from "./components/dashboard/Vitrine_project.jsx";
@@ -15,7 +16,6 @@ import Tasks from "./components/tasks/Tasks.jsx";
 import CreateTask from "./components/tasks/CreateTask.jsx";
 import EditTask from "./components/tasks/EditTask.jsx";
 import ErrorQuatreCentQuatre from "./pages/ErrorQuatreCentQuatre.jsx";
-
 
 
 function App() {
@@ -55,7 +55,6 @@ function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/project/create"
           element={
@@ -64,8 +63,10 @@ function App() {
             </ProtectedRoute>
           }
         />
+
         <Route path="/vitrine_project" element={<Vitrine_project />} />
         <Route path="/vitrine_user" element={<Vitrine_user />} />
+
         <Route
           exact
           path="/projects/edit/"

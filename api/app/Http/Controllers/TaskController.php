@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
-use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -21,7 +20,7 @@ class TaskController extends Controller
     {
         // $this->authorize('viewAny', Task::class);
         // return response(json_encode(Task::paginate(5)), 200);
-        if (auth()->user()->role == 'admin') {
+        if (auth()->user()->role == "Administrator") {
             return response(json_encode(Task::paginate(5)), 200);
         } else if (auth()->user()->role == 'Task Manager') {
             // Les tâches de son département
@@ -57,7 +56,7 @@ class TaskController extends Controller
 
         if ($uploadedFile != null) {
             $filename = Str::uuid() . '.' . $uploadedFile->getClientOriginalExtension();
-            $path = Storage::putFile('ProjectsFiles', new File($uploadedFile, $filename));
+            $path = Storage::putFile('TasksFiles', new File($uploadedFile, $filename));
             $request->merge(['file_path' => $path]);
         }
 
@@ -159,6 +158,12 @@ class TaskController extends Controller
         return response(json_encode($task), 200);
     }
 
+    public function search($search)
+    {
+        $this->authorize('viewAny', Task::class);
+        return response(json_encode(Task::Where('title', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . $search . '%')->paginate(5)), 200);
+    }
+
     public function download(Task $task)
     {
         // $this->authorize('download', $task);
@@ -168,29 +173,24 @@ class TaskController extends Controller
         return Storage::download($task->file);
     }
 
-    // public function penalty(Request $request)
-    // {
-    //     $tasks = Task::with('assignee')->whereBetween('start_date',[$request['dateDebut'],$request['dateFin']]);
-
-    //     return response(json_encode($tasks));
-    // }
-    public function penalty(Request $request)
+    public function tasksBilan()
     {
-        $request->merge(['assigned_to' => intval($request->assigned_to)]);
+        $toDo = Task::where('status', 'to Do')->count();
+        $doing = Task::where('status', 'Doing')->count();
+        $done = Task::where('status', 'Done')->count();
+        $awaiting = Task::where('status', 'Awaiting validation')->count();
 
-        // return response()->json($request->all());
+        // SELECT tasks.* SUM(penalty), SUM(retard)
+        // FROM tasks
+        // WHERE start_date BETWEEN $dateDebut AND $dateFin
+        // GROUP BY
 
-
-
-        $tasks = Task::with('assignee')->whereBetween('start_date', [$request['dateDebut'], $request['dateFin']])
-            ->where('assigned_to', (int)$request['assigned_to'])
-            ->get();
-
-        $sum = 0;
-        foreach ($tasks as $task) {
-            $sum += $task->penalty;
-        }
-
-        return response()->json([$tasks, $sum]);
+        return response(json_encode([
+            'toDo' => $toDo,
+            'Doing' => $doing,
+            'Done' => $done,
+            'awaitingValidation' => $awaiting,
+        ]), 200);
     }
+
 }

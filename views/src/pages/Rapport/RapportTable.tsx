@@ -8,6 +8,7 @@ const TableOne = ({ }) => {
     const [users, setUsers] = React.useState({});
     const [search, setSearch] = React.useState("");
     // const navigate = useNavigate();
+    // git reset -- soft 
     const auth = JSON.parse(localStorage.getItem("auth"));
     const http = axios.create({
         baseURL: "http://localhost:8000",

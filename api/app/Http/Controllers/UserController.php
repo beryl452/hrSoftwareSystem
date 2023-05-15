@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $this->authorize('viewAny', User::class);
-        return response(json_encode(User::all()), 200);
+        return response(json_encode(User::paginate(5)), 200);
     }
 
     /**
@@ -151,7 +151,6 @@ class UserController extends Controller
             'user' => $user,
         ]), 201);
 
-
     }
 
     /**
@@ -169,14 +168,14 @@ class UserController extends Controller
 
     public function login(Request $request) {
 
-        // Validate the user with username or email and password
+        // Validate the user with email and password
         $fields = $request->validate([
-            'username' => 'required|string',
+            'email' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        // Check username
-        $user = User::where('username', $fields['username'])->first();
+        // Check email
+        $user = User::where('email', $fields['email'])->first();
 
         if(!$user || !Hash::check($fields['password'], $user->password)) {
             return response([
@@ -207,7 +206,8 @@ class UserController extends Controller
         ]), 200);
     }
 
-    public function logout(Request $request) {
+    public function logout() {
+        return response(json_encode(auth()),201);
         auth()->user()->tokens()->delete();
 
         return [
@@ -228,9 +228,6 @@ class UserController extends Controller
         }
         else if (auth()->user()->role == 'Task Manager') {
             return response(json_encode(User::where('role', 'Collaborator')->where('department_id', auth()->user()->department_id)->get()), 200);
-        }
-        else {
-            return response(json_encode(User::where('role', 'Collaborator')->get()), 200);
         }
     }
 }

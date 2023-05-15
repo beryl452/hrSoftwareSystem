@@ -131,6 +131,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        return response(json_encode($request->all()), 200);
         $this->authorize('update', $project);
 
         $request->merge(['created_by' => $request->user()->id]);
