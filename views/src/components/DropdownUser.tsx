@@ -1,11 +1,24 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import UserOne from '../images/user/user-01.png';
+import { AuthContext } from '../context/AuthContext';
+
 
 const DropdownUser = () => {
+  const { auth, setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const http = axios.create({
+    baseURL: 'http://localhost:8000',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth.token}`,
+    },
+    withCredentials: true,
+  });
   const trigger = useRef<any>(null);
   const dropdown = useRef<any>(null);
 
@@ -155,7 +168,18 @@ const DropdownUser = () => {
             </Link>
           </li>
         </ul>
-        <button className="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base">
+        <button
+          onClick={() => {
+            localStorage.removeItem("auth");
+            setAuth({
+              user: {},
+              token: "",
+            });
+            http.post("/api/logout");
+            navigate("/auth/signin");
+          }}
+          className="flex items-center gap-3.5 py-4 px-6 text-sm font-medium duration-300 ease-in-out hover:text-primary lg:text-base"
+        >
           <svg
             className="fill-current"
             width="22"

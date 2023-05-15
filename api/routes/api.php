@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('projectsBilan', [ProjectController::class, 'projectsBilan']);
 
-    Route::get('projectsBilan', [ProjectController::class, 'projectsBilan']);
+    Route::get('tasksBilan', [TaskController::class, 'tasksBilan']);
 
     Route::get('penalty/{task}', [ConfigurationController::class, 'penalty']);
 

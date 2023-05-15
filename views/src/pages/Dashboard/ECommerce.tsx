@@ -1,12 +1,4 @@
-// import CardFour from '../../components/CardFour.tsx';
 import CardOne from '../../components/CardOne.tsx';
-// import CardThree from '../../components/CardThree.tsx';
-// import CardTwo from '../../components/CardTwo.tsx';
-// import ChartOne from '../../components/ChartOne.tsx';
-// import ChartThree from '../../components/ChartThree.tsx';
-// import ChartTwo from '../../components/ChartTwo.tsx';
-// import ChatCard from '../../components/ChatCard.tsx';
-// import MapOne from '../../components/MapOne.tsx';
 import TableOne from '../../components/TableOne.tsx';
 import DefaultLayout from '../../layout/DefaultLayout.tsx';
 import React, { useEffect } from "react";
@@ -14,20 +6,17 @@ import axios from "axios";
 
 const ECommerce = () => {
   const [users, setUsers] = React.useState({});
-  const [search, setSearch] = React.useState("");
   const [UserB, setUserB] = React.useState({});
-  const auth = JSON.parse(localStorage.getItem("auth"));
+  const auth = JSON.parse(localStorage.getItem('auth') || '{}');
   const http = axios.create({
     baseURL: "http://localhost:8000",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: "Bearer " + auth.token,
+      'Authorization': `Bearer ${auth.token}`,
     },
     withCredentials: true,
   });
-
-  // const navigate = useNavigate();
 
   async function viewUsers() {
     const response = await http.get("/api/users");
@@ -43,6 +32,7 @@ const ECommerce = () => {
   useEffect(() => {
     userBoard();
     viewUsers();
+    console.log("auth",auth);
   }, []);
   return (
     <DefaultLayout>

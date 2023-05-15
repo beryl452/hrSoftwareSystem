@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
@@ -13,10 +12,17 @@ import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
+import AuthProvider from './context/AuthContext';
+import ProtectedRoute from './routes/ProtectedRoute';
+import Projects from './pages/Dashboard/Projects';
+import Tasks from './pages/Dashboard/Tasks';
+import CreateProjects from './pages/Form/CreateProjects';
+// import { useContext } from 'react';
+// import { AuthContext } from './context/AuthContext';
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(true);
 
+  const [loading, setLoading] = useState<boolean>(true);
   const preloader = document.getElementById('preloader');
 
   if (preloader) {
@@ -35,10 +41,47 @@ function App() {
   ) : (
     <>
       <Routes>
-        <Route path="/" element={
-          (localStorage.length != 0) && (JSON.parse(localStorage.getItem("auth")).user.role == 'Administrator')?
-            <ECommerce /> : <> </>
-        } />
+        <Route
+          path="/"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <ECommerce />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+
+        <Route
+          path="/projects"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Projects />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Tasks />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+         <Route
+          path="/CreateProjects"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateProjects />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/profile" element={<Profile />} />
@@ -49,7 +92,16 @@ function App() {
         <Route path="/chart" element={<Chart />} />
         <Route path="/ui/alerts" element={<Alerts />} />
         <Route path="/ui/buttons" element={<Buttons />} />
-        <Route path="/auth/signin" element={<SignIn />} />
+
+        <Route
+          path="/auth/signin"
+          element={
+            <AuthProvider>
+              <SignIn />
+            </AuthProvider>
+          }
+        />
+
         <Route path="/auth/signup" element={<SignUp />} />
       </Routes>
     </>
