@@ -1,7 +1,12 @@
 import Login from "./pages/Login.jsx";
 import Preferences from "./components/Preferences/Preferences.jsx";
 import { BrowserRouter, redirect, Route, Routes } from "react-router-dom";
-import ProtectedRoute from "./routes/ProtectedRoute.jsx";
+
+import ProtectedRoute from "./routes/ProtectedRoute.jsx"
+import Vitrine_user from "./components/dashboard/Vitrine_user.jsx";
+import Vitrine_project from "./components/dashboard/Vitrine_project.jsx";
+import CreateUsers from "./pages/CreateUsers.jsx";
+import Users from "./components/dashboard/Users.jsx";
 import Register from "./register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Projects from "./components/dashboard/Projects.jsx";
@@ -58,6 +63,10 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/vitrine_project" element={<Vitrine_project />} />
+        <Route path="/vitrine_user" element={<Vitrine_user />} />
+
         <Route
           exact
           path="/projects/edit/"

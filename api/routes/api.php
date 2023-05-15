@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('/tasks', TaskController::class)
         ->only(['index', 'show','update' ,'destroy']);
+    Route::post('/tasksPenalty',[TaskController::class,'penalty']);
 
     Route::post('/projects', [ProjectController::class, 'create']);
 
