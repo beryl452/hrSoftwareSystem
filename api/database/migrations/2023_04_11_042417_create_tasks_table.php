@@ -24,6 +24,8 @@ return new class extends Migration
             $table->foreignId('assigned_to')->references('id')->on('users');
             $table->string('file');
             $table->foreignId('project_id')->references('id')->on('projects');
+            $table->float('penalty')->nullable();
+            $table->integer('retard')->nullable();
             $table->timestamps();
         });
     }

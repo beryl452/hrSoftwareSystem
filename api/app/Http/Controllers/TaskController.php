@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -165,5 +166,31 @@ class TaskController extends Controller
         // return response(json_encode($task), 200);
         // $this->authorize('viewAny', $task);
         return Storage::download($task->file);
+    }
+
+    // public function penalty(Request $request)
+    // {
+    //     $tasks = Task::with('assignee')->whereBetween('start_date',[$request['dateDebut'],$request['dateFin']]);
+
+    //     return response(json_encode($tasks));
+    // }
+    public function penalty(Request $request)
+    {
+        $request->merge(['assigned_to' => intval($request->assigned_to)]);
+
+        // return response()->json($request->all());
+
+
+
+        $tasks = Task::with('assignee')->whereBetween('start_date', [$request['dateDebut'], $request['dateFin']])
+            ->where('assigned_to', (int)$request['assigned_to'])
+            ->get();
+
+        $sum = 0;
+        foreach ($tasks as $task) {
+            $sum += $task->penalty;
+        }
+
+        return response()->json([$tasks, $sum]);
     }
 }
