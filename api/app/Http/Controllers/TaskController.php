@@ -56,7 +56,7 @@ class TaskController extends Controller
 
         if ($uploadedFile != null) {
             $filename = Str::uuid() . '.' . $uploadedFile->getClientOriginalExtension();
-            $path = Storage::putFile('ProjectsFiles', new File($uploadedFile, $filename));
+            $path = Storage::putFile('TasksFiles', new File($uploadedFile, $filename));
             $request->merge(['file_path' => $path]);
         }
 
@@ -172,4 +172,25 @@ class TaskController extends Controller
         // $this->authorize('viewAny', $task);
         return Storage::download($task->file);
     }
+
+    public function tasksBilan()
+    {
+        $toDo = Task::where('status', 'to Do')->count();
+        $doing = Task::where('status', 'Doing')->count();
+        $done = Task::where('status', 'Done')->count();
+        $awaiting = Task::where('status', 'Awaiting validation')->count();
+
+        // SELECT tasks.* SUM(penalty), SUM(retard)
+        // FROM tasks
+        // WHERE start_date BETWEEN $dateDebut AND $dateFin
+        // GROUP BY
+
+        return response(json_encode([
+            'toDo' => $toDo,
+            'Doing' => $doing,
+            'Done' => $done,
+            'awaitingValidation' => $awaiting,
+        ]), 200);
+    }
+
 }

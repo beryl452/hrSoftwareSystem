@@ -168,14 +168,14 @@ class UserController extends Controller
 
     public function login(Request $request) {
 
-        // Validate the user with username or email and password
+        // Validate the user with email and password
         $fields = $request->validate([
-            'username' => 'required|string',
+            'email' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        // Check username
-        $user = User::where('username', $fields['username'])->first();
+        // Check email
+        $user = User::where('email', $fields['email'])->first();
 
         if(!$user || !Hash::check($fields['password'], $user->password)) {
             return response([
@@ -206,7 +206,8 @@ class UserController extends Controller
         ]), 200);
     }
 
-    public function logout(Request $request) {
+    public function logout() {
+        return response(json_encode(auth()),201);
         auth()->user()->tokens()->delete();
 
         return [
