@@ -17,6 +17,9 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import Projects from './pages/Dashboard/Projects';
 import Tasks from './pages/Dashboard/Tasks';
 import CreateProjects from './pages/Form/CreateProjects';
+import Rapport from './pages/Rapport/Rapport';
+import EditTask from './components/EditTask';
+
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
 
@@ -73,6 +76,16 @@ function App() {
           }
         />
          <Route
+          path="/tasksEdit"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <EditTask />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+         <Route
           path="/CreateProjects"
           element={
             <AuthProvider>
@@ -103,6 +116,8 @@ function App() {
         />
 
         <Route path="/auth/signup" element={<SignUp />} />
+        <Route path="/rapport" element={<Rapport />} />
+
       </Routes>
     </>
   );

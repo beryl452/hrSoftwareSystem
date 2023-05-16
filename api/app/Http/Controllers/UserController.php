@@ -229,5 +229,8 @@ class UserController extends Controller
         else if (auth()->user()->role == 'Task Manager') {
             return response(json_encode(User::where('role', 'Collaborator')->where('department_id', auth()->user()->department_id)->get()), 200);
         }
+        else {
+            return response(json_encode(User::where('role', 'Collaborator')->get()), 200);
+        }
     }
 }

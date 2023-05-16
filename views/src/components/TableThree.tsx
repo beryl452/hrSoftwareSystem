@@ -5,13 +5,14 @@
 // import BrandFive from '../images/brand/brand-05.svg';
 import React, { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import { useLocation} from "react-router-dom";
 
 
 const TableThree = ({ }) => {
   const [tasks, setTasks] = React.useState([]);
   const [search, setSearch] = React.useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const location = useLocation();
   const [loading, setLoading] = React.useState(true);
   const auth = JSON.parse(localStorage.getItem("auth"));
@@ -225,7 +226,15 @@ const TableThree = ({ }) => {
                           />
                         </svg>
                       </button>
-                      <button className="hover:text-primary">
+                      <button className="hover:text-primary"
+                      onClick={() => {
+                        // /tasksEdit
+                        navigate(`/tasksEdit`, {
+                          state: { task: { ...task }},
+                          replace: false,
+                        });
+                      }}
+                      >
                         <svg
                           className="fill-current"
                           width="18"

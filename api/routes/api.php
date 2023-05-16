@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('/projects', [ProjectController::class, 'create']);
 
+    Route::get('allProjects', [ProjectController::class, 'allProjects']);
+
     Route::resource('/projects', ProjectController::class)
         ->only(['index', 'show', 'update', 'destroy']);
 
