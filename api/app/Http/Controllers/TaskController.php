@@ -136,6 +136,7 @@ class TaskController extends Controller
         $date1 = new DateTime($request['due_date']);
         $date2 = new DateTime($request['end_date']);
         $intvalDtaTime = $date1->diff($date2)->format("%I");
+
         // return response(json_encode(['intvalDtaTime' => $request['retard'],
 //         'penalty' => $request['penalty'], "$request->status === 'Done'" => ($request->status === "Done"), "$task->status !== 'Done'" => ($task->status !== 'Done'),  "$request->end_date >  $request->due_date']" => ($request['end_date'] > $request['due_date']) ]), 200);
 
