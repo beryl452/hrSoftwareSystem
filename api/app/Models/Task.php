@@ -22,7 +22,9 @@ class Task extends Model
         'updated_by',
         'assigned_to',
         'file',
-        'project_id'
+        'project_id',
+        'penalty',
+        'retard'
     ];
 
     public function project(): BelongsTo

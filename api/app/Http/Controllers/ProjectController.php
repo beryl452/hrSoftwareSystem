@@ -14,6 +14,9 @@ use Illuminate\Http\File;
 
 class ProjectController extends Controller
 {
+    public function allProjects(){
+        return response(json_encode(Project::all()));
+    }
     /**
      * Display a listing of the resource.
      */

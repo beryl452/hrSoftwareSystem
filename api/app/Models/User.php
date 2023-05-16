@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -95,4 +96,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class, 'updated_by');
     }
+    public function mois(): BelongsToMany
+    {
+        return $this->belongsToMany(Mois::class,'Paye','user_id','mois_id')->withPivot('salaire','historySalaire_id','prime_id','configuration_id')->withTimestamps();
+    }
+    public function permissions(): HasMany
+    {
+        return $this->hasMany(Permission::class);
+    }
+    public function presences(): HasMany
+    {
+        return $this->hasMany(Presence::class);
+    }
+
 }

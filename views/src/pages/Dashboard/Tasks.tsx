@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import CardTwo from '../../components/CardTwo.tsx';
 import TableThree from '../../components/TableThree.tsx';
+import CreateTask from '../../components/CreateTask.tsx';
+import EditTask from '../../components/EditTask.tsx';
 
 const Tasks = () => {
   const [taskB, setTaskB] = React.useState({});
@@ -59,6 +61,9 @@ const Tasks = () => {
 
       <div className="mt-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
         <TableThree />
+      </div>
+      <div>
+        <CreateTask />
       </div>
     </DefaultLayout>
   );
