@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Models\HistorySalaire;
+use App\Models\Mois;
 use App\Models\Task;
+use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\File;
-
+use Illuminate\Support\Facades\Date;
 
 class TaskController extends Controller
 {
@@ -143,10 +146,25 @@ class TaskController extends Controller
         if ($request->status === "Done" && $task->status !== 'Done' && $request['end_date'] > $request['due_date']) {
             $request->merge(['retard' => $intvalDtaTime]);
 
-            $request->merge(['penalty' => (int)$intvalDtaTime * 0.12]);
-            // return response(json_encode(['intvalDtaTime' => $request['retard'],
-//         'penalty' => $request['penalty'], "$request->status === 'Done'" => ($request->status === "Done"), "$task->status !== 'Done'" => ($task->status !== 'Done'),  "$request->end_date >  $request->due_date']" => ($request['end_date'] > $request['due_date']) ]), 200);
+            $theMonth = $date2->format("F");
+            $theYear = intval($date2->format("Y"));
 
+            $percent = (float) Mois::Where('annee', $theYear)->where('mois', $theMonth)->get('PenaltyTaskPercent')[0]['PenaltyTaskPercent'];
+
+            $request->merge(['penalty' => (int)($intvalDtaTime * (int)$percent)]);
+
+            $historySalaire = User::where('id', '=',$task->assigned_to)->get('historySalaire_id')[0]['historySalaire_id'];
+            $SalaireBrut = (int) HistorySalaire::where('id',$historySalaire)->where('Status', true)->get('MontantSalaireBrut')[0]['MontantSalaireBrut'];
+
+            $montantTask = ($SalaireBrut * $percent)/100;
+
+            $request->merge(['penalty' => $montantTask]);
+
+            // return response(json_encode(['$montantTask' => ($SalaireBrut * $percent)/100 , "historySalaire" => $historySalaire]));
+
+            // return response(json_encode(['PenaltyTaskPercent' => $percent, '$theMonth' => $theMonth, '$theYear' => $theYear]));
+
+            //
         }
 
         //$request->merge(['end_date' => date_create_from_format('d/m/Y:H:i:s', $request['end_date'])]);
@@ -163,8 +181,7 @@ class TaskController extends Controller
         ]);
 
         $task->update($request->all());
-        return response(json_encode([$request->all(),$task,'intvalDtaTime' => $request['retard'],
-        'penalty' => $request['penalty'], "$request->status === 'Done'" => ($request->status === "Done"), "$task->status !== 'Done'" => ($task->status !== 'Done'),  "$request->end_date >  $request->due_date']" => ($request['end_date'] > $request['due_date'])]), 200);
+        return response(json_encode($task), 200);
     }
 
     /**

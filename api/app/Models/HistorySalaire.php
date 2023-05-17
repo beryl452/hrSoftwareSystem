@@ -9,8 +9,8 @@ class HistorySalaire extends Model
 {
     use HasFactory;
 
-    public function payes () :HasMany
+    public function user()
     {
-        return $this->hasMany(Paye::class);
+        return $this->belongsTo(User::class);
     }
 }

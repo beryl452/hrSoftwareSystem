@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('MontantSalaireBrut');
             $table->date('DateEffet');
-            $table->date('DateFin');
+            $table->date('DateFin')->nullable();
             $table->boolean('Status');
             $table->timestamps();
         });

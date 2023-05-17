@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreignId('historySalaire_id')->references('id')->on('history_salaires')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

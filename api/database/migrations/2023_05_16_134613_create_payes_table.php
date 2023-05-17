@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('mois_id')->references('id')->on('mois')->onDelete('cascade');
-            $table->foreignId('historySalaire_id')->references('id')->on('history_salaires')->onDelete('cascade');
             $table->foreignId('prime_id')->references('id')->on('primes')->onDelete('cascade');
             $table->foreignId('configuration_id')->references('id')->on('configurations')->onDelete('cascade');
             $table->unique(['user_id', 'mois_id']);

@@ -22,11 +22,8 @@ class PayeFactory extends Factory
             'salaire' => $this->faker->numberBetween(100000, 1000000),
             'user_id' => $this->faker->unique()->numberBetween(1, 10),
             'mois_id' => $this->faker->unique()->numberBetween(1, 10),
-            'historySalaire_id' => $this->faker->numberBetween(1, 10),
             'prime_id' => $this->faker->numberBetween(1, 10),
             'configuration_id' => $this->faker->numberBetween(1, 10),
-
-
         ];
     }
 }

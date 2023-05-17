@@ -19,7 +19,7 @@ class HistorySalaireFactory extends Factory
         return [
             'MontantSalaireBrut' => $this->faker->numberBetween(100000, 1000000),
             'DateEffet' => $this->faker->date,
-            'DateFin' => $this->faker->date,
+            'DateFin' => $this->faker->boolean ? $this->faker->date : null,
             'Status' => $this->faker->boolean,
         ];
     }
