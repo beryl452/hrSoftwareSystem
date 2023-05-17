@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Configuration::factory(10)->create();
         \App\Models\User::factory(10)->create([
             'department_id' => \App\Models\Department::inRandomOrder()->first()->id,
+            'historySalaire_id' => \App\Models\HistorySalaire::inRandomOrder()->first()->id,
         ]);
         \App\Models\Project::factory(10)->create([
             'created_by' => \App\Models\User::inRandomOrder()->first()->id,
@@ -45,10 +46,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\Paye::factory(1)->create([
             'user_id' => \App\Models\User::where('role', 'Collaborator')->inRandomOrder()->first()->id,
             'mois_id' => \App\Models\Mois::all()->random()->id,
-            'historySalaire_id' => \App\Models\HistorySalaire::inRandomOrder()->first()->id,
             'prime_id' => \App\Models\Prime::inRandomOrder()->first()->id,
             'configuration_id' => \App\Models\Configuration::inRandomOrder()->first()->id,
-
         ]);
 
     }

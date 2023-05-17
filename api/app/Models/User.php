@@ -108,5 +108,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Presence::class);
     }
+    public function historySalaires()
+    {
+        return $this->hasMany(HistorySalaire::class);
+    }
 
 }
