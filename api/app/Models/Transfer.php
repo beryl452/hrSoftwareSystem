@@ -4,12 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Transfer extends Model
 {
     use HasFactory;
 
-
+    public function from()
+    {
+        return $this->belongsTo('user_from',User::class);
+    }
+    public function to()
+    {
+        return $this->belongsTo('user_to',User::class);
+    }
+    public function task()
+    {
+        return $this->belongsTo(Task::class);
+    }
 }

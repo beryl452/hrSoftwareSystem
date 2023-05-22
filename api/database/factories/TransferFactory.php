@@ -17,7 +17,11 @@ class TransferFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'reason' => $this->faker->text(20),
+            'approuve' => $this->faker->boolean,
+            'user_from'=> $this->faker->numberBetween(1, 10),
+            'user_to'=> $this->faker->numberBetween(1, 10),
+            'task_id'=> $this->faker->numberBetween(1, 10),
         ];
     }
 }

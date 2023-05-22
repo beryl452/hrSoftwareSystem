@@ -4,41 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
     use HasFactory;
 
-    public $fillable = [
-        'title',
-        'description',
-        'status',
-        'start_date',
-        'end_date',
-        'due_date',
-        'created_by',
-        'updated_by',
-        'file'
-    ];
-
-    public function tasks(): HasMany
-    {
-        return $this->hasMany(Task::class);
-    }
-
-    public function users(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-    public function createdBy(): BelongsTo
+    public function projectCreatedBy()
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo('created_by',Project::class);
     }
-    public function updatedBy(): BelongsTo
+    public function projectUpdatedBy()
     {
-        return $this->belongsTo(User::class, 'updated_by');
+        return $this->belongsTo('updated_by',Project::class);
     }
 }

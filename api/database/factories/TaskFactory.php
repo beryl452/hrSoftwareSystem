@@ -16,26 +16,25 @@ class TaskFactory extends Factory
      */
     public function definition(): array
     {
-        $status = $this->faker->randomElement(['to Do', 'Doing', 'Done']);
-        $due_date = $this->faker->dateTime;
-        $end_date = $this->faker->dateTime;
-        // Do difference between $due_date and $end_date, get answer in minute and store it in $retard variable
-        $retard = $status === 'Done' ? ($due_date->diff($end_date))->format("%I") :null;
-
+        $startDate = $this->faker->dateTimeBetween('-1 year', 'now');
         return [
-            'title' => $this->faker->title,
-            'description' => $this->faker->text,
-            'due_date' => $status === 'Done' ? $due_date : null,
-            'status' => $status,
-            'start_date' => $this->faker->dateTime,
-            'end_date' => $end_date,
+            'name' => $this->faker->regexify('[a-z]{10}'),
+            'description' => $this->faker->text(20),
+            'start_date' => $startDate,
+            'end_date' => $this->faker->dateTimeBetween($startDate, '+1 years'),
+            'due_date' => $this->faker->dateTimeBetween($startDate, '+1 years'),
+            'status' => $this->faker->randomElement(['toDo', 'doing', 'done', 'awaitingValidation']),
+            'project_id' => $this->faker->numberBetween(1, 10),
             'created_by' => $this->faker->numberBetween(1, 10),
             'updated_by' => $this->faker->numberBetween(1, 10),
-            'file' => $this->faker->url(),
-            'project_id' => $this->faker->numberBetween(1, 10),
-            'assigned_to' => \App\Models\User::where('role', 'Collaborator')->inRandomOrder()->first()->id,
-            'retard' => $retard,
-            'penalty' => $retard * 0.01,
+            'receipt' => $this->faker->boolean,
+            'folder' => $this->faker->regexify('/[a-z]{10}/'),
+            'cancelValidation' =>  $this->faker->dateTimeBetween($startDate, '+1 years'),
+            // 'assigned_to' user where role is collaborator
+            'assigned_to' => $this->faker->numberBetween(1, 10),
+
+
+
         ];
     }
 }

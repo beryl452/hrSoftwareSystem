@@ -16,10 +16,11 @@ class PresenceFactory extends Factory
      */
     public function definition(): array
     {
+        $arrivee = $this->faker->dateTimeBetween('-2 years', '+2 years');
         return [
-            'HeureArrive' => $this->faker->dateTime(),
-            'HeureDepart' => $this->faker->dateTime(),
-            'user_id' => $this->faker->numberBetween(1, 10),
+            'arrivalDate' => $arrivee,
+            'departureTime' => $this->faker->dateTimeBetween($arrivee, '+2 years'),
+            'contract_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

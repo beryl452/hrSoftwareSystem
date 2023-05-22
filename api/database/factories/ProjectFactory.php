@@ -16,16 +16,17 @@ class ProjectFactory extends Factory
      */
     public function definition(): array
     {
+        $startDate = $this->faker->date;
         return [
-            'title' => $this->faker->title,
-            'description' => $this->faker->text,
-            'status' => $this->faker->randomElement(['to Do', 'Doing', 'Done']),
-            'start_date' => $this->faker->dateTime,
-            'end_date' => $this->faker->dateTime,
-            'due_date' => $this->faker->dateTime,
+            'name' => $this->faker->unique()->text(5),
+            'description' => $this->faker->unique()->text(20),
+            'start_date' => $startDate,
+            'end_date' => $this->faker->dateTimeBetween($startDate, '+5 years'),
+            'due_date' => $this->faker->dateTimeBetween($startDate, '+5 years'),
+            'status' => $this->faker->randomElement(['toDo', 'doing', 'done', 'awaitingValidation']),
             'created_by' => $this->faker->numberBetween(1, 10),
             'updated_by' => $this->faker->numberBetween(1, 10),
-            'file' => $this->faker->url(),
+            'folder' => $this->faker->unique()->text(5),
         ];
     }
 }

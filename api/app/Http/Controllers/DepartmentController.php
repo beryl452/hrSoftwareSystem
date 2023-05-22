@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDepartmentRequest;
-use App\Http\Requests\UpdateDepartmentRequest;
 use App\Models\Department;
+use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
@@ -13,8 +12,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $this->authorize('viewAny', Department::class);
-        return response(json_encode(Department::all()),200);
+        //
     }
 
     /**
@@ -28,7 +26,7 @@ class DepartmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDepartmentRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -52,7 +50,7 @@ class DepartmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDepartmentRequest $request, Department $department)
+    public function update(Request $request, Department $department)
     {
         //
     }

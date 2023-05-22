@@ -14,15 +14,9 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('username')->unique();
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->date('Birth');
-            $table->string('function');
-            $table->enum('role', ['Task Manager', 'Administrator', 'Collaborator', 'Payroll Manager']);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreignId('person_id')->references('id')->on('people')->constrained()->cascadeOnDelete();
+            $table->foreignId('role_id')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,9 +4,6 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -21,16 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
-        'firstname',
-        'lastname',
-        'Birth',
-        'function',
-        'role',
-        'department_id',
+        'name',
         'email',
         'password',
-        'password_confirmation'
     ];
 
     /**
@@ -50,63 +40,56 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 
-    public function department(): BelongsTo
+    public function person()
     {
-        return $this->belongsTo(Department::class, 'department_id');
+        return $this->belongsTo(Person::class);
     }
 
-    public function projectCreators(): HasMany
+    public function role()
     {
-        return $this->hasMany(Project::class, 'created_by');
+        return $this->belongsTo(Role::class);
     }
 
-    public function projectUpdaters(): HasMany
+    public function loginHistory()
     {
-        return $this->hasMany(Project::class, 'updated_by');
+        return $this->hasMany(LoginHistory::class);
     }
 
-    public function taskCreators(): HasMany
+    public function projects()
     {
-        return $this->hasMany(Task::class, 'created_by');
+        return $this->hasMany(Project::class);
     }
 
-    public function taskUpdaters(): HasMany
+    public function transferTo()
     {
-        return $this->hasMany(Task::class, 'updated_by');
+        return $this->hasMany('user_from',Transfer::class);
     }
-
-    public function assignees(): HasMany
+    public function transferFrom()
     {
-        return $this->hasMany(Task::class, 'assigned_to');
+        return $this->hasMany('user_to',Transfer::class);
     }
-
-    public function comments(): HasMany
+    public function assigne()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany('assigned_to',Task::class);
     }
-
-    public function createdBy(): HasMany
+    public function taskCreatedBy()
     {
-        return $this->hasMany(Project::class, 'created_by');
+        return $this->hasMany('created_by',Task::class);
     }
-
-    public function updatedBy(): HasMany
+    public function taskUpdatedBy()
     {
-        return $this->hasMany(Project::class, 'updated_by');
+        return $this->hasMany('updated_by',Task::class);
     }
-    public function mois(): BelongsToMany
+    public function projectCreatedBy()
     {
-        return $this->belongsToMany(Mois::class,'Paye','user_id','mois_id')->withPivot('salaire','historySalaire_id','prime_id','configuration_id')->withTimestamps();
+        return $this->hasMany('created_by',Project::class);
     }
-    public function permissions(): HasMany
+    public function projectUpdatedBy()
     {
-        return $this->hasMany(Permission::class);
-    }
-    public function presences(): HasMany
-    {
-        return $this->hasMany(Presence::class);
+        return $this->hasMany('updated_by',Project::class);
     }
 
 }

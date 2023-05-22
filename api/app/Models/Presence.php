@@ -9,8 +9,8 @@ class Presence extends Model
 {
     use HasFactory;
 
-    public function user()
+    public function contract()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Contract::class);
     }
 }

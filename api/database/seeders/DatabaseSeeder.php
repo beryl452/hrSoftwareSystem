@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use Database\Factories\RessourceRoleFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,43 +15,56 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         \App\Models\Department::factory(10)->create();
-        \App\Models\HistorySalaire::factory(10)->create();
-        \App\Models\Mois::factory(10)->create();
-        \App\Models\Prime::factory(10)->create();
-        \App\Models\Configuration::factory(10)->create();
-        \App\Models\User::factory(10)->create([
-            'department_id' => \App\Models\Department::inRandomOrder()->first()->id,
-        ]);
-        \App\Models\Project::factory(10)->create([
-            'created_by' => \App\Models\User::inRandomOrder()->first()->id,
-            'updated_by' => \App\Models\User::inRandomOrder()->first()->id,
-        ]);
-        \App\Models\Task::factory(10)->create([
-            'created_by' => \App\Models\User::inRandomOrder()->first()->id,
-            'updated_by' => \App\Models\User::inRandomOrder()->first()->id,
-            'project_id' => \App\Models\Project::inRandomOrder()->first()->id,
-            'assigned_to' => \App\Models\User::where('role', 'Collaborator')->inRandomOrder()->first()->id,
-        ]);
-        \App\Models\Comment::factory(10)->create([
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
-            'task_id' => \App\Models\Task::inRandomOrder()->first()->id,
-        ]);
-        \App\Models\Presence::factory(10)->create([
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
-        ]);
-
-        \App\Models\Permission::factory(10)->create([
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
-        ]);
-
-        \App\Models\Paye::factory(1)->create([
-            'user_id' => \App\Models\User::where('role', 'Collaborator')->inRandomOrder()->first()->id,
-            'mois_id' => \App\Models\Mois::all()->random()->id,
-            'historySalaire_id' => \App\Models\HistorySalaire::inRandomOrder()->first()->id,
-            'prime_id' => \App\Models\Prime::inRandomOrder()->first()->id,
-            'configuration_id' => \App\Models\Configuration::inRandomOrder()->first()->id,
-
-        ]);
-
+        \App\Models\Role::factory(
+            [
+                'name' => 'collaborator',
+            ]
+        )
+            ->hasAttached(
+                \App\Models\Ressource::factory(3),
+            )
+            ->count(3)
+            ->create();
+        \App\Models\Role::factory(
+            [
+                'name' => 'Task manager',
+            ]
+        )
+            ->hasAttached(
+                \App\Models\Ressource::factory(3),
+            )
+            ->count(3)
+            ->create();
+        \App\Models\Role::factory(
+            [
+                'name' => 'Payroll manager',
+            ]
+        )
+            ->hasAttached(
+                \App\Models\Ressource::factory(3),
+            )
+            ->count(3)
+            ->create();
+        \App\Models\Role::factory(
+            [
+                'name' => 'Administrator',
+            ]
+        )
+            ->hasAttached(
+                \App\Models\Ressource::factory(3),
+            )
+            ->count(3)
+            ->create();
+        \App\Models\Person::factory(10)->create();
+        \App\Models\Agent::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        \App\Models\Contract::factory(10)->create();
+        \App\Models\Presence::factory(10)->create();
+        \App\Models\Absence::factory(10)->create();
+        \App\Models\Project::factory(10)->create();
+        \App\Models\Task::factory(10)->create();
+        \App\Models\Transfer::factory(10)->create();
+        \App\Models\Supplement::factory(10)->create();
+        \App\Models\Salary::factory(10)->create();
     }
 }
