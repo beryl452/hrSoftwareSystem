@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTransferObjects\LoginHistory\LoginHistoryDataObject;
 use App\Models\Role;
 use App\Models\User;
 use App\Responses\User\UserCollectionResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Actions\LoginHistory\StoreLoginHistoryAction;
 
 class UserController extends Controller
 {
@@ -90,7 +92,14 @@ class UserController extends Controller
         $abilities = Role::find($user->role->id)->ressources()->get(['name'])->pluck('name')->toArray();
         // TOKEN expire in 1 day
         $token = $user->createToken(time(), $abilities ,now()->addDay())->plainTextToken;
-
+        $loginHistoryDto = new LoginHistoryDataObject(
+            date: now(),
+            user_id: $user->id,
+        );
+        (new StoreLoginHistoryAction())
+            ->handle(
+                ...$loginHistoryDto->toArray()
+            );
         return response(json_encode([
             'user' => $user,
             'token' => $token,

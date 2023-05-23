@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+        'start_date',
+        'due_date',
+        'status',
+        'folder',
+        'created_by',
+        'updated_by',
+    ];
 
     public function user()
     {
@@ -15,10 +25,10 @@ class Project extends Model
     }
     public function projectCreatedBy()
     {
-        return $this->belongsTo('created_by',Project::class);
+        return $this->belongsTo('created_by', Project::class);
     }
     public function projectUpdatedBy()
     {
-        return $this->belongsTo('updated_by',Project::class);
+        return $this->belongsTo('updated_by', Project::class);
     }
 }
