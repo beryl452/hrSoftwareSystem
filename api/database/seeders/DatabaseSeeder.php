@@ -20,42 +20,41 @@ class DatabaseSeeder extends Seeder
                 'name' => 'collaborator',
             ]
         )
-            ->hasAttached(
-                \App\Models\Ressource::factory(3),
-            )
-            ->count(3)
+            // ->hasAttached(
+                // \App\Models\Ressource::factory(3),
+            // )
+            ->count(1)
             ->create();
         \App\Models\Role::factory(
             [
                 'name' => 'Task manager',
             ]
         )
-            ->hasAttached(
-                \App\Models\Ressource::factory(3),
-            )
-            ->count(3)
+            // ->hasAttached(
+                // \App\Models\Ressource::factory(3),
+            // )
+            ->count(1)
             ->create();
         \App\Models\Role::factory(
             [
                 'name' => 'Payroll manager',
             ]
         )
-            ->hasAttached(
-                \App\Models\Ressource::factory(3),
-            )
-            ->count(3)
+            // ->hasAttached(
+                // \App\Models\Ressource::factory(3),
+            // )
+            ->count(1)
             ->create();
         \App\Models\Role::factory(
             [
                 'name' => 'Administrator',
             ]
         )
-            ->hasAttached(
-                \App\Models\Ressource::factory(3),
-            )
-            ->count(3)
+            // ->hasAttached(
+                // \App\Models\Ressource::factory(3),
+            // )
+            ->count(1)
             ->create();
-        \App\Models\Person::factory(10)->create();
         \App\Models\Agent::factory(10)->create();
         \App\Models\User::factory(10)->create();
         \App\Models\Contract::factory(10)->create();

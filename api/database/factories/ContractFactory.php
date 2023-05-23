@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Person;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,11 +19,13 @@ class ContractFactory extends Factory
     {
         $startDate = $this->faker->date;
         return [
-            'agent_id' => $this->faker->numberBetween(1, 10),
+            'agent_id' => fake()->randomElement(Person::pluck('id')),
             'baseSalary' => $this->faker->numberBetween(100000, 300000),
             'start_date' => $startDate,
             'end_date' => $this->faker->dateTimeBetween($startDate, '+5 years'),
-            'department_id' => $this->faker->numberBetween(1, 10),
+            'department_id' => $this->faker->unique()->numberBetween(1, 10),
+            'function' => $this->faker->jobTitle,
+            'status' => $this->faker->boolean,
         ];
     }
 }

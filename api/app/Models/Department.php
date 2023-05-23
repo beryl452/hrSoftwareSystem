@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use HasFactory;
-    public function agents()
+    public function contracts()
     {
         return $this->hasMany(Agent::class);
     }

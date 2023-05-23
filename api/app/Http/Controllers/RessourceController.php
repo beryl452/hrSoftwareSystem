@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ressource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class RessourceController extends Controller
 {
@@ -61,5 +62,22 @@ class RessourceController extends Controller
     public function destroy(Ressource $ressource)
     {
         //
+    }
+    public function createAbilities()
+    {
+        $routes = Route::getRoutes();
+
+        foreach ($routes as $route) {
+            $ressource = new Ressource([
+              'name' =>  $route->getName() .PHP_EOL,
+              'uri' => $route->uri,
+              'method' => implode('|', $route->methods)
+            ]);
+            $ressource->save();
+        }
+
+        return response()->json([
+            'message' => 'Abilities created successfully',
+        ]);
     }
 }

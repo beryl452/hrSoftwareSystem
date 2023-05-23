@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('person_id')->references('id')->on('people')->constrained()->cascadeOnDelete();
             $table->string('code')->unique();
-            $table->string('function');
             $table->timestamps();
         });
     }

@@ -27,4 +27,8 @@ class Contract extends Model
     {
         return $this->belongsTo(Agent::class);
     }
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

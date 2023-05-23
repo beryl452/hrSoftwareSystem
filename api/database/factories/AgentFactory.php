@@ -17,9 +17,8 @@ class AgentFactory extends Factory
     public function definition(): array
     {
         return [
-            'code' => $this->faker->unique()->numberBetween(100000, 999999),
-            'function' => $this->faker->jobTitle,
-            'person_id' => $this->faker->numberBetween(1, 10),
+            'code' => $this->faker->numberBetween(100000, 999999),
+            'person_id' => PersonFactory::new(),
         ];
     }
 }

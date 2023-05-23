@@ -19,6 +19,9 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->foreignId('department_id')->references('id')->on('departments')->constrained()->cascadeOnDelete();
+            $table->string('function');
+            $table->unique(['agent_id', 'department_id']);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

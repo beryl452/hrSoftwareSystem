@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ressource;
 use App\Models\Role;
+use App\Responses\Role\RoleCollectionResponse;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -12,7 +14,13 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return new RoleCollectionResponse(
+            Role::query()
+                ->with([
+                    'ressources',
+                ])
+                ->paginate(1)
+        );
     }
 
     /**
@@ -36,7 +44,14 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return new RoleCollectionResponse(
+            Role::query()
+                ->with([
+                    'ressources',
+                ])
+                ->where('id', $role->id)
+                ->get()
+        );
     }
 
     /**
@@ -61,5 +76,22 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         //
+    }
+
+    public function deleteAbility(Role $role, Ressource $ressource)
+    {
+        $role->ressources()->detach($ressource->id);
+        return response()->json([
+            'message' => 'Ability deleted',
+        ]);
+    }
+
+    public function addAbility(Request $request)
+    {
+        $role = Role::find($request->role_id);
+        $role->ressources()->attach($request->ressource_id);
+        return response()->json([
+            'message' => 'Ability added',
+        ]);
     }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ressource;
 use App\Models\Role;
 use App\Models\User;
+use App\Responses\User\UserCollectionResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -13,9 +14,15 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): UserCollectionResponse
     {
-        //
+        return new UserCollectionResponse(
+            User::query()
+                ->with([
+                    'person',
+                ])
+                ->paginate(1)
+        );
     }
 
     /**
@@ -80,17 +87,24 @@ class UserController extends Controller
                 'message' => 'Bad credentials'
             ], 401);
         }
-        $abilitiesA = Role::find($user->role->id)->ressources()->get(['uri'])->pluck('uri')->toArray();
-        $abilities='';
-        foreach ($abilitiesA as $ability) {
-            $abilities .= $ability . ',';
-        }
+        $abilities = Role::find($user->role->id)->ressources()->get(['name'])->pluck('name')->toArray();
         // TOKEN expire in 1 day
-        $token = $user->createToken(time(), ['abilities:' . $abilities],now()->addDay())->plainTextToken;
+        $token = $user->createToken(time(), $abilities ,now()->addDay())->plainTextToken;
 
         return response(json_encode([
             'user' => $user,
             'token' => $token,
+            'abilities' => $abilities,
+        ]), 201);
+
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+
+        return response(json_encode([
+            'message' => 'Logged out'
         ]), 201);
     }
 }
