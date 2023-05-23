@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TaskController extends Controller
 {
@@ -28,7 +29,29 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (auth()->user()->role === 'Collaborator' || auth()->user()->role === 'Administrator') {
+            $request->merge(['status' => 'awaitingValidation']);
+        } else {
+            $request->merge(['status' => 'toDo']);
+        }
+        $request->merge(['created_by' => $request->user()->id]);
+        $request->merge(['updated_by' => $request->user()->id]);
+
+        $fields = $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'start_date' => 'required|date',
+            'due_date' => 'required|date',
+            'status' => 'required|in :toDo,doing,done,awaitingValidation',
+            'created_by' => 'required|exists:users,id',
+            'updated_by' => 'required|exists:users,id',
+            'project_id' => 'required|exists:projects,id',
+            'assigned_to' => 'required|exists:users,id',
+        ]);
+
+        $task = Task::create($fields);
+
+        return response(json_encode($task), 200);
     }
 
     /**
@@ -61,5 +84,21 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         //
+    }
+
+    public function receipt(Request $request, Task $task)
+    {
+        $request->merge(['receipt' => ($request['receipt']=='true')]);
+        $request->merge(['updated_by' => $request->user()->id]);
+
+        $fields = $request->validate([
+            'receipt' => 'required|boolean',
+            'updated_by' => 'required|exists:users,id',
+        ]);
+
+        Task::where('id', $task->id)->update($fields);
+        $task->refresh();
+
+        return response(json_encode($task), 200);
     }
 }

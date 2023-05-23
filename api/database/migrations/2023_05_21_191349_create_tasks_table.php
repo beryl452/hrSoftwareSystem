@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->dateTime('start_date');
             $table->dateTime('due_date');
-            $table->dateTime('end_date');
+            $table->dateTime('end_date')->nullable();
             $table->enum('status', ['toDo', 'doing', 'done', 'awaitingValidation']);
             $table->string('folder')->nullable();
             $table->boolean('receipt')->nullable();

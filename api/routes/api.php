@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RessourceController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Resources\Agent\AgentCollection;
 use App\Http\Resources\Person\PersonCollection;
@@ -54,6 +56,20 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::delete('/{role}/{ressource}', [RoleController::class, 'deleteAbility'])->name('deleteAbility');
             Route::post('/addAbility', [RoleController::class, 'addAbility'])->name('addAbility');
             Route::get('createAbilities', [RessourceController::class, 'createAbilities'])->name('createAbilities');
+        });
+
+    Route::prefix('project')
+        ->as('project.')
+        ->group(static function () {
+            Route::get('/', [RessourceController::class, 'index'])->name('index');
+            Route::post('/create', ProjectController::class . '@store')->name('store');
+        });
+
+    Route::prefix('task')
+        ->as('task.')
+        ->group(static function () {
+            Route::post('/create', TaskController::class . '@store')->name('store');
+            Route::put('/receipt/{task}', [TaskController::class, 'receipt'])->name('receipt');
         });
 
     Route::post('/logout', [UserController::class, 'logout']);
