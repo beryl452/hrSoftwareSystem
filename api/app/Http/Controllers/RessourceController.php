@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ressource;
+use App\Responses\Ressource\RessourceCollectionResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +14,10 @@ class RessourceController extends Controller
      */
     public function index()
     {
-        //
+        return new RessourceCollectionResponse(
+            Ressource::query()
+                ->paginate(5)
+        );
     }
 
     /**

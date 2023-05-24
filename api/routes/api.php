@@ -56,6 +56,7 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::delete('/{role}/{ressource}', [RoleController::class, 'deleteAbility'])->name('deleteAbility');
             Route::post('/addAbility', [RoleController::class, 'addAbility'])->name('addAbility');
             Route::get('createAbilities', [RessourceController::class, 'createAbilities'])->name('createAbilities');
+            Route::get('/',RessourceController::class . '@index')->name('index');
         });
 
     Route::prefix('project')
