@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\LoginHistory\StoreLoginHistoryAction;
+use App\Models\Agent;
+use App\Models\Department;
 
 class UserController extends Controller
 {
@@ -91,7 +93,7 @@ class UserController extends Controller
         }
         $abilities = Role::find($user->role->id)->ressources()->get(['name'])->pluck('name')->toArray();
         // TOKEN expire in 1 day
-        $token = $user->createToken(time(), $abilities ,now()->addDay())->plainTextToken;
+        $token = $user->createToken(time(), $abilities, now()->addDay())->plainTextToken;
         $loginHistoryDto = new LoginHistoryDataObject(
             date: now(),
             user_id: $user->id,
@@ -105,7 +107,6 @@ class UserController extends Controller
             'token' => $token,
             'abilities' => $abilities,
         ]), 201);
-
     }
 
     public function logout(Request $request)
@@ -115,5 +116,55 @@ class UserController extends Controller
         return response(json_encode([
             'message' => 'Logged out'
         ]), 201);
+    }
+
+    public function collaborators(Request $request)
+    {
+        if ($request->user()->role->name === 'Administrator') {
+            return new UserCollectionResponse(
+                User::query()
+                    ->with([
+                        'person',
+                    ])
+                    ->paginate(1)
+            );
+        } else if ($request->user()->role->name === 'collaborator') {
+            // Récupérer le département du contrat courant de l'agent relier à l'utilisateur connecté
+            $role = $request->user()->role;
+        }
+
+        $department_id = (Agent::query()
+            ->with([
+                'contracts' => function ($query) {
+                    $query->where('status', true);
+                }
+            ])
+            ->where('person_id', $request->user()->person_id)
+            ->first()
+            ->contracts
+            ->pluck('department_id')[0]
+        );
+
+        // Recupérer tout les utilisateurs du départment de la request précédente
+        return new UserCollectionResponse(
+            User::query()
+            ->with([
+                'person' => function ($query) {
+                    $query->with([
+                        'agent' => function ($query) {
+                            $query->with([
+                                'contracts' => function ($query) {
+                                    $query->whereHas('department', function ($query) {
+                                        $query->where('id', 10);
+                                    });
+                                }
+                            ]);
+                        }
+                    ]);
+                }
+            ])
+            ->paginate(1)
+
+        );
     }
 }

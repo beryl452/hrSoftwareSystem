@@ -41,6 +41,7 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->as('users.')
         ->group(static function () {
             Route::get('/users', UserController::class . '@index')->name('index');
+            Route::get('/collaborators', [UserController::class, 'collaborators'])->name('collaborators');
         });
 
     Route::prefix('role')

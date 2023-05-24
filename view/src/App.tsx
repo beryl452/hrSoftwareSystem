@@ -131,7 +131,7 @@ function App() {
         <Route path="/ui/buttons" element={<Buttons />} />
 
         <Route
-          path="/auth/loginform"
+          path="/auth/signin"
           element={
             <AuthProvider>
               <Login />

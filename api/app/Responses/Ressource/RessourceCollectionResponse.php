@@ -16,7 +16,7 @@ class RessourceCollectionResponse implements \Illuminate\Contracts\Support\Respo
     public function toResponse($request)
     {
         return response(json_encode([
-            'Ressources' =>  RessourceCollection::make($this->collection)->response()->getData(),
+            'ressources' =>  RessourceCollection::make($this->collection)->response()->getData(),
         ]), $this->status);
     }
 }
