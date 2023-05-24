@@ -19,7 +19,7 @@ class RoleController extends Controller
                 ->with([
                     'ressources',
                 ])
-                ->paginate(1)
+                ->paginate(4)
         );
     }
 

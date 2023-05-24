@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import SignIn from './pages/Authentication/SignIn';
+import Login from './pages/Authentication/Login';
 import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
@@ -19,6 +19,9 @@ import Tasks from './pages/Dashboard/Tasks';
 import CreateProjects from './pages/Form/CreateProjects';
 import Rapport from './pages/Rapport/Rapport';
 import EditTask from './components/EditTask';
+import Roles from './pages/Dashboard/Roles';
+import Abilities from './pages/Dashboard/Abilities';
+
 
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
@@ -55,6 +58,17 @@ function App() {
           }
         />
 
+<Route
+          path="/roles"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Roles />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+
         <Route
           path="/projects"
           element={
@@ -71,6 +85,16 @@ function App() {
             <AuthProvider>
               <ProtectedRoute>
                 <Tasks />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+         <Route
+          path="/roles/:roleId/abilities"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Abilities />
               </ProtectedRoute>
             </AuthProvider>
           }
@@ -107,10 +131,10 @@ function App() {
         <Route path="/ui/buttons" element={<Buttons />} />
 
         <Route
-          path="/auth/signin"
+          path="/auth/loginform"
           element={
             <AuthProvider>
-              <SignIn />
+              <Login />
             </AuthProvider>
           }
         />

@@ -9,13 +9,14 @@ const useUserActions = () => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
+      withCredentials: true
       // 'Authorization': `Bearer ${auth.token}`,
     },
     withCredentials: true,
   });
-  const login = async (email: string, password: string) => {
+  const login = async (username: string, password: string) => {
     // console.log("Here",email,password)
-    const res = await http.post('/api/login', { email, password })
+    const res = await http.post('/api/login', { username, password })
     // .then((res) => {
     //   console.log('Here', res.data);
     //   return res;
