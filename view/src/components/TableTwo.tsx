@@ -63,8 +63,8 @@ const TableTwo = ({ }) => {
                 onChange={
                   async (e) => {
                     setSearch(e.target.value);
-                    const url = "/api/projectsSearch/" + search;
-                    console.log("url =", url);
+                   const url = "/api/projectsSearch/" + search;
+                     console.log("url =", url);
                     const response = await http.get(url);
                     console.log("search =", response.data);
                     console.log("search =", response.data);
