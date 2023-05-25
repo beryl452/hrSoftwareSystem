@@ -7,15 +7,35 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Http\File;
+use App\Responses\Project\ProjectCollectionResponse;
 
 class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->user()->role->name === 'Administrator'){
+            return new ProjectCollectionResponse(
+                Project::query()
+                    ->with([
+                        'projectCreatedBy',
+                        'projectUpdatedBy',
+                    ])
+                    ->paginate(5)
+            );
+        } else {
+            return new ProjectCollectionResponse(
+                Project::query()
+                    ->with([
+                        'projectCreatedBy',
+                        'projectUpdatedBy',
+                    ])
+                    ->where('updated_by', $request->user()->id)
+                    ->paginate(5)
+            );
+        }
     }
 
     /**

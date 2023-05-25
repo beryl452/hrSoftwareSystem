@@ -25,10 +25,10 @@ class Project extends Model
     }
     public function projectCreatedBy()
     {
-        return $this->belongsTo('created_by', Project::class);
+        return $this->belongsTo(Project::class,'created_by');
     }
     public function projectUpdatedBy()
     {
-        return $this->belongsTo('updated_by', Project::class);
+        return $this->belongsTo(Project::class,'updated_by');
     }
 }

@@ -64,6 +64,7 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->as('project.')
         ->group(static function () {
             Route::get('/', [RessourceController::class, 'index'])->name('index');
+            Route::get('/allProjects', [ProjectController::class, 'index'])->name('allProjects');
             Route::post('/create', ProjectController::class . '@store')->name('store');
         });
 
