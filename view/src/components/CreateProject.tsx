@@ -95,32 +95,41 @@ function CreateProject() {
 
 
     const tasks:FormData[] = [];
-    tasksInputFields.forEach((task) => {
+    for(let task of tasksInputFields) {
       const taskData = new FormData();
-      taskData.append("name", task.name);
-      taskData.append("description", task.description);
-      taskData.append("start_date", task.start_date);
-      taskData.append("due_date", task.due_date);
-      taskData.append("weighting", task.weighting);
-      taskData.append("assigned_to", task.assigned_to);
-      tasks.push(taskData);
-    });
+      if (task.name === "") {
+         continue;
+      } else {
+        taskData.append("name", task.name);
+        taskData.append("description", task.description);
+        taskData.append("start_date", task.start_date);
+        taskData.append("due_date", task.due_date);
+        taskData.append("weighting", task.weighting);
+        taskData.append("assigned_to", task.assigned_to);
+        tasks.push(taskData);
+      }
+    };
     console.log("tasks =", tasks);
     http
       .post("/api/project/create", project)
       .then((response) => {
-        // tasks.map((task) => {
-          // task.append("project_id", response.data.id);
-          // http
-            // .post("/api/tasks", task)
-            // .then((response) => {
-              // console.log("response =", response);
-            // })
-            // .catch((error) => {
-              // console.log("error =", error);
-            // });
-        // });
         console.log("response =", response);
+        console.log("tasks =", tasks.length);
+          if (tasks.length < 0) {
+          } else {
+            tasks.map((task) => {
+              task.append("project_id", response.data.id);
+              http
+                .post("/api/task/create", task)
+                .then((response) => {
+                  console.log("response =", response);
+                })
+                .catch((error) => {
+                  console.log("error =", error);
+                });
+            });
+            console.log("response =", response);
+          }
       })
       .catch((error) => {
         console.log("error =", error);
@@ -453,6 +462,7 @@ function CreateProject() {
                 <button
                   className="inline-flex items-center justify-center gap-2.5 rounded-full bg-primary py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                   onClick={(e:any) => {
+                    console.log("bfvbfy")
                     handleSubmit(e)
                   }}
                 >

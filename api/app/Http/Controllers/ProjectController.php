@@ -41,13 +41,12 @@ class ProjectController extends Controller
             'start_date' => 'required|date',
             'due_date' => 'required|date',
             'status' => 'required|in :toDo,doing,done,awaitingValidation',
-            'folder' => 'required|mimes:zip,rar|max:10000',
+            'folder' => 'required|mimes:zip,rar',
             'created_by' => 'required|exists:users,id',
             'updated_by' => 'required|exists:users,id'
         ]);
 
         $path = Storage::putFile('projectRessource', $request->file('folder'));
-        return $path;
         $project = Project::create([
             'name' => $fields['name'],
             'description' => $fields['description'],
