@@ -19,7 +19,7 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'email' => $this->username,
+            'username' => $this->username,
             'person' => Person::query()
                 ->with([
                     'agent',

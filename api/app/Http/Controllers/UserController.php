@@ -126,12 +126,13 @@ class UserController extends Controller
                     ->with([
                         'person',
                     ])
+                    ->where('role_id', 1)
                     ->paginate(1)
             );
-        } else if ($request->user()->role->name === 'collaborator') {
-            // Récupérer le département du contrat courant de l'agent relier à l'utilisateur connecté
-            $role = $request->user()->role;
         }
+        else
+        // ($request->user()->role->name === 'collaborator')
+        {
 
         $department_id = (Agent::query()
             ->with([
@@ -145,7 +146,6 @@ class UserController extends Controller
             ->pluck('department_id')[0]
         );
 
-        // Recupérer tout les utilisateurs du départment de la request précédente
         return new UserCollectionResponse(
             User::query()
             ->with([
@@ -154,17 +154,25 @@ class UserController extends Controller
                         'agent' => function ($query) {
                             $query->with([
                                 'contracts' => function ($query) {
-                                    $query->whereHas('department', function ($query) {
-                                        $query->where('id', 10);
-                                    });
+                                    $query
+                                    ->with([
+                                        'department',
+                                    ])
+                                    ->where('status', true);
+
                                 }
                             ]);
                         }
                     ]);
                 }
             ])
-            ->paginate(1)
+            ->whereHas('person.agent.contracts', function ($query) use ($department_id) {
+                $query->where('department_id', $department_id);
+            })
+            ->where('role_id', 1)
+            ->get()
 
         );
+    }
     }
 }

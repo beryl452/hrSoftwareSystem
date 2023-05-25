@@ -38,13 +38,13 @@ function CreateProject() {
     });
     return ponderation;
   };
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormu({
       ...formu,
       [e.target.name]: e.target.value,
     });
   };
-  const handleFileChange = (e) => {
+  const handleFileChange = (e:any) => {
     const projectFile = e.target.files[0];
     console.log("e.target.files[0] =", e.target.files[0]);
     if (projectFile) {
@@ -109,10 +109,10 @@ function CreateProject() {
     //   });
   };
   const collaborators = async () => {
-    const response = await http.get("api/collaborators");
+    const response = await http.get("api/users/collaborators");
     console.log("response =", response.data);
-    setUsers(response.data);
-    const users = response.data;
+    setUsers(response.data.users.data);
+    const users = response.data.users.data;
     console.log("users =", users);
   };
   const handleFormChange = (index, event) => {
@@ -301,9 +301,6 @@ function CreateProject() {
                           Due Date
                         </th>
                         <th scope="col" className="px-4 py-3">
-                          file
-                        </th>
-                        <th scope="col" className="px-4 py-3">
                           Weighting
                         </th>
                         <th scope="col" className="px-4 py-3">
@@ -378,74 +375,7 @@ function CreateProject() {
                                   handleFormChange(index, event);
                                 }}
                               />
-                            </td>
-                            <td className="px-4 py-3">
-                              {/* <input
-                                type="file"
-                                name="file"
-                                id="file"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="File"
-                                required
-                                value={input.file}
-                                onChange={(event) =>
-                                  handleFormChange(index, event)
-                                }
-                              />
-                            </td> */}
-                              {/* <label
-                                htmlFor="file"
-                                className="flex flex-col items-center justify-center w-full h-10 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                              >
-                                <div className="flex flex-col items-center justify-center">
-                                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                                    {input.file != "" ? (
-                                      <span>{input.file.name}</span>
-                                    ) : (
-                                      <span className="font-semibold">
-                                        <svg
-                                          xmlns="http://www.w3.org/2000/svg"
-                                          viewBox="0 0 511 511.999"
-                                          style={{
-                                            enableBackground: "new 0 0 512 512",
-                                          }}
-                                          xmlSpace="preserve"
-                                          className="w-5 h-5 m-2"
-                                        >
-                                          <g fill="#5417d7">
-                                            <path
-                                              d="M276.41 3.957C274.062 1.484 270.844 0 267.508 0H67.778C30.921 0 .5 30.3.5 67.152v377.692C.5 481.699 30.922 512 67.777 512h271.086c36.856 0 67.278-30.3 67.278-67.156V144.94c0-3.214-1.485-6.304-3.586-8.656Zm3.586 39.7 84.469 88.671h-54.91c-16.325 0-29.559-13.11-29.559-29.433Zm58.867 443.609H67.777c-23.125 0-42.543-19.168-42.543-42.422V67.152c0-23.125 19.293-42.418 42.543-42.418h187.485v78.16c0 30.051 24.242 54.168 54.293 54.168h71.851v287.782c0 23.254-19.293 42.422-42.543 42.422Zm0 0"
-                                              style={{
-                                                stroke: "none",
-                                                fillRule: "nonzero",
-                                                fillOpacity: 1,
-                                              }}
-                                              data-original="#000000"
-                                            />
-                                            <path
-                                              d="M305.102 401.934H101.539c-6.8 0-12.367 5.562-12.367 12.367 0 6.8 5.566 12.367 12.367 12.367h203.688c6.8 0 12.367-5.566 12.367-12.367 0-6.805-5.567-12.367-12.492-12.367ZM140 268.863l50.953-54.789v135.051c0 6.8 5.567 12.367 12.367 12.367 6.805 0 12.368-5.566 12.368-12.367v-135.05l50.953 54.788c2.472 2.594 5.691 3.957 9.027 3.957 2.969 0 6.062-1.113 8.41-3.34 4.95-4.699 5.32-12.492.621-17.437l-72.472-77.79c-2.352-2.472-5.567-3.956-9.028-3.956-3.465 0-6.68 1.484-9.027 3.957l-72.473 77.789c-4.699 4.945-4.328 12.86.617 17.437 5.196 4.7 12.985 4.329 17.684-.617Zm0 0"
-                                              style={{
-                                                stroke: "none",
-                                                fillRule: "nonzero",
-                                                fillOpacity: 1,
-                                              }}
-                                              data-original="#000000"
-                                            />
-                                          </g>
-                                        </svg>
-                                      </span>
-                                    )}
-                                  </p>
-                                </div> */}
-                                <input
-                                  id="file"
-                                  type="file"
-                                  name="file"
-                                  // className={"hidden"} 
-                                  onChange={event => handleFormChange(index, event)}
-                                />
-                              {/* </label> */}
-                            </td>
+                            </td>                              
                             <td className="px-3 py-3">
                               <input
                                 type="number"
@@ -473,7 +403,7 @@ function CreateProject() {
                                 <option value="">Select user</option>
                                 {users.map((user) => (
                                   <option key={user.id} value={user.id}>
-                                    {user.firstname} - {user.lastname} -{" "}
+                                    {user.person.firstname} - {user.person.lastname} -{" "}
                                     {user.id}
                                   </option>
                                 ))}
