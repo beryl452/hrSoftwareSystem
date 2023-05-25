@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function CreateProject() {
   const [seeTask, setSeeTask] = React.useState(false);
   const [collaborators, setCollaborators] = React.useState([]);
+  const [errors, setErrors] = React.useState({});
+  const navigate = useNavigate();
 
   const auth = JSON.parse(localStorage.getItem('auth') || '{}');
 
@@ -54,10 +57,18 @@ function CreateProject() {
     const projectFolder = e.target.files[0];
     console.log("e.target.files[0] =", e.target.files[0]);
     if (projectFolder) {
-      setFormu({
-        ...formu,
-        folder: projectFolder,
-      });
+      // Vérifier si l'extention est égal à .zip ou .rar
+      if (["zip", "rar"].includes(projectFolder.name.split(".").pop())) {
+        setFormu({
+          ...formu,
+          folder: projectFolder,
+        });
+      } else {
+        setErrors({
+          ...errors,
+          folder: "Le dossier doit être un .zip ou .rar",
+        })
+      }
     }
   };
 
@@ -65,7 +76,7 @@ function CreateProject() {
     const response = await http.get("api/users/collaborators");
     console.log("response =", response.data);
     setCollaborators(response.data.users.data);
-    
+
   };
   const handleFormChange = (index, event) => {
     // if (event.target.name === "ponderation")
@@ -94,11 +105,11 @@ function CreateProject() {
     project.append("folder", formu.folder);
 
 
-    const tasks:FormData[] = [];
-    for(let task of tasksInputFields) {
+    const tasks: FormData[] = [];
+    for (let task of tasksInputFields) {
       const taskData = new FormData();
       if (task.name === "") {
-         continue;
+        continue;
       } else {
         taskData.append("name", task.name);
         taskData.append("description", task.description);
@@ -115,27 +126,33 @@ function CreateProject() {
       .then((response) => {
         console.log("response =", response);
         console.log("tasks =", tasks.length);
-          if (tasks.length < 0) {
-          } else {
-            tasks.map((task) => {
-              task.append("project_id", response.data.id);
-              http
-                .post("/api/task/create", task)
-                .then((response) => {
-                  console.log("response =", response);
-                })
-                .catch((error) => {
-                  console.log("error =", error);
-                });
-            });
-            console.log("response =", response);
-          }
+        if (tasks.length < 0) {
+          navigate("/projects",
+            { state: { success: "Le projet a été créé avec succès" } },
+          );
+        } else {
+          tasks.map((task) => {
+            task.append("project_id", response.data.id);
+            http
+              .post("/api/task/create", task)
+              .then((response) => {
+                navigate("/projects");
+                navigate("/projects",
+                  { state: { success: "Le projet a été créé avec succès" } },
+                );
+              })
+              .catch((error) => {
+                console.log("error =", error);
+              });
+          });
+          console.log("response =", response);
+        }
       })
       .catch((error) => {
         console.log("error =", error);
       });
 
-    }
+  }
   const addFields = () => {
     let newfield = {
       name: "",
@@ -254,6 +271,11 @@ function CreateProject() {
                     </label>
                   </div>
                 </div>
+                {(errors.file || errors.folder) && (
+                  <p className="text-red-500 text-meta-1 text-xs italic">
+                    {errors.file || errors.folder}
+                  </p>
+                )}
               </div>
               <div className="sm:col-span-4">
                 <div className="mr-8">
@@ -304,185 +326,185 @@ function CreateProject() {
                 </g>
               </g>
             </svg>
-            {(seeTask)&&(<>
-            <div className="flex py-8 justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                Add Tasks
-              </h3>
-            </div>
-
-            <>
-              <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-                <div className="w-full flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4"></div>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                      <tr>
-                        <th scope="col" className="text-center px-4 py-3">
-                          Title
-                        </th>
-                        <th scope="col" className="text-center px-4 py-3">
-                          Description
-                        </th>
-                        <th scope="col" className="text-center px-4 py-3">
-                          Start Date
-                        </th>
-                        <th scope="col" className="text-center px-4 py-3">
-                          Assigned to
-                        </th>
-                        <th scope="col" className="text-center px-4 py-3">
-                          Due Date
-                        </th>
-                        <th scope="col" className="text-center px-4 py-3">
-                          Weighting
-                        </th>
-                        
-                        <th scope="col" className="text-center px-4 py-3"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {tasksInputFields.map((input, index) => {
-                        return (
-                          <tr
-                            className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
-                            key={index}
-                          >
-                            <td className="px-4 py-3">
-                              <input
-                                type="text"
-                                name="name"
-                                id="name"
-                                className="w-25 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Title"
-                                required
-                                value={input.name}
-                                onChange={(event) => {
-                                  handleFormChange(index, event);
-                                }}
-                              />
-                            </td>
-                            <td className="px-4 py-3">
-                              <input
-                                type="text"
-                                name="description"
-                                id="description"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Description"
-                                required
-                                value={input.description}
-                                onChange={(event) =>
-                                  handleFormChange(index, event)
-                                }
-                              />
-                            </td>
-                            <td className="px-4 py-3">
-                              <input
-                                type="datetime-local"
-                                name="start_date"
-                                id="start_date"
-                                className="w-25 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Start Date"
-                                required
-                                value={input.start_date}
-                                onChange={(event) =>
-                                  handleFormChange(index, event)
-                                }
-                              />
-                            </td>
-                            <td className="px-4 py-3">
-                              <select
-                                name="assigned_to"
-                                id="assigned_to"
-                                className="p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                value={input.assigned_to}
-                                onChange={(event) =>
-                                  handleFormChange(index, event)
-                                }
-                              >
-                                <option value="">Select user</option>                                {collaborators.map((collaborator) => (
-                                  <option key={collaborator.id} value={collaborator.id}>
-                                    {collaborator.person.firstname} - {collaborator.person.lastname} -{" "}
-                                    {collaborator.id}
-                                  </option>
-                                ))}
-                              </select>
-                            </td>
-                            <td className="px-4 py-3">
-                              <input
-                                type="datetime-local"
-                                name="due_date"
-                                id="due_date"
-                                className="w-25 bg-gray-50 borsder border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Due Date"
-                                required
-                                value={input.due_date}
-                                onChange={(event) => {
-                                  handleFormChange(index, event);
-                                }}
-                              />
-                            </td>
-                            <td className="px-4 py-3">
-                              <input
-                                type="number"
-                                name="weighting"
-                                id={"ponderation pond-" + index}
-                                className={`w-15 bg-gray-50 border ${(getPonderation() > 100) ? "border-red-600" : "border-gray-300"}  text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500`}
-                                placeholder="Weighting"
-                                required
-                                value={input.weighting}
-                                onChange={(event) =>
-                                  handleFormChange(index, event)
-                                }
-                              />
-                            </td>
-                            <td className="px-2 py-3">
-                              <button
-                                type="submit"
-                                onClick={() => {
-                                  index == 0
-                                    ? addFields()
-                                    : removeFields(index);
-                                }}
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                              >
-                                {index == 0 ? "+" : "-"}
-                              </button>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
+            {(seeTask) && (<>
+              <div className="flex py-8 justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Add Tasks
+                </h3>
               </div>
-            </>
+
+              <>
+                <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+                  <div className="w-full flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4"></div>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                          <th scope="col" className="text-center px-4 py-3">
+                            Title
+                          </th>
+                          <th scope="col" className="text-center px-4 py-3">
+                            Description
+                          </th>
+                          <th scope="col" className="text-center px-4 py-3">
+                            Start Date
+                          </th>
+                          <th scope="col" className="text-center px-4 py-3">
+                            Assigned to
+                          </th>
+                          <th scope="col" className="text-center px-4 py-3">
+                            Due Date
+                          </th>
+                          <th scope="col" className="text-center px-4 py-3">
+                            Weighting
+                          </th>
+
+                          <th scope="col" className="text-center px-4 py-3"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {tasksInputFields.map((input, index) => {
+                          return (
+                            <tr
+                              className="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
+                              key={index}
+                            >
+                              <td className="px-4 py-3">
+                                <input
+                                  type="text"
+                                  name="name"
+                                  id="name"
+                                  className="w-25 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                  placeholder="Title"
+                                  required
+                                  value={input.name}
+                                  onChange={(event) => {
+                                    handleFormChange(index, event);
+                                  }}
+                                />
+                              </td>
+                              <td className="px-4 py-3">
+                                <input
+                                  type="text"
+                                  name="description"
+                                  id="description"
+                                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                  placeholder="Description"
+                                  required
+                                  value={input.description}
+                                  onChange={(event) =>
+                                    handleFormChange(index, event)
+                                  }
+                                />
+                              </td>
+                              <td className="px-4 py-3">
+                                <input
+                                  type="datetime-local"
+                                  name="start_date"
+                                  id="start_date"
+                                  className="w-25 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                  placeholder="Start Date"
+                                  required
+                                  value={input.start_date}
+                                  onChange={(event) =>
+                                    handleFormChange(index, event)
+                                  }
+                                />
+                              </td>
+                              <td className="px-4 py-3">
+                                <select
+                                  name="assigned_to"
+                                  id="assigned_to"
+                                  className="p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                  value={input.assigned_to}
+                                  onChange={(event) =>
+                                    handleFormChange(index, event)
+                                  }
+                                >
+                                  <option value="">Select user</option>                                {collaborators.map((collaborator) => (
+                                    <option key={collaborator.id} value={collaborator.id}>
+                                      {collaborator.person.firstname} - {collaborator.person.lastname} -{" "}
+                                      {collaborator.id}
+                                    </option>
+                                  ))}
+                                </select>
+                              </td>
+                              <td className="px-4 py-3">
+                                <input
+                                  type="datetime-local"
+                                  name="due_date"
+                                  id="due_date"
+                                  className="w-25 bg-gray-50 borsder border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                  placeholder="Due Date"
+                                  required
+                                  value={input.due_date}
+                                  onChange={(event) => {
+                                    handleFormChange(index, event);
+                                  }}
+                                />
+                              </td>
+                              <td className="px-4 py-3">
+                                <input
+                                  type="number"
+                                  name="weighting"
+                                  id={"ponderation pond-" + index}
+                                  className={`w-15 bg-gray-50 border ${(getPonderation() > 100) ? "border-red-600" : "border-gray-300"}  text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500`}
+                                  placeholder="Weighting"
+                                  required
+                                  value={input.weighting}
+                                  onChange={(event) =>
+                                    handleFormChange(index, event)
+                                  }
+                                />
+                              </td>
+                              <td className="px-2 py-3">
+                                <button
+                                  type="submit"
+                                  onClick={() => {
+                                    index == 0
+                                      ? addFields()
+                                      : removeFields(index);
+                                  }}
+                                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                >
+                                  {index == 0 ? "+" : "-"}
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </>
             </>)}
-            <div className={"flex py-8 mr-8 items-center pb-4 mb-4 rounded-t  sm:mb-5 dark:border-gray-600 " + ((!seeTask)? "justify-between":"justify-end")}>
+            <div className={"flex py-8 mr-8 items-center pb-4 mb-4 rounded-t  sm:mb-5 dark:border-gray-600 " + ((!seeTask) ? "justify-between" : "justify-end")}>
               <div>
                 <button
                   className="inline-flex items-center justify-center gap-2.5 rounded-full bg-primary py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
-                  onClick={(e:any) => {
+                  onClick={(e: any) => {
                     console.log("bfvbfy")
                     handleSubmit(e)
                   }}
                 >
-                    <svg
-                      className="h-3.5 w-3.5 font-bold"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        fillRule="evenodd"
-                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
-                      />
-                    </svg>
+                  <svg
+                    className="h-3.5 w-3.5 font-bold"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      fillRule="evenodd"
+                      d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                    />
+                  </svg>
                   Create Project
                 </button>
               </div>
-             {(!seeTask)&&( <div>
+              {(!seeTask) && (<div>
                 <button
                   className="inline-flex items-center justify-center gap-2.5 rounded-full bg-black py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                   onClick={
