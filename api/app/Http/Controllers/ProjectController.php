@@ -47,7 +47,7 @@ class ProjectController extends Controller
         ]);
 
         $path = Storage::putFile('projectRessource', $request->file('folder'));
-
+        return $path;
         $project = Project::create([
             'name' => $fields['name'],
             'description' => $fields['description'],

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('folder')->nullable();
             $table->boolean('receipt')->nullable();
             $table->dateTime('cancelValidation')->nullable();
-            $table->integer('Weighting')->nullable();
+            $table->integer('weighting')->nullable();
             $table->foreignId('assigned_to')->references('id')->on('users');
             $table->foreignId('created_by')->references('id')->on('users');
             $table->foreignId('updated_by')->references('id')->on('users');

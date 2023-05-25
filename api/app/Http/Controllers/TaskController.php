@@ -42,6 +42,7 @@ class TaskController extends Controller
             'description' => 'required|string',
             'start_date' => 'required|date',
             'due_date' => 'required|date',
+            'weighting' => 'required|integer|min:0|max:100',
             'status' => 'required|in :toDo,doing,done,awaitingValidation',
             'created_by' => 'required|exists:users,id',
             'updated_by' => 'required|exists:users,id',

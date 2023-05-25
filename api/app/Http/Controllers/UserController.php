@@ -127,7 +127,7 @@ class UserController extends Controller
                         'person',
                     ])
                     ->where('role_id', 1)
-                    ->paginate(1)
+                    ->get()
             );
         }
         else
