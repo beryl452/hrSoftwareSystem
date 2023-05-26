@@ -4,17 +4,57 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use Illuminate\Http\Request;
+use App\Http\Resources\Agent\AgentCollection as AgentCollectionResponse;
 
 class AgentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        return new AgentCollectionResponse(
+            Agent::query()
+                ->with([
+                    'person',
+                    'contracts',
+                ])
+                ->where('person_id', $request->user()->person_id)
+                ->get()
+        );
+
     }
 
+    public function allAgents(Request $request)
+    {
+        if ($request->has('search')) {
+            return new AgentCollectionResponse(
+                Agent::query()
+                    ->with([
+                        'person',
+                        'contracts',
+                    ])
+                    ->where('code', 'like', '%' . $request->search . '%')
+                    ->orWhereHas('person', function ($query) use ($request) {
+                        $query->where('firstname', 'like', '%' . $request->search . '%')
+                            ->orWhere('lastname', 'like', '%' . $request->search . '%')
+                            ->orWhere('email', 'like', '%' . $request->search . '%')
+                            ->orWhere('phone', 'like', '%' . $request->search . '%');
+                    })
+                    ->paginate(5)
+            );
+        } else {
+            return new AgentCollectionResponse(
+                Agent::query()
+                    ->with([
+                        'person',
+                        'contracts',
+                    ])
+                    ->paginate(5)
+            );
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -28,7 +68,17 @@ class AgentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'person_id' => 'required|exists:people,id',
+            'code' => 'required|string',
+        ]);
+
+        $agent = Agent::create([
+            'person_id' => $fields["person_id"],
+            'code' => $fields["code"],
+        ]);
+
+        return response(json_encode($agent), 200);
     }
 
     /**
@@ -60,6 +110,7 @@ class AgentController extends Controller
      */
     public function destroy(Agent $agent)
     {
-        //
+        $agent->delete();
+        return response(json_encode($agent), 200);
     }
 }

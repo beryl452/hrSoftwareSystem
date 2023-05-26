@@ -18,11 +18,10 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('due_date');
             $table->dateTime('end_date')->nullable();
-            $table->enum('status', ['toDo', 'doing', 'done']);
+            $table->enum('status', ['toDo', 'doing', 'done', 'awaitingValidation']);
             $table->string('folder')->nullable();
             $table->foreignId('created_by')->references('id')->on('users');
             $table->foreignId('updated_by')->references('id')->on('users');
-            $table->boolean('validated')->default(false);
             $table->timestamps();
         });
     }

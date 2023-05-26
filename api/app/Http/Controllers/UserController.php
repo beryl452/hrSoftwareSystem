@@ -22,18 +22,14 @@ class UserController extends Controller
     {
         if($request->has('search')){
             return new UserCollectionResponse(
-
                     User::query()
                         ->with([
                             'person',
                         ])
-
-
                     ->where('username', 'like', '%' . $request->search . '%')
                     ->orWhere('password', 'like', '%' . $request->search . '%')
                     ->paginate(5)
             );
-            return response(json_encode($request->search), 200);
         }
         else {
             return new UserCollectionResponse(
@@ -41,7 +37,7 @@ class UserController extends Controller
                     ->with([
                         'person',
                     ])
-                    ->paginate(1)
+                    ->paginate(5)
             );
         }
     }
@@ -60,7 +56,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (! $request->has('username') || ! $request->has('password') || ! $request->has('person_id') || ! $request->has('role_id')) {
+            return response()->json([
+                'message' => 'Missing required fields',
+            ], 400);
+        }
+            $fields = $request->validate([
+            'username' => 'required|string|unique:users,username',
+            'password' => 'required|string',
+            'person_id' => 'required|integer|unique:users,person_id|exists:people,id',
+            'role_id' => 'required|integer|exists:roles,id',
+        ]);
+
+        $user = User::create([
+            'username' => $fields["username"],
+            'password' => Hash::make($fields["password"]),
+            'person_id' => $fields["person_id"],
+            'role_id' => $fields["role_id"],
+        ]);
+        return response(json_encode($user), 200);
     }
 
     /**

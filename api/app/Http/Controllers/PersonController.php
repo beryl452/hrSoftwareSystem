@@ -28,7 +28,23 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'email' => 'required|email|unique:people,email',
+            'birthdate' => 'required|date',
+            'phone' => 'required|string',
+
+        ]);
+            $person = Person::create([
+                'firstname' => $fields["firstname"],
+                'lastname' => $fields["lastname"],
+                'email' => $fields["email"],
+                'birthdate' => $fields["birthdate"],
+                'phone' => $fields["phone"],
+            ]);
+
+            return response(json_encode($person), 200);
     }
 
     /**

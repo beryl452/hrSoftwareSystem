@@ -3,15 +3,14 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useLocation, useNavigate} from "react-router-dom";
 
-const TableOne = ({ }) => {
+const TableAgent = ({ }) => {
   const navigate = useNavigate();
 
-  const [users, setUsers] = React.useState({});
+  const [agents, setAgents] = React.useState({});
   const [search, setSearch] = React.useState("");
-  const [seeUser, setSeeUser] = React.useState(false);
+  const [seeAgent, setSeeAgent] = React.useState(false);
   const location = useLocation();
-  // check if success is detected in location.state and affecte it in success state
-  // const navigate = useNavigate();
+
   const auth = JSON.parse(localStorage.getItem("auth") || "{}");
   const http = axios.create({
     baseURL: "http://localhost:8000",
@@ -22,15 +21,15 @@ const TableOne = ({ }) => {
     },
     withCredentials: true,
   });
-  async function viewUsers() {
-    const response = await http.get("/api/users/users");
-    console.log("Users", response.data.users);
-    setUsers(response.data.users);
-    console.log(users);
+  async function viewAgents() {
+    const response = await http.get("/api/agent/allAgents");
+    console.log("Agents", response.data);
+    setAgents(response.data);
+    console.log(agents);
   }
   useEffect(() => {
-    viewUsers();
-    setSeeUser(!seeUser);
+    viewAgents();
+    setSeeAgent(!seeAgent);
   }, []);
   return (
     <div className="dark:border-strokedark dark:bg-boxdark relative shadow-md sm:rounded-lg overflow-hidden">
@@ -91,13 +90,13 @@ const TableOne = ({ }) => {
                 onChange={
                   async (e) => {
                     setSearch(e.target.value);
-                   const url = "api/users/users?search=".concat(search);
+                   const url = "api/agent/allAgents?search=".concat(search);
                      console.log("url =", url);
                     const response = await http.get(url);
                     console.log("search =", response.data);
                     console.log("search =", response.data);
-                    setUsers(response.data.users);
-                    console.log("seacdcdrch =", users);
+                    setAgents(response.data.agents);
+                    console.log("seacdcdrch =", agents);
                   }
                 }
               />
@@ -126,18 +125,18 @@ const TableOne = ({ }) => {
                 d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
               />
             </svg>
-            Create users
+            Create agent
           </button>
 
         </div>
       </div>
-      {(seeUser) && (<>
+      {(seeAgent) && (<>
         <div className="overflow-x-auto">
           <table className="font-medium w-full text-sm text-left text-black dark:text-white">
             <thead className="text-xs uppercase bg-gray-50 dark:bg-gray-700 text-black dark:text-white">
               <tr>
                 <th scope="col" className="px-4 py-3">
-                  Name
+                  Code
                 </th>
                 <th scope="col" className="px-4 py-3">
                   Firstname
@@ -160,8 +159,8 @@ const TableOne = ({ }) => {
               </tr>
             </thead>
             <tbody>
-              {users ? (
-                users.data?.map((user, index) => (
+              {agents ? (
+                agents.data?.map((agent, index) => (
                   <tr
                     key={index}
                     className="dark:border-gray-700 border-b text-sm font-medium"
@@ -170,21 +169,21 @@ const TableOne = ({ }) => {
                       scope="row"
                       className="whitespace-nowrap px-4 py-3 text-black dark:text-white"
                     >
-                      {user.username}
+                      {agent.code}
                     </th>
-                    <td className="px-4 py-3">{user.person.firstname}</td>
-                    <td className="px-4 py-3">{user.person.lastname}</td>
-                    <td className="px-4 py-3">{user.person.email}</td>
-                    <td className="px-4 py-3">{user.person.birthdate}</td>
-                    <td className="px-4 py-3">{user.person.phone}</td>
+                    <td className="px-4 py-3">{agent.person.firstname}</td>
+                    <td className="px-4 py-3">{agent.person.lastname}</td>
+                    <td className="px-4 py-3">{agent.person.email}</td>
+                    <td className="px-4 py-3">{agent.person.birthdate}</td>
+                    <td className="px-4 py-3">{agent.person.phone}</td>
 
                     <td className="px-4 py-3">
                     <button className="hover:text-primary"
                         onClick={
                           async () => {
-                            const response = await http.delete('api/project/delete/'.concat(encodeURIComponent(user.id)));
-                            console.log('responseprojectidi', response.data);
-                            viewUsers();
+                            const response = await http.delete('api/agent/delete/'.concat(encodeURIComponent(agent.id)));
+                            console.log(response.data);
+                            viewAgents();
                           }
                         }
                         >
@@ -217,29 +216,29 @@ const TableOne = ({ }) => {
           <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">
             Showing
             <span className="text-gray-900 font-medium dark:text-white">
-              {' '.concat((users.meta ? users.meta.from : 0), ' ')} - {' '.concat((users.meta ? users.meta.to : 0), ' ')}
+              {' '.concat((agents.meta ? agents.meta.from : 0), ' ')} - {' '.concat((agents.meta ? agents.meta.to : 0), ' ')}
             </span>
             of
             <span className="text-gray-900 font-medium dark:text-white">
-              {' '.concat((users.meta ? users.meta.total : 0), ' ')}
+              {' '.concat((agents.meta ? agents.meta.total : 0), ' ')}
             </span>
           </span>
 
           <ul className="inline-flex items-stretch  -space-x-px dark:border-strokedark dark:bg-boxdark">
-            {users ? (
-              users.meta ? (
-                users.meta.links.length > 3 && (
+            {agents ? (
+              agents.meta ? (
+                agents.meta.links.length > 3 && (
                   <>
-                    {users.meta.links.map((link, key) =>
+                    {agents.meta.links.map((link, key) =>
                       link.label === '&laquo; Previous' ? (
                         <li key={key}>
                           <a
                             onClick={async () => {
-                              if (users.links.prev != null) {
+                              if (agents.links.prev != null) {
                                 const response = await http.get(
-                                  users.links.prev
+                                  agents.links.prev
                                 );
-                                setUsers(response.data.users);
+                                setAgents(response.data.agents);
                               } else {
                                 console.log('no more pages');
                               }
@@ -269,11 +268,11 @@ const TableOne = ({ }) => {
                         <li key={key}>
                           <a
                             onClick={async () => {
-                              if (users.links.next != null) {
+                              if (agents.links.next != null) {
                                 const response = await http.get(
-                                  users.links.next
+                                  agents.links.next
                                 );
-                                setUsers(response.data.users);
+                                setAgents(response.data.agents);
                               } else {
                                 console.log('no more pages');
                               }
@@ -302,7 +301,7 @@ const TableOne = ({ }) => {
                           <a
                             onClick={async () => {
                               const response = await http.get(link.url);
-                              setUsers(response.data.users);
+                              setAgents(response.data.agents);
                             }}
                             key={key}
                             className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 flex cursor-pointer items-center justify-center border py-2 px-3 text-sm leading-tight dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
@@ -328,4 +327,4 @@ const TableOne = ({ }) => {
   );
 };
 
-export default TableOne;
+export default TableAgent;

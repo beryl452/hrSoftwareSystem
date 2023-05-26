@@ -5,6 +5,7 @@ import SignUp from './pages/Authentication/SignUp';
 import Calendar from './pages/Calendar';
 import Chart from './pages/Chart';
 import ECommerce from './pages/Dashboard/ECommerce';
+import Agents from './pages/Dashboard/Agent';
 import FormElements from './pages/Form/FormElements';
 import FormLayout from './pages/Form/FormLayout';
 import Profile from './pages/Profile';
@@ -105,6 +106,16 @@ function App() {
             <AuthProvider>
               <ProtectedRoute>
                 <EditTask />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/agents"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Agents />
               </ProtectedRoute>
             </AuthProvider>
           }

@@ -16,13 +16,15 @@ class AgentResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'code'=> $this->code,
+            'person' => $this->whenLoaded('person'),
             'contract' => Contract::query()
                 ->with([
                     'department',
                 ])
                 ->where('id', $this->contract_id)
-                ->andWhere('status', true)
+                ->where('status', true)
                 ->first(),
         ];
     }

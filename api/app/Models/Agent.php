@@ -10,7 +10,8 @@ class Agent extends Model
     use HasFactory;
 
     protected $fillable = [
-        'serialNumber'
+        'code',
+        'person_id',
     ];
 
     public function person()

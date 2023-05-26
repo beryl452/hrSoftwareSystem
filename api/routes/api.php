@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\AgentController;
 use App\Http\Controllers\RessourceController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Resources\Agent\AgentCollection;
@@ -41,8 +43,10 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->as('users.')
         ->group(static function () {
             Route::get('/users', UserController::class . '@index')->name('index');
+            Route::post('/create', UserController::class . '@store')->name('store');
             Route::get('/users/{user}/', UserController::class . '@index')->name('filterUsers');
             Route::get('/collaborators', [UserController::class, 'collaborators'])->name('collaborators');
+
         });
 
     Route::prefix('role')
@@ -80,6 +84,27 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->group(static function () {
             Route::post('/create', TaskController::class . '@store')->name('store');
             Route::put('/receipt/{task}', [TaskController::class, 'receipt'])->name('receipt');
+        });
+
+    Route::prefix('agent')
+        ->as('agent.')
+        ->group(static function () {
+            Route::get('/agent', [AgentController::class, 'index'])->name('index');
+            Route::get('/allAgents', [AgentController::class, 'allAgents'])->name('allAgents');
+            Route::get('/allAgents/{search}', [AgentController::class, 'allAgents'])->name('filterAgents');
+            Route::post('/create', AgentController::class . '@store')->name('store');
+            Route::put('/update/{agent}', [AgentController::class, 'update'])->name('update');
+            Route::delete('/delete/{agent}', [AgentController::class, 'destroy'])->name('delete');
+        });
+        Route::prefix('person')
+        ->as('person.')
+        ->group(static function () {
+            Route::get('/person', [PersonController::class, 'index'])->name('index');
+            Route::get('/allPersons', [PersonController::class, 'allPersons'])->name('allPersons');
+            Route::get('/allPersons/{search}', [PersonController::class, 'allPersons'])->name('filterPersons');
+            Route::post('/create', PersonController::class . '@store')->name('store');
+            Route::put('/update/{person}', [PersonController::class, 'update'])->name('update');
+            Route::delete('/delete/{person}', [PersonController::class, 'destroy'])->name('delete');
         });
 
     Route::post('/logout', [UserController::class, 'logout']);
