@@ -5,15 +5,16 @@
 // import BrandFive from '../images/brand/brand-05.svg';
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 
 const TableTwo = ({ }) => {
+  const navigate = useNavigate();
+
   const [projects, setProjects] = React.useState({});
   const [search, setSearch] = React.useState("");
   const [seeProject, setSeeProject] = React.useState(false);
   const location = useLocation();
   // check if success is detected in location.state and affecte it in success state
-  const [success, setSuccess] = React.useState(location.state ? location.state.success : "");
   // const navigate = useNavigate();
   const auth = JSON.parse(localStorage.getItem("auth") || "{}");
   const http = axios.create({
@@ -39,7 +40,7 @@ const TableTwo = ({ }) => {
     <div className="dark:border-strokedark dark:bg-boxdark relative shadow-md sm:rounded-lg overflow-hidden">
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         {
-          (success != "") && (<div className="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
+          (location.state?.success) && (<div className="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
             <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]">
               <svg
                 width="13"
@@ -60,7 +61,7 @@ const TableTwo = ({ }) => {
                 Ability Add Successfully
               </h5>
               <p className="text-base leading-relaxed text-body">
-                {success}
+                {location.state?.success}
               </p>
             </div>
           </div>)
@@ -94,12 +95,12 @@ const TableTwo = ({ }) => {
                 onChange={
                   async (e) => {
                     setSearch(e.target.value);
-                   const url = "/api/projectsSearch/" + search;
+                   const url = "api/project/allProjects/?search=".concat(search);
                      console.log("url =", url);
                     const response = await http.get(url);
                     console.log("search =", response.data);
                     console.log("search =", response.data);
-                    setProjects(response.data);
+                    setProjects(response.data.projects);
                     console.log("seacdcdrch =", projects);
                   }
                 }
@@ -110,7 +111,7 @@ const TableTwo = ({ }) => {
         <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
           <button
             onClick={() => {
-              // navigate('/Createprojects', { state: { project: projects } })
+              navigate('/Createprojects',{ replace: true })
             }
             }
             className="flex justify-center  items-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
@@ -182,45 +183,12 @@ const TableTwo = ({ }) => {
                     <td className="px-4 py-3">{project.folder}</td>
 
                     <td className="px-4 py-3">
-                      {/* <div className="flex justify-start">
-                        {(!(projects.some(dictionary => dictionary["id"] === project["id"]))) && (
-                        <button className="hover:text-primary"
+                    <button className="hover:text-primary"
                         onClick={
                           async () => {
-                            // const response = await http.post('/api/projects/addAbility',{
-                            //   role_id:props.role[0].id,
-                            //   ressource_id:project.id
-                            // });
-                            // console.log('AddAbility____urce', response.data);
-                            // projectsF();
-                            // viewAbilities();
-                            // setAlertValidate(true);
-                          }
-                        }
-                        >
-                          <svg
-                            width={28}
-                            height={28}
-                            viewBox="0 0 48 48"
-                            xmlns="http://www.w3.org/2000/svg"
-                            enableBackground="new 0 0 48 48"
-                          >
-                            <circle fill="#4CAF50" cx={24} cy={24} r={21} />
-                            <g fill="#ffffff">
-                              <rect x={21} y={14} width={6} height={20} />
-                              <rect x={14} y={21} width={20} height={6} />
-                            </g>
-                          </svg>
-                        </button>)}
-                        {((projects.some(dictionary => dictionary["id"] === project["id"]))) && (
-                        <button className="hover:text-primary"
-                        onClick={
-                          async () => {
-                            // const response = await http.delete('/api/projects/'.concat(props.role[0].id, '/', project.id));
-                            // console.log('responseressource', response.data);
-                            // projectsF();
-                            // viewAbilities();
-                            // setAlert(true);
+                            const response = await http.delete('api/project/delete/'.concat(encodeURIComponent(project.id)));
+                            console.log('responseprojectidi', response.data);
+                            viewProjects();
                           }
                         }
                         >
@@ -236,8 +204,7 @@ const TableTwo = ({ }) => {
                               <rect x={14} y={21} width={20} height={6} />
                             </g>
                           </svg>
-                        </button>)}
-                      </div> */}
+                        </button>
                     </td>
                   </tr>
                 ))

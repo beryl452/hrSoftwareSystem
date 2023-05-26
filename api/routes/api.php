@@ -57,15 +57,21 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::delete('/{role}/{ressource}', [RoleController::class, 'deleteAbility'])->name('deleteAbility');
             Route::post('/addAbility', [RoleController::class, 'addAbility'])->name('addAbility');
             Route::get('createAbilities', [RessourceController::class, 'createAbilities'])->name('createAbilities');
-            Route::get('/',RessourceController::class . '@index')->name('index');
+            Route::get('/', RessourceController::class . '@index')->name('index');
         });
 
     Route::prefix('project')
         ->as('project.')
         ->group(static function () {
             Route::get('/', [RessourceController::class, 'index'])->name('index');
+            // /allProjects can take parameters for filtering or not
             Route::get('/allProjects', [ProjectController::class, 'index'])->name('allProjects');
+            Route::get('/allProjects/{project}', [ProjectController::class, 'index'])->name('filterProjects');
             Route::post('/create', ProjectController::class . '@store')->name('store');
+            Route::put('/changeStatus/{project}', [ProjectController::class, 'changeStatus'])->name('changeStatus');
+            Route::put('/validation/{project}', [ProjectController::class, 'validation'])->name('validation');
+            Route::put('/closeProject/{project}', [ProjectController::class, 'closeProject'])->name('closeProject');
+            Route::delete('/delete/{project}', [ProjectController::class, 'destroy'])->name('deleteProject');
         });
 
     Route::prefix('task')

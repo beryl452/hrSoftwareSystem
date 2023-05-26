@@ -16,10 +16,25 @@ const Projects = () => {
     },
     withCredentials: true,
   });
-  async function projectBoard() {
-    const response = await http.get('/api/projectsBilan');
-    console.log(response.data);
-    setProjectB(response.data);
+  const getProjectCounts = async (search: string) => {
+    const response = await http.get(`/api/project/allProjects/?search=${search}`);
+    return response.data.projects;
+  };
+
+  async function projectBoard() { 
+    const projectCounts = await Promise.all([
+      getProjectCounts('toDo'),
+      getProjectCounts('doing'),
+      getProjectCounts('done'),
+      getProjectCounts('awaitingValidation'),
+    ]);
+    
+    setProjectB({
+      toDo: projectCounts[0],
+      doing: projectCounts[1],
+      done: projectCounts[2],
+      awaitingValidation: projectCounts[3],
+    });    
   }
   useEffect(() => {
     projectBoard();
@@ -27,34 +42,45 @@ const Projects = () => {
   return (
     <DefaultLayout>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <CardTwo
+        {/* <CardTwo
           toDo={
-            JSON.stringify(projectB.toDo)
-              ? JSON.stringify(projectB.toDo).padStart(2, '0')
+            JSON.stringify(projectB.toDo.meta.total)
+              ? JSON.stringify(projectB.toDo.meta.total).padStart(2, '0')
               : '00'
           }
         />
         <CardTwo
           doing={
-            JSON.stringify(projectB.Doing)
-              ? JSON.stringify(projectB.Doing).padStart(2, '0')
+            JSON.stringify(projectB.doing.meta.total)
+              ? JSON.stringify(projectB.doing.meta.total).padStart(2, '0')
               : '00'
           }
         />
         <CardTwo
           done={
-            JSON.stringify(projectB.Done)
-              ? JSON.stringify(projectB.Done).padStart(2, '0')
+            JSON.stringify(projectB.done.meta.total)
+              ? JSON.stringify(projectB.done.meta.total).padStart(2, '0')
               : '00'
           }
         />
         <CardTwo
           awaitingValidation={
-            JSON.stringify(projectB.awaitingValidation)
-              ? JSON.stringify(projectB.awaitingValidation).padStart(2, '0')
+            JSON.stringify(projectB.awaitingValidation.meta.total)
+              ? JSON.stringify(projectB.awaitingValidation.meta.total).padStart(2, '0')
               : '00'
           }
-        />
+        /> */}
+        {Object.keys(projectB).map((key, index) => (
+          <CardTwo
+            key={index}
+            toDo={
+              JSON.stringify(projectB[key].meta.total)
+                ? JSON.stringify(projectB[key].meta.total).padStart(2, '0')
+                : '00'
+            }
+            name={key}
+          />
+        ))}
       </div>
 
       <div className="mt-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">

@@ -24,6 +24,7 @@ class ProjectResource extends JsonResource
             'end_date' => $this->end_date,
             'status' => $this->status,
             'folder' => $this->folder,
+            'validated' => $this->validated,
         ];
     }
 }

@@ -32,6 +32,7 @@ class TaskFactory extends Factory
             'cancelValidation' =>  $this->faker->dateTimeBetween($startDate, '+1 years'),
             // 'assigned_to' user where role is collaborator
             'assigned_to' => $this->faker->numberBetween(1, 10),
+            'validated' => $this->faker->boolean,
 
 
 

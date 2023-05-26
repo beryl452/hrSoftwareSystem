@@ -1,6 +1,21 @@
-const CardTwo = ({ toDo, doing, done, awaitingValidation }) => {
+import { Props } from "react-apexcharts";
+
+const CardTwo = ({ toDo, doing, done, awaitingValidation ,name}: Props) => {
   return (
-    <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:rounded-lg">
+    <>
+    <div 
+    onClick={() => {
+       if (toDo) {
+        console.log('toDo');
+      } else if (doing) {
+        console.log('doing');
+      } else if (done) {
+        console.log('done');
+      } else {
+        console.log('awaitingValidation');
+      }
+    }}
+    className="rounded-sm cursor-pointer border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:rounded-lg">
       <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
         <svg
           className="fill-primary dark:fill-white"
@@ -28,34 +43,27 @@ const CardTwo = ({ toDo, doing, done, awaitingValidation }) => {
       <div className="mt-4 flex items-end justify-between">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
-            {toDo
-              ? toDo
-              : doing
-              ? doing
-              : done
-              ? done
-              : awaitingValidation
-              ? awaitingValidation
-              : '00'}{' '}
+            {toDo?toDo : '00'}{' '}
           </h4>
           <span className="text-sm font-medium">
-            {toDo
-              ? 'To DO'
-              : doing
+            {(name == 'toDo')
+              ? 'To Do'
+              : (name == 'doing')
               ? 'Doing'
-              : done
+              : (name == 'done')
               ? 'Fait'
-              : awaitingValidation
+              : (name =='awaitingValidation')
               ? 'En attente de validation'
               : '***'}
           </span>
         </div>
 
-        <span className="flex items-center gap-1 text-sm font-medium text-meta-3">
+        {/* <span className="flex items-center gap-1 text-sm font-medium text-meta-3">
           ****
-        </span>
+        </span> */}
       </div>
     </div>
+    </>
   );
 };
 

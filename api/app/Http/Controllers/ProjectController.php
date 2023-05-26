@@ -16,6 +16,26 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
+        if($request->has('search')){
+            return new ProjectCollectionResponse(
+                Project::query()
+                    ->with([
+                        'projectCreatedBy',
+                        'projectUpdatedBy',
+                    ])
+                    ->where('name', 'like', '%' . $request->search . '%')
+                    ->orWhere('description', 'like', '%' . $request->search . '%')
+                    ->orWhere('status', 'like', '%' . $request->search . '%')
+                    ->orWhere('start_date', 'like', '%' . $request->search . '%')
+                    ->orWhere('due_date', 'like', '%' . $request->search . '%')
+                    ->orWhere('end_date', 'like', '%' . $request->search . '%')
+                    ->orWhere('validated', 'like', '%' . $request->search . '%')
+                    ->orWhere('created_by', 'like', '%' . $request->search . '%')
+                    ->orWhere('updated_by', 'like', '%' . $request->search . '%')
+                    ->paginate(5)
+            );
+            return response(json_encode($request->search), 200);
+        }
         if($request->user()->role->name === 'Administrator'){
             return new ProjectCollectionResponse(
                 Project::query()
@@ -110,6 +130,65 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        Storage::delete($project->folder);
+        $project->delete();
+        return response(json_encode($project), 200);
     }
+
+    public function changeStatus(Request $request, Project $project)
+    {
+        $request->merge(['updated_by' => $request->user()->id]);
+
+        $fields = $request->validate([
+            'status' => 'required|in :toDo,doing,done,awaitingValidation',
+            'updated_by' => 'required|exists:users,id'
+        ]);
+
+        $project->update([
+            'status' => $fields['status'],
+            'updated_by' => $fields['updated_by'],
+        ]);
+
+        return response(json_encode($project), 200);
+    }
+
+    public function validation(Request $request, Project $project)
+    {
+        $request->merge(['updated_by' => $request->user()->id]);
+
+        $fields = $request->validate([
+            'validated' => 'required|boolean',
+            'updated_by' => 'required|exists:users,id'
+        ]);
+
+        $project->update([
+            'validated' => $fields['validated'],
+            'updated_by' => $fields['updated_by'],
+        ]);
+
+        return response(json_encode($project), 200);
+    }
+
+    public function closeProject(Request $request, Project $project)
+    {
+        $request->merge(['updated_by' => $request->user()->id]);
+        $request->merge(['status' => 'done']);
+        $request->merge(['end_date' => now()]);
+
+        $fields = $request->validate([
+            'status' => 'required|in :toDo,doing,done,awaitingValidation',
+            'updated_by' => 'required|exists:users,id',
+            'end_date' => 'required|date'
+        ]);
+
+        $project->update([
+            'status' => $fields['status'],
+            'updated_by' => $fields['updated_by'],
+            'end_date' => $fields['end_date'],
+        ]);
+
+        return response(json_encode($project), 200);
+    }
+
+
 }

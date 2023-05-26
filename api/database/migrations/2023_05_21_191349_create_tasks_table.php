@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('assigned_to')->references('id')->on('users');
             $table->foreignId('created_by')->references('id')->on('users');
             $table->foreignId('updated_by')->references('id')->on('users');
+            $table->boolean('validated')->default(false);
             $table->foreignId('project_id')->references('id')->on('projects')->constrained()->cascadeOnDelete();;
             $table->timestamps();
         });
