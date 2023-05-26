@@ -5,7 +5,7 @@
 // import BrandFive from '../images/brand/brand-05.svg';
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useLocation, useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TableTwo = ({ }) => {
   const navigate = useNavigate();
@@ -13,7 +13,9 @@ const TableTwo = ({ }) => {
   const [projects, setProjects] = React.useState({});
   const [search, setSearch] = React.useState("");
   const [seeProject, setSeeProject] = React.useState(false);
-  const location = useLocation();
+  const [createAlert, setCreateAlert] = React.useState(false) 
+  const [deleteAlert, setDeleteAlert] = React.useState(false);
+
   // check if success is detected in location.state and affecte it in success state
   // const navigate = useNavigate();
   const auth = JSON.parse(localStorage.getItem("auth") || "{}");
@@ -30,42 +32,45 @@ const TableTwo = ({ }) => {
     const response = await http.get("/api/project/allProjects");
     console.log("Projects", response.data.projects);
     setProjects(response.data.projects);
+    setSeeProject(true);
     console.log(projects);
   }
   useEffect(() => {
     viewProjects();
-    setSeeProject(!seeProject);
+    setDeleteAlert(false);
   }, []);
   return (
     <div className="dark:border-strokedark dark:bg-boxdark relative shadow-md sm:rounded-lg overflow-hidden">
+      {
+        (deleteAlert) && (<div className="flex mb-5 w-full border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
+          <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]">
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 13 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.4917 7.65579L11.106 12.2645C11.2545 12.4128 11.4715 12.5 11.6738 12.5C11.8762 12.5 12.0931 12.4128 12.2416 12.2645C12.5621 11.9445 12.5623 11.4317 12.2423 11.1114C12.2422 11.1113 12.2422 11.1113 12.2422 11.1113C12.242 11.1111 12.2418 11.1109 12.2416 11.1107L7.64539 6.50351L12.2589 1.91221L12.2595 1.91158C12.5802 1.59132 12.5802 1.07805 12.2595 0.757793C11.9393 0.437994 11.4268 0.437869 11.1064 0.757418C11.1063 0.757543 11.1062 0.757668 11.106 0.757793L6.49234 5.34931L1.89459 0.740581L1.89396 0.739942C1.57364 0.420019 1.0608 0.420019 0.740487 0.739944C0.42005 1.05999 0.419837 1.57279 0.73985 1.89309L6.4917 7.65579ZM6.4917 7.65579L1.89459 12.2639L1.89395 12.2645C1.74546 12.4128 1.52854 12.5 1.32616 12.5C1.12377 12.5 0.906853 12.4128 0.758361 12.2645L1.1117 11.9108L0.758358 12.2645C0.437984 11.9445 0.437708 11.4319 0.757539 11.1116C0.757812 11.1113 0.758086 11.111 0.75836 11.1107L5.33864 6.50287L0.740487 1.89373L6.4917 7.65579Z"
+                fill="#ffffff"
+                stroke="#ffffff"
+              ></path>
+            </svg>
+          </div>
+          <div className="w-full">
+            <h5 className="mb-3 font-semibold text-[#B45454]">
+              Project Delete Successfully
+            </h5>
+            <ul>
+              <li className="leading-relaxed text-[#CD5D5D]">
+                This Project is definitely deleted.
+              </li>
+            </ul>
+          </div>
+        </div>)
+      }
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-        {
-          (location.state?.success) && (<div className="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
-            <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]">
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 16 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15.2984 0.826822L15.2868 0.811827L15.2741 0.797751C14.9173 0.401867 14.3238 0.400754 13.9657 0.794406L5.91888 9.45376L2.05667 5.2868C1.69856 4.89287 1.10487 4.89389 0.747996 5.28987C0.417335 5.65675 0.417335 6.22337 0.747996 6.59026L0.747959 6.59029L0.752701 6.59541L4.86742 11.0348C5.14445 11.3405 5.52858 11.5 5.89581 11.5C6.29242 11.5 6.65178 11.3355 6.92401 11.035L15.2162 2.11161C15.5833 1.74452 15.576 1.18615 15.2984 0.826822Z"
-                  fill="white"
-                  stroke="white"
-                ></path>
-              </svg>
-            </div>
-            <div className="w-full">
-              <h5 className="mb-3 text-lg font-semibold text-black dark:text-[#34D399] ">
-                Ability Add Successfully
-              </h5>
-              <p className="text-base leading-relaxed text-body">
-                {location.state?.success}
-              </p>
-            </div>
-          </div>)
-        }
         <div className="w-full md:w-1/2">
           <form className="flex items-center">
             <label htmlFor="simple-search" className="sr-only">Search </label>
@@ -95,8 +100,8 @@ const TableTwo = ({ }) => {
                 onChange={
                   async (e) => {
                     setSearch(e.target.value);
-                   const url = "api/project/allProjects/?search=".concat(search);
-                     console.log("url =", url);
+                    const url = "api/project/allProjects/?search=".concat(search);
+                    console.log("url =", url);
                     const response = await http.get(url);
                     console.log("search =", response.data);
                     console.log("search =", response.data);
@@ -111,7 +116,7 @@ const TableTwo = ({ }) => {
         <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
           <button
             onClick={() => {
-              navigate('/Createprojects',{ replace: true })
+              navigate('/Createprojects', { replace: true })
             }
             }
             className="flex justify-center  items-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
@@ -183,28 +188,33 @@ const TableTwo = ({ }) => {
                     <td className="px-4 py-3">{project.folder}</td>
 
                     <td className="px-4 py-3">
-                    <button className="hover:text-primary"
+                      <button className="hover:text-primary"
                         onClick={
                           async () => {
-                            const response = await http.delete('api/project/delete/'.concat(encodeURIComponent(project.id)));
-                            console.log('responseprojectidi', response.data);
-                            viewProjects();
+                            await http.delete('api/project/delete/'.concat(encodeURIComponent(project.id)))
+                            .then((response)=>{
+                              console.log('responseprojectidi', response.data);
+                              setTimeout(() => {
+                                setDeleteAlert(true);
+                              }, 1000);
+                              viewProjects();
+                            })
                           }
                         }
+                      >
+                        <svg
+                          width={28}
+                          height={28}
+                          viewBox="0 0 48 48"
+                          xmlns="http://www.w3.org/2000/svg"
+                          enableBackground="new 0 0 48 48"
                         >
-                          <svg
-                            width={28}
-                            height={28}
-                            viewBox="0 0 48 48"
-                            xmlns="http://www.w3.org/2000/svg"
-                            enableBackground="new 0 0 48 48"
-                          >
-                            <circle fill="#B81620" cx={24} cy={24} r={21} />
-                            <g fill="#ffffff">
-                              <rect x={14} y={21} width={20} height={6} />
-                            </g>
-                          </svg>
-                        </button>
+                          <circle fill="#B81620" cx={24} cy={24} r={21} />
+                          <g fill="#ffffff">
+                            <rect x={14} y={21} width={20} height={6} />
+                          </g>
+                        </svg>
+                      </button>
                     </td>
                   </tr>
                 ))

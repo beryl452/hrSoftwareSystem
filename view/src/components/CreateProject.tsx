@@ -98,6 +98,20 @@ function CreateProject() {
     e.preventDefault();
 
     const project = new FormData();
+    if (formu.name === "") {
+      setErrors({ ...errors, name: "Le nom du projet est obligatoire" });
+      return;
+    } else if (formu.start_name === "") {
+      setErrors({ ...errors, start_date: "La date de début est obligatoire" });
+      return;
+    } else if (formu.due_date === "") {
+      setErrors({ ...errors, due_date: "La date de fin est obligatoire" });
+      return;
+    } else if (formu.folder === "") {
+      setErrors({ ...errors, folder: "Le dossier est obligatoire" });
+      return;
+    } 
+      
     project.append("name", formu.name);
     project.append("start_date", formu.start_date);
     project.append("due_date", formu.due_date);
@@ -126,7 +140,7 @@ function CreateProject() {
       .then((response) => {
         console.log("response =", response);
         console.log("tasks =", tasks.length);
-        if (tasks.length < 0) {
+        if (tasks.length <= 0) {
           navigate("/projects",
             { state: { success: "Le projet a été créé avec succès" } },
           );
@@ -136,13 +150,14 @@ function CreateProject() {
             http
               .post("/api/task/create", task)
               .then((response) => {
-                navigate("/projects");
                 navigate("/projects",
-                  { state: { success: "Le projet a été créé avec succès" } },
+                  { state: { success: "Le projet a été créé avec succès" }},
                 );
+                console.log("responseNavigate =", response);
               })
               .catch((error) => {
                 console.log("error =", error);
+                setErrors({ ...errors,...error.response.data.response });
               });
           });
           console.log("response =", response);
@@ -222,6 +237,11 @@ function CreateProject() {
                     onChange={handleChange}
                   />
                 </div>
+                {(errors.name || errors.start_date) && (
+                  <p className="text-red-500 text-meta-1 text-xs italic">
+                    {errors.name || errors.start_date}
+                  </p>
+                )}
               </div>
               <div>
                 <div>
@@ -241,6 +261,11 @@ function CreateProject() {
                     onChange={handleChange}
                   />
                 </div>
+                {(errors.due_date || errors.start_date) && (
+                  <p className="text-red-500 text-meta-1 text-xs italic">
+                    {errors.due_date || errors.start_date}
+                  </p>
+                )}
                 <div>
                   <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Folder
@@ -294,6 +319,11 @@ function CreateProject() {
                     onChange={handleChange}
                   ></textarea>
                 </div>
+                {errors.description && (
+                  <p className="text-red-500 text-meta-1 text-xs italic">
+                    {errors.description}
+                  </p>
+                )}
               </div>
             </div><svg
               width={20}
