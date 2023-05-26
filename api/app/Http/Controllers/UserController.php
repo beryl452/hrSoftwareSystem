@@ -18,16 +18,34 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): UserCollectionResponse
+    public function index(Request $request): UserCollectionResponse
     {
-        return new UserCollectionResponse(
-            User::query()
-                ->with([
-                    'person',
-                ])
-                ->paginate(1)
-        );
+        if($request->has('search')){
+            return new UserCollectionResponse(
+
+                    User::query()
+                        ->with([
+                            'person',
+                        ])
+
+
+                    ->where('username', 'like', '%' . $request->search . '%')
+                    ->orWhere('password', 'like', '%' . $request->search . '%')
+                    ->paginate(5)
+            );
+            return response(json_encode($request->search), 200);
+        }
+        else {
+            return new UserCollectionResponse(
+                User::query()
+                    ->with([
+                        'person',
+                    ])
+                    ->paginate(1)
+            );
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.
