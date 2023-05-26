@@ -27,7 +27,6 @@ class ProjectFactory extends Factory
             'created_by' => $this->faker->numberBetween(1, 10),
             'updated_by' => $this->faker->numberBetween(1, 10),
             'folder' => $this->faker->unique()->text(5),
-            'validated' => $this->faker->boolean,
         ];
     }
 }

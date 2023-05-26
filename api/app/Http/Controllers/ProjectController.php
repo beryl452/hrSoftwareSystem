@@ -29,7 +29,6 @@ class ProjectController extends Controller
                     ->orWhere('start_date', 'like', '%' . $request->search . '%')
                     ->orWhere('due_date', 'like', '%' . $request->search . '%')
                     ->orWhere('end_date', 'like', '%' . $request->search . '%')
-                    ->orWhere('validated', 'like', '%' . $request->search . '%')
                     ->orWhere('created_by', 'like', '%' . $request->search . '%')
                     ->orWhere('updated_by', 'like', '%' . $request->search . '%')
                     ->paginate(5)
@@ -154,15 +153,16 @@ class ProjectController extends Controller
 
     public function validation(Request $request, Project $project)
     {
+        $request->merge(['status' => 'toDo']);
         $request->merge(['updated_by' => $request->user()->id]);
 
         $fields = $request->validate([
-            'validated' => 'required|boolean',
+            'status' => 'required|in :toDo,doing,done,awaitingValidation',
             'updated_by' => 'required|exists:users,id'
         ]);
 
         $project->update([
-            'validated' => $fields['validated'],
+            'status' => $fields['status'],
             'updated_by' => $fields['updated_by'],
         ]);
 
