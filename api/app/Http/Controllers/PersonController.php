@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Person;
+use App\Responses\Person\PersonCollectionResponse;
 use Illuminate\Http\Request;
 
 class PersonController extends Controller
@@ -12,7 +13,14 @@ class PersonController extends Controller
      */
     public function index()
     {
-        //
+        return new PersonCollectionResponse(
+            Person::query()
+                ->with([
+                    'agent',
+                    'user'
+                ])
+                ->get()
+        );
     }
 
     /**

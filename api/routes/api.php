@@ -38,7 +38,11 @@ Route::middleware('auth:sanctum')->group(static function () {
             )
         ];
     });
-
+    Route::prefix('people')
+            ->as('people.')
+            ->group(static function() {
+                Route::get('/', [PersonController::class, 'index'])->name('index');
+            });
     Route::prefix('users')
         ->as('users.')
         ->group(static function () {

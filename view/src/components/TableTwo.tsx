@@ -6,6 +6,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import CreateUser from "./CreateUser";
 
 const TableTwo = ({ }) => {
   const navigate = useNavigate();

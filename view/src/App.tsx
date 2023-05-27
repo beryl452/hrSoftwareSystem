@@ -22,13 +22,13 @@ import Rapport from './pages/Rapport/Rapport';
 import EditTask from './components/EditTask';
 import Roles from './pages/Dashboard/Roles';
 import Abilities from './pages/Dashboard/Abilities';
-
+import CreateAgent from './components/CreateAgent';
+import CreateAgents from './pages/Form/CreateAgents';
 
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
 
 function App() {
-
   const [loading, setLoading] = useState<boolean>(true);
   const preloader = document.getElementById('preloader');
 
@@ -59,7 +59,7 @@ function App() {
           }
         />
 
-<Route
+        <Route
           path="/roles"
           element={
             <AuthProvider>
@@ -90,7 +90,7 @@ function App() {
             </AuthProvider>
           }
         />
-         <Route
+        <Route
           path="/roles/:roleId/abilities"
           element={
             <AuthProvider>
@@ -100,7 +100,7 @@ function App() {
             </AuthProvider>
           }
         />
-         <Route
+        <Route
           path="/tasksEdit"
           element={
             <AuthProvider>
@@ -120,12 +120,32 @@ function App() {
             </AuthProvider>
           }
         />
-         <Route
+        <Route
           path="/CreateProjects"
           element={
             <AuthProvider>
               <ProtectedRoute>
                 <CreateProjects />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/CreateAgent"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateAgents />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/CreateUsers"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <SignUp />
               </ProtectedRoute>
             </AuthProvider>
           }
@@ -152,7 +172,6 @@ function App() {
 
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/rapport" element={<Rapport />} />
-
       </Routes>
     </>
   );

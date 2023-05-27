@@ -95,7 +95,7 @@ const TableAgent = ({ }) => {
                     const response = await http.get(url);
                     console.log("search =", response.data);
                     console.log("search =", response.data);
-                    setAgents(response.data.agents);
+                    setAgents(response.data);
                     console.log("seacdcdrch =", agents);
                   }
                 }
@@ -106,7 +106,7 @@ const TableAgent = ({ }) => {
         <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
           <button
             onClick={() => {
-              navigate('/Createprojects',{ replace: true })
+              navigate('/CreateAgent',{ replace: true })
             }
             }
             className="flex justify-center  items-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
@@ -238,7 +238,7 @@ const TableAgent = ({ }) => {
                                 const response = await http.get(
                                   agents.links.prev
                                 );
-                                setAgents(response.data.agents);
+                                setAgents(response.data);
                               } else {
                                 console.log('no more pages');
                               }
@@ -272,7 +272,7 @@ const TableAgent = ({ }) => {
                                 const response = await http.get(
                                   agents.links.next
                                 );
-                                setAgents(response.data.agents);
+                                setAgents(response.data);
                               } else {
                                 console.log('no more pages');
                               }
@@ -301,7 +301,7 @@ const TableAgent = ({ }) => {
                           <a
                             onClick={async () => {
                               const response = await http.get(link.url);
-                              setAgents(response.data.agents);
+                              setAgents(response.data);
                             }}
                             key={key}
                             className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 flex cursor-pointer items-center justify-center border py-2 px-3 text-sm leading-tight dark:border-strokedark dark:bg-boxdark dark:hover:text-white"

@@ -1,12 +1,12 @@
 import Breadcrumb from '../../components/Breadcrumb';
+import CreateUser from '../../components/CreateUser';
 import DefaultLayout from '../../layout/DefaultLayout';
-import CreateAgent from '../../components/CreateAgent';
 
 const SignUp = () => {
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Create Agent" />
-      <CreateAgent />
+      <Breadcrumb pageName="Create User" />
+      <CreateUser />
     </DefaultLayout>
   );
 };

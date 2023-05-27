@@ -16,11 +16,12 @@ class PersonResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'firstname' => $this->firstname,
             'lastname' => $this->lastname,
             'email' => $this->email,
             'phone' => $this->phone,
-            'agent' => AgentResource::collection($this->whenLoaded('agent')),
+            'agent' => AgentResource::make($this->whenLoaded('agent')),
         ];
     }
 }
