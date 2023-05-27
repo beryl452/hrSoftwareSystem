@@ -56,11 +56,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if (! $request->has('username') || ! $request->has('password') || ! $request->has('person_id') || ! $request->has('role_id')) {
-            return response()->json([
-                'message' => 'Missing required fields',
-            ], 400);
-        }
             $fields = $request->validate([
             'username' => 'required|string|unique:users,username',
             'password' => 'required|string',
