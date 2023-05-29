@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\Task;
+use App\Responses\Project\ProjectCollectionResponse;
+use App\Responses\Task\TaskCollectionResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,11 +14,70 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Project $project, Request $request)
     {
-        //
-    }
+        // return response(json_encode($request->user()->role->name));
+        if ($request->has('search')) {
+            return new TaskCollectionResponse(
+                Task::query()
+                    ->with([
+                        'assignedTo',
+                        'taskCreatedBy',
+                        'taskUpdatedBy',
+                        'project'
+                    ])
+                    ->where('name', 'like', '%' . $request->search . '%')
+                    ->orWhere('description', 'like', '%' . $request->search . '%')
+                    ->orWhere('status', 'like', '%' . $request->search . '%')
+                    ->orWhere('weighting', 'like', '%' . $request->search . '%')
+                    ->orWhere('start_date', 'like', '%' . $request->search . '%')
+                    ->orWhere('due_date', 'like', '%' . $request->search . '%')
+                    ->orWhere('end_date', 'like', '%' . $request->search . '%')
+                    ->orWhere('receipt', 'like', '%' . $request->search . '%')
+                    ->orWhere('cancelValidation', 'like', '%' . $request->search . '%')
+                    ->orWhere('validated', 'like', '%' . $request->search . '%')
+                    ->orWhere('folder', 'like', '%' . $request->search . '%')
+                    ->get()
+            );
+        } else if ($request->user()->role->name === 'Administrator') {
+            return new TaskCollectionResponse(
 
+                Task::query()
+                    ->with([
+                        'assignedTo',
+                        'taskCreatedBy',
+                        'taskUpdatedBy',
+                        'project'
+                    ])
+                    ->paginate(5)
+            );
+        } else if ($request->user()->role->name === 'Task manager') {
+            return new TaskCollectionResponse(
+                Task::query()
+                    ->with([
+                        'assignedTo',
+                        'taskCreatedBy',
+                        'taskUpdatedBy',
+                        'project'
+                    ])
+                    ->where('updated_by', $request->user()->id)
+                ->paginate(5)
+            );
+        } else {
+            return new TaskCollectionResponse(
+                Task::query()
+                    ->with([
+                        'assignedTo',
+                        'taskCreatedBy',
+                        'taskUpdatedBy',
+                        'project'
+                    ])
+                    ->where('project_id', $project->id)
+                    ->orWhere('assigned_to', $request->user()->id)
+                    ->get()
+            );
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -89,7 +151,7 @@ class TaskController extends Controller
 
     public function receipt(Request $request, Task $task)
     {
-        $request->merge(['receipt' => ($request['receipt']=='true')]);
+        $request->merge(['receipt' => ($request['receipt'] == 'true')]);
         $request->merge(['updated_by' => $request->user()->id]);
 
         $fields = $request->validate([

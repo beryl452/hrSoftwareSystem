@@ -27,14 +27,18 @@ class Task extends Model
     }
     public function assignedTo()
     {
-        return $this->belongsTo('assigned_to', User::class);
+        return $this->belongsTo(User::class,'assigned_to');
     }
-    public function projectCreatedBy()
+    public function taskCreatedBy()
     {
-        return $this->hasMany('created_by', User::class);
+        return $this->belongsTo(User::class,'created_by');
     }
-    public function projectUpdatedBy()
+    public function taskUpdatedBy()
     {
-        return $this->hasMany('updated_by', User::class);
+        return $this->belongsTo(User::class,'updated_by');
+    }
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
     }
 }

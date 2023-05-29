@@ -83,6 +83,7 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::put('/validation/{project}', [ProjectController::class, 'validation'])->name('validation');
             Route::put('/closeProject/{project}', [ProjectController::class, 'closeProject'])->name('closeProject');
             Route::delete('/delete/{project}', [ProjectController::class, 'destroy'])->name('deleteProject');
+            Route::get('/download/{project}', [ProjectController::class, 'download'])->name('downloadProject');
         });
 
     Route::prefix('task')
@@ -90,6 +91,8 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->group(static function () {
             Route::post('/create', TaskController::class . '@store')->name('store');
             Route::put('/receipt/{task}', [TaskController::class, 'receipt'])->name('receipt');
+            Route::get('/tasks/{project}/', [TaskController::class, 'index'])->name('index');
+            Route::get('/tasks/{project}/{search}', [TaskController::class, 'index'])->name('searchTasks');
         });
 
     Route::prefix('agent')

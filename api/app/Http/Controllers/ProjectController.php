@@ -35,7 +35,7 @@ class ProjectController extends Controller
             );
             return response(json_encode($request->search), 200);
         }
-        if($request->user()->role->name === 'Administrator'){
+        // if($request->user()->role->name === 'Administrator'){
             return new ProjectCollectionResponse(
                 Project::query()
                     ->with([
@@ -44,17 +44,17 @@ class ProjectController extends Controller
                     ])
                     ->paginate(5)
             );
-        } else {
-            return new ProjectCollectionResponse(
-                Project::query()
-                    ->with([
-                        'projectCreatedBy',
-                        'projectUpdatedBy',
-                    ])
-                    ->where('updated_by', $request->user()->id)
-                    ->paginate(5)
-            );
-        }
+        // } else {
+        //     return new ProjectCollectionResponse(
+        //         Project::query()
+        //             ->with([
+        //                 'projectCreatedBy',
+        //                 'projectUpdatedBy',
+        //             ])
+        //             ->where('updated_by', $request->user()->id)
+        //             ->paginate(5)
+        //     );
+        // }
     }
 
     /**
@@ -190,5 +190,9 @@ class ProjectController extends Controller
         return response(json_encode($project), 200);
     }
 
+    public function download(Project $project) {
+        // Download file at $project->folder
+        return Storage::download($project->folder);
+    }
 
 }

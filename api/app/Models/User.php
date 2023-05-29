@@ -66,31 +66,31 @@ class User extends Authenticatable
 
     public function transferTo()
     {
-        return $this->hasMany('user_from',Transfer::class);
+        return $this->hasMany(Transfer::class);
     }
     public function transferFrom()
     {
-        return $this->hasMany('user_to',Transfer::class);
+        return $this->hasMany(Transfer::class);
     }
     public function assigne()
     {
-        return $this->hasMany('assigned_to',Task::class);
+        return $this->hasMany(Task::class);
     }
     public function taskCreatedBy()
     {
-        return $this->hasMany('created_by',Task::class);
+        return $this->hasMany(Task::class);
     }
     public function taskUpdatedBy()
     {
-        return $this->hasMany('updated_by',Task::class);
+        return $this->hasMany(Task::class);
     }
     public function projectCreatedBy()
     {
-        return $this->hasMany('created_by',Project::class);
+        return $this->hasMany(Project::class);
     }
     public function projectUpdatedBy()
     {
-        return $this->hasMany('updated_by',Project::class);
+        return $this->hasMany(Project::class);
     }
 
 }
