@@ -102,7 +102,17 @@ class AgentController extends Controller
      */
     public function update(Request $request, Agent $agent)
     {
-        //
+        $fields = $request->validate([
+            'person_id' => 'required|exists:people,id',
+            'code' => 'required|string',
+        ]);
+
+        $agent->update([
+            'person_id' => $fields["person_id"],
+            'code' => $fields["code"],
+        ]);
+
+        return response(json_encode($agent), 200);
     }
 
     /**

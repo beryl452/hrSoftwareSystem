@@ -76,7 +76,24 @@ class PersonController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-        //
+        $fields = $request->validate([
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'email' => 'required|email',
+            'birthdate' => 'required|date',
+            'phone' => 'required|string',
+
+        ]);
+
+        $person->update([
+            'firstname' => $fields["firstname"],
+            'lastname' => $fields["lastname"],
+            'email' => $fields["email"],
+            'birthdate' => $fields["birthdate"],
+            'phone' => $fields["phone"],
+        ]);
+
+        return response(json_encode($person), 200);
     }
 
     /**

@@ -48,7 +48,9 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->group(static function () {
             Route::get('/users', UserController::class . '@index')->name('index');
             Route::post('/create', UserController::class . '@store')->name('store');
+            Route::put('/update/{user}', [UserController::class, 'update'])->name('update');
             Route::get('/users/{user}/', UserController::class . '@index')->name('filterUsers');
+            Route::get('/board', [UserController::class, 'board'])->name('board');
             Route::get('/collaborators', [UserController::class, 'collaborators'])->name('collaborators');
 
         });
@@ -110,6 +112,26 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::put('/update/{person}', [PersonController::class, 'update'])->name('update');
             Route::delete('/delete/{person}', [PersonController::class, 'destroy'])->name('delete');
         });
+        Route::prefix('role')
+        ->as('role.')
+        ->group(static function () {
+            Route::get('/role', [RoleController::class, 'index'])->name('index');
+            Route::get('/allRoles', [RoleController::class, 'allRoles'])->name('allRoles');
+            Route::get('/allRoles/{search}', [RoleController::class, 'allRoles'])->name('filterRoles');
+            Route::post('/create', RoleController::class . '@store')->name('store');
+            Route::put('/update/{role}', [RoleController::class, 'update'])->name('update');
+            Route::delete('/delete/{role}', [RoleController::class, 'destroy'])->name('delete');
+        });
+
+        Route::prefix('transfer')
+            ->as('transfer.')
+            ->group(static function () {
+                Route::get('/transfer', [TransferController::class, 'index'])->name('index');
+                Route::get('/allTransfers/{search}', [TransferController::class, 'allTransfers'])->name('filterTransfers');
+                Route::post('/create', TransferController::class . '@store')->name('store');
+                Route::put('/validate/{transfer}', [TransferController::class, 'validate'])->name('validate');
+                Route::delete('/delete/{transfer}', [TransferController::class, 'destroy'])->name('delete');
+            });
 
     Route::post('/logout', [UserController::class, 'logout']);
 });

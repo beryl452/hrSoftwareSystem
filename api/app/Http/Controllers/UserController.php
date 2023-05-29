@@ -93,7 +93,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $fields = $request->validate([
+            'username' => 'required|string|unique:users,username,' . $user->id,
+            'password' => 'required|string',
+            'person_id' => 'required|integer|unique:users,person_id,' . $user->id,
+            'role_id' => 'required|integer|exists:roles,id',
+        ]);
+
+        $user->update([
+            'username' => $fields["username"],
+            'password' => Hash::make($fields["password"]),
+            'person_id' => $fields["person_id"],
+            'role_id' => $fields["role_id"],
+        ]);
+
+        return response(json_encode($user), 200);
     }
 
     /**
@@ -201,5 +215,19 @@ class UserController extends Controller
 
         );
     }
+    }
+
+    public function board(){
+        // The goal is to get the number of users per role
+        $roles = Role::all();
+        $users = User::all();
+        $usersPerRole = [];
+        foreach ($roles as $role) {
+            $usersPerRole[$role->name] = 0;
+        }
+        foreach ($users as $user) {
+            $usersPerRole[$user->role->name] += 1;
+        }
+        return response(json_encode($usersPerRole), 200);
     }
 }

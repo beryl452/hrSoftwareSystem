@@ -179,13 +179,17 @@ const TableAgent = ({ }) => {
 
                     <td className="px-4 py-3">
                     <button className="hover:text-primary"
-                        onClick={
-                          async () => {
-                            const response = await http.delete('api/agent/delete/'.concat(encodeURIComponent(agent.id)));
-                            console.log(response.data);
-                            viewAgents();
-                          }
-                        }
+                        // onClick={
+                        //   async () => {
+                        //     const response = await http.delete('api/agent/delete/'.concat(encodeURIComponent(agent.id)));
+                        //     console.log(response.data);
+                        //     viewAgents();
+                        //   }
+                        // }
+                        onClick={() => {
+                          // navigate('/CreateAgent',{ replace: true })
+                          navigate('/agentEdit', { state: { agent: agent } },{ replace: true })
+                        }}
                         >
                           <svg
                             width={28}

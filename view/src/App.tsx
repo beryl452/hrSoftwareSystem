@@ -24,6 +24,8 @@ import Roles from './pages/Dashboard/Roles';
 import Abilities from './pages/Dashboard/Abilities';
 import CreateAgent from './components/CreateAgent';
 import CreateAgents from './pages/Form/CreateAgents';
+import EditAgents from './pages/Form/EditAgents';
+import EditUsers from './pages/Form/EditUsers';
 
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
@@ -49,7 +51,7 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/"
+          path="/users"
           element={
             <AuthProvider>
               <ProtectedRoute>
@@ -106,6 +108,26 @@ function App() {
             <AuthProvider>
               <ProtectedRoute>
                 <EditTask />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+         <Route
+          path="/agentEdit"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <EditAgents/>
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+         <Route
+          path="/userEdit"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <EditUsers />
               </ProtectedRoute>
             </AuthProvider>
           }

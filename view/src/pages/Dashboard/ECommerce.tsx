@@ -25,9 +25,11 @@ const ECommerce = () => {
     console.log("users", users);
   }
   async function userBoard() {
-    const response = await http.get('/api/usersBilan');
-    console.log(response.data);
+    const response = await http.get("/api/users/board");
+    console.log("response", response.data);
     setUserB(response.data);
+    console.log("users", UserB);
+
   }
   useEffect(() => {
     userBoard();
@@ -38,9 +40,9 @@ const ECommerce = () => {
     <DefaultLayout>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
         <CardOne administrator={JSON.stringify(UserB.Administrator) ? JSON.stringify(UserB.Administrator).padStart(2, "0") : "00"} />
-        <CardOne collaborator={JSON.stringify(UserB.Collaborator)? JSON.stringify(UserB.Collaborator).padStart(2, "0") : "00"} />
-        <CardOne taskManager={JSON.stringify(UserB.TaskManager)? JSON.stringify(UserB.TaskManager).padStart(2, "0") : "00"} />
-        <CardOne payrollManager={JSON.stringify(UserB.PayrollManager)? JSON.stringify(UserB.PayrollManager).padStart(2, "0") : "00"} />
+        <CardOne collaborator={JSON.stringify(UserB.collaborator)? JSON.stringify(UserB.collaborator).padStart(2, "0") : "00"} />
+        <CardOne taskManager={JSON.stringify(UserB['Task manager'])? JSON.stringify(UserB['Task manager']).padStart(2, "0") : "00"} />
+        <CardOne payrollManager={JSON.stringify(UserB['Payroll manager'])? JSON.stringify(UserB['Payroll manager']).padStart(2, "0") : "00"} />
 
       </div>
 

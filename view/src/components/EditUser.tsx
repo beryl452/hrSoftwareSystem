@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
-function CreateUser() {
-  const [roles, setRoles] = React.useState([]);
-  const [people, setPeople] = React.useState([]);
 
-  const [user, setUser] = React.useState({
-    usernameRef: React.useRef<HTMLInputElement>(null),
-    passwordRef: React.useRef<HTMLInputElement>(null),
-    person_idRef: React.useRef<HTMLSelectElement>(null),
-    role_idRef: React.useRef<HTMLSelectElement>(null),
-  });
+function EditUser() {
+    const [roles, setRoles] = React.useState([]);
+    const [people, setPeople] = React.useState([]);
+    const location = useLocation();
+    const theUser = location.state as any;
 
+    const [user, setUser] = React.useState({
+      username: theUser.user.username,
+      password: theUser.user.password,
+      person_id: theUser.user.person_id,
+      role_id: theUser.user.role_id,
+    });
+  
   const http = axios.create({
     baseURL: 'http://localhost:8000/',
     headers: {
@@ -53,14 +57,12 @@ function CreateUser() {
         console.log(error);
       });
   }
+  const onChange = (e: any) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    http.post('api/users/create',{
-      username: user.usernameRef.current?.value,
-      password: user.passwordRef.current?.value,
-      person_id: user.person_idRef.current?.value,
-      role_id: user.role_idRef.current?.value,
-    })
+    http.put(`api/users/update/${theUser.user.id}`,user)
     .then((response) => {
       console.log('response', response);
     })
@@ -100,7 +102,8 @@ function CreateUser() {
             id="username"
             placeholder="username"
             autoComplete="username"
-            ref={user.usernameRef}
+            value={user.username}
+            onChange={onChange}
             required
             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
           />
@@ -124,7 +127,8 @@ function CreateUser() {
             id="password"
             placeholder="*********"
             autoComplete="password"
-            ref={user.passwordRef}
+            value={user.password}
+            onChange={onChange}
             required
             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
           />
@@ -145,16 +149,24 @@ function CreateUser() {
           <select
             name="person"
             id='person'
-            ref={user.person_idRef}
+            onChange={onChange}
+            defaultValue={user.person_id}
             required
             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
           >
             <option value="">Select Person</option>
             {people.map((person: any) => (
+              (person.id == theUser.user.person.id)?(
+                <option key={person.id} value={person.id} selected
+                >
+                  {person.firstname} {person.lastname}
+                </option>
+              ):(
               <option key={person.id} value={person.id}
               >
                 {person.firstname} {person.lastname}
               </option>
+            )
             ))}
           </select>
           {
@@ -174,17 +186,24 @@ function CreateUser() {
           <select
             name="role"
             id='role'
-            ref={user.role_idRef}
+            onChange={onChange}
+            defaultValue={user.role_id}
             required
             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
           >
             <option value="">Select Role</option>
             {roles.map((role: any) => (
+               (role.id == theUser.user.role.id)?(
+                <option key={role.id} value={role.id} selected
+                >
+                  {role.name}
+                </option>
+              ):(
               <option key={role.id} value={role.id}
               >
                 {role.name}
               </option>
-            ))}
+            )))}
           </select>
           {
             errors.role_id && (
@@ -197,14 +216,14 @@ function CreateUser() {
           className="flex items-center mt-6 w-60 justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
           type="submit"
           onClick={() => {
-            // handleSubmit;
+            handleSubmit;
             // navigate('/agents');
           }}
         >
-          Create Agent
+          Edit Agent
         </button>
       </form>
     </div>
   );
 }
-export default CreateUser;
+export default EditUser;
