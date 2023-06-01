@@ -191,18 +191,6 @@ const TableOne = ({}) => {
                             console.log('user', user);
                           }}
                         >
-                          {/* <svg
-                            width={28}
-                            height={28}
-                            viewBox="0 0 48 48"
-                            xmlns="http://www.w3.org/2000/svg"
-                            enableBackground="new 0 0 48 48"
-                          >
-                            <circle fill="#B81620" cx={24} cy={24} r={21} />
-                            <g fill="#ffffff">
-                              <rect x={14} y={21} width={20} height={6} />
-                            </g>
-                          </svg> */}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width={20}

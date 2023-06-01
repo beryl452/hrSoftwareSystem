@@ -172,6 +172,16 @@ function App() {
             </AuthProvider>
           }
         />
+         <Route
+          path="/projects/:ProjectId/tasks"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Tasks />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/profile" element={<Profile />} />

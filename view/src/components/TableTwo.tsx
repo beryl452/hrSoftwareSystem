@@ -3,35 +3,35 @@
 // import BrandThree from '../images/brand/brand-03.svg';
 // import BrandFour from '../images/brand/brand-04.svg';
 // import BrandFive from '../images/brand/brand-05.svg';
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import CreateUser from "./CreateUser";
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import CreateUser from './CreateUser';
 
-const TableTwo = ({ }) => {
+const TableTwo = ({}) => {
   const navigate = useNavigate();
 
   const [projects, setProjects] = React.useState({});
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState('');
   const [seeProject, setSeeProject] = React.useState(false);
-  const [createAlert, setCreateAlert] = React.useState(false) 
+  const [createAlert, setCreateAlert] = React.useState(false);
   const [deleteAlert, setDeleteAlert] = React.useState(false);
 
   // check if success is detected in location.state and affecte it in success state
   // const navigate = useNavigate();
-  const auth = JSON.parse(localStorage.getItem("auth") || "{}");
+  const auth = JSON.parse(localStorage.getItem('auth') || '{}');
   const http = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: 'http://localhost:8000',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Authorization: "Bearer " + auth.token,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + auth.token,
     },
     withCredentials: true,
   });
   async function viewProjects() {
-    const response = await http.get("/api/project/allProjects");
-    console.log("Projects", response.data.projects);
+    const response = await http.get('/api/project/allProjects');
+    console.log('Projects', response.data.projects);
     setProjects(response.data.projects);
     setSeeProject(true);
     console.log(projects);
@@ -41,9 +41,9 @@ const TableTwo = ({ }) => {
     setDeleteAlert(false);
   }, []);
   return (
-    <div className="dark:border-strokedark dark:bg-boxdark relative shadow-md sm:rounded-lg overflow-hidden">
-      {
-        (deleteAlert) && (<div className="flex mb-5 w-full border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
+    <div className="relative overflow-hidden shadow-md dark:border-strokedark dark:bg-boxdark sm:rounded-lg">
+      {deleteAlert && (
+        <div className="mb-5 flex w-full border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
           <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]">
             <svg
               width="13"
@@ -69,17 +69,19 @@ const TableTwo = ({ }) => {
               </li>
             </ul>
           </div>
-        </div>)
-      }
-      <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+        </div>
+      )}
+      <div className="flex flex-col items-center justify-between space-y-3 p-4 md:flex-row md:space-y-0 md:space-x-4">
         <div className="w-full md:w-1/2">
           <form className="flex items-center">
-            <label htmlFor="simple-search" className="sr-only">Search </label>
+            <label htmlFor="simple-search" className="sr-only">
+              Search{' '}
+            </label>
             <div className="relative w-full">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg
                   aria-hidden="true"
-                  className="w-5 h-5 text-black dark:text-white"
+                  className="h-5 w-5 text-black dark:text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,37 +96,34 @@ const TableTwo = ({ }) => {
               <input
                 type="text"
                 id="simple-search"
-                className="dark:border-strokedark dark:bg-boxdark border text-gray-900 text-sm rounded-lg focus:ring-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="text-gray-900 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border p-2 pl-10 text-sm dark:border-strokedark dark:bg-boxdark dark:text-white"
                 placeholder="Search"
                 required
                 value={search}
-                onChange={
-                  async (e) => {
-                    setSearch(e.target.value);
-                    const url = "api/project/allProjects/?search=".concat(search);
-                    console.log("url =", url);
-                    const response = await http.get(url);
-                    console.log("search =", response.data);
-                    console.log("search =", response.data);
-                    setProjects(response.data.projects);
-                    console.log("seacdcdrch =", projects);
-                  }
-                }
+                onChange={async (e) => {
+                  setSearch(e.target.value);
+                  const url = 'api/project/allProjects/?search='.concat(search);
+                  console.log('url =', url);
+                  const response = await http.get(url);
+                  console.log('search =', response.data);
+                  console.log('search =', response.data);
+                  setProjects(response.data.projects);
+                  console.log('seacdcdrch =', projects);
+                }}
               />
             </div>
           </form>
         </div>
-        <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+        <div className="flex w-full flex-shrink-0 flex-col items-stretch justify-end space-y-2 md:w-auto md:flex-row md:items-center md:space-y-0 md:space-x-3">
           <button
             onClick={() => {
-              navigate('/Createprojects', { replace: true })
-            }
-            }
-            className="flex justify-center  items-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
+              navigate('/Createprojects', { replace: true });
+            }}
+            className="flex items-center  justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
             type="submit"
           >
             <svg
-              className="h-3.5 w-3.5 mr-2"
+              className="mr-2 h-3.5 w-3.5"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -138,207 +137,288 @@ const TableTwo = ({ }) => {
             </svg>
             Create projects
           </button>
-
         </div>
       </div>
-      {(seeProject) && (<>
-        <div className="overflow-x-auto">
-          <table className="font-medium w-full text-sm text-left text-black dark:text-white">
-            <thead className="text-xs uppercase bg-gray-50 dark:bg-gray-700 text-black dark:text-white">
-              <tr>
-                <th scope="col" className="px-4 py-3">
-                  Title
-                </th>
-                <th scope="col" className="px-4 py-3">
-                  Description
-                </th>
-                <th scope="col" className="px-4 py-3">
-                  Start Date
-                </th>
-                <th scope="col" className="px-4 py-3">
-                  Due Date
-                </th>
-                <th scope="col" className="px-4 py-3">
-                  Status
-                </th>
-                <th scope="col" className="px-4 py-3">
-                  Folder
-                </th>
-                <th scope="col" className="px-4 py-3">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {projects ? (
-                projects.data?.map((project, index) => (
-                  <tr
-                    key={index}
-                    className="dark:border-gray-700 border-b text-sm font-medium"
-                  >
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-4 py-3 text-black dark:text-white"
+      {seeProject && (
+        <>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm font-medium text-black dark:text-white">
+              <thead className="bg-gray-50 dark:bg-gray-700 text-xs uppercase text-black dark:text-white">
+                <tr>
+                  <th scope="col" className="px-4 py-3">
+                    Title
+                  </th>
+                  <th scope="col" className="px-4 py-3">
+                    Description
+                  </th>
+                  <th scope="col" className="px-4 py-3">
+                    Start Date
+                  </th>
+                  <th scope="col" className="px-4 py-3">
+                    Due Date
+                  </th>
+                  <th scope="col" className="px-4 py-3">
+                    Status
+                  </th>
+                  <th scope="col" className="px-4 py-3">
+                    Folder
+                  </th>
+                  <th scope="col" className="px-4 py-3">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {projects ? (
+                  projects.data?.map((project, index) => (
+                    <tr
+                      key={index}
+                      className="dark:border-gray-700 border-b text-sm font-medium"
+                      onClick={async ()=>{
+                        const uri = '/api/task/tasks/'.concat(encodeURIComponent(project.id));
+                        await http.get('/api/task/tasks/'.concat(encodeURIComponent(project.id)))
+                        .then((response)=>{
+                          console.log('response',response.data, uri)
+                        })
+                        .catch((error)=>{
+                          console.log(error);
+                        })
+                        navigate('/projects/'+project.id+'/tasks',
+                        { state: { project: project } },
+                        { replace: true});
+                      }}
                     >
-                      {project.name}
-                    </th>
-                    <td className="px-4 py-3">{project.description}</td>
-                    <td className="px-4 py-3">{project.start_date}</td>
-                    <td className="px-4 py-3">{project.due_date}</td>
-                    <td className="px-4 py-3">{project.status}</td>
-                    <td className="px-4 py-3">{project.folder}</td>
-
-                    <td className="px-4 py-3">
-                      <button className="hover:text-primary"
-                        onClick={
-                          async () => {
-                            await http.delete('api/project/delete/'.concat(encodeURIComponent(project.id)))
-                            .then((response)=>{
-                              console.log('responseprojectidi', response.data);
-                              setTimeout(() => {
-                                setDeleteAlert(true);
-                              }, 1000);
-                              viewProjects();
-                            })
-                          }
-                        }
+                      <th
+                        scope="row"
+                        className="whitespace-nowrap px-4 py-3 text-black dark:text-white"
                       >
+                        {project.name}
+                      </th>
+                      <td className="px-4 py-3">{project.description}</td>
+                      <td className="px-4 py-3">{project.start_date}</td>
+                      <td className="px-4 py-3">{project.due_date}</td>
+                      <td className="px-4 py-3">{project.status}</td>
+                      <td className="px-4 py-3">
+                        {/* {JSON.stringify(project)} */}
                         <svg
-                          width={28}
-                          height={28}
-                          viewBox="0 0 48 48"
+                         className="w-6 h-6 cursor-pointer"
+                          viewBox="0 0 24 24"
+                          fill="none"
                           xmlns="http://www.w3.org/2000/svg"
-                          enableBackground="new 0 0 48 48"
+                          onClick={async ()=>{
+                              const response = await http.get(
+                                'api/project/download/'.concat(
+                                  encodeURIComponent(project.id)
+                                )
+                              );
+                              console.log('responseprojectidi', response.data);
+                              const url = window.URL.createObjectURL(
+                                new Blob([response.data])
+                              );
+                              const link = document.createElement('a');
+                              link.href = url;
+                              link.setAttribute(
+                                'download',
+                                project.name.concat('.zip')
+                              );
+                              document.body.appendChild(link);
+                              link.click();
+                          }}
                         >
-                          <circle fill="#B81620" cx={24} cy={24} r={21} />
-                          <g fill="#ffffff">
-                            <rect x={14} y={21} width={20} height={6} />
-                          </g>
+                          <path
+                            d="M2 6a2 2 0 0 1 2-2h5a1 1 0 0 1 .707.293L11.414 6H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6zm6.586 0H4v12h16V8h-9a1 1 0 0 1-.707-.293L8.586 6zM12 9.5a1 1 0 0 1 1 1v2.586l.293-.293a1 1 0 0 1 1.414 1.414l-2 2a1 1 0 0 1-1.414 0l-2-2a1 1 0 1 1 1.414-1.414l.293.293V10.5a1 1 0 0 1 1-1z"
+                            fill="#3c50e0"
+                          />
                         </svg>
-                      </button>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <></>
-              )}
-            </tbody>
-          </table>
-        </div>
-        <nav
-          className="flex flex-col items-start justify-between space-y-3 p-4 md:flex-row md:items-center md:space-y-0"
-          aria-label="Table navigation"
-        >
-          <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">
-            Showing
-            <span className="text-gray-900 font-medium dark:text-white">
-              {' '.concat((projects.meta ? projects.meta.from : 0), ' ')} - {' '.concat((projects.meta ? projects.meta.to : 0), ' ')}
+                      </td>
+                      <td className="px-4 py-3">
+                        <button
+                          className="hover:text-primary"
+                          onClick={async () => {
+                            await http
+                              .delete(
+                                'api/project/delete/'.concat(
+                                  encodeURIComponent(project.id)
+                                )
+                              )
+                              .then((response) => {
+                                console.log(
+                                  'responseprojectidi',
+                                  response.data
+                                );
+                                setTimeout(() => {
+                                  setDeleteAlert(true);
+                                }, 1000);
+                                viewProjects();
+                              });
+                          }}
+                        >
+                          {/* <svg
+                            width={28}
+                            height={28}
+                            viewBox="0 0 48 48"
+                            xmlns="http://www.w3.org/2000/svg"
+                            enableBackground="new 0 0 48 48"
+                          >
+                            <circle fill="#B81620" cx={24} cy={24} r={21} />
+                            <g fill="#ffffff">
+                              <rect x={14} y={21} width={20} height={6} />
+                            </g>
+                          </svg> */}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width={20}
+                            height={20}
+                            viewBox="0 0 24 24"
+                            enableBackground= "new 0 0 512 512"
+                            xmlSpace="preserve"
+                          >
+                            <circle
+                              cx={5.5}
+                              cy={12}
+                              r={1.5}
+                              data-original="#000000"
+                            />
+                            <circle
+                              cx={12}
+                              cy={12}
+                              r={1.5}
+                              data-original="#000000"
+                            />
+                            <circle
+                              cx={18.5}
+                              cy={12}
+                              r={1.5}
+                              data-original="#000000"
+                            />
+                          </svg>
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <></>
+                )}
+              </tbody>
+            </table>
+          </div>
+          <nav
+            className="flex flex-col items-start justify-between space-y-3 p-4 md:flex-row md:items-center md:space-y-0"
+            aria-label="Table navigation"
+          >
+            <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">
+              Showing
+              <span className="text-gray-900 font-medium dark:text-white">
+                {' '.concat(projects.meta ? projects.meta.from : 0, ' ')} -{' '}
+                {' '.concat(projects.meta ? projects.meta.to : 0, ' ')}
+              </span>
+              of
+              <span className="text-gray-900 font-medium dark:text-white">
+                {' '.concat(projects.meta ? projects.meta.total : 0, ' ')}
+              </span>
             </span>
-            of
-            <span className="text-gray-900 font-medium dark:text-white">
-              {' '.concat((projects.meta ? projects.meta.total : 0), ' ')}
-            </span>
-          </span>
 
-          <ul className="inline-flex items-stretch  -space-x-px dark:border-strokedark dark:bg-boxdark">
-            {projects ? (
-              projects.meta ? (
-                projects.meta.links.length > 3 && (
-                  <>
-                    {projects.meta.links.map((link, key) =>
-                      link.label === '&laquo; Previous' ? (
-                        <li key={key}>
-                          <a
-                            onClick={async () => {
-                              if (projects.links.prev != null) {
-                                const response = await http.get(
-                                  projects.links.prev
-                                );
-                                setProjects(response.data.projects);
-                              } else {
-                                console.log('no more pages');
-                              }
-                            }}
-                            key={key}
-                            className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 ml-0 flex h-full cursor-pointer items-center justify-center rounded-l-lg border py-1.5 px-3 dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
-                          >
-                            <span className="sr-only dark:border-strokedark  dark:bg-boxdark">
-                              Previous
-                            </span>
-                            <svg
-                              className="h-5 w-5"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
+            <ul className="inline-flex items-stretch  -space-x-px dark:border-strokedark dark:bg-boxdark">
+              {projects ? (
+                projects.meta ? (
+                  projects.meta.links.length > 3 && (
+                    <>
+                      {projects.meta.links.map((link, key) =>
+                        link.label === '&laquo; Previous' ? (
+                          <li key={key}>
+                            <a
+                              onClick={async () => {
+                                if (projects.links.prev != null) {
+                                  const response = await http.get(
+                                    projects.links.prev
+                                  );
+                                  setProjects(response.data.projects);
+                                } else {
+                                  console.log('no more pages');
+                                }
+                              }}
+                              key={key}
+                              className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 ml-0 flex h-full cursor-pointer items-center justify-center rounded-l-lg border py-1.5 px-3 dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </a>
-                        </li>
-                      ) : link.label === 'Next &raquo;' ? (
-                        <li key={key}>
-                          <a
-                            onClick={async () => {
-                              if (projects.links.next != null) {
-                                const response = await http.get(
-                                  projects.links.next
-                                );
-                                setProjects(response.data.projects);
-                              } else {
-                                console.log('no more pages');
-                              }
-                            }}
-                            key={key}
-                            className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 flex  h-full cursor-pointer items-center justify-center rounded-r-lg border py-1.5 px-3 leading-tight dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
-                          >
-                            <span className="sr-only">Next</span>
-                            <svg
-                              className="h-5 w-5"
-                              aria-hidden="true"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
+                              <span className="sr-only dark:border-strokedark  dark:bg-boxdark">
+                                Previous
+                              </span>
+                              <svg
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </a>
+                          </li>
+                        ) : link.label === 'Next &raquo;' ? (
+                          <li key={key}>
+                            <a
+                              onClick={async () => {
+                                if (projects.links.next != null) {
+                                  const response = await http.get(
+                                    projects.links.next
+                                  );
+                                  setProjects(response.data.projects);
+                                } else {
+                                  console.log('no more pages');
+                                }
+                              }}
+                              key={key}
+                              className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 flex  h-full cursor-pointer items-center justify-center rounded-r-lg border py-1.5 px-3 leading-tight dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          </a>
-                        </li>
-                      ) : (
-                        <li key={key}>
-                          <a
-                            onClick={async () => {
-                              const response = await http.get(link.url);
-                              setProjects(response.data.projects);
-                            }}
-                            key={key}
-                            className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 flex cursor-pointer items-center justify-center border py-2 px-3 text-sm leading-tight dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
-                          >
-                            {link.label}
-                          </a>
-                        </li>
-                      )
-                    )}
-                  </>
+                              <span className="sr-only">Next</span>
+                              <svg
+                                className="h-5 w-5"
+                                aria-hidden="true"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                            </a>
+                          </li>
+                        ) : (
+                          <li key={key}>
+                            <a
+                              onClick={async () => {
+                                const response = await http.get(link.url);
+                                console.log("rbvru",response)
+                                setProjects(response.data.projects);
+                              }}
+                              key={key}
+                              className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 flex cursor-pointer items-center justify-center border py-2 px-3 text-sm leading-tight dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
+                            >
+                              {link.label}
+                            </a>
+                          </li>
+                        )
+                      )}
+                    </>
+                  )
+                ) : (
+                  <></>
                 )
               ) : (
                 <></>
-              )
-            ) : (
-              <></>
-            )}
-            <> </>
-          </ul>
-        </nav>
-      </>)}
+              )}
+              <> </>
+            </ul>
+          </nav>
+        </>
+      )}
     </div>
   );
 };

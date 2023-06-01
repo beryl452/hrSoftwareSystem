@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -44,51 +46,52 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function person()
+
+    public function person():BelongsTo
     {
         return $this->belongsTo(Person::class);
     }
 
-    public function role()
+    public function role():BelongsTo
     {
         return $this->belongsTo(Role::class);
     }
 
-    public function loginHistory()
+    public function loginHistory():HasMany
     {
         return $this->hasMany(LoginHistory::class);
     }
 
-    public function projects()
+    public function projects():HasMany
     {
         return $this->hasMany(Project::class);
     }
 
-    public function transferTo()
+    public function transferTo():HasMany
     {
         return $this->hasMany(Transfer::class);
     }
-    public function transferFrom()
+    public function transferFrom():HasMany
     {
         return $this->hasMany(Transfer::class);
     }
-    public function assigne()
+    public function assigne():HasMany
     {
         return $this->hasMany(Task::class);
     }
-    public function taskCreatedBy()
+    public function taskCreatedBy():HasMany
     {
         return $this->hasMany(Task::class);
     }
-    public function taskUpdatedBy()
+    public function taskUpdatedBy():HasMany
     {
         return $this->hasMany(Task::class);
     }
-    public function projectCreatedBy()
+    public function projectCreatedBy():HasMany
     {
         return $this->hasMany(Project::class);
     }
-    public function projectUpdatedBy()
+    public function projectUpdatedBy():HasMany
     {
         return $this->hasMany(Project::class);
     }
