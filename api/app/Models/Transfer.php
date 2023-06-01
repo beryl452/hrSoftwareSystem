@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Transfer extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'reason',
+        'approuve',
+        'user_from',
+        'user_to',
+        'task_id',
+    ];
 
     public function from()
     {

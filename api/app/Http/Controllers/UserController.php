@@ -115,7 +115,10 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return response(json_encode([
+            'message' => 'User deleted'
+        ]), 200);
     }
     public function login(Request $request)
     {

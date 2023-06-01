@@ -6,6 +6,7 @@ use App\Http\Controllers\RessourceController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TransferController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContractController;
 use App\Http\Resources\Agent\AgentCollection;
@@ -91,9 +92,14 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->as('task.')
         ->group(static function () {
             Route::post('/create', TaskController::class . '@store')->name('store');
+            // Validate task create by another person than Task manager
+            Route::put('/validate/{task}', [TaskController::class, 'validation'])->name('validation');
             Route::put('/receipt/{task}', [TaskController::class, 'receipt'])->name('receipt');
             Route::get('/tasks/{project}/', [TaskController::class, 'index'])->name('index');
             Route::get('/tasks/{project}/{search}', [TaskController::class, 'index'])->name('searchTasks');
+            //Validate task submit by collaborator
+            Route::put('/validated/{task}', [TaskController::class, 'validated'])->name('validated');
+            Route::put('/submit/{task}', [TaskController::class, 'submit'])->name('submit');
         });
 
     Route::prefix('agent')
@@ -147,7 +153,7 @@ Route::middleware('auth:sanctum')->group(static function () {
                 Route::get('/transfer', [TransferController::class, 'index'])->name('index');
                 Route::get('/allTransfers/{search}', [TransferController::class, 'allTransfers'])->name('filterTransfers');
                 Route::post('/create', TransferController::class . '@store')->name('store');
-                Route::put('/validate/{transfer}', [TransferController::class, 'validate'])->name('validate');
+                Route::put('/approuve/{transfer}', [TransferController::class, 'approuve'])->name('approuve');
                 Route::delete('/delete/{transfer}', [TransferController::class, 'destroy'])->name('delete');
             });
 

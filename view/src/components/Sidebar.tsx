@@ -234,15 +234,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           xmlnsXlink="http://www.w3.org/1999/xlink"
-                          xmlns:svgjs="http://svgjs.com/svgjs"
                           width={20}
                           height={20}
                           x={0}
                           y={0}
                           viewBox="0 0 508.04 508.04"
-                          style={{
-                            enableBackground: 'new 0 0 512 512',
-                          }}
+                          enableBackground="new 0 0 512 512"
                           xmlSpace="preserve"
                           className=""
                         >
@@ -1677,7 +1674,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </h3>
 
             <ul className="mb-6 flex flex-col gap-1.5">
-
               {/* <!-- Menu Item Auth Pages --> */}
               <SidebarLinkGroup
                 activeCondition={

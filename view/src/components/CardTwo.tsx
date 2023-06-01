@@ -1,74 +1,57 @@
-import { Props } from "react-apexcharts";
+import { Props } from 'react-apexcharts';
 
-const CardTwo = ({ toDo, doing, done, awaitingValidation ,name}: Props) => {
+const CardTwo = ({ toDo, doing, done, awaitingValidation, name }: Props,) => {
   return (
     <>
-    <div 
-    onClick={() => {
-       if (toDo) {
-        console.log('toDo');
-      } else if (doing) {
-        console.log('doing');
-      } else if (done) {
-        console.log('done');
-      } else {
-        console.log('awaitingValidation');
-      }
-    }}
-    className="rounded-sm cursor-pointer border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:rounded-lg">
-      <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
-      <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={512}
-    height={512}
-    viewBox="0 0 512 512"
-    // style={{
-    //   enableBackground: "new 0 0 512 512",
-    // }}
-    xmlSpace="preserve"
-  >
-    <linearGradient
-      id="a"
-      x1={134.56}
-      x2={526.449}
-      y1={451.792}
-      y2={59.903}
-      gradientUnits="userSpaceOnUse"
-    >
-      <stop stopColor="#3c50e0" offset={0} />
-      <stop stopColor="#3c50e0" offset={1} />
-    </linearGradient>
-    <path
-      fill="url(#a)"
-      d="M423.906 145.074h60.222c15.369 0 27.872-12.503 27.872-27.872V56.98c0-15.369-12.503-27.873-27.872-27.873h-60.222c-15.369 0-27.873 12.503-27.873 27.873v22.111h-54.321a8 8 0 0 0-8 8V247.66l-36.579-.132v-10.834a8 8 0 0 0-6.735-7.899l-35.88-5.743a110.211 110.211 0 0 0-7.956-19.187l21.315-29.439a8 8 0 0 0-.823-10.348l-26.871-26.87a8 8 0 0 0-10.348-.823l-29.438 21.314a110.216 110.216 0 0 0-19.188-7.958l-5.743-35.877a8 8 0 0 0-7.899-6.735h-38.001a8 8 0 0 0-7.899 6.735l-5.743 35.877a110.18 110.18 0 0 0-19.188 7.957l-29.438-21.313a7.998 7.998 0 0 0-10.348.823l-26.871 26.87a8 8 0 0 0-.823 10.348l21.314 29.439a110.18 110.18 0 0 0-7.956 19.187l-35.879 5.743A8 8 0 0 0 0 236.694v38.001a8 8 0 0 0 6.736 7.899l35.879 5.743a110.215 110.215 0 0 0 7.956 19.186l-21.314 29.439a8 8 0 0 0 .823 10.348l26.871 26.871a8 8 0 0 0 10.348.823l29.438-21.314a110.216 110.216 0 0 0 19.188 7.958l5.743 35.877a8 8 0 0 0 7.899 6.735h38.001a8 8 0 0 0 7.899-6.736l5.743-35.879a110.215 110.215 0 0 0 19.186-7.956l29.439 21.315a8 8 0 0 0 10.348-.823l26.871-26.871a8 8 0 0 0 .823-10.348l-21.314-29.438a110.17 110.17 0 0 0 7.958-19.188l35.877-5.743a8 8 0 0 0 6.735-7.899v-11.167l36.579.132v161.249a8 8 0 0 0 8 8h54.321v22.111c0 15.369 12.503 27.873 27.873 27.873h60.222c15.369 0 27.872-12.503 27.872-27.873v-60.222c0-15.369-12.503-27.872-27.872-27.872h-60.222c-15.369 0-27.873 12.503-27.873 27.872v22.111h-46.321v-153.19l46.321.167v22.226c0 15.369 12.503 27.873 27.873 27.873h60.222c15.369 0 27.872-12.503 27.872-27.873v-60.222c0-15.369-12.503-27.873-27.872-27.873h-60.222c-15.369 0-27.873 12.503-27.873 27.873v21.996l-46.321-.167V95.091h46.321v22.111c0 15.369 12.504 27.872 27.873 27.872zM412.033 56.98c0-6.546 5.326-11.873 11.873-11.873h60.222c6.546 0 11.872 5.326 11.872 11.873v60.222c0 6.546-5.326 11.872-11.872 11.872h-60.222c-6.546 0-11.873-5.326-11.873-11.872zm-130.9 210.894-34.189 5.473a8 8 0 0 0-6.486 5.918 94.188 94.188 0 0 1-10.255 24.728 8 8 0 0 0 .401 8.772l20.313 28.056-17.224 17.224-28.057-20.314a7.997 7.997 0 0 0-8.772-.401 94.274 94.274 0 0 1-24.729 10.254 8.002 8.002 0 0 0-5.917 6.486l-5.473 34.19h-24.358l-5.473-34.189a8 8 0 0 0-5.917-6.486 94.248 94.248 0 0 1-24.729-10.255 7.999 7.999 0 0 0-8.772.401L63.44 358.045l-17.224-17.224 20.313-28.057a8 8 0 0 0 .401-8.772 94.237 94.237 0 0 1-10.253-24.729 8 8 0 0 0-6.486-5.917L16 267.874v-24.358l34.191-5.473a8 8 0 0 0 6.486-5.917 94.226 94.226 0 0 1 10.253-24.729 8 8 0 0 0-.401-8.772l-20.313-28.057 17.224-17.224 28.055 20.313a8 8 0 0 0 8.772.401 94.203 94.203 0 0 1 24.729-10.254 8 8 0 0 0 5.918-6.486l5.473-34.189h24.358l5.473 34.189a8 8 0 0 0 5.917 6.486 94.248 94.248 0 0 1 24.729 10.255 7.999 7.999 0 0 0 8.772-.401l28.056-20.313 17.224 17.224-20.314 28.057a8 8 0 0 0-.401 8.772 94.268 94.268 0 0 1 10.254 24.729 8 8 0 0 0 6.486 5.917l34.191 5.473v24.357zm130.9 126.924c0-6.546 5.326-11.872 11.873-11.872h60.222c6.546 0 11.872 5.326 11.872 11.872v60.222c0 6.546-5.326 11.873-11.872 11.873h-60.222c-6.546 0-11.873-5.326-11.873-11.873zm0-168.909c0-6.546 5.326-11.873 11.873-11.873h60.222c6.546 0 11.872 5.326 11.872 11.873v60.222c0 6.546-5.326 11.873-11.872 11.873h-60.222c-6.546 0-11.873-5.326-11.873-11.873zm-263.467-34.343c-35.372 0-64.148 28.777-64.148 64.148s28.777 64.148 64.148 64.148 64.148-28.777 64.148-64.148-28.776-64.148-64.148-64.148zm0 112.297c-26.549 0-48.148-21.599-48.148-48.148s21.599-48.148 48.148-48.148 48.148 21.599 48.148 48.148-21.598 48.148-48.148 48.148z"
-      data-original="url(#a)"
-    />
-  </svg>
-      </div>
-
-      <div className="mt-4 flex items-end justify-between">
-        <div>
-          <h4 className="text-title-md font-bold text-black dark:text-white">
-            {toDo?toDo : '00'}{' '}
-          </h4>
-          <span className="text-sm font-medium">
-            {(name == 'toDo')
-              ? 'To Do'
-              : (name == 'doing')
-              ? 'Doing'
-              : (name == 'done')
-              ? 'Fait'
-              : (name =='awaitingValidation')
-              ? 'En attente de validation'
-              : '***'}
-          </span>
+      <div
+        onClick={() => {
+          if (toDo) {
+            console.log('toDo');
+          } else if (doing) {
+            console.log('doing');
+          } else if (done) {
+            console.log('done');
+          } else {
+            console.log('awaitingValidation');
+          }
+        }}
+        className="cursor-pointer rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:rounded-lg"
+      >
+        <div className="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
+          <svg
+            width={20}
+            height={20}
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"
+            className="icon"
+          >
+            <path d="M280 752h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v464c0 4.4 3.6 8 8 8zm192-280h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v184c0 4.4 3.6 8 8 8zm192 72h80c4.4 0 8-3.6 8-8V280c0-4.4-3.6-8-8-8h-80c-4.4 0-8 3.6-8 8v256c0 4.4 3.6 8 8 8zm216-432H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" />
+          </svg>
         </div>
 
-        {/* <span className="flex items-center gap-1 text-sm font-medium text-meta-3">
+        <div className="mt-4 flex items-end justify-between">
+          <div>
+            <h4 className="text-title-md font-bold text-black dark:text-white">
+              {toDo ? toDo : '00'}{' '}
+            </h4>
+            <span className="text-sm font-medium">
+              {name == 'toDo'
+                ? 'To Do'
+                : name == 'doing'
+                ? 'Doing'
+                : name == 'done'
+                ? 'Fait'
+                : name == 'awaitingValidation'
+                ? 'En attente de validation'
+                : '***'}
+            </span>
+          </div>
+
+          {/* <span className="flex items-center gap-1 text-sm font-medium text-meta-3">
           ****
         </span> */}
+        </div>
       </div>
-    </div>
     </>
   );
 };
