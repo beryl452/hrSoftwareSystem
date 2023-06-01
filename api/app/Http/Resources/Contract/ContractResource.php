@@ -3,6 +3,8 @@
 namespace App\Http\Resources\Contract;
 
 use App\Http\Resources\Department\DepartmentResource;
+use App\Http\Resources\Agent\AgentResource;
+use App\Models\Agent;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,7 +23,15 @@ class ContractResource extends JsonResource
             'end_date' => $this->end_date,
             'baseSalary' => $this->baseSalary,
             'status' => $this->status,
-            'department' => DepartmentResource::collection($this->whenLoaded('department')),
+            'department' => $this->whenLoaded('department'),
+            'agent' =>   Agent::query()
+                            ->with([
+                                'person',
+                                'contracts',
+                                ])
+                            ->where('id', $this->whenLoaded('agent')->id)
+                            ->get()
+                                    ,
         ];
     }
 }

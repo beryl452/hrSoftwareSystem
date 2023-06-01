@@ -4,16 +4,62 @@ namespace App\Http\Controllers;
 
 use App\Models\Contract;
 use Illuminate\Http\Request;
+use App\Http\Resources\Contract\ContractCollection as ContractCollectionResponse;
 
 class ContractController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return Contract::query()
+            ->with([
+                'agent',
+                'department',
+            ])
+            ->where('agent_id', $request->user()->agent_id)
+            ->get();
     }
+
+
+    public function allContracts(Request $request)
+    {
+        if ($request->has('search')) {
+            return new ContractCollectionResponse(
+                Contract::query()
+                    ->with([
+                        'agent',
+                        'department',
+                        'agent',
+                    ])
+                    ->where('code', 'like', '%' . $request->search . '%')
+                    ->orWhereHas('contract', function ($query) use ($request) {
+                        $query->where('baseSalary', 'like', '%' . $request->search . '%')
+                            ->orWhere('start_date', 'like', '%' . $request->search . '%')
+                            ->orWhere('end_date', 'like', '%' . $request->search . '%')
+                            ->orWhere('function', 'like', '%' . $request->search . '%')
+                            ->orWhere('status', 'like', '%' . $request->search . '%');
+                    })
+                    ->paginate(5)
+            );
+        } else {
+            return new ContractCollectionResponse(
+                Contract::query()
+                    ->with([
+                        'agent',
+                        'department',
+                        'agent',
+                    ])
+                    ->paginate(5)
+            );
+        }
+    }
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +74,27 @@ class ContractController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'agent_id' => 'required',
+            'department_id' => 'required',
+            'code' => 'required',
+            'baseSalary' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'function' => 'required',
+            'status' => 'required',
+        ]);
+        $contract = Contract::create([
+            'agent_id' => $fields['agent_id'],
+            'department_id' => $fields['department_id'],
+            'code' => $fields['code'],
+            'baseSalary' => $fields['baseSalary'],
+            'start_date' => $fields['start_date'],
+            'end_date' => $fields['end_date'],
+            'function' => $fields['function'],
+            'status' => $fields['status'],
+        ]);
+        return response(json_encode($contract), 200);
     }
 
     /**
@@ -52,7 +118,27 @@ class ContractController extends Controller
      */
     public function update(Request $request, Contract $contract)
     {
-        //
+        $fields = $request->validate([
+            'agent_id' => 'required',
+            'department_id' => 'required',
+            'code' => 'required',
+            'baseSalary' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'function' => 'required',
+            'status' => 'required',
+        ]);
+        $contract->update([
+            'agent_id' => $fields['agent_id'],
+            'department_id' => $fields['department_id'],
+            'code' => $fields['code'],
+            'baseSalary' => $fields['baseSalary'],
+            'start_date' => $fields['start_date'],
+            'end_date' => $fields['end_date'],
+            'function' => $fields['function'],
+            'status' => $fields['status'],
+        ]);
+        return response(json_encode($contract), 200);
     }
 
     /**
@@ -60,6 +146,7 @@ class ContractController extends Controller
      */
     public function destroy(Contract $contract)
     {
-        //
+        $contract->delete();
+        return response(json_encode($contract), 200);
     }
 }

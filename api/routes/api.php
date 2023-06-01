@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContractController;
 use App\Http\Resources\Agent\AgentCollection;
 use App\Http\Resources\Person\PersonCollection;
 use App\Http\Resources\Ressource\RessourceCollection;
@@ -102,6 +103,20 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::put('/update/{agent}', [AgentController::class, 'update'])->name('update');
             Route::delete('/delete/{agent}', [AgentController::class, 'destroy'])->name('delete');
         });
+
+    Route::prefix('contract')
+        ->as('contract.')
+        ->group(static function () {
+            Route::get('/contract', [ContractControler::class, 'index'])->name('index');
+            Route::get('/allContracts', [ContractController::class, 'allContracts'])->name('allContracts');
+            Route::get('/allContracts/{search}', [ContractController::class, 'allContracts'])->name('filterContracts');
+            Route::post('/create', ContractController::class . '@store')->name('store');
+            Route::put('/update/{contract}', [ContractController::class, 'update'])->name('update');
+            Route::delete('/delete/{contract}', [ContractController::class, 'destroy'])->name('delete');
+
+        });
+
+
         Route::prefix('person')
         ->as('person.')
         ->group(static function () {

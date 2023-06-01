@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
+import TableContract from './TableContract';
 
 const TableOne = ({}) => {
   const navigate = useNavigate();
@@ -358,6 +359,7 @@ const TableOne = ({}) => {
           </nav>
         </>
       )}
+    <TableContract/>  
     </div>
   );
 };
