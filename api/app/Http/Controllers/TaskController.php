@@ -246,18 +246,28 @@ class TaskController extends Controller
     /**
      * Submit task
      */
-    public function submit(Request $request, Task $task)
+    public function submit(Request $request)
     {
-        $fields = $request->validate([
+        if ($request->user()->id != Task::find($request['task_id'])->assigned_to) {
+            return response(json_encode(['error' => 'You are not assigned to this task']), 403);
+        }
+            $fields = $request->validate([
             'folder' => 'required|mimes:zip,rar',
         ]);
 
+        $task = Task::find($request['task_id']);
+
+        if ($task->folder != null) {
+            Storage::delete($task->folder);
+        }
+
         $path = Storage::putFile('taskRessource', $request->file('folder'));
 
-        $task->update([
-            'folder' => $path,
-            'end_date' => now(),
-            'status' => 'awaitingValidation',
-        ]);
+        $task->folder = $path;
+        $task->status = 'awaitingValidation';
+        $task->end_date = now();
+        $task->save();
+
+        return response(json_encode($task), 200);
     }
 }

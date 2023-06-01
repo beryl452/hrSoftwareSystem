@@ -99,7 +99,7 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::get('/tasks/{project}/{search}', [TaskController::class, 'index'])->name('searchTasks');
             //Validate task submit by collaborator
             Route::put('/validated/{task}', [TaskController::class, 'validated'])->name('validated');
-            Route::put('/submit/{task}', [TaskController::class, 'submit'])->name('submit');
+            Route::post('/submit', [TaskController::class, 'submit'])->name('submit');
         });
 
     Route::prefix('agent')
