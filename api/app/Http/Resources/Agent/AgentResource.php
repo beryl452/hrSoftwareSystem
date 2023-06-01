@@ -23,7 +23,6 @@ class AgentResource extends JsonResource
                 ->with([
                     'department',
                 ])
-                ->where('id', $this->contract_id)
                 ->where('status', true)
                 ->first(),
         ];

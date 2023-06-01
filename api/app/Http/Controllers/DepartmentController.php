@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Responses\Department\DepartmentCollectionResponse;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
@@ -12,7 +13,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        return new DepartmentCollectionResponse(
+            Department::all()
+        );
     }
 
     /**

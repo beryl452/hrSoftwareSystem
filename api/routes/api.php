@@ -9,6 +9,8 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TransferController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContractController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\AbsenceController;
 use App\Http\Resources\Agent\AgentCollection;
 use App\Http\Resources\Person\PersonCollection;
 use App\Http\Resources\Ressource\RessourceCollection;
@@ -41,10 +43,15 @@ Route::middleware('auth:sanctum')->group(static function () {
         ];
     });
     Route::prefix('people')
-            ->as('people.')
-            ->group(static function() {
-                Route::get('/', [PersonController::class, 'index'])->name('index');
-            });
+        ->as('people.')
+        ->group(static function () {
+            Route::get('/', [PersonController::class, 'index'])->name('index');
+        });
+    Route::prefix('department')
+        ->as('department.')
+        ->group(static function () {
+            Route::get('/', [DepartmentController::class, 'index'])->name('index');
+        });
     Route::prefix('users')
         ->as('users.')
         ->group(static function () {
@@ -54,7 +61,6 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::get('/users/{user}/', UserController::class . '@index')->name('filterUsers');
             Route::get('/board', [UserController::class, 'board'])->name('board');
             Route::get('/collaborators', [UserController::class, 'collaborators'])->name('collaborators');
-
         });
 
     Route::prefix('role')
@@ -116,17 +122,24 @@ Route::middleware('auth:sanctum')->group(static function () {
     Route::prefix('contract')
         ->as('contract.')
         ->group(static function () {
-            Route::get('/contract', [ContractControler::class, 'index'])->name('index');
+            // Route::get('/contract', [ContractControler::class, 'index'])->name('index');
             Route::get('/allContracts', [ContractController::class, 'allContracts'])->name('allContracts');
+            Route::get('/contract/{agent}/', [ContractController::class, 'index'])->name('index');
             Route::get('/allContracts/{search}', [ContractController::class, 'allContracts'])->name('filterContracts');
             Route::post('/create', ContractController::class . '@store')->name('store');
             Route::put('/update/{contract}', [ContractController::class, 'update'])->name('update');
             Route::delete('/delete/{contract}', [ContractController::class, 'destroy'])->name('delete');
+        });
 
+        Route::prefix('absence')
+        ->as('absence.')
+        ->group(static function () {
+            Route::post('/create', AbsenceController::class . '@store')->name('store');
         });
 
 
-        Route::prefix('person')
+
+    Route::prefix('person')
         ->as('person.')
         ->group(static function () {
             Route::get('/person', [PersonController::class, 'index'])->name('index');
@@ -136,7 +149,7 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::put('/update/{person}', [PersonController::class, 'update'])->name('update');
             Route::delete('/delete/{person}', [PersonController::class, 'destroy'])->name('delete');
         });
-        Route::prefix('role')
+    Route::prefix('role')
         ->as('role.')
         ->group(static function () {
             Route::get('/role', [RoleController::class, 'index'])->name('index');
@@ -147,15 +160,15 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::delete('/delete/{role}', [RoleController::class, 'destroy'])->name('delete');
         });
 
-        Route::prefix('transfer')
-            ->as('transfer.')
-            ->group(static function () {
-                Route::get('/transfer', [TransferController::class, 'index'])->name('index');
-                Route::get('/allTransfers/{search}', [TransferController::class, 'allTransfers'])->name('filterTransfers');
-                Route::post('/create', TransferController::class . '@store')->name('store');
-                Route::put('/approuve/{transfer}', [TransferController::class, 'approuve'])->name('approuve');
-                Route::delete('/delete/{transfer}', [TransferController::class, 'destroy'])->name('delete');
-            });
+    Route::prefix('transfer')
+        ->as('transfer.')
+        ->group(static function () {
+            Route::get('/transfer', [TransferController::class, 'index'])->name('index');
+            Route::get('/allTransfers/{search}', [TransferController::class, 'allTransfers'])->name('filterTransfers');
+            Route::post('/create', TransferController::class . '@store')->name('store');
+            Route::put('/approuve/{transfer}', [TransferController::class, 'approuve'])->name('approuve');
+            Route::delete('/delete/{transfer}', [TransferController::class, 'destroy'])->name('delete');
+        });
 
     Route::post('/logout', [UserController::class, 'logout']);
 });
