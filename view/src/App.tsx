@@ -26,6 +26,11 @@ import CreateAgent from './components/CreateAgent';
 import CreateAgents from './pages/Form/CreateAgents';
 import EditAgents from './pages/Form/EditAgents';
 import EditUsers from './pages/Form/EditUsers';
+import Contracts from './pages/Dashboard/Contract';
+import CreateContract from './components/CreateContract';
+import CreateAbsence from './components/CreateAbsence';
+import CreateAbsences from './pages/Form/CreateAbsence';
+import CreateContracts from './pages/Form/CreateContracts';
 
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
@@ -112,17 +117,17 @@ function App() {
             </AuthProvider>
           }
         />
-         <Route
+        <Route
           path="/agentEdit"
           element={
             <AuthProvider>
               <ProtectedRoute>
-                <EditAgents/>
+                <EditAgents />
               </ProtectedRoute>
             </AuthProvider>
           }
         />
-         <Route
+        <Route
           path="/userEdit"
           element={
             <AuthProvider>
@@ -172,12 +177,42 @@ function App() {
             </AuthProvider>
           }
         />
-         <Route
+        <Route
+          path="/CreateContracts"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateContracts />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/CreateAbsences"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateAbsences />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
           path="/projects/:ProjectId/tasks"
           element={
             <AuthProvider>
               <ProtectedRoute>
                 <Tasks />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/agents/:AgentId/contracts"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Contracts />
               </ProtectedRoute>
             </AuthProvider>
           }

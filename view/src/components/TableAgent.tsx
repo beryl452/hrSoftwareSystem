@@ -164,6 +164,9 @@ const TableAgent = ({ }) => {
                   <tr
                     key={index}
                     className="dark:border-gray-700 border-b text-sm font-medium"
+                    onClick={()=>{
+                      navigate(`/agents/${agent.id}/contracts`, { state: { agent: agent } }, {replace: true})
+                    }}
                   >
                     <th
                       scope="row"

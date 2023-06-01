@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('libelle');
+            //[FR:] Pourcentage à prélever par minute de retard
+            //[EN:] Percentage to be deducted per minute of delay
+            $table->float('PercentPerMinuteOfDelayPresence');
+            $table->float('PercentPerDayOfDelayTask');
             $table->timestamps();
         });
     }

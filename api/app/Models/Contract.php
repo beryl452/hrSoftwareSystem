@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Contract extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'baseSalary',
+        'agent_id',
+        'start_date',
+        'end_date',
+        'department_id',
+        'function',
+        'status',
+    ];
 
     public function presences()
     {
