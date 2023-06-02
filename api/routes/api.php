@@ -135,6 +135,8 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->as('absence.')
         ->group(static function () {
             Route::post('/create', AbsenceController::class . '@store')->name('store');
+            Route::get('/allAbsences', [AbsenceController::class, 'allAbsences'])->name('allAbsences');
+            Route::put('/validate/{absence}', [AbsenceController::class, 'validation'])->name('validation');
         });
 
 

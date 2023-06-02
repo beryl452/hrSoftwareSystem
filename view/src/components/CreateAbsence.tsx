@@ -6,7 +6,7 @@ function CreateAbsence() {
     const [absence, setAbsence] = React.useState({
         start_dateRef: useRef<HTMLInputElement>(null),
         end_dateRef: useRef<HTMLInputElement>(null),
-        motifRef: useRef<HTMLInputElement>(null),
+        motifRef: useRef<HTMLTextAreaElement>(null),
     });
     const location = useLocation();
 
@@ -131,6 +131,7 @@ function CreateAbsence() {
                             rows={5}
                             placeholder="motif"
                             autoComplete="motif"
+                            ref={absence.motifRef}
                             required
                             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                         />

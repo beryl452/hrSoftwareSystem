@@ -22,6 +22,7 @@ import Rapport from './pages/Rapport/Rapport';
 import EditTask from './components/EditTask';
 import Roles from './pages/Dashboard/Roles';
 import Abilities from './pages/Dashboard/Abilities';
+
 import CreateAgent from './components/CreateAgent';
 import CreateAgents from './pages/Form/CreateAgents';
 import EditAgents from './pages/Form/EditAgents';
@@ -31,6 +32,7 @@ import CreateContract from './components/CreateContract';
 import CreateAbsence from './components/CreateAbsence';
 import CreateAbsences from './pages/Form/CreateAbsence';
 import CreateContracts from './pages/Form/CreateContracts';
+import AskAbsences from './pages/Dashboard/Absences';
 
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
@@ -143,6 +145,16 @@ function App() {
             <AuthProvider>
               <ProtectedRoute>
                 <Agents />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/AskAbsences"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <AskAbsences />
               </ProtectedRoute>
             </AuthProvider>
           }

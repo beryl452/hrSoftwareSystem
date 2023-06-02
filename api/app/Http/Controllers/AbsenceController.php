@@ -6,6 +6,7 @@ use App\Models\Absence;
 use App\Models\Agent;
 use App\Models\Contract;
 use App\Responses\Agent\AgentCollectionResponse;
+use App\Responses\Absence\AbsenceCollectionResponse;
 use Illuminate\Http\Request;
 
 class AbsenceController extends Controller
@@ -17,6 +18,56 @@ class AbsenceController extends Controller
     {
         //
     }
+
+    public function allAbsences(Request $request){
+        if($request->has('search')) {
+            return new AbsenceCollectionResponse(
+                Absence::query()
+                    ->with([
+                        'contract',
+                    ])
+                    ->where('motif', 'like', '%' . $request->search . '%')
+                    ->orWhereHas('contract', function ($query) use ($request) {
+                        $query->where('baseSalary', 'like', '%' . $request->search . '%')
+                            ->orWhere('start_date', 'like', '%' . $request->search . '%')
+                            ->orWhere('end_date', 'like', '%' . $request->search . '%')
+                            ->orWhere('function', 'like', '%' . $request->search . '%')
+                            ->orWhere('status', 'like', '%' . $request->search . '%');
+                    })
+                    ->paginate(5)
+            );
+        } else {
+            return new AbsenceCollectionResponse(
+                Absence::query()
+                    ->with([
+                        'contract',
+                    ])
+                    ->paginate(5)
+            );
+        }
+    }
+
+
+    public function validation(Request $request,Absence $absence){
+        $request->merge(['validate' => !$absence->validate]);
+
+        $fields = $request->validate([
+            'validate' => 'required|boolean',
+        ]);
+        $absence->update([
+            // Met dans 'status', le contraire de $absence->status
+            'validate' => $fields['validate'],
+        ]);
+            $absence->save();
+            return new AbsenceCollectionResponse(
+                Absence::query()
+                    ->with([
+                        'contract',
+                    ])
+                    ->paginate(5)
+            );
+    }
+
 
     /**
      * Show the form for creating a new resource.
