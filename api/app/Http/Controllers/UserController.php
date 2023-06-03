@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTransferObjects\LoginHistory\LoginHistoryDataObject;
+use App\Responses\Agent\AgentCollectionResponse;
 use App\Models\Role;
 use App\Models\User;
 use App\Responses\User\UserCollectionResponse;
@@ -136,7 +137,11 @@ class UserController extends Controller
             ], 401);
         }
         $abilities = Role::find($user->role->id)->ressources()->get(['name'])->pluck('name')->toArray();
-        // TOKEN expire in 1 day
+        // Parcourt les abilities et remplace les '.' par des '-' et enleve le "\n" à la fin
+        foreach ($abilities as $key => $ability) {
+            $abilities[$key] = str_replace('.', '-', $ability);
+            $abilities[$key] = str_replace("\n", '', $abilities[$key]);
+        }
         $token = $user->createToken(time(), $abilities, now()->addDay())->plainTextToken;
         $loginHistoryDto = new LoginHistoryDataObject(
             date: now(),
@@ -177,7 +182,6 @@ class UserController extends Controller
         else
         // ($request->user()->role->name === 'collaborator')
         {
-
         $department_id = (Agent::query()
             ->with([
                 'contracts' => function ($query) {

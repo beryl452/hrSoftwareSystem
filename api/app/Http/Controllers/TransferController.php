@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transfer;
+use App\Responses\Transfer\TransferCollectionResponse;
 use Illuminate\Http\Request;
 
 class TransferController extends Controller
@@ -12,7 +13,15 @@ class TransferController extends Controller
      */
     public function index()
     {
-        //
+        return new TransferCollectionResponse(
+            Transfer::query()
+                ->with([
+                    'from',
+                    'to',
+                    'task',
+                ])
+                ->paginate(5)
+        );
     }
 
     /**
@@ -32,6 +41,7 @@ class TransferController extends Controller
         // [$request->user()->id, Transfer::find($request['task_id'])->task->assigned_to]
         // ), 200);
         if ($request->user()->id == Transfer::find($request['task_id'])->task->assigned_to) {
+            $request->merge(['user_to' => Transfer::find((int)$request['task_id'])->task->assigned_to]);
             $request->merge(['user_from' => $request->user()->id]);
             $request->merge(['approuve' => false]);
             $fields = $request->validate([
@@ -50,7 +60,16 @@ class TransferController extends Controller
                 'task_id' => $fields['task_id'],
                 'user_from' => $fields['user_from']
             ]);
-            return response(json_encode($transfer), 200);
+            return new TransferCollectionResponse(
+                Transfer::query()
+                    ->with([
+                        'from',
+                        'to',
+                        'task',
+                    ])
+                    ->where('id', $transfer->id)
+                    ->get()
+                    );
         } else {
             return response(json_encode(['error' => 'You are not assigned to this task']), 403);
         }
@@ -79,25 +98,32 @@ class TransferController extends Controller
     {
         //
     }
-    public function approuve(Request $request, Transfer $transfer)
+    public function approuve(Transfer $transfer)
     {
-        // return response(json_encode($request->all()), 200);
-        $request->merge(['approuve' => ($request['approuve'] == 'true')]);
-        if ($request['approuve']) {
+        if (!$transfer->approuve) {
             $transfer->task->update([
                 'assigned_to' => $transfer->user_to,
             ]);
+            $transfer->update([
+                'approuve' => true,
+            ]);
+        } else {
+            $transfer->task->update([
+                'assigned_to' => $transfer->user_from,
+            ]);
+            $transfer->update([
+                'approuve' => false,
+            ]);
         }
-        $fields = $request->validate([
-            'approuve' => 'required|boolean',
-        ]);
-        $transfer->update($fields);
-        $this->destroy($transfer);
-
-        if ($request['approuve']) {
-            return response(json_encode(['message' => 'Transfer approuved']), 200);
-        }
-        return response(json_encode(['message' => 'Transfer rejected']), 200);
+        return new TransferCollectionResponse(
+            Transfer::query()
+                ->with([
+                    'from',
+                    'to',
+                    'task',
+                ])
+                ->paginate(5)
+        );
     }
     /**
      * Remove the specified resource from storage.
@@ -105,6 +131,13 @@ class TransferController extends Controller
     public function destroy(Transfer $transfer)
     {
         $transfer->delete();
-        return response(json_encode(['success' => 'Transfer deleted']), 200);
-    }
+        return new TransferCollectionResponse(
+            Transfer::query()
+                ->with([
+                    'from',
+                    'to',
+                    'task',
+                ])
+                ->paginate(5)
+        );    }
 }

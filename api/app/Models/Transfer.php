@@ -18,11 +18,11 @@ class Transfer extends Model
 
     public function from()
     {
-        return $this->belongsTo('user_from',User::class);
+        return $this->belongsTo(User::class,'user_from');
     }
     public function to()
     {
-        return $this->belongsTo('user_to',User::class);
+        return $this->belongsTo(User::class,'user_to');
     }
     public function task()
     {

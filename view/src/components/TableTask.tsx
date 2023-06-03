@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 // import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import DropdownTaskTable from './DropDownTaskTable';
 import FormSubmitTask from './FormSubmitTask';
@@ -9,6 +10,7 @@ type Props = {
   task: any;
 };
 const TableTask = (props: Props) => {
+  const navigate = useNavigate();
   // const location = useLocation();
   const [tasks, setTasks] = React.useState({
     data: [],
@@ -22,7 +24,8 @@ const TableTask = (props: Props) => {
     },
   });
   const [seeSubmitForm, setSeeSubmitForm] = React.useState(false);
-  
+  const [seeTransferForm, setSeeTransferForm] = React.useState(false);
+
   const [search, setSearch] = React.useState('');
   //   const [alert, setAlert] = React.useState(false);
   //   const [alertValidate, setAlertValidate] = React.useState(false);
@@ -30,15 +33,119 @@ const TableTask = (props: Props) => {
     baseURL: 'http://localhost:8000',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'multipart/form-data',
       Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('auth') || '{}').token,
     },
     withCredentials: true,
   });
+  const [formu, setFormu] = React.useState({
+    folder: "",
+  });
+  const [currentTask, setCurrentTask] = React.useState<Number>();
+
+  const [transferForm, setTransferForm] = React.useState({
+    reasonRef: useRef<HTMLTextAreaElement>(null),
+    userFrom: Number(JSON.parse(localStorage.getItem('auth') || '{}').user.id),
+    userToRef: useRef<HTMLSelectElement>(null),
+    taskId: "",
+  });
+  const [errors, setErrors] = React.useState({
+    folder: '',
+  });
+  const [collaborators, setCollaborators] = React.useState([]);
+  const [transferErrors, setTransferErrors] = React.useState({
+    reason: "",
+    userFrom: "",
+    userTo: "",
+    taskId: "",
+  });
+
+  const handleFileChange = (e: any) => {
+    const projectFolder = e.target.files[0];
+    console.log("e.target.files[0] =", e.target.files[0]);
+    if (projectFolder) {
+      // Vérifier si l'extention est égal à .zip ou .rar
+      if (["zip", "rar"].includes(projectFolder.name.split(".").pop())) {
+        setFormu({
+          ...formu,
+          folder: projectFolder,
+        });
+      } else {
+        setErrors({
+          ...errors,
+          folder: "Le dossier doit être un .zip ou .rar",
+        })
+      }
+    }
+  };
+  const handleSubmitTransfer = async (e: any) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('reason', transferForm.reasonRef.current?.value);
+    data.append('user_from', transferForm.userFrom);
+    data.append('user_to', transferForm.userToRef.current?.value);
+    data.append('task_id', currentTask);
+    console.log("transferForm =", {
+      reason: data.get('reason'),
+      userFrom: data.get('userFrom'),
+      userTo: data.get('userTo'),
+      taskId: data.get('taskId'),
+    });
+    http.post('api/transfer/create', data)
+        .then((response) => {
+          console.log("responseTransfer", response);
+          setSeeTransferForm(false);
+          // navigate(`/projects/${tasks.data[0].project_id.id}/tasks`)
+        })
+        .then((error) => {
+          console.log("errorTransfer", error);
+          // setTransferErrors({
+            // ...transferErrors,
+            // reason: error.response.data.errors.reason,
+            // userFrom: error.response.data.errors.userFrom,
+            // userTo: error.response.data.errors.userTo,
+            // taskId: error.response.data.errors.taskId,
+          // })
+        });
+  }
+  const getCollaborators = async () => {
+    http.get('api/users/collaborators')
+      .then((response) => {
+        console.log("responseCollaborators", response.data.users.data);
+        setCollaborators(response.data.users.data);
+      })
+      .catch((error) => {
+        console.log("errorCollaborators", error);
+      });
+  }
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('folder', formu.folder);
+    formData.append('task_id', currentTask);
+    console.log("formu.folder =", formData.get('task_id'));
+
+    // http.post(`api/task/submit`, formData)
+    //   .then((response) =>  {
+    //     console.log("responseSubmit", response);
+    //     setSeeSubmitForm(false);
+    //     navigate(`/projects/${tasks.data[0].project_id.id}/tasks`)
+    //   })
+    //   .catch((error) => {
+    //     console.log("errorSubmit", error);
+    //     setErrors({
+    //       ...errors,
+    //       folder: error.response.data.error,
+    //     })
+    //   }
+    //   );
+  }
   useEffect(() => {
-    console.log('tasks', props.task);
+    console.log('tasks', props.task.data);
     setTasks(props.task);
-  }, [props.task]);
+    getCollaborators();
+  }, [props.task.data]);
 
   return (
     <div className="relative overflow-hidden shadow-md dark:border-strokedark dark:bg-boxdark sm:rounded-lg">
@@ -194,9 +301,10 @@ const TableTask = (props: Props) => {
                     </td>
                     <td className="px-4 py-3">
                       <DropdownTaskTable>
-                        <button 
-                          onClick={()=>{
+                        <button
+                          onClick={() => {
                             setSeeSubmitForm(true);
+                            setCurrentTask(task.id);
                           }}
                           className="flex w-full items-center gap-2 rounded-sm py-1.5 px-4 text-left text-sm hover:bg-gray dark:hover:bg-meta-4">
                           <svg
@@ -227,6 +335,7 @@ const TableTask = (props: Props) => {
                               http.put('api/task/validate/'.concat(task.id))
                                 .then((response) => {
                                   // console.log("responseValidate", response);
+                                  setCurrentTask(task.id);
                                   setTasks(response.data.tasks);
                                 })
                               // .catch((error) => {
@@ -287,7 +396,8 @@ const TableTask = (props: Props) => {
                         </button>
                         {(<button
                           onClick={async () => {
-
+                            setSeeTransferForm(true);
+                            setCurrentTask(task.id);
                           }}
                           className="flex w-full items-center gap-2 rounded-sm py-1.5 px-4 text-left text-sm hover:bg-gray dark:hover:bg-meta-4">
                           <svg
@@ -316,6 +426,38 @@ const TableTask = (props: Props) => {
                             />
                           </svg>
                           Transfer
+                        </button>)}
+                        {(<button
+                          onClick={async () => {
+
+                          }}
+                          className="flex w-full items-center gap-2 rounded-sm py-1.5 px-4 text-left text-sm hover:bg-gray dark:hover:bg-meta-4">
+                          <svg
+                            className="fill-current"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M12.225 2.20005H10.3V1.77505C10.3 1.02505 9.70005 0.425049 8.95005 0.425049H7.02505C6.27505 0.425049 5.67505 1.02505 5.67505 1.77505V2.20005H3.75005C3.02505 2.20005 2.42505 2.80005 2.42505 3.52505V4.27505C2.42505 4.82505 2.75005 5.27505 3.22505 5.47505L3.62505 13.75C3.67505 14.775 4.52505 15.575 5.55005 15.575H10.4C11.425 15.575 12.275 14.775 12.325 13.75L12.75 5.45005C13.225 5.25005 13.55 4.77505 13.55 4.25005V3.50005C13.55 2.80005 12.95 2.20005 12.225 2.20005ZM6.82505 1.77505C6.82505 1.65005 6.92505 1.55005 7.05005 1.55005H8.97505C9.10005 1.55005 9.20005 1.65005 9.20005 1.77505V2.20005H6.85005V1.77505H6.82505ZM3.57505 3.52505C3.57505 3.42505 3.65005 3.32505 3.77505 3.32505H12.225C12.325 3.32505 12.425 3.40005 12.425 3.52505V4.27505C12.425 4.37505 12.35 4.47505 12.225 4.47505H3.77505C3.67505 4.47505 3.57505 4.40005 3.57505 4.27505V3.52505V3.52505ZM10.425 14.45H5.57505C5.15005 14.45 4.80005 14.125 4.77505 13.675L4.40005 5.57505H11.625L11.25 13.675C11.2 14.1 10.85 14.45 10.425 14.45Z"
+                              fill=""
+                            />
+                            <path
+                              d="M8.00005 8.1001C7.70005 8.1001 7.42505 8.3501 7.42505 8.6751V11.8501C7.42505 12.1501 7.67505 12.4251 8.00005 12.4251C8.30005 12.4251 8.57505 12.1751 8.57505 11.8501V8.6751C8.57505 8.3501 8.30005 8.1001 8.00005 8.1001Z"
+                              fill=""
+                            />
+                            <path
+                              d="M9.99994 8.60004C9.67494 8.57504 9.42494 8.80004 9.39994 9.12504L9.24994 11.325C9.22494 11.625 9.44994 11.9 9.77494 11.925C9.79994 11.925 9.79994 11.925 9.82494 11.925C10.1249 11.925 10.3749 11.7 10.3749 11.4L10.5249 9.20004C10.5249 8.87504 10.2999 8.62504 9.99994 8.60004Z"
+                              fill=""
+                            />
+                            <path
+                              d="M5.97497 8.60004C5.67497 8.62504 5.42497 8.90004 5.44997 9.20004L5.62497 11.4C5.64997 11.7 5.89997 11.925 6.17497 11.925C6.19997 11.925 6.19997 11.925 6.22497 11.925C6.52497 11.9 6.77497 11.625 6.74997 11.325L6.57497 9.12504C6.57497 8.80004 6.29997 8.57504 5.97497 8.60004Z"
+                              fill=""
+                            />
+                          </svg>
+                          Receipt
                         </button>)}
                       </DropdownTaskTable>
                     </td>
@@ -444,72 +586,149 @@ const TableTask = (props: Props) => {
         <FormSubmitTask seeSubmit={seeSubmitForm} setSeeSubmit={setSeeSubmitForm} children={
           (
             <>
-               <form
-              noValidate
-              // validated={validated.toString()}
-              method="post"
-              // onSubmit={handleSubmit}
-            >
-              <div className="grid ">
-              <div>
-                  <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                    Folder
-                  </p>
-                  <div className="flex items-center justify-center w-full">
-                    <label
-                      htmlFor="dropzone-file"
-                      className="flex flex-col items-center justify-center w-full h-10 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                    >
-                      <div className="flex flex-col items-center justify-center p-2.5">
-                        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                          {/* {formu.folder != "" ? (
-                            <span> {formu.folder.name} </span>
-                          ) : (
-                            <span className="font-semibold"> */}
-                              Click to upload
-                            {/* </span>
-                          )} */}
-                        </p>
-                      </div>
-                      <input
-                        id="dropzone-file"
-                        type="file"
-                        className="hidden"
-                        name="file[]"
-                        // onChange={handleFileChange}
-                      />
-                    </label>
-                  </div>
-                </div>
-                {/* {(errors.file || errors.folder) && (
-                  <p className="text-red-500 text-meta-1 text-xs italic">
-                    {errors.file || errors.folder}
-                  </p>
-                )} */}
-              {/* </div>   */}
-              </div>
-              <button
-                type="submit"
-                className="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              <form
+                noValidate
+                method="post"
+                onSubmit={handleSubmit}
               >
-                <svg
-                  className="mr-1 -ml-1 w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div className="grid  ">
+                  <div>
+                    <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                      Folder
+                    </p>
+                    <div className="flex items-center justify-center w-full">
+                      <label
+                        htmlFor="dropzone-file"
+                        className="flex flex-col items-center justify-center w-full h-10 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:text-gray-3 dark:bg-black hover:bg-gray-100 dark:border-gray-600"
+                      >
+                        <div className="flex flex-col items-center justify-center p-2.5">
+                          <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                            {formu.folder != "" ? (
+                              <span>
+                                {formu.folder.name}
+                              </span>
+                            ) : (
+                              <span>
+                                Click to upload (Folder must be .zip or .rar)
+                              </span>
+                            )}
+                          </p>
+                        </div>
+                        <input
+                          id="dropzone-file"
+                          type="file"
+                          className="hidden"
+                          name="file[]"
+                          onChange={handleFileChange}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  {(errors.folder) && (
+                    <p className="text-red-500 text-meta-1 text-xs italic">
+                      {errors.folder}
+                    </p>
+                  )}
+                  {/* </div>   */}
+                </div>
+                <button
+                  type="submit"
+                  className="flex items-center mt-6 w-60 justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                Add new task
-              </button>
-            </form>
+                  <svg
+                    className="mr-1 -ml-1 w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                  Submit my task
+                </button>
+              </form>
             </>
           )
-        } title = {"Submit Task"}/>
+        } title={"Submit Task"} />
+      )}
+      {seeTransferForm && (
+        // handleSubmitTransfer
+        <FormSubmitTask seeSubmit={seeTransferForm} setSeeSubmit={setSeeTransferForm} children={
+          (
+            <>
+              <form
+                noValidate
+                method="post"
+                onSubmit={handleSubmitTransfer}
+              >
+                <div>
+                  <label
+                    htmlFor="collaborator"
+                    className="mb-3 block text-black dark:text-white"
+                  >
+                    Collaborator
+                  </label>
+                  <select
+                    name="collaborator"
+                    id="collaborator"
+                    ref={transferForm.userToRef}
+                    required
+                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                  >
+                    <option value="">Select Person</option>
+                    {collaborators.map((collaborator) => (
+                      <option key={collaborator.id} value={collaborator.id}>
+                        {collaborator.person.firstname} - {collaborator.person.lastname} -{" "}
+                        {collaborator.id}
+                      </option>
+                    ))}
+                  </select>
+                  {/* {
+                    errors.person_id && (
+                      <p className="text-red-500 text-meta-1 text-sm mt-1 ml-1">
+                        {errors.person_id}
+                      </p>)
+                  } */}
+                </div>
+                <div>
+                  <label
+                    htmlFor="reason"
+                    className="mb-3 block text-black dark:text-white"
+                  >
+                    Reason
+                  </label>
+
+                  <textarea
+                    className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+                    name="reason"
+                    id="reason"
+                    ref={transferForm.reasonRef}
+                    rows={6}
+                    placeholder="Reason"
+                  ></textarea>
+                  {/* {
+                    errors.username && (
+                      <p className="text-red-500 text-meta-1 text-sm mt-1 ml-1">
+                        {errors.username}
+                      </p>)
+                  } */}
+                </div>
+                <button
+                  className="flex items-center mt-6 w-60 justify-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
+                  type="submit"
+                  onClick={(e: any) => {
+                    handleSubmitTransfer(e)                    // navigate('/agents');
+                  }}
+                >
+                  Transfer task
+                </button>
+              </form>
+
+            </>
+          )} title={"Transfer task"} />
       )}
     </div>
   );

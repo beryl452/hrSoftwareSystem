@@ -26,6 +26,8 @@ import CreateAgent from './components/CreateAgent';
 import CreateAgents from './pages/Form/CreateAgents';
 import EditAgents from './pages/Form/EditAgents';
 import EditUsers from './pages/Form/EditUsers';
+import TableTransfer from './components/TableTransfer';
+import Transfers from './pages/Dashboard/Transfers';
 
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
@@ -182,6 +184,17 @@ function App() {
             </AuthProvider>
           }
         />
+        <Route
+          path="/transfers"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <Transfers />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/profile" element={<Profile />} />

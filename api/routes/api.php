@@ -70,7 +70,8 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::delete('/{role}/{ressource}', [RoleController::class, 'deleteAbility'])->name('deleteAbility');
             Route::post('/addAbility', [RoleController::class, 'addAbility'])->name('addAbility');
             Route::get('createAbilities', [RessourceController::class, 'createAbilities'])->name('createAbilities');
-            Route::get('/', RessourceController::class . '@index')->name('index');
+            Route::get('/', RessourceController::class . '@index')->name('index')->middleware('ability:contract-delete');
+            Route::get('/myAbilities', [RessourceController::class, 'myAbilities'])->name('myAbilities');
         });
 
     Route::prefix('project')
@@ -110,7 +111,7 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::get('/allAgents/{search}', [AgentController::class, 'allAgents'])->name('filterAgents');
             Route::post('/create', AgentController::class . '@store')->name('store');
             Route::put('/update/{agent}', [AgentController::class, 'update'])->name('update');
-            Route::delete('/delete/{agent}', [AgentController::class, 'destroy'])->name('delete');
+            Route::delete('/delete/{agent}', [AgentController::class, 'destroy'])->name('delete')->middleware('abilities:deleteAgent');
         });
 
     Route::prefix('contract')
@@ -151,7 +152,7 @@ Route::middleware('auth:sanctum')->group(static function () {
             ->as('transfer.')
             ->group(static function () {
                 Route::get('/transfer', [TransferController::class, 'index'])->name('index');
-                Route::get('/allTransfers/{search}', [TransferController::class, 'allTransfers'])->name('filterTransfers');
+                Route::get('/transfer/{search}', [TransferController::class, 'index'])->name('filterTransfers');
                 Route::post('/create', TransferController::class . '@store')->name('store');
                 Route::put('/approuve/{transfer}', [TransferController::class, 'approuve'])->name('approuve');
                 Route::delete('/delete/{transfer}', [TransferController::class, 'destroy'])->name('delete');

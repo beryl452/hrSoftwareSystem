@@ -23,7 +23,7 @@ const SignIn = () => {
         setAuth(res.data);
         // console.log("response",res);
         // setAuth(res.data);
-        navigate('/');
+        navigate('/users');
       }).catch((err) => {
         setError(true);
         console.log("error", err);

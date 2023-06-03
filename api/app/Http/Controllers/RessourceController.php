@@ -33,9 +33,15 @@ class RessourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       return $request->user()->role()->ressources()->get();
     }
 
+    public function myAbilities()
+    {
+        return response()->json([
+            'abilities' => auth()->user()->role->ressources()->get(),
+        ]);
+    }
     /**
      * Display the specified resource.
      */

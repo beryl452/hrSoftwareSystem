@@ -10,7 +10,7 @@ const FormSubmitTask = ({ seeSubmit, setSeeSubmit, children, title}: Props) => {
 
     return (
         <>
-        {seeSubmit && (<div id="medium-modal" tabIndex={-1} className="my-9 mx-35 grid place-items-center fixed top-0 right-0 left-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full bg-opacity-50 bg-gray-50 dark:bg-gray-700 text-xs uppercase text-black dark:text-white">
+        {seeSubmit && (<div id="medium-modal" tabIndex={-1} className="my-9 mx-35 grid place-items-center fixed top-0 right-0 left-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full bg-opacity-50 bg-black">
           <div className="relative w-full max-w-lg max-h-full">
             <div className="relative bg-white rounded-lg shadow  p-5 dark:bg-gray-700">
               <div className="flex items-center justify-between p-1 mb-3 border-b rounded-t dark:border-gray-600">
