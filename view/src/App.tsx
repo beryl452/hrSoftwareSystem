@@ -22,10 +22,19 @@ import Rapport from './pages/Rapport/Rapport';
 import EditTask from './components/EditTask';
 import Roles from './pages/Dashboard/Roles';
 import Abilities from './pages/Dashboard/Abilities';
+
 import CreateAgent from './components/CreateAgent';
 import CreateAgents from './pages/Form/CreateAgents';
 import EditAgents from './pages/Form/EditAgents';
 import EditUsers from './pages/Form/EditUsers';
+import Contracts from './pages/Dashboard/Contract';
+import CreateContract from './components/CreateContract';
+import CreateAbsence from './components/CreateAbsence';
+import CreateAbsences from './pages/Form/CreateAbsence';
+import CreateRole from './components/CreateRole';
+import CreateContracts from './pages/Form/CreateContracts';
+import AskAbsences from './pages/Dashboard/Absences';
+import CreateRoles from './pages/Form/CreateRoles';
 import TableTransfer from './components/TableTransfer';
 import Transfers from './pages/Dashboard/Transfers';
 
@@ -64,7 +73,7 @@ function App() {
         />
 
         <Route
-          path="/roles"
+          path="/role/"
           element={
             <AuthProvider>
               <ProtectedRoute>
@@ -114,17 +123,17 @@ function App() {
             </AuthProvider>
           }
         />
-         <Route
+        <Route
           path="/agentEdit"
           element={
             <AuthProvider>
               <ProtectedRoute>
-                <EditAgents/>
+                <EditAgents />
               </ProtectedRoute>
             </AuthProvider>
           }
         />
-         <Route
+        <Route
           path="/userEdit"
           element={
             <AuthProvider>
@@ -140,6 +149,16 @@ function App() {
             <AuthProvider>
               <ProtectedRoute>
                 <Agents />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/AskAbsences"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <AskAbsences />
               </ProtectedRoute>
             </AuthProvider>
           }
@@ -174,7 +193,37 @@ function App() {
             </AuthProvider>
           }
         />
-         <Route
+        <Route
+          path="/CreateContracts"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateContracts />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/role/create"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateRoles />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/CreateAbsences"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateAbsences />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
           path="/projects/:ProjectId/tasks"
           element={
             <AuthProvider>
@@ -184,17 +233,6 @@ function App() {
             </AuthProvider>
           }
         />
-        <Route
-          path="/transfers"
-          element={
-            <AuthProvider>
-              <ProtectedRoute>
-                <Transfers />
-              </ProtectedRoute>
-            </AuthProvider>
-          }
-        />
-
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/profile" element={<Profile />} />

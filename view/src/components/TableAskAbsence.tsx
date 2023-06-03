@@ -1,16 +1,16 @@
 
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const TableAgent = ({ }) => {
+const TableAskAbsence = ({ }) => {
   const navigate = useNavigate();
 
-  const [agents, setAgents] = React.useState({});
+  const [absences, setAbsences] = React.useState({});
   const [search, setSearch] = React.useState("");
-  const [seeAgent, setSeeAgent] = React.useState(false);
+  const [seeAbsence, setSeeAbsence] = React.useState(false);
   const location = useLocation();
-
+  const [success, setSuccess] = React.useState(false);
   const auth = JSON.parse(localStorage.getItem("auth") || "{}");
   const http = axios.create({
     baseURL: "http://localhost:8000",
@@ -21,21 +21,21 @@ const TableAgent = ({ }) => {
     },
     withCredentials: true,
   });
-  async function viewAgents() {
-    const response = await http.get("/api/agent/allAgents");
-    console.log("Agents", response.data);
-    setAgents(response.data);
-    console.log(agents);
+  async function viewAbsences() {
+    const response = await http.get("/api/absence/allAbsences");
+    console.log("Absences", response.data.absences);
+    setAbsences(response.data.absences);
+    console.log(absences);
   }
   useEffect(() => {
-    viewAgents();
-    setSeeAgent(!seeAgent);
+    viewAbsences();
+    setSeeAbsence(!seeAbsence);
   }, []);
   return (
     <div className="dark:border-strokedark dark:bg-boxdark relative shadow-md sm:rounded-lg overflow-hidden">
       <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         {
-          (location.state?.success) && (<div className="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
+          (success) && (<div className="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-4">
             <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]">
               <svg
                 width="13"
@@ -53,10 +53,10 @@ const TableAgent = ({ }) => {
             </div>
             <div className="w-full">
               <h5 className="mb-3 text-lg font-semibold text-black dark:text-[#34D399] ">
-                Ability Add Successfully
+                Demande d'absence validée avec Succès
               </h5>
               <p className="text-base leading-relaxed text-body">
-                {location.state?.success}
+                Hehehehe
               </p>
             </div>
           </div>)
@@ -90,13 +90,13 @@ const TableAgent = ({ }) => {
                 onChange={
                   async (e) => {
                     setSearch(e.target.value);
-                   const url = "api/agent/allAgents?search=".concat(search);
-                     console.log("url =", url);
+                    const url = "api/absence/allAbsences?search=".concat(search);
+                    console.log("url =", url);
                     const response = await http.get(url);
                     console.log("search =", response.data);
                     console.log("search =", response.data);
-                    setAgents(response.data);
-                    console.log("seacdcdrch =", agents);
+                    setAbsences(response.data);
+                    console.log("seacdcdrch =", absences);
                   }
                 }
               />
@@ -106,7 +106,7 @@ const TableAgent = ({ }) => {
         <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
           <button
             onClick={() => {
-              navigate('/CreateAgent',{ replace: true })
+              navigate('/CreateAbsences', { replace: true })
             }
             }
             className="flex justify-center  items-center rounded bg-primary py-2 px-6 font-medium text-gray hover:shadow-1"
@@ -125,89 +125,80 @@ const TableAgent = ({ }) => {
                 d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
               />
             </svg>
-            Create agent
+            Create Absence
           </button>
 
         </div>
       </div>
-      {(seeAgent) && (<>
+      {(seeAbsence) && (<>
         <div className="overflow-x-auto">
           <table className="font-medium w-full text-sm text-left text-black dark:text-white">
             <thead className="text-xs uppercase bg-gray-50 dark:bg-gray-700 text-black dark:text-white">
               <tr>
                 <th scope="col" className="px-4 py-3">
-                  Code
+                  First Name
                 </th>
                 <th scope="col" className="px-4 py-3">
-                  Firstname
+                  Last Name
                 </th>
                 <th scope="col" className="px-4 py-3">
-                   lastname
+                  Start Date
                 </th>
                 <th scope="col" className="px-4 py-3">
-                    Email
+                  End Date
                 </th>
                 <th scope="col" className="px-4 py-3">
-                birthdate
+                  Motif
                 </th>
                 <th scope="col" className="px-4 py-3">
-                phone
+                  Validate
                 </th>
-                <th scope="col" className="px-4 py-3">
-                  Actions
-                </th>
+                
               </tr>
             </thead>
             <tbody>
-              {agents ? (
-                agents.data?.map((agent, index) => (
+              {absences ? (
+                absences.data?.map((absence, index) => (
                   <tr
                     key={index}
                     className="dark:border-gray-700 border-b text-sm font-medium"
-                    onClick={()=>{
-                      navigate(`/agents/${agent.id}/contracts`, { state: { agent: agent } }, {replace: true})
+                    onClick={() => {
+                      // navigate(`/absences/${absence.id}/contracts`, { state: { absence: absence } }, {replace: true})
                     }}
                   >
                     <th
                       scope="row"
                       className="whitespace-nowrap px-4 py-3 text-black dark:text-white"
                     >
-                      {agent.code}
+                      {absence.contract.agent.person.firstname}
                     </th>
-                    <td className="px-4 py-3">{agent.person.firstname}</td>
-                    <td className="px-4 py-3">{agent.person.lastname}</td>
-                    <td className="px-4 py-3">{agent.person.email}</td>
-                    <td className="px-4 py-3">{agent.person.birthdate}</td>
-                    <td className="px-4 py-3">{agent.person.phone}</td>
-
                     <td className="px-4 py-3">
-                    <button className="hover:text-primary"
-                        // onClick={
-                        //   async () => {
-                        //     const response = await http.delete('api/agent/delete/'.concat(encodeURIComponent(agent.id)));
-                        //     console.log(response.data);
-                        //     viewAgents();
-                        //   }
-                        // }
-                        onClick={() => {
-                          // navigate('/CreateAgent',{ replace: true })
-                          navigate('/agentEdit', { state: { agent: agent } },{ replace: true })
-                        }}
-                        >
-                          <svg
-                            width={28}
-                            height={28}
-                            viewBox="0 0 48 48"
-                            xmlns="http://www.w3.org/2000/svg"
-                            enableBackground="new 0 0 48 48"
-                          >
-                            <circle fill="#B81620" cx={24} cy={24} r={21} />
-                            <g fill="#ffffff">
-                              <rect x={14} y={21} width={20} height={6} />
-                            </g>
-                          </svg>
-                        </button>
+                      {absence.contract.agent.person.lastname}
                     </td>
+                    <td className="px-4 py-3">
+                      {absence.start_date}
+                    </td>
+                    <td className="px-4 py-3">
+                      {absence.end_date}
+                    </td>
+                    <td className="px-4 py-3">
+                      {absence.motif}
+                    </td>
+                    <td className="px-4 py-3">
+                    <input type="checkbox" className="form-checkbox h-5 w-5 text-gray-600"
+                    onClick={async () => {
+                      // const url = "api/absence/validate/".concat(absence.id);
+                      await http.put(`api/absence/validate/${absence.id}`)
+                                                  .then((response)=>{
+                                                    setAbsences(response.data.absences);
+                                                    setSuccess(true);
+                                                    console.log("response.data.absences =", response.data);
+                                                  });
+                    }
+                    }
+                      checked={absence.validate} />
+                    </td>
+                    
                   </tr>
                 ))
               ) : (
@@ -223,29 +214,29 @@ const TableAgent = ({ }) => {
           <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">
             Showing
             <span className="text-gray-900 font-medium dark:text-white">
-              {' '.concat((agents.meta ? agents.meta.from : 0), ' ')} - {' '.concat((agents.meta ? agents.meta.to : 0), ' ')}
+              {' '.concat((absences.meta ? absences.meta.from : 0), ' ')} - {' '.concat((absences.meta ? absences.meta.to : 0), ' ')}
             </span>
             of
             <span className="text-gray-900 font-medium dark:text-white">
-              {' '.concat((agents.meta ? agents.meta.total : 0), ' ')}
+              {' '.concat((absences.meta ? absences.meta.total : 0), ' ')}
             </span>
           </span>
 
           <ul className="inline-flex items-stretch  -space-x-px dark:border-strokedark dark:bg-boxdark">
-            {agents ? (
-              agents.meta ? (
-                agents.meta.links.length > 3 && (
+            {absences ? (
+              absences.meta ? (
+                absences.meta.links.length > 3 && (
                   <>
-                    {agents.meta.links.map((link, key) =>
+                    {absences.meta.links.map((link, key) =>
                       link.label === '&laquo; Previous' ? (
                         <li key={key}>
                           <a
                             onClick={async () => {
-                              if (agents.links.prev != null) {
+                              if (absences.links.prev != null) {
                                 const response = await http.get(
-                                  agents.links.prev
+                                  absences.links.prev
                                 );
-                                setAgents(response.data);
+                                setAbsences(response.data.absences);
                               } else {
                                 console.log('no more pages');
                               }
@@ -275,11 +266,11 @@ const TableAgent = ({ }) => {
                         <li key={key}>
                           <a
                             onClick={async () => {
-                              if (agents.links.next != null) {
+                              if (absences.links.next != null) {
                                 const response = await http.get(
-                                  agents.links.next
+                                  absences.links.next
                                 );
-                                setAgents(response.data);
+                                setAbsences(response.data.absences);
                               } else {
                                 console.log('no more pages');
                               }
@@ -308,7 +299,7 @@ const TableAgent = ({ }) => {
                           <a
                             onClick={async () => {
                               const response = await http.get(link.url);
-                              setAgents(response.data);
+                              setAbsences(response.data.absences);
                             }}
                             key={key}
                             className="text-gray-500 border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 flex cursor-pointer items-center justify-center border py-2 px-3 text-sm leading-tight dark:border-strokedark dark:bg-boxdark dark:hover:text-white"
@@ -334,4 +325,4 @@ const TableAgent = ({ }) => {
   );
 };
 
-export default TableAgent;
+export default TableAskAbsence;

@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Absence extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'start_date',
+        'end_date',
+        'motif',
+        'contract_id',
+        'validate'
+    ];
+
 
     public function contract()
     {
