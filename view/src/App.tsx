@@ -31,8 +31,10 @@ import Contracts from './pages/Dashboard/Contract';
 import CreateContract from './components/CreateContract';
 import CreateAbsence from './components/CreateAbsence';
 import CreateAbsences from './pages/Form/CreateAbsence';
+import CreateRole from './components/CreateRole';
 import CreateContracts from './pages/Form/CreateContracts';
 import AskAbsences from './pages/Dashboard/Absences';
+import CreateRoles from './pages/Form/CreateRoles';
 
 // import { useContext } from 'react';
 // import { AuthContext } from './context/AuthContext';
@@ -69,7 +71,7 @@ function App() {
         />
 
         <Route
-          path="/roles"
+          path="/role/"
           element={
             <AuthProvider>
               <ProtectedRoute>
@@ -195,6 +197,16 @@ function App() {
             <AuthProvider>
               <ProtectedRoute>
                 <CreateContracts />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+        <Route
+          path="/role/create"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <CreateRoles />
               </ProtectedRoute>
             </AuthProvider>
           }

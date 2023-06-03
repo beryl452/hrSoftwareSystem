@@ -68,6 +68,7 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->group(static function () {
             Route::get('/', RoleController::class . '@index')->name('index');
             Route::get('/{role}/', RoleController::class . '@show')->name('show');
+            Route::post('/create', RoleController::class . '@store')->name('store');
         });
 
     Route::prefix('abilities')
