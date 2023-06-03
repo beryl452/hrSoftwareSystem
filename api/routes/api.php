@@ -47,11 +47,7 @@ Route::middleware('auth:sanctum')->group(static function () {
         ->group(static function () {
             Route::get('/', [PersonController::class, 'index'])->name('index');
         });
-    Route::prefix('department')
-        ->as('department.')
-        ->group(static function () {
-            Route::get('/', [DepartmentController::class, 'index'])->name('index');
-        });
+
     Route::prefix('users')
         ->as('users.')
         ->group(static function () {
@@ -133,7 +129,7 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::delete('/delete/{contract}', [ContractController::class, 'destroy'])->name('delete');
         });
 
-        Route::prefix('absence')
+    Route::prefix('absence')
         ->as('absence.')
         ->group(static function () {
             Route::post('/create', AbsenceController::class . '@store')->name('store');
@@ -153,6 +149,17 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::put('/update/{person}', [PersonController::class, 'update'])->name('update');
             Route::delete('/delete/{person}', [PersonController::class, 'destroy'])->name('delete');
         });
+
+    Route::prefix('department')
+        ->as('department.')
+        ->group(static function () {
+            Route::get('/department', [DepartmentController::class, 'index'])->name('index');
+            Route::get('/allDepartments', [DepartmentController::class, 'allDepartments'])->name('allDepartments');
+            Route::get('/allDepartments/{search}', [DepartmentController::class, 'allDepartments'])->name('filterDepartments');
+            Route::post('/create', [DepartmentController::class, 'store'])->name('store');
+            Route::put('/update/{department}', [DepartmentController::class, 'update'])->name('update');
+            Route::delete('/delete/{department}', [DepartmentController::class, 'destroy'])->name('destroy');
+        });
     Route::prefix('role')
         ->as('role.')
         ->group(static function () {
@@ -164,15 +171,15 @@ Route::middleware('auth:sanctum')->group(static function () {
             Route::delete('/delete/{role}', [RoleController::class, 'destroy'])->name('delete');
         });
 
-        Route::prefix('transfer')
-            ->as('transfer.')
-            ->group(static function () {
-                Route::get('/transfer', [TransferController::class, 'index'])->name('index');
-                Route::get('/transfer/{search}', [TransferController::class, 'index'])->name('filterTransfers');
-                Route::post('/create', TransferController::class . '@store')->name('store');
-                Route::put('/approuve/{transfer}', [TransferController::class, 'approuve'])->name('approuve');
-                Route::delete('/delete/{transfer}', [TransferController::class, 'destroy'])->name('delete');
-            });
+    Route::prefix('transfer')
+        ->as('transfer.')
+        ->group(static function () {
+            Route::get('/transfer', [TransferController::class, 'index'])->name('index');
+            Route::get('/transfer/{search}', [TransferController::class, 'index'])->name('filterTransfers');
+            Route::post('/create', TransferController::class . '@store')->name('store');
+            Route::put('/approuve/{transfer}', [TransferController::class, 'approuve'])->name('approuve');
+            Route::delete('/delete/{transfer}', [TransferController::class, 'destroy'])->name('delete');
+        });
 
     Route::post('/logout', [UserController::class, 'logout']);
 });
